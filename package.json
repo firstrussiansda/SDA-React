@@ -1,0 +1,26 @@
+{
+  "name": "SDA",
+  "version": "1.0.0",
+  "description": "First Russian SDA Church website",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node index.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node index.js",
+    "lint": "eslint --fix --ext .js,.jsx pages components --ignore-pattern node_modules/ "
+  },
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "express": "^4.17.1",
+    "i18next": "^17.0.13",
+    "next": "^9.0.5",
+    "next-i18next": "^1.1.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.3.0",
+    "eslint-plugin-react": "^7.14.3"
+  }
+}
