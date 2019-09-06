@@ -17,5 +17,3 @@
 - clone the current repo
 - create a feature branch with a corresponding name
 - open a PR to master when feature is completed
-
-dummy checks
