@@ -13,7 +13,9 @@
 ## Project structure
 - /legace folder contains the initial HTML static project which is to be used for copying HTML into the new React app
 
-## Collaboration
+## Git workflow 
 - clone the current repo
 - create a feature branch with a corresponding name
+- push you local branch to GitHub
 - open a PR to master when feature is completed
+- PR to be rewieved by a code owner before merge is allowed
