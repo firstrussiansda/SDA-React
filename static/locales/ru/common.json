@@ -7,6 +7,13 @@
     "header": {
         "about": "О Нас",
         "groups": "Группы",
-        "calendar": "Календарь"
+        "calendar": "Календарь",
+        "media": "Медиа",
+        "gallery": "Галерея",
+        "sermons": "Проповеди",
+        "language": "Русский"
+    },
+    "error": {
+        "blah": "фоо  {{la}} папа"
     }
 }
