@@ -34,7 +34,7 @@ const Header = ({ t, i18n }) => (
                     <li className="nav-item">
                         <Link href="/about">
                             <a className="nav-link hvr-overline-from-center">
-                                {t('about')}
+                                {t('header', { returnObjects: true }).about }
                                 <span className="sr-only">(current)</span>
                             </a>
                         </Link>
@@ -43,7 +43,7 @@ const Header = ({ t, i18n }) => (
                     <li className="nav-item">
                         <Link href="/groups">
                             <a className="nav-link hvr-overline-from-center">
-                                {t('groups')}
+                                {t('header', { returnObjects: true }).groups }
                                 <span className="sr-only">(current)</span>
                             </a>
                         </Link>
@@ -53,7 +53,7 @@ const Header = ({ t, i18n }) => (
                     <li className="nav-item">
                         <Link href="/calendar">
                             <a className="nav-link hvr-overline-from-center">
-                                {t('calendar')}
+                                {t('header', { returnObjects: true }).calendar }
                             </a>
                         </Link>
                         
@@ -66,19 +66,19 @@ const Header = ({ t, i18n }) => (
                             data-toggle="dropdown"
                             aria-haspopup="true"
                             aria-expanded="false">
-                            {t('media')}
+                            {t('header', { returnObjects: true }).media }
                         </a>
                         <div className="dropdown-menu"
                             aria-labelledby="navbarDropdown">
                             <Link href="/gallery">
                                 <a className="dropdown-item">
-                                    {t('gallery')}
+                                    {t('header', { returnObjects: true }).gallery }
                                 </a>
                             </Link>
 
                             <Link href="/sermons">
                                 <a className="dropdown-item">
-                                    {t('sermons')}
+                                    {t('header', { returnObjects: true }).sermons }
                                 </a>
                             </Link>
                         </div>
@@ -93,7 +93,7 @@ const Header = ({ t, i18n }) => (
                             aria-haspopup="true"
                             aria-expanded="false">
                             <i className="fas fa-language"></i>
-                            &nbsp;{t('language')}
+                            &nbsp;{t('header', { returnObjects: true }).language }
                         </a>
                         <div className="dropdown-menu"
                             aria-labelledby="localeDropdown">
@@ -132,7 +132,7 @@ Header.propTypes = {
 };
 
 Header.getInitialProps = async () => ({
-    namespacesRequired: ['header'],
+    namespacesRequired: ['commont'],
 });
 
-export default withTranslation('header')(Header);
+export default withTranslation('common')(Header);
