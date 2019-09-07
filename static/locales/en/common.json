@@ -1,7 +1,7 @@
 {
     "title": "English",
     "footer": {
-       "main": "First Russian SDA Church of New York City | 1913 W 7th St, New York, New York 11223",
+        "main": "First Russian SDA Church of New York City | 1913 W 7th St, New York, New York 11223",
         "copyright": "All Rights Reserved 2018"
     },
     "header": {
@@ -15,5 +15,8 @@
     },
     "error": {
         "blah": "foo {{la}} papa"
+    },
+    "test": {
+        "foo": "Foo"
     }
 }
