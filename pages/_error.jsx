@@ -6,7 +6,7 @@ class Error extends React.Component {
         const statusCode = res ? res.statusCode : err ? err.statusCode : null;
         return { statusCode, namespacesRequired: ['common'] };
     }
-  
+
     render() {
         return (
             <p>
@@ -17,7 +17,7 @@ class Error extends React.Component {
         );
     }
 }
-  
+
 Error.propTypes = {
     statusCode: PropTypes.number.isRequired,
 };

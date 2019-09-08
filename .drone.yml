@@ -1,0 +1,44 @@
+---
+kind: pipeline
+name: lint
+
+steps:
+- name: lint
+  image: miki725/pre-commit
+
+trigger:
+  ref:
+    - refs/heads/master
+    - refs/pull/*/head
+
+---
+kind: pipeline
+name: deploy
+
+steps:
+- name: deploy
+  image: docker/compose:1.24.1
+  environment:
+    COMPOSE_PROJECT_NAME: sda-react
+    MOUNT_PATH: /tmp/app
+  volumes:
+    - name: docker_sock
+      path: /var/run/docker.sock
+  commands:
+    - docker-compose build --pull
+    - docker-compose up -d
+
+trigger:
+  ref:
+    - refs/heads/master
+
+volumes:
+  - name: docker_sock
+    host:
+      path: /var/run/docker.sock
+
+---
+kind: signature
+hmac: 7a48a23a1d0b21e59f5066a6720827d17f5477099ad5a2e4be708dab6f566dcd
+
+...

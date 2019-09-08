@@ -31,9 +31,9 @@ const Events = () => {
         <section>
             <h2 id='events' className='text-center title'>Events</h2>
             <div id='event-cards' className='card-deck'>
-                { 
+                {
                     eventsData.map(e => (
-                        <Event 
+                        <Event
                             img={e.img}
                             alt={e.alt}
                             title={e.title}

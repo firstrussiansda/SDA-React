@@ -8,7 +8,7 @@
     "dev": "node index.js",
     "build": "next build",
     "start": "NODE_ENV=production node index.js",
-    "lint": "eslint --fix --ext .js,.jsx pages components --ignore-pattern node_modules/ "
+    "lint": "eslint --fix --ext .js,.jsx"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",

@@ -4,9 +4,9 @@ import React from 'react';
 const HeadTag = () => (
     <Head>
         <title>NY First Russian SDA church</title>
-        <meta 
+        <meta
             name="viewport"
-            content="width=device-width, initial-scale=1" 
+            content="width=device-width, initial-scale=1"
         />
         <meta charSet="utf-8" />
         {/* <!--TODO: complete description--> */}
@@ -14,13 +14,13 @@ const HeadTag = () => (
             name="description"
             content="First Russian SDA church is a religious organization . . . "
         />
-        <link 
+        <link
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
             integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
             crossOrigin="anonymous"
         />
-        <link 
+        <link
             href="https://fonts.googleapis.com/css?family=Montserrat"
             rel="stylesheet"
         />

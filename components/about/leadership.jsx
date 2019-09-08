@@ -3,25 +3,25 @@ import LeadershipItem from './leadershipItem';
 
 const Leadership = () => {
     const members = [
-        { 
+        {
             img: "static/img/pastor.jpg",
             name: "Andrew Dyman1",
             role: "Pastor",
             bio: "Eli drives Apptopia’s strategic vision and manages investor relations. Before Apptopia Eli was involved in several startups, including: GPush, Oasys Water, GreatPoint Energy, and DVTel.",
         },
-        { 
+        {
             img: "static/img/pastor.jpg",
             name: "Andrew Dyman2",
             role: "Pastor",
             bio: "Eli drives Apptopia’s strategic vision and manages investor relations. Before Apptopia Eli was involved in several startups, including: GPush, Oasys Water, GreatPoint Energy, and DVTel.",
         },
-        { 
+        {
             img: "static/img/pastor.jpg",
             name: "Andrew Dyman3",
             role: "Pastor",
             bio: "Eli drives Apptopia’s strategic vision and manages investor relations. Before Apptopia Eli was involved in several startups, including: GPush, Oasys Water, GreatPoint Energy, and DVTel.",
         },
-        { 
+        {
             img: "static/img/pastor.jpg",
             name: "Andrew Dyman4",
             role: "Pastor",
