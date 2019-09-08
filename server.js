@@ -1,8 +1,8 @@
-import express from 'express';
-import next from 'next';
-import nextI18NextMiddleware from 'next-i18next/middleware';
+const express = require('express');
+const next = require('next');
+const nextI18NextMiddleware = require('next-i18next/middleware').default
 
-const { nextI18next } = require('./i18n.ts');
+const nextI18next = require('./i18n');
 
 const port = process.env.PORT || 3000;
 const app = next({ dev: process.env.NODE_ENV !== 'production' });

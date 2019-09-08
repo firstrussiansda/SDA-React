@@ -26,8 +26,8 @@
     "**/*.ts",
     "**/*.tsx",
     "server.js",
-    "index.js",
+    "server/index.js",
     "next.config.js",
-    "i18n.ts"
+    "i18n.js"
   ]
 }

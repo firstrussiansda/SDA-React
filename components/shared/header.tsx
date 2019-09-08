@@ -19,6 +19,7 @@ class Header extends React.Component <WithTranslation> {
     });
     render() {
         const { t, i18n } = this.props;
+        const headerLocales = t<HeaderLocale>('header', { returnObjects: true });
         return (
             <nav className="navbar navbar-expand-md navbar-light">
                 <div className="container">
@@ -33,7 +34,7 @@ class Header extends React.Component <WithTranslation> {
                             First Russian SDA
                         </a>
                     </Link>
-                    
+
                     <button className="navbar-toggler justify-self-start border-0"
                         type="button"
                         data-toggle="collapse"
@@ -43,38 +44,38 @@ class Header extends React.Component <WithTranslation> {
                         aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
-        
+
                     <div className="collapse navbar-collapse navbar navbar-expand-sm navbar-light justify-content-end"
                         id="navbarSupportedContent">
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
                                 <Link href="/about">
                                     <a className="nav-link hvr-overline-from-center">
-                                        {t<HeaderLocale>('header', { returnObjects: true }).about }
+                                        { headerLocales.about }
                                         <span className="sr-only">(current)</span>
                                     </a>
                                 </Link>
                             </li>
-        
+
                             <li className="nav-item">
                                 <Link href="/groups">
                                     <a className="nav-link hvr-overline-from-center">
-                                        {t<HeaderLocale>('header', { returnObjects: true }).groups }
+                                        { headerLocales.groups }
                                         <span className="sr-only">(current)</span>
                                     </a>
                                 </Link>
-                                
+
                             </li>
-        
+
                             <li className="nav-item">
                                 <Link href="/calendar">
                                     <a className="nav-link hvr-overline-from-center">
-                                        {t<HeaderLocale>('header', { returnObjects: true }).calendar }
+                                        { headerLocales.calendar }
                                     </a>
                                 </Link>
-                                
+
                             </li>
-        
+
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle hvr-overline-from-center"
                                     id="navbarDropdown"
@@ -82,24 +83,24 @@ class Header extends React.Component <WithTranslation> {
                                     data-toggle="dropdown"
                                     aria-haspopup="true"
                                     aria-expanded="false">
-                                    {t<HeaderLocale>('header', { returnObjects: true }).media }
+                                    { headerLocales.media }
                                 </a>
                                 <div className="dropdown-menu"
                                     aria-labelledby="navbarDropdown">
                                     <Link href="/gallery">
                                         <a className="dropdown-item">
-                                            {t<HeaderLocale>('header', { returnObjects: true }).gallery }
+                                            { headerLocales.gallery }
                                         </a>
                                     </Link>
-        
+
                                     <Link href="/sermons">
                                         <a className="dropdown-item">
-                                            {t<HeaderLocale>('header', { returnObjects: true }).sermons }
+                                            { headerLocales.sermons }
                                         </a>
                                     </Link>
                                 </div>
                             </li> {/* Media dropdown */}
-        
+
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle hvr-overline-from-center"
                                     href="#"
@@ -109,25 +110,25 @@ class Header extends React.Component <WithTranslation> {
                                     aria-haspopup="true"
                                     aria-expanded="false">
                                     <i className="fas fa-language"></i>
-                                    {/* &nbsp;{t<HeaderLocale>('header', { returnObjects: true }).language } */}
+                                    &nbsp;{ headerLocales.language }
                                 </a>
                                 <div className="dropdown-menu"
                                     aria-labelledby="localeDropdown">
                                     <button className="dropdown-item"
                                         onClick={() => i18n.changeLanguage('en')}>
-                                        Eng
+                                        English
                                     </button>
                                     <button className="dropdown-item"
                                         onClick={() => i18n.changeLanguage('ru')}>
-                                        Рус
+                                        Русский
                                     </button>
                                     <button className="dropdown-item"
                                         onClick={() => i18n.changeLanguage('uk')}>
-                                        Укр
+                                        Українська
                                     </button>
                                 </div>
                             </li> {/* Locale dropdown */}
-        
+
                             <li className="nav-item">
                                 <Link href="/contact">
                                     <a role="button" id="btn-contact-header"
@@ -137,11 +138,11 @@ class Header extends React.Component <WithTranslation> {
                                 </Link>
                             </li>
                         </ul>
-                    </div> {/*   Collapsing content  */} 
-                </div> {/* Navbar container */}    
+                    </div> {/*   Collapsing content  */}
+                </div> {/* Navbar container */}
             </nav>
         );
     }
-} 
+}
 
 export default withTranslation('common')(Header);

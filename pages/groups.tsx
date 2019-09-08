@@ -40,7 +40,7 @@ class Groups extends React.Component <WithTranslation> {
                 },
                 {
                     subTitle: "Sabbath School",
-                    time: "Saturdays at 10:00 AM",
+                    time: "Saturdays at 10:00 AM.",
                     description: "Held weekly on the third floor of the First Russian SDA church.",
                 },
             ],
