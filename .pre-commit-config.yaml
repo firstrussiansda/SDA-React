@@ -1,0 +1,29 @@
+---
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: 'master'
+    hooks:
+      - id: check-added-large-files
+        args: [--maxkb=1024]
+      - id: check-executables-have-shebangs
+      - id: check-json
+      - id: pretty-format-json
+        args: [--autofix, --indent=2, --no-sort-keys, --no-ensure-ascii]
+      - id: check-merge-conflict
+      - id: check-yaml
+        args: [--allow-multiple-documents]
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: 'master'
+    hooks:
+      - id: eslint
+        # https://github.com/pre-commit/pre-commit/issues/1064
+        # https://github.com/ekalinin/nodeenv/issues/204
+        language_version: system
+        args: ["--ext=.js,.jsx", .]
+        additional_dependencies:
+          - eslint@6.3.0
+          - eslint-plugin-react@7.14.3

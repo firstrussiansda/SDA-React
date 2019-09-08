@@ -5,7 +5,7 @@ import Leadership from '../components/about/leadership';
 
 // TODO: Resize pastor image
 const About = () => {
-    // const pastorInfo = { 
+    // const pastorInfo = {
     //     img: "static/img/pastor.jpg",
     //     name: "Andrew Dyman1",
     //     role: "Pastor",
@@ -21,15 +21,15 @@ const About = () => {
                     <div className="blockquote text-center">
                         <p id='mission-statement' className="m-b-xs">
                             Reach Ukrainian and Russian speaking people in
-                            Greater New York area with the distinctive, 
+                            Greater New York area with the distinctive,
                             Christ-centered message of Hope and Wholeness.
                         </p>
                     </div>
                 </section>
-                
+
                 <KeyMissionComponents />
-    
-    
+
+
                 <section className="card about about-us card-lg">
                     <h2 className="title text-xxl m-b text-center">About</h2>
                     <div className="text-center text-justify m-x-auto">
@@ -45,7 +45,7 @@ const About = () => {
                         </p>
                     </div>
                 </section>
-    
+
                 <section className="card about card-lg p-b-0 text-xxs-center">
                     <h2 className="title m-b-xxl text-center">Our Pastor</h2>
                     <div className="row">
@@ -57,13 +57,13 @@ const About = () => {
                         </div>
                     </div>
                 </section>
-    
+
                 <Leadership />
-    
+
             </div>
         </div>
     );
-}; 
+};
 
 About.getInitialProps = async () => ({
     namespacesRequired: ['common'],

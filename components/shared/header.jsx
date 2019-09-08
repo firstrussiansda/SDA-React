@@ -17,7 +17,7 @@ const Header = ({ t, i18n }) => (
                     First Russian SDA
                 </a>
             </Link>
-            
+
             <button className="navbar-toggler justify-self-start border-0"
                 type="button"
                 data-toggle="collapse"
@@ -47,7 +47,7 @@ const Header = ({ t, i18n }) => (
                                 <span className="sr-only">(current)</span>
                             </a>
                         </Link>
-                        
+
                     </li>
 
                     <li className="nav-item">
@@ -56,7 +56,7 @@ const Header = ({ t, i18n }) => (
                                 {t('header', { returnObjects: true }).calendar }
                             </a>
                         </Link>
-                        
+
                     </li>
 
                     <li className="nav-item dropdown">
@@ -121,8 +121,8 @@ const Header = ({ t, i18n }) => (
                         </Link>
                     </li>
                 </ul>
-            </div> {/*   Collapsing content  */} 
-        </div> {/* Navbar container */}    
+            </div> {/*   Collapsing content  */}
+        </div> {/* Navbar container */}
     </nav>
 );
 

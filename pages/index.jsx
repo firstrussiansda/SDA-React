@@ -58,5 +58,5 @@ Homepage.getInitialProps = async () => ({
 Homepage.propTypes = {
     t: PropTypes.func.isRequired,
 };
-  
+
 export default withTranslation('common')(Homepage);

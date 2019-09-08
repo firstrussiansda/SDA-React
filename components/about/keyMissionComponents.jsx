@@ -1,5 +1,5 @@
 import React from 'react';
-import KeyMissionComponent from './KeyMissionComponent';
+import KeyMissionComponent from './keyMissionComponent';
 
 const KeyMissionComponents = () => {
     const items = [
