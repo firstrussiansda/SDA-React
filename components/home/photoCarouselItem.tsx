@@ -1,7 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const PhotoCarouselItem = ({ img, alt, description, isActive }) => {
+interface PhotoCarouselItemProps {
+    img: string;
+    alt: string;
+    description: string;
+    isActive: boolean;
+}
+
+const PhotoCarouselItem: React.FunctionComponent<PhotoCarouselItemProps> = (
+        { img, alt, description, isActive }
+    ) => {
     const wrapperClassName = `carousel-item row ${isActive ? 'active' : ''}`;
 
     return (
@@ -22,13 +30,6 @@ const PhotoCarouselItem = ({ img, alt, description, isActive }) => {
             </span>
         </div>
     );
-};
-
-PhotoCarouselItem.propTypes = {
-    img: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    isActive: PropTypes.bool.isRequired,
 };
 
 export default PhotoCarouselItem;

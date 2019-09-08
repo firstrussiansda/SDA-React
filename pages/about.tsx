@@ -1,17 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import KeyMissionComponents from '../components/about/keyMissionComponents';
-import Leadership from '../components/about/leadership';
+import KeyMissionComponents from "../components/about/keyMissionComponents";
+import Leadership from "../components/about/leadership";
 
 // TODO: Resize pastor image
 const About = () => {
-    // const pastorInfo = { 
-    //     img: "static/img/pastor.jpg",
-    //     name: "Andrew Dyman1",
-    //     role: "Pastor",
-    //     bio: "Eli drives Apptopia’s strategic vision and manages investor relations. Before Apptopia Eli was involved in several startups, including: GPush, Oasys Water, GreatPoint Energy, and DVTel.",
-    // };
-
     return (
         <div className="row justify-content-md-center">
             <div className="col-xxs-12 col-lg-10 m-c-auto">
@@ -19,17 +12,16 @@ const About = () => {
                 <section className="card about card-lg" id="about-mission">
                     <h2 className="title  text-xxxl m-b-sm m-t-sm text-center">Mission</h2>
                     <div className="blockquote text-center">
-                        <p id='mission-statement' className="m-b-xs">
+                        <p id="mission-statement" className="m-b-xs">
                             Reach Ukrainian and Russian speaking people in
-                            Greater New York area with the distinctive, 
+                            Greater New York area with the distinctive,
                             Christ-centered message of Hope and Wholeness.
                         </p>
                     </div>
                 </section>
-                
+
                 <KeyMissionComponents />
-    
-    
+
                 <section className="card about about-us card-lg">
                     <h2 className="title text-xxl m-b text-center">About</h2>
                     <div className="text-center text-justify m-x-auto">
@@ -45,7 +37,7 @@ const About = () => {
                         </p>
                     </div>
                 </section>
-    
+
                 <section className="card about card-lg p-b-0 text-xxs-center">
                     <h2 className="title m-b-xxl text-center">Our Pastor</h2>
                     <div className="row">
@@ -53,20 +45,23 @@ const About = () => {
                             <img className="img-circle img-fluid m-x-auto m-b" src="static/img/pastor.jpg" />
                             <h3 className="name text-md text-center">Andriy Dyman</h3>
                             <p className="text-center m-b-sm m-x-auto short-bio">
-                                Eli drives Apptopia’s strategic vision and manages investor relations. Before Apptopia Eli was involved in several startups, including: GPush, Oasys Water, GreatPoint Energy, and DVTel.</p>
+                                Eli drives Apptopia’s strategic vision and manages investor relations.
+                                Before Apptopia Eli was involved in several startups, including:
+                                GPush, Oasys Water, GreatPoint Energy, and DVTel.
+                            </p>
                         </div>
                     </div>
                 </section>
-    
+
                 <Leadership />
-    
+
             </div>
         </div>
     );
-}; 
+};
 
 About.getInitialProps = async () => ({
-    namespacesRequired: ['common'],
+    namespacesRequired: ["common"],
 });
 
 export default About;

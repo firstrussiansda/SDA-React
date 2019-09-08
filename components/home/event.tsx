@@ -1,7 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Event = ({ img, alt, title, date, description }) => (
+interface EventProps {
+    img: string;
+    alt: string;
+    title: string;
+    description: string;
+    date: string;
+}
+
+const Event: React.FunctionComponent<EventProps> = ({ img, alt, title, date, description }) => (
     <div className="card flip-card">
         <div className="flip-card-inner">
             <div className="card-body flip-card-front">
@@ -23,13 +30,5 @@ const Event = ({ img, alt, title, date, description }) => (
         </div>
     </div>
 );
-
-Event.propTypes = {
-    img: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-};
 
 export default Event;

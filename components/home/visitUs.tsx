@@ -26,7 +26,7 @@ const VisitUs = () => (
                 </div>
             </div>
             <div className="col-lg-6 col-md-6 col-xxs-12 col-sm-12">
-                <iframe async width="100%" max-height="80vh" height="350" frameBorder="0" src="https://www.google.com/maps/embed/v1/place?q=1913%20W%207th%20St%2C%20New%20York%2C%20New%20York%2011223&key=AIzaSyCEp8zGhVStHmupL_fwpqiRZiSqxCSCD3U" allowFullScreen></iframe>
+                <iframe width="100%" max-height="80vh" height="350" frameBorder="0" src="https://www.google.com/maps/embed/v1/place?q=1913%20W%207th%20St%2C%20New%20York%2C%20New%20York%2011223&key=AIzaSyCEp8zGhVStHmupL_fwpqiRZiSqxCSCD3U" allowFullScreen></iframe>
             </div>
         </div>
     </section>

@@ -1,8 +1,8 @@
-const express = require('express');
-const next = require('next');
-const nextI18NextMiddleware = require('next-i18next/middleware').default;
+import express from 'express';
+import next from 'next';
+import nextI18NextMiddleware from 'next-i18next/middleware';
 
-const nextI18next = require('./i18n');
+const { nextI18next } = require('./i18n.ts');
 
 const port = process.env.PORT || 3000;
 const app = next({ dev: process.env.NODE_ENV !== 'production' });
@@ -17,5 +17,6 @@ const handle = app.getRequestHandler();
     server.get('*', (req, res) => handle(req, res));
 
     await server.listen(port);
+    // tslint:disable-next-line:no-console
     console.log(`> Ready on http://localhost:${port}`);
 })();

@@ -27,7 +27,7 @@ const PrayerRequest = () => (
                     <div className="row">
                         <div className="col col-sm-12 col-md-12 form-group">
                             <label htmlFor="prayer_request">Prayer Need</label>
-                            <textarea className="form-control" id="prayer_request" placeholder="Enter your prayer need" rows="3" required></textarea>
+                            <textarea className="form-control" id="prayer_request" placeholder="Enter your prayer need" rows={3} required></textarea>
                         </div>
                     </div>
                     <button type="submit" className="btn btn-outline-warning">Send Prayer Need</button>

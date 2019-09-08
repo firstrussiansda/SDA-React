@@ -1,7 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const KeyMissionComponent = ({ img, alt, title, description }) => (
+interface KeyMissionComponentProps {
+    img: string;
+    alt: string;
+    title: string;
+    description: string;
+}
+
+const KeyMissionComponent: React.FunctionComponent<KeyMissionComponentProps> = ({
+        img, alt, title, description 
+    }) => (
     <div className='card border-light mb-5'>
         <img className='card-img-top'
             src={`${img}w=428&q=80`}
@@ -19,12 +27,5 @@ const KeyMissionComponent = ({ img, alt, title, description }) => (
         </div>
     </div>
 );
-
-KeyMissionComponent.propTypes = {
-    img: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-};
 
 export default KeyMissionComponent;

@@ -6,4 +6,4 @@ module.exports = withCSS({
             ? process.env.LOCALE_SUBPATHS
             : 'none',
     },
-}); 
+});
