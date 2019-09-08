@@ -19,7 +19,7 @@ hr {
 
 /* HEADER */
 .navbar {
-	background-color: #f8f9fa; 
+	background-color: #f8f9fa;
 }
 #brand {
 	font-size: 1rem;
@@ -71,7 +71,7 @@ hr {
 }
 #contact-btn:hover {
 	border: none;
-	background-color: #fdd007; 
+	background-color: #fdd007;
 }
 .btn-outline-warning {
 	border-radius: 0;
@@ -130,7 +130,7 @@ hr {
 .flip-card {
 	background-color: transparent;
 	height: 240px;
-	perspective: 1000px; 
+	perspective: 1000px;
 }
 /* Needed to position the front and back side */
 .flip-card-inner {
@@ -283,7 +283,7 @@ td {
 	margin: 0.5rem;
 }
 .blockquote-footer {
-    font-style: italic; 
+    font-style: italic;
 }
 .about-us > div {
 	max-width: 74rem;
@@ -300,7 +300,7 @@ td {
 .name {
 	font-size: 18px;
 	margin: 0;
-	padding: 0;	
+	padding: 0;
 	vertical-align: baseline;
 }
 .m-x-auto {
@@ -342,7 +342,7 @@ td {
 	padding: 10px 5px 10px 5px;
 }
 
-/* 
+/*
  * animation
  * https://github.com/IanLunn/Hover/blob/master/css/hover.css
  */
@@ -476,7 +476,7 @@ td {
 	max-width: 35rem;
 }
 
-/* 
+/*
  * Responsive
  */
 @media screen and (min-width: 450px) and (max-width: 750px) {

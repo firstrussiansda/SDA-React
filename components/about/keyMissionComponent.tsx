@@ -8,7 +8,7 @@ interface KeyMissionComponentProps {
 }
 
 const KeyMissionComponent: React.FunctionComponent<KeyMissionComponentProps> = ({
-        img, alt, title, description 
+        img, alt, title, description
     }) => (
     <div className='card border-light mb-5'>
         <img className='card-img-top'

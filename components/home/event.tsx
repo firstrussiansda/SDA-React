@@ -12,7 +12,7 @@ const Event: React.FunctionComponent<EventProps> = ({ img, alt, title, date, des
     <div className="card flip-card">
         <div className="flip-card-inner">
             <div className="card-body flip-card-front">
-                <img className="card card-img-top" 
+                <img className="card card-img-top"
                     src={`${img}w=320&q=80`}
                     alt={alt}
                     srcSet={`

@@ -7,7 +7,7 @@ const PrayerRequest = () => (
             <div className="col-sm-12 col-md-6 m-auto">
                 <div className="text-center">
                     <blockquote className="blockquote">
-                        <h5 className="m-4 mb-0 dispa">"Therefore, confess your sins to one another and pray for one another, that you may be healed. The prayer of a righteous person has great power as it is working."</h5>
+                        <h5 className="m-4 mb-0 dispa">&quot;Therefore, confess your sins to one another and pray for one another, that you may be healed. The prayer of a righteous person has great power as it is working.&quot;</h5>
                         <footer className="blockquote-footer">James 5:16</footer>
                     </blockquote>
                 </div>

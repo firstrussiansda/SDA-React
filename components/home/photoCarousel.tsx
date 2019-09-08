@@ -37,7 +37,7 @@ const PhotoCarousel = () => {
                 <div className="carousel-inner">
                     {
                         images.map((image, i) => (
-                            <PhotoCarouselItem 
+                            <PhotoCarouselItem
                                 img={image.img}
                                 alt={image.alt}
                                 description={image.description}
@@ -46,7 +46,7 @@ const PhotoCarousel = () => {
                             />
                         ))
                     }
-                    
+
                 </div>
                 <a className="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -59,6 +59,6 @@ const PhotoCarousel = () => {
             </div>
         </section>
     );
-}; 
+};
 
 export default PhotoCarousel;
