@@ -476,6 +476,12 @@ td {
 	max-width: 35rem;
 }
 
+.snapwidget-widget {
+	border:none;
+	overflow:hidden;
+	width:100%;
+}
+
 /*
  * Responsive
  */

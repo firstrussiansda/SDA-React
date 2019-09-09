@@ -118,6 +118,8 @@ class Contact extends React.Component<WithTranslation> {
                                 width='90%'
                                 max-height='30vh'
                                 height='150'
+                                frameBorder='0'
+                                allowFullScreen={true}
                                 src='https://www.google.com/maps/embed/v1/place?q=1913%20W%207th%20St%2C%20New%20York%2C%20New%20York%2011223&key=AIzaSyCEp8zGhVStHmupL_fwpqiRZiSqxCSCD3U'
                             />
                         </section>
