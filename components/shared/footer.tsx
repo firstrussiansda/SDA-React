@@ -37,5 +37,4 @@ class Footer extends React.Component <WithTranslation> {
     }
 }
 
-
 export default withTranslation('common')(Footer);
