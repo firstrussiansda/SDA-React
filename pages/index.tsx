@@ -8,9 +8,11 @@ import PhotoCarousel from '../components/home/photoCarousel';
 import VisitUs from '../components/home/visitUs';
 
 class Homepage extends React.Component <WithTranslation> {
-    getInitialProps = () => ({
-        namespacesRequired: ['common'],
-    })
+    static async getInitialProps() {
+        return {
+            namespacesRequired: ['common'],
+        };
+    }
 
     render() {
         return (

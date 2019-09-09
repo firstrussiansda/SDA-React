@@ -14,9 +14,12 @@ interface HeaderLocale {
 }
 
 class Header extends React.Component <WithTranslation> {
-    getInitialProps = async () => ({
-        namespacesRequired: ['common'],
-    })
+    static async getInitialProps() {
+        return {
+            namespacesRequired: ['common'],
+        };
+    }
+
     render() {
         const { t, i18n } = this.props;
         const headerLocales = t<HeaderLocale>('header', { returnObjects: true });

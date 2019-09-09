@@ -528,9 +528,6 @@ td {
 	}
 }
 @media screen and (max-width: 767px) {
-	#video-wrapper {
-		display: none;
-	}
 	.main-title{
 		padding-top: 25%;
 	}
@@ -560,9 +557,6 @@ td {
 	.img.column {
 		flex: 25%;
 		padding: 0 4px;
-	}
-	#carousel-videos {
-		display: none;
 	}
 	#mission-components .card {
 		min-width: 30%;

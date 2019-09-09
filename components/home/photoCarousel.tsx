@@ -1,5 +1,6 @@
 import React from 'react';
 import PhotoCarouselItem from './photoCarouselItem';
+import CarouserIndicators from '../shared/carouserIndicators';
 
 const PhotoCarousel = () => {
     const images = [
@@ -22,20 +23,9 @@ const PhotoCarousel = () => {
 
     return (
         <section id='photo-block' className='mt-5'>
-            <div id='carousel' className='carousel slide' data-ride='carousel'>
-                <ol className='carousel-indicators'>
-                    {
-                        images.map((_, i) => (
+            <div id='carousel' className='carousel slide carousel-fade' data-ride='carousel'>
+                { <CarouserIndicators size={images.length} dataTarget='#carousel' /> }
 
-                            <li
-                                data-target='#carousel'
-                                data-slide-to={i}
-                                className={i === 0 ? 'active' : ''}
-                                key={i}
-                            />
-                        ))
-                    }
-                </ol>
                 <div className='carousel-inner'>
                     {
                         images.map((image, i) => (
