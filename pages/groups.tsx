@@ -32,15 +32,12 @@ class Groups extends React.Component <WithTranslation> {
                     subTitle: 'Bible Study Groups',
                     time: 'Fridays at 7:30 PM',
                     description: `
-                        Held weekly and consists of thoughtful dialogue and discussion on
-                        various Biblical topics. Please
-                        <a href="contact-us.html">contact us </a>
-                        for more details
+                        Held weekly and consists of thoughtful dialogue and discussion on various Biblical topics.
                 `,
                 },
                 {
                     subTitle: 'Sabbath School',
-                    time: 'Saturdays at 10:00 AM.',
+                    time: 'Saturdays at 10:00 AM',
                     description: 'Held weekly on the third floor of the First Russian SDA church.',
                 },
             ],
