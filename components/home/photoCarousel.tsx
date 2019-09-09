@@ -21,20 +21,22 @@ const PhotoCarousel = () => {
     ];
 
     return (
-        <section id="photo-block" className="mt-5">
-            <div id="carousel" className="carousel slide" data-ride="carousel">
-                <ol className="carousel-indicators">
+        <section id='photo-block' className='mt-5'>
+            <div id='carousel' className='carousel slide' data-ride='carousel'>
+                <ol className='carousel-indicators'>
                     {
                         images.map((_, i) => (
-                            <li data-target="#carousel"
+
+                            <li
+                                data-target='#carousel'
                                 data-slide-to={i}
-                                className={i === 0 ? "active" : ""}
-                                key={i}>
-                            </li>
+                                className={i === 0 ? 'active' : ''}
+                                key={i}
+                            />
                         ))
                     }
                 </ol>
-                <div className="carousel-inner">
+                <div className='carousel-inner'>
                     {
                         images.map((image, i) => (
                             <PhotoCarouselItem
@@ -48,13 +50,13 @@ const PhotoCarousel = () => {
                     }
 
                 </div>
-                <a className="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="sr-only">Previous</span>
+                <a className='carousel-control-prev' href='#carousel' role='button' data-slide='prev'>
+                    <span className='carousel-control-prev-icon' aria-hidden='true' />
+                    <span className='sr-only'>Previous</span>
                 </a>
-                <a className="carousel-control-next" href="#carousel" role="button" data-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="sr-only">Next</span>
+                <a className='carousel-control-next' href='#carousel' role='button' data-slide='next'>
+                    <span className='carousel-control-next-icon' aria-hidden='true' />
+                    <span className='sr-only'>Next</span>
                 </a>
             </div>
         </section>

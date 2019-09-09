@@ -8,14 +8,15 @@ interface PhotoCarouselItemProps {
 }
 
 const PhotoCarouselItem: React.FunctionComponent<PhotoCarouselItemProps> = (
-        { img, alt, description, isActive }
+        { img, alt, description, isActive },
     ) => {
     const wrapperClassName = `carousel-item row ${isActive ? 'active' : ''}`;
 
     return (
         <div className={wrapperClassName}>
             {/* TODO: used to have - style='padding: 0' */}
-            <img className='d-block col-sm-6 col-xxs-12'
+            <img
+                className='d-block col-sm-6 col-xxs-12'
                 src={`${img}w=410&q=80`}
                 alt={alt}
                 srcSet={`

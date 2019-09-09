@@ -1,6 +1,6 @@
 import React from 'react';
-import  { withTranslation } from '../../i18n';
-import { WithTranslation } from "react-i18next";
+import { withTranslation } from '../../i18n';
+import { WithTranslation } from 'react-i18next';
 
 interface FooterLocale {
     main: string;
@@ -10,23 +10,30 @@ interface FooterLocale {
 class Footer extends React.Component <WithTranslation> {
     getInitialProps = () => ({
         namespacesRequired: ['common'],
-    });
+    })
 
     render() {
         return (
-            <footer className="page-footer">
+            <footer className='page-footer'>
                 <p>
                     <span>
-                        <a href="https://www.facebook.com/firstrussianny/"
-                            aria-label="facebook">
-                            <i className="fab fa-facebook"></i>
+                        <a
+                            href='https://www.facebook.com/firstrussianny/'
+                            aria-label='facebook'
+                        >
+                            <i className='fab fa-facebook' />
                         </a>
-                        <a href="https://www.instagram.com/youthgroupfriends/"
-                            aria-label="instagram">
-                            <i className="fab fa-instagram"></i>
+                        <a
+                            href='https://www.instagram.com/youthgroupfriends/'
+                            aria-label='instagram'
+                        >
+                            <i className='fab fa-instagram' />
                         </a>
-                        <a href="mailto:firstrussiansdachurch@gmail.com"
-                            aria-label="email"><i className="fas fa-envelope"></i>
+                        <a
+                            href='mailto:firstrussiansdachurch@gmail.com'
+                            aria-label='email'
+                        >
+                            <i className='fas fa-envelope' />
                         </a>
                     </span>
                 </p>

@@ -1,9 +1,9 @@
 import React from 'react';
-import { WithTranslation } from "react-i18next";
+import { WithTranslation } from 'react-i18next';
 import { withTranslation } from '../i18n';
 
 interface ErrorProps extends WithTranslation {
-    statusCode: number
+    statusCode: number;
 }
 
 interface ErrorLocale {
