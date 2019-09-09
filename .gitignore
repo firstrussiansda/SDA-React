@@ -1,7 +1,9 @@
-/node_modules
-/.next
+node_modules
+.next
+.dist
 yarn-error.log
 
 .DS_Store
 *.sw[po]
+\#*\#
 Session.vim

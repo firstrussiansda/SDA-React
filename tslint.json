@@ -1,0 +1,86 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-eslint-rules"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "./node_modules/**"
+    ]
+  },
+  "rules": {
+    "array-type": [
+      true,
+      "array"
+    ],
+    "arrow-parens": false,
+    "import-spacing": true,
+    "interface-name": false,
+    "max-classes-per-file": false,
+    "member-access": false,
+    "member-ordering": false,
+    "no-angle-bracket-type-assertion": true,
+    "no-namespace": [
+      true,
+      "allow-declarations"
+    ],
+    "no-string-literal": false,
+    "no-console": [],
+    "object-literal-shorthand": false,
+    "object-literal-sort-keys": false,
+    "only-arrow-functions": false,
+    "ordered-imports": false,
+    "prefer-const": true,
+    "variable-name": false,
+    "semicolon": true,
+    "jsx-no-multiline-js": false,
+    "no-shadowed-variable": false,
+    "no-var-requires": false,
+    "prefer-for-of": false,
+    "whitespace": true,
+    "object-curly-spacing": true,
+    "no-trailing-whitespace": true,
+    "eofline": true,
+    "jsx-alignment": true,
+    "jsx-curly-spacing": "never",
+    "jsx-key": true,
+    "jsx-self-close": true,
+    "jsx-space-before-trailing-slash": true,
+    "jsx-wrap-multiline": true,
+    "jsx-no-lambda": false,
+    "quotemark": [
+      true,
+      "single",
+      "jsx-single"
+    ],
+    "max-line-length": [
+      true,
+      {
+        "severity": "warn",
+        "limit": 120
+      }
+    ],
+    "no-unused-expression": [
+      true,
+      "allow-new"
+    ],
+    "indent": [
+      "warn",
+      4
+    ]
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    },
+    "linkComponents": [
+      "Hyperlink",
+      {
+        "name": "Link",
+        "linkAttribute": "to"
+      }
+    ]
+  }
+}

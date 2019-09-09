@@ -16,14 +16,16 @@ repos:
       - id: mixed-line-ending
       - id: trailing-whitespace
 
-  - repo: https://github.com/pre-commit/mirrors-eslint
+  - repo: https://github.com/awebdeveloper/pre-commit-tslint/
     rev: 'master'
     hooks:
-      - id: eslint
+      - id: tslint
+        files: \.(ts[x])$
         # https://github.com/pre-commit/pre-commit/issues/1064
         # https://github.com/ekalinin/nodeenv/issues/204
         language_version: system
-        args: ["--ext=.js,.jsx", .]
         additional_dependencies:
-          - eslint@6.3.0
-          - eslint-plugin-react@7.14.3
+          - tslint
+          - tslint-react
+          - tslint-eslint-rules
+          - typescript

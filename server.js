@@ -1,6 +1,6 @@
 const express = require('express');
 const next = require('next');
-const nextI18NextMiddleware = require('next-i18next/middleware').default;
+const nextI18NextMiddleware = require('next-i18next/middleware').default
 
 const nextI18next = require('./i18n');
 
@@ -17,5 +17,6 @@ const handle = app.getRequestHandler();
     server.get('*', (req, res) => handle(req, res));
 
     await server.listen(port);
+    // tslint:disable-next-line:no-console
     console.log(`> Ready on http://localhost:${port}`);
 })();
