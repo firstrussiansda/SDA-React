@@ -91,28 +91,30 @@ class Gallery extends React.Component<WithTranslation> {
         ],
     ];
 
-getInitialProps = async () => ({
-    namespacesRequired: ['common'],
-})
+    static async getInitialProps() {
+        return {
+            namespacesRequired: ['common'],
+        };
+    }
 
-render() {
-    return (
-        <div className='container'>
-            <h1 className='title text-xxxl m-b-sm m-t-sm text-center pt-3'>Gallery</h1>
-            <script async={true} src='https://snapwidget.com/js/snapwidget.js' />
-            <iframe
-                src='https://snapwidget.com/embed/637264'
-                className='snapwidget-widget'
-                allowTransparency={true}
-                frameBorder='0'
-                scrolling='no'
-            />
-            <div className='gallery row'>
-                { this.randomImages.map((images, i) => <GalleryColumn images={images} key={i} />) }
+    render() {
+        return (
+            <div className='container'>
+                <h1 className='title text-xxxl m-b-sm m-t-sm text-center pt-3'>Gallery</h1>
+                <script async={true} src='https://snapwidget.com/js/snapwidget.js' />
+                <iframe
+                    src='https://snapwidget.com/embed/637264'
+                    className='snapwidget-widget'
+                    allowTransparency={true}
+                    frameBorder='0'
+                    scrolling='no'
+                />
+                <div className='gallery row'>
+                    {this.randomImages.map((images, i) => <GalleryColumn images={images} key={i} />)}
+                </div>
             </div>
-        </div>
-    );
-}
+        );
+    }
 }
 
 // export default withTranslation('gallery')(Gallery);

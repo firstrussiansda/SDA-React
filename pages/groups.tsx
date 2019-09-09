@@ -3,9 +3,11 @@ import Group from '../components/groups/group';
 import { WithTranslation } from 'react-i18next';
 
 class Groups extends React.Component <WithTranslation> {
-    getInitialProps = () => ({
-        namespacesRequired: ['common'],
-    })
+    static async getInitialProps() {
+        return {
+            namespacesRequired: ['common'],
+        };
+    }
 
     groupsData = [
         {

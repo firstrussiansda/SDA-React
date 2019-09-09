@@ -7,10 +7,12 @@ interface FooterLocale {
     copyright: string;
 }
 
-class Footer extends React.Component <WithTranslation> {
-    getInitialProps = () => ({
-        namespacesRequired: ['common'],
-    })
+class Footer extends React.Component<WithTranslation> {
+    static async getInitialProps() {
+        return {
+            namespacesRequired: ['common'],
+        };
+    }
 
     render() {
         return (
@@ -37,8 +39,8 @@ class Footer extends React.Component <WithTranslation> {
                         </a>
                     </span>
                 </p>
-                <p>{this.props.t<FooterLocale>('footer', { returnObjects: true }).main }</p>
-                <p>&copy; {this.props.t<FooterLocale>('footer', { returnObjects: true }).copyright }</p>
+                <p>{this.props.t<FooterLocale>('footer', { returnObjects: true }).main}</p>
+                <p>&copy; {this.props.t<FooterLocale>('footer', { returnObjects: true }).copyright}</p>
             </footer>
         );
     }
