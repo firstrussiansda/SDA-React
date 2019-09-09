@@ -26,3 +26,4 @@ repos:
         additional_dependencies:
           - tslint
           - tslint-react
+          - typescript
