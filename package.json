@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon",
-    "build": "next build && tsc --project tsconfig.server.json",
+    "build": "next build",
     "start": "NODE_ENV=production node index.js",
     "lint": "tslint './*.ts{,x}' -e ./node_modules -e **/*.d.ts -c ./tslint.json",
     "lint:fix": "tslint './*.ts{,x}' -e ./node_modules -e **/*.d.ts -c ./tslint.json",
