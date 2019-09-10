@@ -1,19 +1,19 @@
 {
   "main-quote": {
-    "text": "God is with you wherever you go",
-    "origin": "Joshua 1:9, WEB"
+    "origin": "Joshua 1:9, WEB",
+    "text": "God is with you wherever you go"
   },
   "contact-us-quote": {
-    "text": "How good and pleasant it is when God’s people live together in unity!",
-    "origin": "Psalm 133:1"
+    "origin": "Psalm 133:1",
+    "text": "How good and pleasant it is when God’s people live together in unity!"
   },
   "contact-us": "Contact Us",
   "events": "Events",
   "prayer-request": {
     "title": "Do you have a prayer need?",
     "quote": {
-      "text": "Therefore, confess your sins to one another and pray for one another, that you may be healed. The prayer of a righteous person has great power as it is working.",
-      "origin": "James 5:16"
+      "origin": "James 5:16",
+      "text": "Therefore, confess your sins to one another and pray for one another, that you may be healed. The prayer of a righteous person has great power as it is working."
     },
     "name": "Name",
     "name-placeholder": "Ivan Ivanov",
