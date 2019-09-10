@@ -8,7 +8,9 @@ React site for First Russian SDA Church in NYC
 - `yarn dev` - starts the project on port 3000 with auto page refresh on saved change
 - `yarn build` - generate a production build bundle
 - `yarn start` - start the project form a build generated with `yarn build`
-- `yarn lint` - to run linting check
+- `yarn lint` - to run linting check and fix what's possible
+- `yarn lint:no-fix` - to run linting check and DON'T fix
+
 
 ## Project structure
 
