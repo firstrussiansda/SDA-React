@@ -2,7 +2,9 @@ const express = require('express');
 const next = require('next');
 const nextI18NextMiddleware = require('next-i18next/middleware').default;
 
-const nextI18next = require('./i18n');
+const nextI18next = require('../i18n');
+
+const mockAPI = require('./middleware/mock');
 
 const port = process.env.PORT || 3000;
 const app = next({ dev: process.env.NODE_ENV !== 'production' });
@@ -13,6 +15,10 @@ const handle = app.getRequestHandler();
     const server = express();
 
     server.use(nextI18NextMiddleware(nextI18next));
+    server.use(express.json()); // for parsing application/json
+    server.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
+    server.get('/api/:type/:language', mockAPI);
 
     server.get('*', (req, res) => handle(req, res));
 
