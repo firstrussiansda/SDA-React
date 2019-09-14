@@ -1,24 +1,24 @@
 {
-  "title": "NY First Russian SDA church",
-  "description": "First Russian SDA church is a religious organization . . . ",
-  "footer": {
-    "main": "First Russian SDA Church of New York City | 1913 W 7th St, New York, New York 11223",
-    "copyright": "All Rights Reserved 2018"
-  },
-  "header": {
-    "home": "First Russian SDA",
-    "about": "about",
-    "groups": "groups",
-    "calendar": "calendar",
-    "media": "media",
-    "gallery": "gallery",
-    "sermons": "sermons",
-    "language": "english"
-  },
-  "error": {
-    "blah": "foo {{la}} papa"
-  },
-  "test": {
-    "foo": "Foo"
-  }
+    "title": "NY First Russian SDA church",
+    "description": "First Russian SDA church is a religious organization . . .",
+    "footer": {
+        "main": "First Russian SDA Church of New York City | 1913 W 7th St, New York, New York 11223",
+        "copyright": "All Rights Reserved 2018"
+    },
+    "header": {
+        "home": "First Russian SDA",
+        "about": "about",
+        "groups": "groups",
+        "calendar": "calendar",
+        "media": "media",
+        "gallery": "gallery",
+        "sermons": "sermons",
+        "language": "english"
+    },
+    "error": {
+        "blah": "foo {{la}} papa"
+    },
+    "test": {
+        "foo": "Foo"
+    }
 }
