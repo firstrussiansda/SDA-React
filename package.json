@@ -8,8 +8,8 @@
     "dev": "nodemon",
     "build": "next build",
     "start": "NODE_ENV=production node index.js",
-    "lint": "tslint -c tslint.json '**/*.{ts,tsx}'  -e **/*.d.ts",
-    "lint:fix": "tslint -c tslint.json '**/*.{ts,tsx}'  -e **/*.d.ts --fix",
+    "lint": "tslint -c tslint.json '**/*.{ts,tsx}'  -e **/*.d.ts --fix ; eslint '**/*.js' --fix",
+    "lint:no-fix": "tslint -c tslint.json '**/*.{ts,tsx}'  -e **/*.d.ts ; eslint '**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -29,6 +29,7 @@
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
     "cross-env": "^5.2.1",
+    "eslint": "^6.3.0",
     "tslint": "^5.19.0",
     "tslint-eslint-rules": "^5.4.0",
     "tslint-react": "^4.0.0",
