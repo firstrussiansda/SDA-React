@@ -42,6 +42,7 @@ class Homepage extends React.Component<HomepageProps> {
                 // tslint:disable-next-line:no-console
                 console.log('Error occurred while fetching events =(');
             }
+            return { events: [], namespacesRequired: ['common'] };
         }
     }
 
