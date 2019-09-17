@@ -32,3 +32,25 @@ Lint rules can be checked at commit-time via:
 $ python3 -m pip install pre-commit
 $ pre-commit install
 ```
+
+## APIs
+
+### `/api/images`
+
+Return latest images from instagram account
+
+#### Query
+
+- count - number of images (default - 12)
+
+- max_id - id returned form the previous call - get more images after the last one from the previous call
+
+### `api/:type/:language`
+
+Returns mock data
+
+#### Params
+
+- language: en/ru/uk
+
+- type: events/sermons

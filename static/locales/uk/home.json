@@ -1,1 +1,49 @@
-{}
+{
+  "main-quote": {
+    "origin": "Иисус Навин 1: 9, BTI",
+    "text": "Я, Господь, Бог твой, буду с тобой везде"
+  },
+  "contact-us-quote": {
+    "origin": "Псалом 133: 1",
+    "text": "Как хорошо и как приятно, когда братья меж собой в согласии живут!"
+  },
+  "contact-us": "Свяжитесь с нами",
+  "events": "Мероприятия",
+  "prayer-request": {
+    "title": "У вас есть просьба в молитве?",
+    "quote": {
+      "origin": "Иаков 5:16",
+      "text": "Так что признавайтесь друг перед другом в грехах 'своих' и молитесь друг о друге, чтобы исцелиться. Велика сила горячей молитвы праведного."
+    },
+    "name": "Имя",
+    "name-placeholder": "Иван Иванов",
+    "email": "Email",
+    "prayer-need-placeholder": "Введите ваши молитвенные нужды",
+    "send-prayer-need": "Отправить Молитвенную Нужду",
+    "prayer-need": "Молитвенная Нужда"
+  },
+  "visit-us": {
+    "title": "Come Visit Us",
+    "location": {
+      "name": "First Russian SDA church",
+      "area": "is located in Gravesend area of Brooklyn, NY.",
+      "address": "1913 W 7th St Brooklyn, NY 11223",
+      "header": "Location:"
+    },
+    "services": {
+      "header": "Worship times:",
+      "praying-group": {
+        "name": "Praying Group:",
+        "when": "Saturdays at 9:15 AM"
+      },
+      "sabbath-school": {
+        "name": "Sabbath School:",
+        "when": "Saturdays at 10:00 AM"
+      },
+      "sermons": {
+        "name": "Sermons:",
+        "when": "Saturdays at 11:00 AM"
+      }
+    }
+  }
+}

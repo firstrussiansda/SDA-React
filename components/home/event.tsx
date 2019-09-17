@@ -6,12 +6,13 @@ interface EventProps {
     title: string;
     description: string;
     date: string;
+    location: string;
+    language: string;
 }
 
 const Event: React.FunctionComponent<EventProps> = ({ img, alt, title, date, description }) => (
-    <div className='card flip-card'>
-        <div className='flip-card-inner'>
-            <div className='card-body flip-card-front'>
+    <div className='card'>
+            <div className='card-body'>
                 <img
                     className='card card-img-top'
                     src={`${img}w=320&q=80`}
@@ -22,12 +23,9 @@ const Event: React.FunctionComponent<EventProps> = ({ img, alt, title, date, des
                         ${img}w=320&q=80 5000w
                     `}
                 />
-            </div>
-            <div className='card card-body flip-card-back'>
                 <h5 className='card-title'>{title}</h5>
                 <h6 className='card-date'>{date}</h6>
                 <p className='card-text'>{description}</p>
-            </div>
         </div>
     </div>
 );

@@ -71,48 +71,52 @@ class Contact extends React.Component<WithTranslation> {
 
                     <section id='contact-us-table' className='pt-5'>
                         <table>
-                            <tr>
-                                <td><i className='fas fa-map-marker-alt' /></td>
-                                <td>Brooklyn, NY</td>
-                            </tr>
-                            <tr>
-                                <td><i className='fas fa-phone' /></td>
-                                <td>555-555-5555</td>
-                            </tr>
-                            <tr>
-                                <td><i className='far fa-envelope' /></td>
-                                <td>frsda@gmail.com</td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td><i className='fas fa-map-marker-alt' /></td>
+                                    <td>Brooklyn, NY</td>
+                                </tr>
+                                <tr>
+                                    <td><i className='fas fa-phone' /></td>
+                                    <td>555-555-5555</td>
+                                </tr>
+                                <tr>
+                                    <td><i className='far fa-envelope' /></td>
+                                    <td>frsda@gmail.com</td>
+                                </tr>
+                            </tbody>
                         </table>
                         <table>
-                            <tr>
-                                <td>
-                                    <div className='box facebook hvr-wobble-vertical'>
-                                        <a href='https://www.facebook.com/%D0%A2%D0%B2%D0%BE%D0%B8-%D0%B4%D1%80%D1%83%D0%B7%D1%8C%D1%8F-%D0%B2-NYC-141818969217488/?__tn__=%2Cdk%2CP-R&eid=ARDkX64MnnE3mMUEAFCdA0Uk804LPzHbzOevV1tkPonAU5frQEWQnFZRLRqUsGI5dzHUhtvCDg6cNWfM' target='_blank'>
-                                            <i className='fab fa-facebook-f' />
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div className='box instagram hvr-wobble-vertical'>
-                                        <a href='https://www.instagram.com/youthgroupfriends/' target='_blank'>
-                                            <i className='fab fa-instagram' />
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div className='box youtube hvr-wobble-vertical'>
-                                        <i className='fab fa-youtube' />
-                                    </div>
-                                </td>
-                                <td>
-                                    <div className='box maps hvr-wobble-vertical'>
-                                        <a href='https://www.google.com/maps?ll=40.600665,-73.978986&z=15&t=m&hl=ru-RU&gl=US&mapclient=embed&q=1913+W+7th+St+Brooklyn,+NY+11223' target='_blank'>
-                                            <i className='fas fa-map-marker-alt' />
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div className='box facebook hvr-wobble-vertical'>
+                                            <a href='https://www.facebook.com/%D0%A2%D0%B2%D0%BE%D0%B8-%D0%B4%D1%80%D1%83%D0%B7%D1%8C%D1%8F-%D0%B2-NYC-141818969217488/?__tn__=%2Cdk%2CP-R&eid=ARDkX64MnnE3mMUEAFCdA0Uk804LPzHbzOevV1tkPonAU5frQEWQnFZRLRqUsGI5dzHUhtvCDg6cNWfM' target='_blank'>
+                                                <i className='fab fa-facebook-f' />
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className='box instagram hvr-wobble-vertical'>
+                                            <a href='https://www.instagram.com/youthgroupfriends/' target='_blank'>
+                                                <i className='fab fa-instagram' />
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className='box youtube hvr-wobble-vertical'>
+                                            <i className='fab fa-youtube' />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className='box maps hvr-wobble-vertical'>
+                                            <a href='https://www.google.com/maps?ll=40.600665,-73.978986&z=15&t=m&hl=ru-RU&gl=US&mapclient=embed&q=1913+W+7th+St+Brooklyn,+NY+11223' target='_blank'>
+                                                <i className='fas fa-map-marker-alt' />
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
 
                         <section>

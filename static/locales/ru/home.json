@@ -17,9 +17,33 @@
     },
     "name": "Имя",
     "name-placeholder": "Иван Иванов",
-    "email": "Email",
+    "email": "E-мейл",
     "prayer-need-placeholder": "Введите ваши молитвенные нужды",
     "send-prayer-need": "Отправить Молитвенную Нужду",
     "prayer-need": "Молитвенная Нужда"
+  },
+  "visit-us": {
+    "title": "Приходите к нам",
+    "location": {
+      "name": "Первая Русская Церковь АСД",
+      "area": "расположена в районе Gravesend Бруклина, Нью Йорк.",
+      "address": "1913 W 7th St Brooklyn, NY 11223",
+      "header": "Адрес: "
+    },
+    "services": {
+      "header": "Время поклонения:",
+      "praying-group": {
+        "name": "Молитвенная группа:",
+        "when": "По субботам в 9:15 AM"
+      },
+      "sabbath-school": {
+        "name": "Субботняя школа:",
+        "when": "По субботам в 10:00 AM"
+      },
+      "sermons": {
+        "name": "Служение:",
+        "when": "По субботам в 11:00 AM"
+      }
+    }
   }
 }

@@ -204,7 +204,7 @@ hr {
     font-size: 14px;
 }
 .visit strong {
-    line-height: 3rem;
+    line-height: 1rem;
 }
 .visit ul {
 	padding: 0;
@@ -214,7 +214,7 @@ hr {
 	font-style: italic;
 	background: #fdd007;
     padding: 7px;
-    width: 170px;
+    width: 190px;
     font-size: 14px;
 }
 
