@@ -57,6 +57,7 @@ class Gallery extends React.Component<GalleryProps> {
                 // tslint:disable-next-line:no-console
                 console.log('Error occurred while fetching events =(');
             }
+            return { images: [], namespacesRequired: ['common'] };
         }
     }
 
