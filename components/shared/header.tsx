@@ -4,6 +4,7 @@ import { withTranslation } from '../../i18n';
 import { WithTranslation } from 'react-i18next';
 
 interface HeaderLocale {
+    title: string;
     about: string;
     groups: string;
     calendar: string;
@@ -23,6 +24,7 @@ class Header extends React.Component <WithTranslation> {
     render() {
         const { t, i18n } = this.props;
         const headerLocales = t<HeaderLocale>('header', { returnObjects: true });
+
         return (
             <nav className='navbar navbar-expand-md navbar-light'>
                 <div className='container'>
@@ -35,7 +37,7 @@ class Header extends React.Component <WithTranslation> {
                                 className='d-inline-block'
                                 alt='SDA logo'
                             />
-                            First Russian SDA
+                            {t('title')}
                         </a>
                     </Link>
 

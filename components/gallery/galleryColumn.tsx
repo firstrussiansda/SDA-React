@@ -1,16 +1,21 @@
 import React from 'react';
-
+import { InstImage } from '../../pages/gallery';
 interface GalleryColumnProps {
-    images: {
-        src: string;
-        alt: string;
-    }[];
+    images: InstImage[];
 }
 
-const GalleryColumn: React.FunctionComponent <GalleryColumnProps> = ({ images }) => (
-    <div className=' img column'>
-        { images.map((img, i) => <img src={img.src} alt={img.alt} key={i} className='gallery-img' />) }
-    </div>
+const GalleryColumn: React.FunctionComponent<GalleryColumnProps> = ({ images }) => (
+    <span className='img column'>
+        {images.map((img, i) => (
+            <a href={img.link} key={img.link}>
+                <img
+                    src={img.images.standard_resolution.url}
+                    alt='Image form instagram'
+                    className='gallery-img'
+                />
+            </a>
+        ))}
+    </span>
 );
 
 export default GalleryColumn;
