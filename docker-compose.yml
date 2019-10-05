@@ -5,6 +5,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    environment:
+      - INSTAGRAM_SECRET
     ports:
       - "8080:3000"
     volumes:
