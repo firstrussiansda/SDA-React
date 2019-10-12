@@ -1,21 +1,11 @@
 import React from 'react';
 import { WithTranslation } from 'react-i18next';
 
-import Event from './event';
-
-export interface EventData {
-    title: string;
-    description: string;
-    date: string;
-    location: string;
-    img_url: string;
-    img_alt: string;
-    isFeatured: boolean;
-    language: string;
-}
+import { Event } from '../../lib/interfaces';
+import EventTile from './event';
 
 interface EventsProps extends WithTranslation {
-    events: EventData[];
+    events: Event[];
 }
 
 const Events: React.FunctionComponent<EventsProps> = ({ events, t }) => (
@@ -24,15 +14,9 @@ const Events: React.FunctionComponent<EventsProps> = ({ events, t }) => (
         <div id='event-cards' className='card-deck'>
             {
                 events.map(e => (
-                    <Event
-                        img={e.img_url}
-                        alt={e.img_alt}
-                        title={e.title}
-                        description={e.description}
-                        date={(new Date(e.date)).toDateString()}
-                        location={e.location}
-                        language={e.language}
-                        key={e.title}
+                    <EventTile
+                        { ...e }
+                        key={e.id}
                     />
                 ))
             }
