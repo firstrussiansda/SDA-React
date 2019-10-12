@@ -1,28 +1,28 @@
 {
-  "main-quote": {
+  "mainQuote": {
     "origin": "Joshua 1:9, WEB",
     "text": "God is with you wherever you go"
   },
-  "contact-us-quote": {
+  "contactUsQuote": {
     "origin": "Psalm 133:1",
     "text": "How good and pleasant it is when God’s people live together in unity!"
   },
-  "contact-us": "Contact Us",
+  "contactUs": "Contact Us",
   "events": "Events",
-  "prayer-request": {
+  "prayerRequest": {
     "title": "Do you have a prayer need?",
     "quote": {
       "origin": "James 5:16",
       "text": "Therefore, confess your sins to one another and pray for one another, that you may be healed. The prayer of a righteous person has great power as it is working."
     },
     "name": "Name",
-    "name-placeholder": "Ivan Ivanov",
+    "namePlaceholder": "Ivan Ivanov",
     "email": "Email",
-    "prayer-need": "Prayer Need",
-    "prayer-need-placeholder": "Enter your prayer need",
-    "send-prayer-need": "Send Prayer Need"
+    "prayerNeed": "Prayer Need",
+    "prayerNeedPlaceholder": "Enter your prayer need",
+    "sendPrayerNeed": "Send Prayer Need"
   },
-  "visit-us": {
+  "visitUs": {
     "title": "Come Visit Us",
     "location": {
       "name": "First Russian SDA church",
@@ -32,11 +32,11 @@
     },
     "services": {
       "header": "Worship times:",
-      "praying-group": {
+      "prayingGroup": {
         "name": "Praying Group:",
         "when": "Saturdays at 9:15 AM"
       },
-      "sabbath-school": {
+      "sabbathSchool": {
         "name": "Sabbath School:",
         "when": "Saturdays at 10:00 AM"
       },

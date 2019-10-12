@@ -40,11 +40,11 @@ class Homepage extends React.Component<HomepageProps> {
                     <div className='card-body text-center '>
                         <h1 className='px-3 text-shadow main-title'>
                             &#34;
-                            {t<Quote>('main-quote', { returnObjects: true }).text}
+                            {t<Quote>('mainQuote', { returnObjects: true }).text}
                             &#34;
                         </h1>
                         <footer className='blockquote-footer'>
-                            {t<Quote>('main-quote', { returnObjects: true }).origin}
+                            {t<Quote>('mainQuote', { returnObjects: true }).origin}
                         </footer>
                     </div>
                 </div>
@@ -62,11 +62,11 @@ class Homepage extends React.Component<HomepageProps> {
                                     <blockquote className='blockquote'>
                                         <h2 className='mb-0'>
                                             &#34;
-                                            {t<Quote>('contact-us-quote', { returnObjects: true }).text}
+                                            {t<Quote>('contactUsQuote', { returnObjects: true }).text}
                                             &#34;
                                         </h2>
                                         <footer className='blockquote-footer'>
-                                            {t<Quote>('contact-us-quote', { returnObjects: true }).origin}
+                                            {t<Quote>('contactUsQuote', { returnObjects: true }).origin}
                                         </footer>
                                     </blockquote>
                                     <p className='lead'>
@@ -76,7 +76,7 @@ class Homepage extends React.Component<HomepageProps> {
                                             href='/contact'
                                             role='button'
                                         >
-                                            {t('contact-us')}
+                                            {t('contactUs')}
                                             <i className='fas fa-arrow-circle-right hvr-icon' />
                                         </a>
                                     </p>

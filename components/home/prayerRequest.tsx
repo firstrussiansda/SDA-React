@@ -7,10 +7,10 @@ interface PrayerRequestLocales {
     quote: Quote;
     name: string;
     email: string;
-    'name-placeholder': string;
-    'prayer-need': string;
-    'prayer-need-placeholder': string;
-    'send-prayer-need': string;
+    'namePlaceholder': string;
+    'prayerNeed': string;
+    'prayerNeedPlaceholder': string;
+    'sendPrayerNeed': string;
 }
 
 const PrayerRequest: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
@@ -19,7 +19,7 @@ const PrayerRequest: React.FunctionComponent<WithTranslation> = ({ t, tReady }) 
         return null;
     }
 
-    const localizedText = t<PrayerRequestLocales>('prayer-request', { returnObjects: true });
+    const localizedText = t<PrayerRequestLocales>('prayerRequest', { returnObjects: true });
 
     return (
         <section id='praying-request'>
@@ -46,7 +46,7 @@ const PrayerRequest: React.FunctionComponent<WithTranslation> = ({ t, tReady }) 
                                     id='name-field'
                                     type='text'
                                     className='form-control'
-                                    placeholder={localizedText['name-placeholder']}
+                                    placeholder={localizedText['namePlaceholder']}
                                     aria-describedby='emailHelp'
                                     required={true}
                                 />
@@ -64,18 +64,18 @@ const PrayerRequest: React.FunctionComponent<WithTranslation> = ({ t, tReady }) 
                         </div>
                         <div className='row'>
                             <div className='col col-sm-12 col-md-12 form-group'>
-                                <label htmlFor='prayer_request'>{localizedText['prayer-need']}</label>
+                                <label htmlFor='prayer_request'>{localizedText['prayerNeed']}</label>
                                 <textarea
                                     className='form-control'
                                     id='prayer_request'
-                                    placeholder={localizedText['prayer-need-placeholder']}
+                                    placeholder={localizedText['prayerNeedPlaceholder']}
                                     rows={3}
                                     required={true}
                                 />
                             </div>
                         </div>
                         <button type='submit' className='btn btn-outline-warning'>
-                            {localizedText['send-prayer-need']}
+                            {localizedText['sendPrayerNeed']}
                         </button>
                     </form>
                 </div>

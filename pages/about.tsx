@@ -20,7 +20,8 @@ const About = () => {
                     </div>
                 </section>
 
-                <KeyMissionComponents />
+                {/* TODO: get content for this element */}
+                {/* <KeyMissionComponents /> */}
 
                 <section className='card about about-us card-lg'>
                     <h2 className='title text-xxl m-b text-center'>About</h2>

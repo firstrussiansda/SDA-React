@@ -16,8 +16,8 @@ interface VisitUsLocales {
     };
     services: {
         header: string;
-        'praying-group': ServicesTypes;
-        'sabbath-school': ServicesTypes;
+        'prayingGroup': ServicesTypes;
+        'sabbathSchool': ServicesTypes;
         sermons: ServicesTypes;
     };
 }
@@ -28,7 +28,7 @@ const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
         return null;
     }
 
-    const localizedText = t<VisitUsLocales>('visit-us', { returnObjects: true });
+    const localizedText = t<VisitUsLocales>('visitUs', { returnObjects: true });
 
     return (
         <section id='visit-block' className='card card-lg pb-5'>
@@ -48,12 +48,12 @@ const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
                     <div className='visit'>
                         <strong>{localizedText.services.header}</strong>
                         <ul>
-                            {localizedText.services['praying-group'].name}
-                            <span className=' time float-right'>{localizedText.services['praying-group'].when}</span>
+                            {localizedText.services['prayingGroup'].name}
+                            <span className=' time float-right'>{localizedText.services['prayingGroup'].when}</span>
                         </ul>
                         <ul>
-                            {localizedText.services['sabbath-school'].name}
-                            <span className='time float-right'>{localizedText.services['sabbath-school'].when}</span>
+                            {localizedText.services['sabbathSchool'].name}
+                            <span className='time float-right'>{localizedText.services['sabbathSchool'].when}</span>
                         </ul>
                         <ul>
                             {localizedText.services.sermons.name}

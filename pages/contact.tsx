@@ -12,7 +12,7 @@ class Contact extends React.Component<WithTranslation> {
 
     render() {
         return (
-            <div id='contact-us'>
+            <div id='contactUs'>
                 <h1 className='text-center title'>Contact Us</h1>
                 <h2 className='text-center'>Stop By and Say 'hi'. Or Send Us a Note.</h2>
                 <div className='row justify-content-md-center'>
@@ -69,7 +69,7 @@ class Contact extends React.Component<WithTranslation> {
                         />
                     </form>
 
-                    <section id='contact-us-table' className='pt-5'>
+                    <section id='contactUs-table' className='pt-5'>
                         <table>
                             <tbody>
                                 <tr>
