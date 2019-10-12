@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { withTranslation } from '../../i18n';
 import { WithTranslation } from 'react-i18next';
 
-interface HeaderLocale {
+export interface HeaderLocale {
     title: string;
     about: string;
     groups: string;
@@ -31,7 +31,7 @@ class Header extends React.Component <WithTranslation> {
                     <Link href='/'>
                         <a id='brand' className='navbar-brand' >
                             <img
-                                src='/static/img/logo.png'
+                                src='/static/img/rsz_logo.png'
                                 width='30'
                                 height='30'
                                 className='d-inline-block'

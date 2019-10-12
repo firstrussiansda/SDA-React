@@ -1,55 +1,34 @@
 import React from 'react';
-import { i18n } from '../i18n';
 import { WithTranslation } from 'react-i18next';
 import { withTranslation } from '../i18n';
 
-import Events, { EventData } from '../components/home/events';
+import Events from '../components/home/events';
 import PrayerRequest from '../components/home/prayerRequest';
 import VisitUs from '../components/home/visitUs';
 
-import { baseUrl } from '../config/index';
-import { Quote } from '../config/types';
+import { initialPropsFetch } from '../lib/helpers';
+import { Quote, Event } from '../lib/interfaces';
 
 interface HomepageProps extends WithTranslation {
-    events: EventData[];
+    events: Event[];
 }
 
 class Homepage extends React.Component<HomepageProps> {
     static async getInitialProps({ req }: any) {
-        let events = [];
+        const data = await initialPropsFetch('events', req, { is_featured: true });
 
-        // server side
-        try {
-            if (req) {
-                const fetch = require('node-fetch');
-                const uri = `${baseUrl}/api/events/${req.language}`;
-                const response = await fetch(uri);
-                const json = await response.json();
-                events = json.events || [];
-            } else {
-                // client side
-                const uri = `/api/events/${i18n.language}`;
-                const response = await fetch(uri);
-                const json = await response.json();
-                events = json.events || [];
-            }
-            return { events, namespacesRequired: ['common'] };
-        } catch (e) {
-            if (process.env.NODE_ENV !== 'production') {
-                // tslint:disable-next-line:no-console
-                console.log(e);
-            } else {
-                // tslint:disable-next-line:no-console
-                console.log('Error occurred while fetching events =(');
-            }
-            return { events: [], namespacesRequired: ['common'] };
+        if (data && 'results' in data) {
+            return { events: data.results, namespacesRequired: ['home'] };
         }
+
+        return { events: [], namespacesRequired: ['home'] };
     }
 
     render() {
         const { t, i18n, tReady } = this.props;
 
-        // TODO: this leads to server and client side HTML not matching sometimes. Hope to fix before PROD release
+        // TODO: this leads to server and client side HTML not matching sometimes.
+        // Hope to fix before PROD release
         if (!tReady) {
             return null;
         }
