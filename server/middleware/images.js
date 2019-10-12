@@ -3,7 +3,7 @@ const GET_IMAGES_URI = 'https://api.instagram.com/v1/users/self/media/recent/?ac
 const DEFAULT_LIMIT = 12;
 
 module.exports = async (req, res) => {
-    const secret = process.env.INST_SECRET;
+    const secret = process.env.INSTAGRAM_SECRET;
     if (!secret) {
         res.sendStatus(500);
     } else {
