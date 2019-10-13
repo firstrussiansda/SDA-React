@@ -6,7 +6,7 @@ import EventTile from '../components/calendar/eventTile';
 
 class Calendar extends React.Component<{ events: Event[] }> {
     static async getInitialProps({ req }: any) {
-        const data = await initialPropsFetch('events', req) || {};
+        const data = await initialPropsFetch('events', req);
 
         if (data && 'results' in data) {
             return { events: data.results, namespacesRequired: ['common'] };

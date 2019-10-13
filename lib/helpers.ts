@@ -1,6 +1,7 @@
 import { i18n } from '../i18n';
+import { pythonAPI, nodeAPI, defaultImages } from './const';
 
-import { baseUrl, defaultImages } from './const';
+
 
 const buildQuery = (params: { [k: string]: string | number | boolean }) => (
     Object.entries(params)
@@ -9,10 +10,12 @@ const buildQuery = (params: { [k: string]: string | number | boolean }) => (
 );
 
 export const initialPropsFetch = async (
-    type: string, req: any, params: { [k: string]: string | number | boolean } = {},
+    type: string,
+    req: any, params: { [k: string]: string | number | boolean } = {},
 ) => {
     try {
-        const url = `${baseUrl}${type}.json`;
+        const url = `${type === 'images' ? nodeAPI : pythonAPI}${type}`;
+
         // server side
         if (req) {
             const fetch = require('node-fetch');
@@ -43,14 +46,4 @@ export const initialPropsFetch = async (
 export const getDefaultImage = (type: 'event') => {
     const images = defaultImages[type];
     return images[Math.floor(Math.random() * images.length)];
-};
-
-export const chunkArray = (array: any[], chunk_size: number) => {
-    const results = [];
-
-    while (array.length) {
-        results.push(array.splice(0, chunk_size));
-    }
-
-    return results;
 };
