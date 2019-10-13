@@ -4,7 +4,7 @@ import { withTranslation } from '../../i18n';
 
 interface ServicesTypes {
     name: string;
-    when: string;
+    time: string;
 }
 interface VisitUsLocales {
     title: string;
@@ -14,12 +14,8 @@ interface VisitUsLocales {
         address: string;
         header: string;
     };
-    services: {
-        header: string;
-        'prayingGroup': ServicesTypes;
-        'sabbathSchool': ServicesTypes;
-        sermons: ServicesTypes;
-    };
+    servicesHeader: string;
+    services: ServicesTypes[];
 }
 
 const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
@@ -29,7 +25,6 @@ const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
     }
 
     const localizedText = t<VisitUsLocales>('visitUs', { returnObjects: true });
-
     return (
         <section id='visit-block' className='card card-lg pb-5'>
             <h2 id='directions-title' className='title text-center'>{localizedText.title}</h2>
@@ -46,19 +41,19 @@ const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
                         {localizedText.location.address}
                     </address>
                     <div className='visit'>
-                        <strong>{localizedText.services.header}</strong>
-                        <ul>
-                            {localizedText.services['prayingGroup'].name}
-                            <span className=' time float-right'>{localizedText.services['prayingGroup'].when}</span>
-                        </ul>
-                        <ul>
-                            {localizedText.services['sabbathSchool'].name}
-                            <span className='time float-right'>{localizedText.services['sabbathSchool'].when}</span>
-                        </ul>
-                        <ul>
-                            {localizedText.services.sermons.name}
-                            <span className='time float-right'>{localizedText.services.sermons.when}</span>
-                        </ul>
+                        <strong>{localizedText.servicesHeader}</strong>
+                        <table>
+                            <tbody>
+                                {
+                                    localizedText.services.map(service => (
+                                        <tr key={service.name}>
+                                            <td>{service.time}</td>
+                                            <td>{service.name}</td>
+                                        </tr>
+                                    ))
+                                }
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <div className='col-lg-6 col-md-6 col-xxs-12 col-sm-12'>

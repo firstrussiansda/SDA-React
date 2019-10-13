@@ -19,7 +19,7 @@
     "namePlaceholder": "Иван Иванов",
     "email": "Email",
     "prayerNeedPlaceholder": "Введите ваши молитвенные нужды",
-    "sendPrayerNeed": "Отправить Молитвенную Нужду",
+    "sendPrayerNeed": "Отправить просьбу",
     "prayerNeed": "Молитвенная Нужда"
   },
   "visitUs": {
@@ -30,20 +30,20 @@
       "address": "1913 W 7th St Brooklyn, NY 11223",
       "header": "Location:"
     },
-    "services": {
-      "header": "Worship times:",
-      "prayingGroup": {
-        "name": "Praying Group:",
-        "when": "Saturdays at 9:15 AM"
+    "servicesHeader": "Время поклонения - по субботам:",
+    "services": [
+      {
+        "name": "Молитвенная группа",
+        "time": " 9:15 AM"
       },
-      "sabbathSchool": {
-        "name": "Sabbath School:",
-        "when": "Saturdays at 10:00 AM"
+      {
+        "name": "Субботняя школа",
+        "time": "10:00 AM"
       },
-      "sermons": {
-        "name": "Sermons:",
-        "when": "Saturdays at 11:00 AM"
+      {
+        "name": "Служение",
+        "time": "11:00 AM"
       }
-    }
+    ]
   }
 }
