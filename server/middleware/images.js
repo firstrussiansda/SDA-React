@@ -1,4 +1,6 @@
 const fetch = require('node-fetch');
+const { chunkArray } = require('../helpers');
+
 const GET_IMAGES_URI = 'https://api.instagram.com/v1/users/self/media/recent/?access_token=';
 const DEFAULT_LIMIT = 12;
 
@@ -25,7 +27,10 @@ module.exports = async (req, res) => {
                 // eslint-disable-next-line no-console
                 console.log('Error fetching images', 'URI:', uri, 'JSON:', json);
             }
-            res.send(json);
+            res.send({
+                data: chunkArray(json.data, 4),
+                nextMaxId: json.pagination.next_max_id,
+            });
         } catch (e) {
             // eslint-disable-next-line no-console
             console.log('Error fetching images', e);
