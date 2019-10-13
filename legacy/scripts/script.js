@@ -1,1 +1,0 @@
-$("#carouselvideo").carousel({interval: false});
