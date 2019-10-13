@@ -38,13 +38,17 @@ const PrayerRequest: React.FunctionComponent<WithTranslation> = ({ t, tReady }) 
                     </div>
                 </div>
                 <div className='col-sm-12 col-md-6'>
-                    <form>
+                    <form
+                        action='https://formspree.io/skaistrenko@gmail.com'
+                        method='POST'
+                    >
                         <div className='row'>
                             <div className='col-sm-6 col-md-6 mt-2 form-group'>
                                 <label htmlFor='name-field'>{localizedText.name}</label>
                                 <input
                                     id='name-field'
                                     type='text'
+                                    name='name'
                                     className='form-control'
                                     placeholder={localizedText['namePlaceholder']}
                                     aria-describedby='emailHelp'
@@ -56,6 +60,7 @@ const PrayerRequest: React.FunctionComponent<WithTranslation> = ({ t, tReady }) 
                                 <input
                                     id='email-field'
                                     type='email'
+                                    name='_replyto'
                                     className='form-control'
                                     placeholder='email@gmail.com'
                                     required={true}
@@ -68,13 +73,18 @@ const PrayerRequest: React.FunctionComponent<WithTranslation> = ({ t, tReady }) 
                                 <textarea
                                     className='form-control'
                                     id='prayer_request'
+                                    name='prayer_request'
                                     placeholder={localizedText['prayerNeedPlaceholder']}
                                     rows={3}
                                     required={true}
                                 />
                             </div>
                         </div>
-                        <button type='submit' className='btn btn-outline-warning'>
+                        <button
+                            type='submit'
+                            role='button'
+                            className='btn btn-outline-warning'
+                        >
                             {localizedText['sendPrayerNeed']}
                         </button>
                     </form>

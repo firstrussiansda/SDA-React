@@ -26,7 +26,7 @@ class Header extends React.Component <WithTranslation> {
         const headerLocales = t<HeaderLocale>('header', { returnObjects: true });
 
         return (
-            <nav className='navbar navbar-expand-md navbar-light'>
+            <nav className='navbar navbar-expand-lg navbar-light'>
                 <div className='container'>
                     <Link href='/'>
                         <a id='brand' className='navbar-brand' >
@@ -54,7 +54,7 @@ class Header extends React.Component <WithTranslation> {
                     </button>
 
                     <div
-                        className='collapse navbar-collapse navbar navbar-expand-sm navbar-light justify-content-end'
+                        className='collapse navbar-collapse navbar navbar-light justify-content-end'
                         id='navbarSupportedContent'
                     >
                         <ul className='navbar-nav ml-auto'>
@@ -89,7 +89,8 @@ class Header extends React.Component <WithTranslation> {
                             <li className='nav-item dropdown'>
                                 <a
                                     className='nav-link dropdown-toggle hvr-overline-from-center'
-                                    id='navbarDropdown'
+                                    href='#'
+                                    id='mediaDropdown'
                                     role='button'
                                     data-toggle='dropdown'
                                     aria-haspopup='true'
@@ -99,7 +100,7 @@ class Header extends React.Component <WithTranslation> {
                                 </a>
                                 <div
                                     className='dropdown-menu'
-                                    aria-labelledby='navbarDropdown'
+                                    aria-labelledby='mediaDropdown'
                                 >
                                     <Link href='/gallery'>
                                         <a className='dropdown-item'>

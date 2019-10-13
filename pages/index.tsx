@@ -50,44 +50,42 @@ class Homepage extends React.Component<HomepageProps> {
                 </div>
                 <hr />
 
-                <div className='row justify-content-center'>
-                    <div className='col-xxs-12 col-lg-10 m-x-auto'>
-                        <Events events={this.props.events} i18n={i18n} t={t} tReady={tReady} />
-                        <PrayerRequest i18n={i18n} t={t} tReady={tReady} />
+                <main>
+                    <Events events={this.props.events} i18n={i18n} t={t} tReady={tReady} />
+                    <PrayerRequest i18n={i18n} t={t} tReady={tReady} />
 
-                        {/* CONTACT US */}
-                        <section className='mt-5 pt-5'>
-                            <div className='jumbotron jumbotron-fluid bg-light'>
-                                <div className='container text-center'>
-                                    <blockquote className='blockquote'>
-                                        <h2 className='mb-0'>
-                                            &#34;
+                    {/* CONTACT US */}
+                    <section className='mt-5 pt-5'>
+                        <div className='jumbotron jumbotron-fluid bg-light'>
+                            <div className='container text-center'>
+                                <blockquote className='blockquote'>
+                                    <h2 className='mb-0'>
+                                        &#34;
                                             {t<Quote>('contactUsQuote', { returnObjects: true }).text}
-                                            &#34;
+                                        &#34;
                                         </h2>
-                                        <footer className='blockquote-footer'>
-                                            {t<Quote>('contactUsQuote', { returnObjects: true }).origin}
-                                        </footer>
-                                    </blockquote>
-                                    <p className='lead'>
-                                        <a
-                                            id='contact-btn'
-                                            className='btn btn-outline-warning hvr-icon-forward'
-                                            href='/contact'
-                                            role='button'
-                                        >
-                                            {t('contactUs')}
-                                            <i className='fas fa-arrow-circle-right hvr-icon' />
-                                        </a>
-                                    </p>
-                                </div>
+                                    <footer className='blockquote-footer'>
+                                        {t<Quote>('contactUsQuote', { returnObjects: true }).origin}
+                                    </footer>
+                                </blockquote>
+                                <p className='lead'>
+                                    <a
+                                        id='contact-btn'
+                                        className='btn btn-outline-warning hvr-icon-forward'
+                                        href='/contact'
+                                        role='button'
+                                    >
+                                        {t('contactUs')}
+                                        <i className='fas fa-arrow-circle-right hvr-icon' />
+                                    </a>
+                                </p>
                             </div>
-                        </section>
+                        </div>
+                    </section>
 
-                        <VisitUs i18n={i18n} t={t} tReady={tReady} />
+                    <VisitUs i18n={i18n} t={t} tReady={tReady} />
 
-                    </div>
-                </div>
+                </main>
             </div>
         );
     }
