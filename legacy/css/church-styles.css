@@ -73,7 +73,7 @@ hr {
 	border: none;
 	background-color: #fdd007;
 }
-.btn-outline-warning {
+#contact-btn .btn-outline-warning {
 	border-radius: 0;
 	border-color: #fdd007;
     background-color: #fdd007;
@@ -313,18 +313,6 @@ td {
 /*  GROUPS PAGE */
 .img-groups {
 	height: 259px;
-}
-
-/* PREACHING PAGE */
-.video-container {
-	width: 100%;
-	height: 30vh;
-	padding-bottom: 50px;
-}
-.playlist-container {
-	width: 100%;
-	height: 70vh;
-	padding-bottom: 10px;
 }
 
 /* GALLERY */

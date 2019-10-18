@@ -1,7 +1,7 @@
 import React from 'react';
 import GalleryColumn from '../components/gallery/galleryColumn';
 
-import { initialPropsFetch } from '../lib/helpers';
+import { fetchInitialProps } from '../lib/helpers';
 
 interface ImgMeta {
     width: number;
@@ -23,7 +23,7 @@ export interface InstImage {
 
 class Gallery extends React.Component<{ images: InstImage[][], nextMaxId: string }> {
     static async getInitialProps({ req }: any) {
-        const images = await initialPropsFetch('images', req);
+        const images = await fetchInitialProps('images', req);
 
         if (images && 'data' in images) {
             return { images: images.data, namespacesRequired: ['common'] };

@@ -6,7 +6,7 @@ import Events from '../components/home/events';
 import PrayerRequest from '../components/home/prayerRequest';
 import VisitUs from '../components/home/visitUs';
 
-import { initialPropsFetch } from '../lib/helpers';
+import { fetchInitialProps } from '../lib/helpers';
 import { Quote, Event } from '../lib/interfaces';
 
 interface HomepageProps extends WithTranslation {
@@ -15,7 +15,7 @@ interface HomepageProps extends WithTranslation {
 
 class Homepage extends React.Component<HomepageProps> {
     static async getInitialProps({ req }: any) {
-        const data = await initialPropsFetch('events', req, { is_featured: true });
+        const data = await fetchInitialProps('events', req, { is_featured: true });
 
         if (data && 'results' in data) {
             return { events: data.results, namespacesRequired: ['home'] };

@@ -7,7 +7,7 @@ const buildQuery = (params: { [k: string]: string | number | boolean }) => (
         .slice(1)
 );
 
-export const initialPropsFetch = async (
+export const fetchInitialProps = async (
     type: string,
     req: any, params: { [k: string]: string | number | boolean } = {},
 ) => {

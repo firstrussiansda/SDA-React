@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { initialPropsFetch } from '../lib/helpers';
+import { fetchInitialProps } from '../lib/helpers';
 import { Event } from '../lib/interfaces';
 import EventTile from '../components/calendar/eventTile';
 
 class Calendar extends React.Component<{ events: Event[] }> {
     static async getInitialProps({ req }: any) {
-        const data = await initialPropsFetch('events', req);
+        const data = await fetchInitialProps('events', req);
 
         if (data && 'results' in data) {
             return { events: data.results, namespacesRequired: ['common'] };
