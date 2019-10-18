@@ -32,11 +32,15 @@ export interface MediaAsset extends Base {
     thumbnail_url: string;
 }
 
+export interface SoundCloudAsset extends MediaAsset {
+    track_id: string;
+}
+
 export interface Sermon extends Base {
     title: string;
     description: string;
     date: string;
     speakers: Person[];
-    soundcloud_assets: MediaAsset[];
+    soundcloud_assets: SoundCloudAsset[];
     youtube_assets: MediaAsset[];
 }
