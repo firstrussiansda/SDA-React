@@ -28,13 +28,13 @@
       "name": "First Russian SDA church",
       "area": "is located in Gravesend area of Brooklyn, NY.",
       "address": "1913 W 7th St Brooklyn, NY 11223",
-      "header": "Location:"
+      "header": "Місцеположення:"
     },
     "servicesHeader": "Время поклонения - по субботам:",
     "services": [
       {
         "name": "Молитвенная группа",
-        "time": " 9:15 AM"
+        "time": "9:15 AM"
       },
       {
         "name": "Субботняя школа",
