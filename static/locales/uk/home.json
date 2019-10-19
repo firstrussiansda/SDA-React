@@ -1,49 +1,55 @@
 {
-  "mainQuote": {
-    "origin": "Иисус Навин 1: 9, BTI",
-    "text": "Я, Господь, Бог твой, буду с тобой везде"
-  },
-  "contactUsQuote": {
-    "origin": "Псалом 133: 1",
-    "text": "Как хорошо и как приятно, когда братья меж собой в согласии живут!"
-  },
-  "contactUs": "Свяжитесь с нами",
-  "events": "Мероприятия",
-  "prayerRequest": {
-    "title": "У вас есть просьба в молитве?",
-    "quote": {
-      "origin": "Иаков 5:16",
-      "text": "Так что признавайтесь друг перед другом в грехах 'своих' и молитесь друг о друге, чтобы исцелиться. Велика сила горячей молитвы праведного."
+    "mainQuote": {
+        "origin": "Иисус Навин 1: 9, BTI",
+        "text": "Я, Господь, Бог твой, буду с тобой везде"
     },
-    "name": "Имя",
-    "namePlaceholder": "Иван Иванов",
-    "email": "Email",
-    "prayerNeedPlaceholder": "Введите ваши молитвенные нужды",
-    "sendPrayerNeed": "Отправить просьбу",
-    "prayerNeed": "Молитвенная Нужда"
-  },
-  "visitUs": {
-    "title": "Come Visit Us",
-    "location": {
-      "name": "First Russian SDA church",
-      "area": "is located in Gravesend area of Brooklyn, NY.",
-      "address": "1913 W 7th St Brooklyn, NY 11223",
-      "header": "Location:"
+    "contactUsQuote": {
+        "origin": "Псалом 133: 1",
+        "text": "Как хорошо и как приятно, когда братья меж собой в согласии живут!"
     },
-    "servicesHeader": "Время поклонения - по субботам:",
-    "services": [
-      {
-        "name": "Молитвенная группа",
-        "time": " 9:15 AM"
-      },
-      {
-        "name": "Субботняя школа",
-        "time": "10:00 AM"
-      },
-      {
-        "name": "Служение",
-        "time": "11:00 AM"
-      }
-    ]
-  }
+    "contactUs": "Свяжитесь с нами",
+    "events": "Мероприятия",
+    "prayerRequest": {
+        "title": "У вас есть просьба в молитве?",
+        "quote": {
+            "origin": "Иаков 5:16",
+            "text": "Так что признавайтесь друг перед другом в грехах 'своих' и молитесь друг о друге, чтобы исцелиться. Велика сила горячей молитвы праведного."
+        },
+        "name": "Имя",
+        "namePlaceholder": "Иван Иванов",
+        "email": "Email",
+        "prayerNeedPlaceholder": "Введите ваши молитвенные нужды",
+        "sendPrayerNeed": "Отправить просьбу",
+        "prayerNeed": "Молитвенная Нужда"
+    },
+    "visitUs": {
+        "title": "Come Visit Us",
+        "location": {
+            "name": "First Russian SDA church",
+            "area": "is located in Gravesend area of Brooklyn, NY.",
+            "address": "1913 W 7th St Brooklyn, NY 11223",
+            "header": "Місцеположення:"
+        },
+        "servicesHeader": "Время поклонения - по субботам:",
+        "services": [
+            {
+                "name": "Молитвенная группа"
+            },
+            {
+                "time": "9:15 AM"
+            },
+            {
+                "name": "Субботняя школа"
+            },
+            {
+                "time": "10:00 AM"
+            },
+            {
+                "name": "Служение"
+            },
+            {
+                "time": "11:00 AM"
+            }
+        ]
+    }
 }
