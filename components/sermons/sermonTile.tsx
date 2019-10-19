@@ -1,13 +1,12 @@
 import React from 'react';
-import { Sermon } from '../../lib/interfaces';
+import { WithTranslation } from 'react-i18next';
+
 import { formatDate } from '../../lib/helpers';
+
+import { Sermon } from '../../lib/interfaces';
 import AudioDropdown from './audioEmbed';
 
-interface SermonTileProps {
-    setActiveVideo: (id: number) => void;
-    scrollToVideo: () => void;
-    videoIsActive: boolean;
-    index: number;
+interface SermonTileProps extends WithTranslation {
     sermon: Sermon;
 }
 
@@ -68,7 +67,7 @@ class SermonTile extends React.Component<SermonTileProps, SermonTileState> {
                     <div className='col-md-5 col-lg-7'>
                         <div className='card-body'>
                             <h5 className='card-title'>{sermon.title}</h5>
-                            {
+                        {
                                 sermon.speakers.length !== 0 &&
                                 (
                                     <h6 className='card-text'>
@@ -85,16 +84,14 @@ class SermonTile extends React.Component<SermonTileProps, SermonTileState> {
                                 sermon.youtube_assets.length !== 0 &&
                                 (
                                     <div className='col col-xs-6 col-md-12 mb-3 mb-md-0'>
-                                        <button
-                                            type='button'
-                                            onClick={() => {
-                                                this.props.scrollToVideo();
-                                                this.props.setActiveVideo(this.props.index);
-                                            }}
-                                            className='btn btn-md youtube'
+                                        <a
+                                            className='btn btn-md youtube capitalize'
+                                            href={sermon.youtube_assets[0].object_url}
+                                            target='_blank'
                                         >
-                                            <img src='/static/svg/youtube.svg' width='40px' height='30px' />Watch
-                                        </button>
+                                            <img src='/static/svg/youtube.svg' width='40px' height='30px' />
+                                            {this.props.t('watch')}
+                                        </a>
                                     </div>
                                 )
                             }
@@ -105,9 +102,10 @@ class SermonTile extends React.Component<SermonTileProps, SermonTileState> {
                                         <button
                                             type='button'
                                             onClick={this.toggleAudioPlayer}
-                                            className='btn btn-md brn-outline-warning sound-cloud'
+                                            className='btn btn-md sound-cloud capitalize'
                                         >
-                                            <img src='/static/svg/soundcloud.svg' width='40px' height='30px' />Listen
+                                            <img src='/static/svg/soundcloud.svg' width='40px' height='30px' />
+                                            {this.props.t('listen')}
                                         </button>
                                     </div>
                                 )
