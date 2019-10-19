@@ -18,6 +18,10 @@ hr {
     margin: 0 0 20px 0;
 }
 
+.capitalize {
+	text-transform: capitalize;
+}
+
 .row {
 	margin: 0!important;
 }
@@ -281,10 +285,9 @@ hr {
 }
 
 /* Sermons page */
-.sermons-page .media-buttons button {
+.sermons-page .media-buttons button, .sermons-page .media-buttons a {
 	width: 100%;
 	border: 1px solid;
-	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 	transition: all 0.3s ease 0s;
 }
 

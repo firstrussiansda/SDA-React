@@ -1,6 +1,6 @@
 import React from 'react';
 
-import KeyMissionComponents from '../components/about/keyMissionComponents';
+// import KeyMissionComponents from '../components/about/keyMissionComponents';
 import Leadership from '../components/about/leadership';
 
 // TODO: Resize pastor image

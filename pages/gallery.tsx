@@ -1,7 +1,10 @@
 import React from 'react';
-import GalleryColumn from '../components/gallery/galleryColumn';
-
+import { WithTranslation } from 'react-i18next';
+import { withTranslation } from '../i18n';
 import { fetchInitialProps } from '../lib/helpers';
+import { HeaderLocale } from '../components/shared/header';
+
+import GalleryColumn from '../components/gallery/galleryColumn';
 
 interface ImgMeta {
     width: number;
@@ -21,7 +24,12 @@ export interface InstImage {
     link: string;
 }
 
-class Gallery extends React.Component<{ images: InstImage[][], nextMaxId: string }> {
+interface GalleryProps extends WithTranslation {
+    images: InstImage[][];
+    nextMaxId: string;
+}
+
+class Gallery extends React.Component<GalleryProps> {
     static async getInitialProps({ req }: any) {
         const images = await fetchInitialProps('images', req);
 
@@ -34,6 +42,9 @@ class Gallery extends React.Component<{ images: InstImage[][], nextMaxId: string
     render() {
         return (
             <div className='container'>
+                <h1 className='text-center capitalize'>
+                    {this.props.t<HeaderLocale>('header', { returnObjects: true }).gallery}
+                </h1>
                 <section className='gallery row'>
                     {this.props.images.map((images, i) => <GalleryColumn images={images} key={i} />)}
                 </section>
@@ -42,4 +53,4 @@ class Gallery extends React.Component<{ images: InstImage[][], nextMaxId: string
     }
 }
 
-export default Gallery;
+export default withTranslation('common')(Gallery);

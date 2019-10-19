@@ -1,9 +1,11 @@
 import React from 'react';
 import { WithTranslation } from 'react-i18next';
-import { Sermon } from '../lib/interfaces';
+import { withTranslation } from '../i18n';
+
 import { fetchInitialProps } from '../lib/helpers';
+import { Sermon } from '../lib/interfaces';
+
 import SermonTile from '../components/sermons/sermonTile';
-import VideoEmbed from '../components/sermons/videoEmbed';
 
 interface SermonsProps extends WithTranslation {
     data: {
@@ -18,29 +20,23 @@ interface SermonsState {
     page: number;
     next: null | string;
     previous: null | string;
-    activeVideo: null | number;
 }
 
 class Sermons extends React.Component<SermonsProps, SermonsState> {
-    private videoPlayerRef: React.RefObject<HTMLSpanElement>;
-
     constructor(props: SermonsProps) {
         super(props);
-
-        this.videoPlayerRef = React.createRef();
 
         this.state = {
             sermons: [],
             page: 1,
             next: null,
             previous: null,
-            activeVideo: null,
         };
 
     }
     static async getInitialProps({ req }: any) {
         const data = await fetchInitialProps('sermons', req);
-        return { data, namespacesRequired: ['home'] };
+        return { data, namespacesRequired: ['sermons'] };
     }
 
     componentDidMount() {
@@ -48,35 +44,18 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
         this.setState({ sermons: results, previous, next });
     }
 
-    setActiveVideo = (activeVideo: number) => {
-        this.setState({ activeVideo });
-    }
-
-    scrollToVideoPlayer = () => {
-        if (this.videoPlayerRef.current) {
-            window.scrollTo(0, this.videoPlayerRef.current.offsetTop);
-        }
-    }
-
     render() {
-        const { sermons, activeVideo } = this.state;
         return (
             <div className='container sermons-page'>
-                <span ref={this.videoPlayerRef} />
-                <h1 className='text-center'>Sermons</h1>
+                <h1 className='text-center capitalize'>{this.props.t('title')}</h1>
                 {
-                    activeVideo !== null &&
-                    <VideoEmbed objectId={sermons[activeVideo].youtube_assets[0].object_id} />
-                }
-                {
-                    sermons.map((sermon, i) => (
+                    this.state.sermons.map(sermon => (
                         <SermonTile
                             sermon={sermon}
                             key={sermon.id}
-                            videoIsActive={i === activeVideo}
-                            setActiveVideo={this.setActiveVideo}
-                            scrollToVideo={this.scrollToVideoPlayer}
-                            index={i}
+                            t={this.props.t}
+                            i18n={this.props.i18n}
+                            tReady={this.props.tReady}
                         />
                     ))
                 }
@@ -85,5 +64,4 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
     }
 }
 
-// export default withTranslation('sermons')(Sermons);
-export default Sermons;
+export default withTranslation('sermons')(Sermons);
