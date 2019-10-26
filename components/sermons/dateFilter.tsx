@@ -62,29 +62,31 @@ export const DateSelector: React.SFC<DateSelectorProps> = props => {
             </select>
             {
                 year &&
-                <select
-                    name='month'
-                    onChange={handleChange}
-                    value={props.month}
-                >
-                    <option
-                        label='Select Month'
-                        value=''
+                (
+                    <select
+                        name='month'
+                        onChange={handleChange}
+                        value={props.month}
                     >
-                        Select Month
-                    </option>
-                    {
-                        getMonths().map((month, i) => (
-                            <option
-                                key={month}
-                                label={month}
-                                value={i + 1}
-                            >
-                                {month}
-                            </option>
-                        ))
-                    }
-                </select>
+                        <option
+                            label='Select Month'
+                            value=''
+                        >
+                            Select Month
+                        </option>
+                        {
+                            getMonths().map((month, i) => (
+                                <option
+                                    key={month}
+                                    label={month}
+                                    value={i + 1}
+                                >
+                                    {month}
+                                </option>
+                            ))
+                        }
+                    </select>
+                )
             }
         </div>
     );
