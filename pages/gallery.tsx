@@ -1,7 +1,7 @@
 import React from 'react';
 import { WithTranslation } from 'react-i18next';
 import { withTranslation } from '../i18n';
-import { fetchInitialProps } from '../lib/helpers';
+import { fetchData } from '../lib/helpers';
 import { HeaderLocale } from '../components/shared/header';
 
 import GalleryColumn from '../components/gallery/galleryColumn';
@@ -31,7 +31,7 @@ interface GalleryProps extends WithTranslation {
 
 class Gallery extends React.Component<GalleryProps> {
     static async getInitialProps({ req }: any) {
-        const images = await fetchInitialProps('images', req);
+        const images = await fetchData('images', req);
 
         if (images && 'data' in images) {
             return { images: images.data, namespacesRequired: ['common'] };

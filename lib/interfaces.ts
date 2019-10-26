@@ -44,3 +44,7 @@ export interface Sermon extends Base {
     soundcloud_assets: SoundCloudAsset[];
     youtube_assets: MediaAsset[];
 }
+
+export interface ReqParams {
+    [k: string]: string | number | boolean;
+}

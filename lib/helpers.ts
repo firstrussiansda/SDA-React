@@ -1,15 +1,17 @@
 import { i18n } from '../i18n';
 import { pythonAPI, nodeAPI, defaultImages } from './const';
+import { ReqParams } from './interfaces';
 
-const buildQuery = (params: { [k: string]: string | number | boolean }) => (
+const buildQuery = (params: ReqParams) => (
     Object.entries(params)
         .reduce((acc, [key, val]) => acc + `&${key}=${val}`, '')
         .slice(1)
 );
 
-export const fetchInitialProps = async (
+export const fetchData = async (
     type: string,
-    req: any, params: { [k: string]: string | number | boolean } = {},
+    req: any,
+    params: ReqParams = {},
 ) => {
     try {
         const url = `${type === 'images' ? nodeAPI : pythonAPI}${type}`;
@@ -46,7 +48,7 @@ export const formatDate = (rawDate: string) => {
         return (new Date(rawDate)).toLocaleDateString(i18n.language, {
             weekday: 'long', month: 'long', day: 'numeric',
         });
-    } catch(_e) {
+    } catch (_e) {
         return rawDate;
     }
 };
