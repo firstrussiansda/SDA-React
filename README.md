@@ -44,13 +44,3 @@ Return latest images from instagram account
 - count - number of images (default - 12)
 
 - max_id - id returned form the previous call - get more images after the last one from the previous call
-
-### `api/:type/:language`
-
-Returns mock data
-
-#### Params
-
-- language: en/ru/uk
-
-- type: events/sermons
