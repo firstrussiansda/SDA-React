@@ -7,7 +7,7 @@ interface DateSelectorProps {
 }
 
 export const DateSelector: React.SFC<DateSelectorProps> = props => {
-    const { year, month, handleChange } = props;
+    const { year, handleChange } = props;
     const date = new Date();
 
     const getYears = () => {
@@ -36,7 +36,7 @@ export const DateSelector: React.SFC<DateSelectorProps> = props => {
     };
 
     return (
-        <div>
+        <div className='mx-3'>
             <select
                 name='year'
                 onChange={handleChange}

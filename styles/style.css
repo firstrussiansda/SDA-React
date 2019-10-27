@@ -87,7 +87,7 @@ hr {
 	border: none;
 	background-color: #fdd007;
 }
-#contact-btn .btn-outline-warning {
+#contact-btn.btn-outline-warning {
 	border-radius: 0;
 	border-color: #fdd007;
     background-color: #fdd007;
@@ -119,30 +119,6 @@ hr {
 	max-width: 500px;
 }
 
-/* CAROUSEL */
-.carousel-caption {
-    right: 0;
-    left: auto;
-    color: black;
-    padding-right: 100px;
-}
-.carousel-control-prev-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23444' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
-}
-.carousel-control-next-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23444' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
-}
-.carousel-indicators {
-  bottom: -60px;
-}
-.carousel-indicators li {
-  background-color: #999;
-  background-color: rgba(70,70,70,.25);
-}
-.carousel-indicators .active {
-  background-color: #444;
-}
-
 /* VISIT US*/
 .visit {
     margin: 0 1.5rem 1.5rem 2rem;
@@ -151,10 +127,6 @@ hr {
 }
 .visit strong {
     line-height: 1rem;
-}
-.visit ul {
-	padding: 0;
-	line-height: 1rem;
 }
 .visit td {
 	padding: 5px 10px 5px 0;
