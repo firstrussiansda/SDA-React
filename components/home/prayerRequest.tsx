@@ -1,6 +1,7 @@
 import React from 'react';
 import { WithTranslation } from 'react-i18next';
 import { Quote } from '../../lib/interfaces';
+import { event } from '../../lib/gtag';
 
 interface PrayerRequestLocales {
     title: string;
@@ -12,6 +13,13 @@ interface PrayerRequestLocales {
     'prayerNeedPlaceholder': string;
     'sendPrayerNeed': string;
 }
+
+const reportToGA = () => {
+    event({
+        action: 'submit_form',
+        category: 'Prayer',
+    });
+};
 
 const PrayerRequest: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
     // TODO: this leads to server and client side HTML not matching sometimes. Hope to fix before PROD release
@@ -41,6 +49,7 @@ const PrayerRequest: React.FunctionComponent<WithTranslation> = ({ t, tReady }) 
                     <form
                         action='https://formspree.io/skaistrenko@gmail.com'
                         method='POST'
+                        onSubmit={reportToGA}
                     >
                         <div className='row'>
                             <div className='col-sm-6 col-md-6 mt-2 form-group'>

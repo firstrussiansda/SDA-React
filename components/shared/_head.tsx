@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import React from 'react';
 
+import { GA_TRACKING_ID } from '../../lib/gtag';
+
 const HeadTag = () => (
     <Head>
         <title>NY First Russian SDA church</title>
@@ -30,6 +32,20 @@ const HeadTag = () => (
             href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
             integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T'
             crossOrigin='anonymous'
+        />
+        <script
+            async={true}
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+        />
+        <script
+            dangerouslySetInnerHTML={{
+                __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_TRACKING_ID}');
+            `,
+            }}
         />
     </Head>
 );

@@ -8,6 +8,7 @@ import VisitUs from '../components/home/visitUs';
 
 import { fetchData } from '../lib/helpers';
 import { Quote, Event } from '../lib/interfaces';
+import { event } from '../lib/gtag';
 
 interface HomepageProps extends WithTranslation {
     events: Event[];
@@ -22,6 +23,13 @@ class Homepage extends React.Component<HomepageProps> {
         }
 
         return { events: [], namespacesRequired: ['home'] };
+    }
+
+    reportToGA = () => {
+        event({
+            action: 'link_click',
+            category: 'Contact',
+        });
     }
 
     render() {
@@ -74,6 +82,7 @@ class Homepage extends React.Component<HomepageProps> {
                                         className='btn btn-outline-warning hvr-icon-forward'
                                         href='/contact'
                                         role='button'
+                                        onClick={this.reportToGA}
                                     >
                                         {t('contactUs')}
                                         <i className='fas fa-arrow-circle-right hvr-icon' />
