@@ -103,9 +103,7 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
         this.setState({ sermons: data.results, count: data.count });
     }
 
-    getPageCount = () => (
-        Math.ceil(this.state.count / PAGE_SIZE)
-    )
+    getPageCount = () =>  Math.ceil(this.state.count / PAGE_SIZE);
 
     render() {
         return (
@@ -119,6 +117,10 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
                     speakers={this.props.speakers}
                 />
                 {
+                    this.state.count === 0 &&
+                    <p className='text-center'>{this.props.t('noData')}</p>
+                }
+                {
                     this.state.sermons.map(sermon => (
                         <SermonTile
                             sermon={sermon}
@@ -129,12 +131,17 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
                         />
                     ))
                 }
-                <Pagination
-                    updatePage={this.updatePage}
-                    curPage={this.state.page}
-                    count={this.state.count}
-                    pageCount={this.getPageCount()}
-                />
+                {
+                    this.state.count > PAGE_SIZE &&
+                    (
+                        <Pagination
+                            updatePage={this.updatePage}
+                            curPage={this.state.page}
+                            count={this.state.count}
+                            pageCount={this.getPageCount()}
+                        />
+                    )
+                }
             </div>
         );
     }
