@@ -103,13 +103,16 @@ class Calendar extends React.Component<SermonsProps, SermonsState> {
                             <React.Fragment>
                                 {
                                     this.isMoreAvailable() &&
-                                    <button
-                                        type='button'
-                                        className='btn btn-outline-primary'
-                                        onClick={this.loadMore}
-                                    >
-                                        Load more
-                                    </button>
+                                    (
+                                        <button
+                                            type='button'
+                                            className='btn btn-outline-primary'
+                                            onClick={this.loadMore}
+                                        >
+                                            Load more
+                                        </button>
+
+                                    )
                                 }
                             </React.Fragment>
                         )
