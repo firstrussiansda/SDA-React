@@ -1,4 +1,5 @@
 import React from 'react';
+import { event } from '../lib/gtag';
 
 // import { withTranslation } from '../i18n';
 import { WithTranslation } from 'react-i18next';
@@ -8,6 +9,13 @@ class Contact extends React.Component<WithTranslation> {
         return {
             namespacesRequired: ['common'],
         };
+    }
+
+    reportToGA = () => {
+        event({
+            action: 'submit_form',
+            category: 'Contact',
+        });
     }
 
     render() {
@@ -20,6 +28,7 @@ class Contact extends React.Component<WithTranslation> {
                         className='col-md-6 col-sm-12 m-3 pb-4'
                         action='https://formspree.io/skaistrenko@gmail.com'
                         method='POST'
+                        onSubmit={this.reportToGA}
                     >
                         <div className='form-field string required'>
                             <label htmlFor='nameInput'>Name</label>
