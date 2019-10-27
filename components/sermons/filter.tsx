@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Person } from '../../lib/interfaces';
 import { DateSelector } from './dateFilter';
-import { SpeakerSelector } from './preacherFilter';
+import { SpeakerSelector } from './speakerSelector';
 
 interface FilterProps {
     handleChange(e: React.FormEvent<HTMLSelectElement>): void;
@@ -14,8 +14,7 @@ interface FilterProps {
 
 const Filter: React.FunctionComponent<FilterProps> = (props) => {
     return (
-        <div className='input-group mb-3'>
-            <div className='input-group'>
+            <div className='d-flex justify-content-center input-group mb-3'>
                 <DateSelector
                     handleChange={props.handleChange}
                     year={props.year}
@@ -27,7 +26,6 @@ const Filter: React.FunctionComponent<FilterProps> = (props) => {
                     handleChange={props.handleChange}
                 />
             </div>
-        </div>
     );
 };
 

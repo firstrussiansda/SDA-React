@@ -42,7 +42,7 @@ class Gallery extends React.Component<GalleryProps> {
     render() {
         return (
             <div className='container'>
-                <h1 className='text-center capitalize'>
+                <h1 className='text-center capitalize my-3'>
                     {this.props.t<HeaderLocale>('header', { returnObjects: true }).gallery}
                 </h1>
                 <section className='gallery row'>

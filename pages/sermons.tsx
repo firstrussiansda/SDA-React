@@ -110,7 +110,7 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
     render() {
         return (
             <div className='container sermons-page'>
-                <h1 className='text-center capitalize'>{this.props.t('title')}</h1>
+                <h1 className='text-center capitalize my-3'>{this.props.t('title')}</h1>
                 <Filter
                     handleChange={this.handleFilter}
                     year={this.state.year}

@@ -40,6 +40,7 @@ class Footer extends React.Component<WithTranslation> {
                     </span>
                 </p>
                 <p>{this.props.t<FooterLocale>('footer', { returnObjects: true }).main}</p>
+                <p><a href='/site-policy'>Policy</a></p>
                 <p>&copy; {this.props.t<FooterLocale>('footer', { returnObjects: true }).copyright}</p>
             </footer>
         );

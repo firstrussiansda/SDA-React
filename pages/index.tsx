@@ -15,7 +15,7 @@ interface HomepageProps extends WithTranslation {
 
 class Homepage extends React.Component<HomepageProps> {
     static async getInitialProps({ req }: any) {
-        const data = await fetchData('events', req, { is_featured: true });
+        const data = await fetchData('events/featured', req, { page_size: 3 });
 
         if (data && 'results' in data) {
             return { events: data.results, namespacesRequired: ['home'] };
