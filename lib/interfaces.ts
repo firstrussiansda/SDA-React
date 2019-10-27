@@ -22,6 +22,7 @@ export interface Person extends Base {
     name: string;
     profile_image_url: string;
     position: string;
+    about: string;
 }
 
 export interface MediaAsset extends Base {
@@ -43,4 +44,8 @@ export interface Sermon extends Base {
     speakers: Person[];
     soundcloud_assets: SoundCloudAsset[];
     youtube_assets: MediaAsset[];
+}
+
+export interface ReqParams {
+    [k: string]: string | number | boolean;
 }

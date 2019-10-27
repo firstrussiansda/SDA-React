@@ -1,6 +1,5 @@
 import React from 'react';
 import { WithTranslation } from 'react-i18next';
-import { withTranslation } from '../../i18n';
 
 interface ServicesTypes {
     name: string;
@@ -29,7 +28,7 @@ const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
         <section id='visit-block' className='card card-lg pb-5'>
             <h2 id='directions-title' className='title text-center'>{localizedText.title}</h2>
             <div className='row'>
-                <div className='col-lg-6 col-md-6 col-xxs-12 col-sm-12 m-b-lg'>
+                <div className='col-md-6 m-b-lg'>
                     <div className='visit text-xs m-b-lg text-sm-left'>
                         <strong>{localizedText.location.name}</strong>
                         &nbsp;
@@ -45,8 +44,8 @@ const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
                         <table>
                             <tbody>
                                 {
-                                    localizedText.services.map(service => (
-                                        <tr key={service.name}>
+                                    localizedText.services.map((service, idx) => (
+                                        <tr key={idx}>
                                             <td>{service.time}</td>
                                             <td>{service.name}</td>
                                         </tr>
@@ -56,7 +55,7 @@ const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
                         </table>
                     </div>
                 </div>
-                <div className='col-lg-6 col-md-6 col-xxs-12 col-sm-12'>
+                <div className='col-md-6'>
                     <iframe
                         width='100%'
                         max-height='80vh'

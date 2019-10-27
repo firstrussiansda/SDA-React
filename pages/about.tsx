@@ -1,68 +1,133 @@
 import React from 'react';
 
-// import KeyMissionComponents from '../components/about/keyMissionComponents';
+import { fetchData } from '../lib/helpers';
+import { Person } from '../lib/interfaces';
+import { WithTranslation } from 'react-i18next';
+import { withTranslation } from '../i18n';
 import Leadership from '../components/about/leadership';
 
-// TODO: Resize pastor image
-const About = () => {
-    return (
-        <div className='row justify-content-md-center'>
-            <div className='col-xxs-12 col-lg-10 m-c-auto'>
-                {/* Mission statement */}
-                <section className='card about card-lg' id='about-mission'>
-                    <h2 className='title  text-xxxl m-b-sm m-t-sm text-center'>Mission</h2>
-                    <div className='blockquote text-center'>
-                        <p id='mission-statement' className='m-b-xs'>
-                            Reach Ukrainian and Russian speaking people in
-                            Greater New York area with the distinctive,
-                            Christ-centered message of Hope and Wholeness.
-                        </p>
-                    </div>
-                </section>
+interface AboutProps extends WithTranslation {
+    people: Person[];
+    count: number;
+}
 
-                {/* TODO: get content for this element */}
-                {/* <KeyMissionComponents /> */}
+interface AboutState {
+    people: Person[];
+    pastor?: Person;
+}
 
-                <section className='card about about-us card-lg'>
-                    <h2 className='title text-xxl m-b text-center'>About</h2>
-                    <div className='text-center text-justify m-x-auto'>
-                        <p className='m-b-xs'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Integer posuere erat a ante.Lorem ipsum dolor sit amet,
-                            consectetur adipiscing elit. Integer posuere erat a ante.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Integer posuere erat a ante.Lorem ipsum dolor sit amet,
-                            consectetur adipiscing elit. Integer posuere erat a ante.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Integer posuere erat a ante.
-                        </p>
-                    </div>
-                </section>
+class About extends React.Component<AboutProps, AboutState> {
+    constructor(props: AboutProps) {
+        super(props);
+        this.state = {
+            people: [],
+            pastor: undefined,
+        };
+    }
 
-                <section className='card about card-lg p-b-0 text-xxs-center'>
-                    <h2 className='title m-b-xxl text-center'>Our Pastor</h2>
-                    <div className='row'>
-                        <div className='col-12 m-b-xxl'>
-                            <img className='img-circle img-fluid m-x-auto m-b' src='static/img/pastor.jpg' />
-                            <h3 className='name text-md text-center'>Andriy Dyman</h3>
-                            <p className='text-center m-b-sm m-x-auto short-bio'>
-                                Eli drives Apptopia’s strategic vision and manages investor relations.
-                                Before Apptopia Eli was involved in several startups, including:
-                                GPush, Oasys Water, GreatPoint Energy, and DVTel.
+    static async getInitialProps({ req }: any) {
+        const data = await fetchData('people', req, { position__isnull: false });
+
+        if (data && 'results' in data) {
+            return {
+                people: data.results,
+                count: data.count,
+                namespacesRequired: ['about'],
+            };
+        }
+
+        return { people: [], count: 0, namespacesRequired: ['about'] };
+    }
+
+    componentDidMount() {
+        let people = [... this.props.people];
+        let pastorIdx = -1;
+
+        people.forEach((person, idx) => {
+            if (['pastor', 'пастор'].includes(person.position.toLowerCase())) {
+                if (pastorIdx < 0) {
+                    pastorIdx = idx;
+                } else {
+                    // tslint:disable-next-line:no-console
+                    console.error('More than one pastor located');
+                }
+            }
+        });
+
+        if (pastorIdx >= 0) {
+            const pastor = people[pastorIdx];
+            people = people.slice(0, pastorIdx)
+                .concat(people.slice(pastorIdx + 1));
+            this.setState({ people, pastor });
+        } else {
+            this.setState({ people, pastor: undefined });
+        }
+    }
+
+    render() {
+        return (
+            <div className='row justify-content-md-center'>
+                <div className='col-xxs-12 col-lg-10 m-c-auto'>
+                    {/* Mission statement */}
+                    <section className='card about card-lg' id='about-mission'>
+                        <h2 className='title capitalize text-xxxl m-b-sm m-t-sm text-center'>
+                            {this.props.t('missionHeader')}
+                        </h2>
+                        <div className='blockquote text-center'>
+                            <p id='mission-statement' className='m-b-xs'>
+                                {this.props.t('mission')}
                             </p>
                         </div>
-                    </div>
-                </section>
+                    </section>
 
-                <Leadership />
+                    <section className='card about about-us card-lg'>
+                        <h2 className='title capitalize text-xxl m-b text-center'>
+                            {this.props.t('title')}
+                        </h2>
+                        <div className='text-center text-justify m-x-auto'>
+                            {
+                                this.props.t<string[]>('about', { returnObjects: true })
+                                    .map(text => (<p className='m-b-xs' key={text}>{text}</p>))
+                            }
+                        </div>
+                    </section>
 
+                    {
+                        this.state.pastor &&
+                        (
+                            <section className='card about card-lg pb-5 text-xxs-center'>
+                                <h2 className='title capitalize m-b-xxl text-center'>{this.props.t('ourPastor')}</h2>
+                                <div className='row'>
+                                    <div className='col m-b-xxl'>
+                                        <img
+                                            className='img-circle img-fluid m-x-auto m-b'
+                                            src={this.state.pastor.profile_image_url}
+                                        />
+                                        <h3 className='name text-md text-center'>
+                                            {this.state.pastor.name}
+                                        </h3>
+                                        {
+                                            this.state.pastor.about &&
+                                            (
+                                                <p className='text-center m-b-sm m-x-auto short-bio'>
+                                                    {this.state.pastor.about}
+                                                </p>
+                                            )
+                                        }
+                                    </div>
+                                </div>
+                            </section>
+                        )
+                    }
+
+                    {
+                        this.state.people.length > 0 &&
+                        <Leadership people={this.state.people} />
+                    }
+                </div>
             </div>
-        </div>
-    );
-};
+        );
+    }
+}
 
-About.getInitialProps = async () => ({
-    namespacesRequired: ['common'],
-});
-
-export default About;
+export default withTranslation('about')(About);

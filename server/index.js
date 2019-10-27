@@ -4,7 +4,6 @@ const nextI18NextMiddleware = require('next-i18next/middleware').default;
 
 const nextI18next = require('../i18n');
 
-const mockAPI = require('./middleware/mock');
 const imagesHandler = require('./middleware/images');
 
 const port = process.env.PORT || 3000;
@@ -21,7 +20,6 @@ const handle = app.getRequestHandler();
     server.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
     server.get('/api/images', imagesHandler);
-    server.get('/api/:type/:language', mockAPI);
 
     server.get('*', (req, res) => handle(req, res));
 
