@@ -1,39 +1,48 @@
 import React from 'react';
+import { event } from '../lib/gtag';
 
-// import { withTranslation } from '../i18n';
+import { withTranslation } from '../i18n';
 import { WithTranslation } from 'react-i18next';
 
 class Contact extends React.Component<WithTranslation> {
     static async getInitialProps() {
-        return {
-            namespacesRequired: ['common'],
-        };
+        return { namespacesRequired: ['contact'] };
+    }
+
+    reportToGA = () => {
+        event({
+            action: 'submit_form',
+            category: 'Contact',
+        });
     }
 
     render() {
         return (
             <div id='contactUs'>
-                <h1 className='text-center title'>Contact Us</h1>
-                <h2 className='text-center'>Stop By and Say 'hi'. Or Send Us a Note.</h2>
+                <h1 className='text-center capitalize my-3'>{this.props.t('title')}</h1>
+                <h2 className='text-center'>{this.props.t('header')}</h2>
                 <div className='row justify-content-md-center'>
                     <form
                         className='col-md-6 col-sm-12 m-3 pb-4'
                         action='https://formspree.io/skaistrenko@gmail.com'
                         method='POST'
+                        onSubmit={this.reportToGA}
                     >
                         <div className='form-field string required'>
-                            <label htmlFor='nameInput'>Name</label>
+                            <label htmlFor='nameInput' className='capitalize'>
+                                {this.props.t('name')}
+                            </label>
                             <input
                                 id='nameInput'
                                 type='text'
                                 name='name'
                                 className='form-control'
-                                placeholder='Ivan Ivanov'
+                                placeholder={this.props.t('namePlaceholder')}
                                 required={true}
                             />
                         </div>
                         <div className='form-field string required'>
-                            <label htmlFor='email-input'>Email address</label>
+                            <label htmlFor='email-input'>{this.props.t('email')}</label>
                             <input
                                 type='email'
                                 name='_replyto'
@@ -44,17 +53,19 @@ class Contact extends React.Component<WithTranslation> {
                                 required={true}
                             />
                             <small id='emailHelp' className='form-text text-muted'>
-                                We'll never share your email with anyone else.
+                                {this.props.t('neverShare')}
                             </small>
                         </div>
 
                         <div className='form-field string required'>
-                            <label htmlFor='message-input'>Message</label>
+                            <label htmlFor='message-input' className='capitalize'>
+                                {this.props.t('message')}
+                            </label>
                             <textarea
                                 className='form-control'
                                 id='message-input'
                                 rows={5}
-                                placeholder='Enter your message'
+                                placeholder={this.props.t('messagePlaceholder')}
                                 required={true}
                                 name='message'
                             />
@@ -62,10 +73,10 @@ class Contact extends React.Component<WithTranslation> {
                         <input
                             type='submit'
                             name='Submit'
-                            value='Contact us'
+                            value={this.props.t<string>('send')}
                             role='button'
                             id='submit-btn'
-                            className='btn btn-outline-warning hvr-icon-forward'
+                            className='btn btn-outline-warning hvr-icon-forward capitalize'
                         />
                     </form>
 
@@ -76,13 +87,13 @@ class Contact extends React.Component<WithTranslation> {
                                     <td><i className='fas fa-map-marker-alt' /></td>
                                     <td>Brooklyn, NY</td>
                                 </tr>
-                                <tr>
+                                {/* <tr>
                                     <td><i className='fas fa-phone' /></td>
                                     <td>555-555-5555</td>
-                                </tr>
+                                </tr> */}
                                 <tr>
                                     <td><i className='far fa-envelope' /></td>
-                                    <td>frsda@gmail.com</td>
+                                    <td>firstrussiansdachurch@gmail.com</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -136,5 +147,4 @@ class Contact extends React.Component<WithTranslation> {
     }
 }
 
-// export default withTranslation('contact')(Contact);
-export default Contact;
+export default withTranslation('contact')(Contact);

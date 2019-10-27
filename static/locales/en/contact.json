@@ -1,0 +1,11 @@
+{
+  "title": "contact us",
+  "header": "Stop By and Say 'hi'. Or Send Us a Note.",
+  "name": "name",
+  "namePlaceholder": "Ivan Ivanov",
+  "email": "Email address",
+  "neverShare": "We'll never share your email with anyone else.",
+  "message": "message",
+  "messagePlaceholder": "Enter your message",
+  "send": "send"
+}
