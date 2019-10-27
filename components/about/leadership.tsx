@@ -1,42 +1,24 @@
 import React from 'react';
-import LeadershipItem from './leadershipItem';
+import { Person } from '../../lib/interfaces';
 
-const Leadership = () => {
-    const members = [
-        {
-            img: 'static/img/pastor.jpg',
-            name: 'Andrew Dyman1',
-            role: 'Pastor',
-            bio: 'Eli drives Apptopia’s strategic vision and manages investor relations. Before Apptopia Eli was involved in several startups, including: GPush, Oasys Water, GreatPoint Energy, and DVTel.',
-        },
-        {
-            img: 'static/img/pastor.jpg',
-            name: 'Andrew Dyman2',
-            role: 'Pastor',
-            bio: 'Eli drives Apptopia’s strategic vision and manages investor relations. Before Apptopia Eli was involved in several startups, including: GPush, Oasys Water, GreatPoint Energy, and DVTel.',
-        },
-        {
-            img: 'static/img/pastor.jpg',
-            name: 'Andrew Dyman3',
-            role: 'Pastor',
-            bio: 'Eli drives Apptopia’s strategic vision and manages investor relations. Before Apptopia Eli was involved in several startups, including: GPush, Oasys Water, GreatPoint Energy, and DVTel.',
-        },
-        {
-            img: 'static/img/pastor.jpg',
-            name: 'Andrew Dyman4',
-            role: 'Pastor',
-            bio: 'Eli drives Apptopia’s strategic vision and manages investor relations. Before Apptopia Eli was involved in several startups, including: GPush, Oasys Water, GreatPoint Energy, and DVTel.',
-        },
-    ];
+interface LeadershipProps {
+    people: Person[];
+}
 
-    return (
-        <section className='card about card-lg p-b-0 text-xxs-center'>
-            <h2 className='title m-b-xxl text-center'>Leadership</h2>
-            <div className='row'>
-                { members.map(member => <LeadershipItem {...member} key={member.name} />) }
-            </div>
-        </section>
-    );
-};
+const Leadership: React.FunctionComponent<LeadershipProps> = ({ people }) => (
+    <section className='card about card-lg p-b-0 text-xxs-center'>
+        <h2 className='title m-b-xxl text-center'>Leadership</h2>
+        <div className='row'>
+            {people.map(person => (
+                <div className='col-xxs-12 col-sm-6 col-xxl-3 m-b-xxl' key={person.name}>
+                    <img className='img-circle img-fluid m-x-auto m-b' src={person.profile_image_url} />
+                    <h3 className='name text-md text-center'>{person.name}</h3>
+                    <h4 className='text-center text-uppercase'>{person.position}</h4>
+                    <p className='text-center m-b-sm m-x-auto short-bio'>{person.about}</p>
+                </div>
+            ))}
+        </div>
+    </section>
+);
 
 export default Leadership;

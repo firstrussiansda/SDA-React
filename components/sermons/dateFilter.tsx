@@ -41,6 +41,7 @@ export const DateSelector: React.SFC<DateSelectorProps> = props => {
                 name='year'
                 onChange={handleChange}
                 value={year}
+                className='mx-2'
             >
                 <option
                     label='Select Year'
@@ -67,6 +68,7 @@ export const DateSelector: React.SFC<DateSelectorProps> = props => {
                         name='month'
                         onChange={handleChange}
                         value={props.month}
+                        className='mx-2'
                     >
                         <option
                             label='Select Month'

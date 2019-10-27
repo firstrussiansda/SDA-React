@@ -17,7 +17,7 @@ class PrivacyPolicy extends React.Component<{}> {
 
                 <p>
                     It is FirstRussian's policy to respect your privacy regarding any information we may collect while
-                    operating our website. This Privacy Policy applies to
+                    operating our website. This Privacy Policy applies to&nbsp;
                     <a href='https://firstrussian.miki725.com/'>
                         https://firstrussian.miki725.com/
                     </a>
@@ -50,7 +50,7 @@ class PrivacyPolicy extends React.Component<{}> {
                     Certain visitors to FirstRussian's websites choose to interact with FirstRussian in ways that
                     require FirstRussian to gather personally-identifying information. The amount and type of
                     information that FirstRussian gathers depends on the nature of the interaction. For example,
-                    if you sumbmit a Contact us form at https://firstrussian.miki725.com/ we ask to provide a
+                    if you submit a Contact us form at https://firstrussian.miki725.com/ we ask to provide a
                     a name and email address.
                 </p>
 
