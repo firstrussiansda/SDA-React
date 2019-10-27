@@ -29,7 +29,9 @@ class Contact extends React.Component<WithTranslation> {
                         onSubmit={this.reportToGA}
                     >
                         <div className='form-field string required'>
-                            <label htmlFor='nameInput'>{this.props.t('name')}</label>
+                            <label htmlFor='nameInput' className='capitalize'>
+                                {this.props.t('name')}
+                            </label>
                             <input
                                 id='nameInput'
                                 type='text'
@@ -56,7 +58,9 @@ class Contact extends React.Component<WithTranslation> {
                         </div>
 
                         <div className='form-field string required'>
-                            <label htmlFor='message-input'>{this.props.t('message')}</label>
+                            <label htmlFor='message-input' className='capitalize'>
+                                {this.props.t('message')}
+                            </label>
                             <textarea
                                 className='form-control'
                                 id='message-input'
@@ -72,7 +76,7 @@ class Contact extends React.Component<WithTranslation> {
                             value={this.props.t<string>('send')}
                             role='button'
                             id='submit-btn'
-                            className='btn btn-outline-warning hvr-icon-forward'
+                            className='btn btn-outline-warning hvr-icon-forward capitalize'
                         />
                     </form>
 
