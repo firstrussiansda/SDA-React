@@ -1,5 +1,6 @@
 import React from 'react';
 import { WithTranslation } from 'react-i18next';
+import { event } from '../../lib/gtag';
 
 interface ServicesTypes {
     name: string;
@@ -16,6 +17,13 @@ interface VisitUsLocales {
     servicesHeader: string;
     services: ServicesTypes[];
 }
+
+const reportToGA = () => {
+    event({
+        action: 'link_click',
+        category: 'Contact',
+    });
+};
 
 const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
     // TODO: this leads to server and client side HTML not matching sometimes. Hope to fix before PROD release
@@ -53,10 +61,21 @@ const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
                                 }
                             </tbody>
                         </table>
+                        <a
+                            id='contact-btn'
+                            className='btn btn-outline-warning hvr-icon-forward mt-2'
+                            href='/contact'
+                            role='button'
+                            onClick={reportToGA}
+                        >
+                            {t('contactUs')}
+                            <i className='fas fa-arrow-circle-right hvr-icon' />
+                        </a>
                     </div>
                 </div>
                 <div className='col-md-6'>
                     <iframe
+                        title='map'
                         width='100%'
                         max-height='80vh'
                         height='350'

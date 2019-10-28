@@ -11,10 +11,9 @@ const HeadTag = () => (
             content='width=device-width, initial-scale=1'
         />
         <meta charSet='utf-8' />
-        {/* <!--TODO: complete description--> */}
         <meta
             name='description'
-            content='First Russian SDA church is a religious organization . . . '
+            content='We are the Russian speaking Seventh-day Adventist church serving the New York metropolitan area for more than 20 years. We are a diverse community of people with a passion to be the light and the salt of the earth.'
         />
         <link
             rel='stylesheet'
@@ -33,6 +32,8 @@ const HeadTag = () => (
             integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T'
             crossOrigin='anonymous'
         />
+        <link rel='shortcut icon' href='static/img/favicon.ico' type='image/x-icon' />
+        <link rel='icon' href='static/img/favicon.ico' type='image/x-icon' />
         <script
             async={true}
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
