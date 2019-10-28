@@ -33,7 +33,7 @@ const PrayerRequest: React.FunctionComponent<WithTranslation> = ({ t, tReady }) 
         <section id='praying-request'>
             <h2 className='title text-center'>{localizedText.title}</h2>
             <div className='row'>
-                <div className='col-sm-12 col-md-6 m-auto'>
+                <div className='col-md-6 m-auto'>
                     <div className='text-center'>
                         <blockquote className='blockquote'>
                             <h5 className='m-4 mb-0 dispa'>
@@ -45,14 +45,14 @@ const PrayerRequest: React.FunctionComponent<WithTranslation> = ({ t, tReady }) 
                         </blockquote>
                     </div>
                 </div>
-                <div className='col-sm-12 col-md-6'>
+                <div className='col-md-6'>
                     <form
                         action='https://formspree.io/skaistrenko@gmail.com'
                         method='POST'
                         onSubmit={reportToGA}
                     >
                         <div className='row'>
-                            <div className='col-sm-6 col-md-6 mt-2 form-group'>
+                            <div className='col-sm-6 mt-2 form-group'>
                                 <label htmlFor='name-field'>{localizedText.name}</label>
                                 <input
                                     id='name-field'
@@ -64,7 +64,7 @@ const PrayerRequest: React.FunctionComponent<WithTranslation> = ({ t, tReady }) 
                                     required={true}
                                 />
                             </div>
-                            <div className='col-sm-6 col-md-6 mt-2 form-group'>
+                            <div className='col-sm-6 mt-2 form-group'>
                                 <label htmlFor='email-field'>{localizedText.email}</label>
                                 <input
                                     id='email-field'
@@ -77,7 +77,7 @@ const PrayerRequest: React.FunctionComponent<WithTranslation> = ({ t, tReady }) 
                             </div>
                         </div>
                         <div className='row'>
-                            <div className='col col-sm-12 col-md-12 form-group'>
+                            <div className='col form-group'>
                                 <label htmlFor='prayer_request'>{localizedText['prayerNeed']}</label>
                                 <textarea
                                     className='form-control'

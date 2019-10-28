@@ -158,6 +158,7 @@ class Header extends React.Component <WithTranslation> {
                                 <Link href='/contact'>
                                     <a
                                         role='button'
+                                        aria-label='Envelope'
                                         id='btn-contact-header'
                                         className='btn btn-outline-dark hvr-wobble-vertical'
                                     >
