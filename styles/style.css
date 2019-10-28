@@ -37,6 +37,7 @@ hr {
 	margin: 0 5px 0 5px;
 }
 .navbar a {
+	color: rgba(0,0,0,.7)!important;
 	text-transform: uppercase;
 	font-size: 0.83rem;
 	align-items: center;
@@ -44,6 +45,10 @@ hr {
 	vertical-align: middle;
 	transition: all .2s ease;
 }
+.navbar a:hover {
+	color: rgba(0,0,0,.9)!important;
+}
+
 #btn-contact-header {
 	border: none;
 	border-radius: 0;
@@ -111,9 +116,14 @@ hr {
 }
 .blockquote-footer {
 	font-size: 1.1rem;
-	color: #b1a9a9;
+	font-style: italic;
+	color: #f8f9fa;
 }
 /* PRAYING REQUEST */
+#praying-request {
+	margin: 2.5rem 0;
+}
+
 #praying-request form {
 	margin: 1.5rem;
 	max-width: 500px;
@@ -195,9 +205,6 @@ hr {
 	min-width: 250px;
 	padding-bottom: 5%;
 	margin: 0.5rem;
-}
-.blockquote-footer {
-    font-style: italic;
 }
 .about-us > div {
 	max-width: 74rem;

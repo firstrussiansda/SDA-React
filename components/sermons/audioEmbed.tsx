@@ -2,6 +2,7 @@ import React from 'react';
 
 const AudioEmbed: React.FunctionComponent<{ trackId: string }> = ({ trackId }) => (
     <iframe
+        title='audio player'
         width='100%'
         height='166'
         scrolling='no'
