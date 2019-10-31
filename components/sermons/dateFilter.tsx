@@ -36,12 +36,12 @@ export const DateSelector: React.SFC<DateSelectorProps> = props => {
     };
 
     return (
-        <div className='mx-3'>
+        <div className='mr-3'>
             <select
                 name='year'
                 onChange={handleChange}
                 value={year}
-                className='mx-2'
+                className='mr-2'
             >
                 <option
                     label='Select Year'

@@ -55,6 +55,29 @@ hr {
 	background-color: #fdd007;
 }
 
+.card {
+	box-shadow: 5px 5px 25px 0 rgba(37, 58, 75, 0.2);
+	background: #fff;
+    margin-bottom: 2rem;
+    margin-top: 30px;
+	margin-bottom: 60px;
+	border: 1px;
+	border-radius: 0;
+}
+.card-text {
+	font-size: 14px;
+}
+
+.card-title {
+	margin-bottom: 5px;
+	text-transform: uppercase;
+}
+
+.card.card-lg {
+	border-color: transparent;
+    padding: 40px 20px 40px 20px;
+}
+
 /* Events */
 .card-date {
 	text-transform: capitalize;

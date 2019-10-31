@@ -14,7 +14,7 @@ interface FilterProps {
 
 const Filter: React.FunctionComponent<FilterProps> = (props) => {
     return (
-            <div className='d-flex justify-content-center input-group mb-3'>
+            <div className='input-group mb-3'>
                 <DateSelector
                     handleChange={props.handleChange}
                     year={props.year}
