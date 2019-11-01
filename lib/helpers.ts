@@ -1,5 +1,5 @@
 import { i18n } from '../i18n';
-import { pythonAPI, nodeAPI, defaultImages } from './const';
+import { pythonAPI, nodeAPI, defaultImages, months } from './const';
 import { ReqParams } from './interfaces';
 
 const buildQuery = (params: ReqParams) => (
@@ -41,6 +41,25 @@ export const fetchData = async (
         }
         return null;
     }
+};
+
+export const getDate = (dateStr: string, attributes: string[] ) => {
+    const rawDate = new Date(dateStr);
+
+    const methods = {
+        day: rawDate.getDay(),
+        month: months[rawDate.getMonth()],
+        year: rawDate.getFullYear(),
+    } as { [k: string]: string | number };
+
+    return attributes.reduce((acc, attr) => {
+        if (attr in methods) {
+            acc += methods[attr];
+        } else {
+            acc += attr;
+        }
+        return acc + ' ';
+    }, '');
 };
 
 export const formatDate = (rawDate: string) => {

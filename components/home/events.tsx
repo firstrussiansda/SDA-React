@@ -15,11 +15,21 @@ const Events: React.FunctionComponent<EventsProps> = ({ events, t }) => (
             {
                 events.map(e => (
                     <EventTile
-                        { ...e }
+                        {...e}
                         key={e.id}
                     />
                 ))
             }
+        </div>
+        <div className='d-flex mt-4'>
+            <a
+                id='all-events'
+                className='btn btn-outline-warning hvr-icon-forward mt-5 mx-auto'
+                href='/calendar'
+            >
+                {t('allEvents')}&nbsp;
+                <i className='fas fa-arrow-circle-right hvr-icon' />
+            </a>
         </div>
     </section>
 );

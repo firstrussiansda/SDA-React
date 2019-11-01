@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Event } from '../../lib/interfaces';
-import { getDefaultImage } from '../../lib/helpers';
+import { getDefaultImage, getDate } from '../../lib/helpers';
 
 class EventTile extends React.Component<Event, { image_url: string }> {
     constructor(props: Event) {
@@ -17,9 +17,19 @@ class EventTile extends React.Component<Event, { image_url: string }> {
 
     render() {
         return (
-            <div className='card mb-3'>
+            <div className='card mb-3 calendar-tile'>
                 <div className='row no-gutters'>
-                    <div className='col-md-4'>
+                    <div className='col-md-2 d-flex flex-column align-items-center justify-content-center'>
+                        <h5>{getDate(this.props.date, ['month', 'day'])}</h5>
+                        <h6 className='card-text'>{this.props.location_name}</h6>
+                    </div>
+                    <div className='col-md-7 d-flex align-items-center'>
+                        <div className='card-body'>
+                            <h5 className='card-title'>{this.props.title}</h5>
+                            <p className='card-text'>{this.props.description}</p>
+                        </div>
+                    </div>
+                    <div className='col-md-3'>
                         <img
                             className='card-img'
                             src={`${this.state.image_url}w=320&q=80`}
@@ -30,14 +40,6 @@ class EventTile extends React.Component<Event, { image_url: string }> {
                                 ${this.state.image_url}w=320&q=80 5000w
                             `}
                         />
-                    </div>
-                    <div className='col-md-8'>
-                        <div className='card-body'>
-                            <h5 className='card-title'>{this.props.title}</h5>
-                            <h6 className='card-date'>{this.props.date}</h6>
-                            <h6 className='card-date'>{this.props.location_name}</h6>
-                            <p className='card-text'>{this.props.description}</p>
-                        </div>
                     </div>
                 </div>
             </div>
