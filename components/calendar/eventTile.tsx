@@ -1,10 +1,13 @@
 import React from 'react';
+import { WithTranslation } from 'react-i18next';
 
 import { Event } from '../../lib/interfaces';
 import { getDefaultImage, getDate } from '../../lib/helpers';
 
-class EventTile extends React.Component<Event, { image_url: string }> {
-    constructor(props: Event) {
+interface EventTileProps extends Event, WithTranslation {}
+
+class EventTile extends React.Component<EventTileProps, { image_url: string }> {
+    constructor(props: EventTileProps) {
         super(props);
         this.state = {
             image_url: '',
@@ -20,7 +23,7 @@ class EventTile extends React.Component<Event, { image_url: string }> {
             <div className='card mb-3 calendar-tile'>
                 <div className='row no-gutters'>
                     <div className='col-md-2 d-flex flex-column align-items-center justify-content-center'>
-                        <h5>{getDate(this.props.date, ['month', 'day'])}</h5>
+                        <h5>{getDate(this.props.date, ['month', 'day'], this.props.i18n.language)}</h5>
                         <h6 className='card-text'>{this.props.location_name}</h6>
                     </div>
                     <div className='col-md-7 d-flex align-items-center'>

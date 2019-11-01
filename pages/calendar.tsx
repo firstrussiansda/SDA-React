@@ -82,6 +82,9 @@ class Calendar extends React.Component<SermonsProps, SermonsState> {
                                 <EventTile
                                     {...e}
                                     key={e.title}
+                                    t={this.props.t}
+                                    i18n={this.props.i18n}
+                                    tReady={this.props.tReady}
                                 />
                             ))
                         }

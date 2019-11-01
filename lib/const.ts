@@ -7,10 +7,28 @@ export const defaultImages = {
     ],
 };
 
-export const months = [
-    'January', 'February', 'March', 'April', 'May', 'June', 'July',
-    'August', 'September', 'October', 'November', 'December',
-];
+export const getLocalizedMonths = (lan?: string) => {
+    const months = {
+        ru: [
+            'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль',
+            'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь',
+        ],
+        uk: [
+            'Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень',
+            'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень',
+        ],
+        en: [
+            'January', 'February', 'March', 'April', 'May', 'June', 'July',
+            'August', 'September', 'October', 'November', 'December',
+        ],
+    } as { [k: string]: string[] };
+
+    if (lan && lan in months) {
+        return months[lan];
+    } else {
+        return [];
+    }
+};
 
 export const isDevelopment = process.env.NODE_ENV !== 'production';
 export const nodeAPI = isDevelopment ? 'http://localhost:3000/api/' : 'https://firstrussian.miki725.com/api/';

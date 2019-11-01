@@ -1,7 +1,7 @@
 import React from 'react';
 import { WithTranslation } from 'react-i18next';
 
-import { formatDate, getDate } from '../../lib/helpers';
+import { getDate } from '../../lib/helpers';
 
 import { Sermon } from '../../lib/interfaces';
 import AudioDropdown from './audioEmbed';
@@ -67,15 +67,17 @@ class SermonTile extends React.Component<SermonTileProps, SermonTileState> {
                             backgroundSize: 'cover',
                         }}
                     >
-                        <h5>{getDate(sermon.date, ['month', 'day', ',', 'year'])}</h5>
-                        {
-                            sermon.speakers.length !== 0 &&
-                            (
-                                <h6 className='speaker'>
-                                    {this.getSpeakers()}
-                                </h6>
-                            )
-                        }
+                        <div className='image-overlay-text py-5'>
+                            {
+                                sermon.speakers.length !== 0 &&
+                                (
+                                    <h6 className='speaker'>
+                                        {this.getSpeakers()}
+                                    </h6>
+                                )
+                            }
+                            <h5>{getDate(sermon.date, ['month', 'day', ',', 'year'], this.props.i18n.language)}</h5>
+                        </div>
                     </div>
                     <div className='col-md-5 col-lg-6 d-flex align-items-center'>
                         <div className='card-body'>
