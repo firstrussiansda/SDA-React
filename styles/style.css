@@ -37,22 +37,66 @@ hr {
 	margin: 0 5px 0 5px;
 }
 .navbar a {
-	color: rgba(0,0,0,.7)!important;
+	color: rgba(0,0,0,.85)!important;
 	text-transform: uppercase;
 	font-size: 0.83rem;
 	align-items: center;
 	text-align: center;
 	vertical-align: middle;
-	transition: all .2s ease;
+	transition: all 0.2s ease;
 }
 .navbar a:hover {
 	color: rgba(0,0,0,.9)!important;
+}
+
+.navbar-toggler:focus {
+	outline: none;
 }
 
 #btn-contact-header {
 	border: none;
 	border-radius: 0;
 	background-color: #fdd007;
+}
+
+#contact-btn {
+	border: none;
+}
+#contact-btn:hover {
+	border: none;
+	background-color: #fdd007;
+}
+.btn-outline-warning {
+	border-radius: 0;
+	border-color: #fdd007;
+    background-color: #fdd007;
+    color: #343a40;
+    height: 45px;
+    line-height: 2;
+	letter-spacing: 1.5px;
+}
+
+.card {
+	box-shadow: 5px 5px 25px 0 rgba(37, 58, 75, 0.2);
+	background: #fff;
+    margin-bottom: 2rem;
+    margin-top: 30px;
+	margin-bottom: 60px;
+	border: 1px;
+	border-radius: 0;
+}
+.card-text {
+	font-size: 14px;
+}
+
+.card-title {
+	margin-bottom: 5px;
+	text-transform: uppercase;
+}
+
+.card.card-lg {
+	border-color: transparent;
+    padding: 40px 20px 40px 20px;
 }
 
 /* Events */
@@ -129,6 +173,14 @@ hr {
 	max-width: 500px;
 }
 
+#praying-request form button {
+	margin-left: .9375rem;
+}
+
+#all-events {
+	padding: 0.3rem 2rem;
+}
+
 /* VISIT US*/
 .visit {
     margin: 0 1.5rem 1.5rem 2rem;
@@ -190,16 +242,10 @@ hr {
 	background-color: #1ea362;
 }
 
-/* CALENDAR PAGE */
-#calendar iframe {
-	height: 60vh;
-	width: 70vw;
-}
-
 /* ABOUT PAGE */
 #about-mission {
 	color: white;
-    background: url('https://images.unsplash.com/photo-1519643598672-d0b07eb496ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1187&q=80') center bottom;
+    background: url('https://images.unsplash.com/photo-1519643598672-d0b07eb496ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80') center bottom;
 }
 #mission-components .card {
 	min-width: 250px;
@@ -294,7 +340,33 @@ hr {
 	transform: translateY(-7px);
 }
 
+.sermon-tile {
+	min-height: 11rem;
+}
 
+.sermon-tile .image-overlay::before {
+	content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    background-color: rgba(0,0,0,.6);
+}
+
+.sermon-tile .image-overlay > h5, .sermon-tile .image-overlay > h6 {
+	z-index: 1;
+	color: #fff;
+}
+
+/* SELECT */
+.custom-select {
+	color: rgba(0,0,0,.85);
+	width: fit-content;
+}
 
 
 /*
@@ -302,7 +374,7 @@ hr {
  * https://github.com/IanLunn/Hover/blob/master/css/hover.css
  */
 
- /* Wobble Vertical */
+/* Wobble Vertical */
 @-webkit-keyframes hvr-wobble-vertical {
   16.65% {
     -webkit-transform: translateY(8px);
@@ -452,9 +524,6 @@ hr {
 		margin-left: 40px;
 		padding-top: 10px!important;
 	}
-	#calendar iframe {
-		width: 100vw;
-	}
 	#mission-components .card {
 		width: 100%;
 		margin: auto;
@@ -471,6 +540,12 @@ hr {
 
 
 @media screen and (max-width: 420px) {
+	#main-page-img {
+		background-image: url("https://images.unsplash.com/photo-1498805983167-a523078d762c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=65c2c2fee586564dcd79cb249099d757&auto=format&fit=crop&w=420&q=80");
+	}
+	#about-mission {
+		background: url('https://images.unsplash.com/photo-1519643598672-d0b07eb496ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80') center bottom;
+	}
 	.main-title {
 		padding-top: 10%!important;
 	}
@@ -479,7 +554,13 @@ hr {
 	}
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 421px) and (max-width: 767px) {
+	#main-page-img {
+		background-image: url("https://images.unsplash.com/photo-1498805983167-a523078d762c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=65c2c2fee586564dcd79cb249099d757&auto=format&fit=crop&w=767&q=80");
+	}
+	#about-mission {
+		background: url('https://images.unsplash.com/photo-1519643598672-d0b07eb496ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80') center bottom;
+	}
 	.main-title{
 		padding-top: 25%;
 	}
@@ -517,11 +598,23 @@ hr {
 	}
 }
 @media screen and (min-width: 768px) and (max-width: 930px) {
+	#main-page-img {
+		background-image: url("https://images.unsplash.com/photo-1498805983167-a523078d762c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=65c2c2fee586564dcd79cb249099d757&auto=format&fit=crop&w=930&q=80");
+	}
+	#about-mission {
+		background: url('https://images.unsplash.com/photo-1519643598672-d0b07eb496ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=80') center bottom;
+	}
 	.carousel-caption {
 	    bottom: 15%;
 	}
 }
 @media screen and (min-width: 931px) and (max-width: 1100px) {
+	#main-page-img {
+		background-image: url("https://images.unsplash.com/photo-1498805983167-a523078d762c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=65c2c2fee586564dcd79cb249099d757&auto=format&fit=crop&w=1100&q=80");
+	}
+	#about-mission {
+		background: url('https://images.unsplash.com/photo-1519643598672-d0b07eb496ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80') center bottom;
+	}
 	.carousel-caption {
 	    bottom: 17%;
 	}

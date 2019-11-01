@@ -15,7 +15,7 @@ const Group: React.FunctionComponent<GroupProps> = ({ title, activities, img, im
         <div className='col-md-12'>
             <div className='card flex-md-row mb-4 box-shadow h-md-250'>
                 <div className='card-body d-flex flex-column'>
-                    <h3 className='mb-2'>{title}</h3>
+                    <h3 className='card-title mb-2'>{title}</h3>
                     { activities.map(act => <GroupActivity {...act} key={act.time} />) }
                 </div>
                 <img

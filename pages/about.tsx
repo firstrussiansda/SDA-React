@@ -5,6 +5,7 @@ import { Person } from '../lib/interfaces';
 import { WithTranslation } from 'react-i18next';
 import { withTranslation } from '../i18n';
 import Leadership from '../components/about/leadership';
+import KeyMissionComponents from '../components/about/keyMissionComponents';
 
 interface AboutProps extends WithTranslation {
     people: Person[];
@@ -65,6 +66,10 @@ class About extends React.Component<AboutProps, AboutState> {
     }
 
     render() {
+        if (!this.props.tReady) {
+            return null;
+        }
+
         return (
             <div className='row justify-content-md-center'>
                 <div className='col-xxs-12 col-lg-10 m-c-auto'>
@@ -80,6 +85,14 @@ class About extends React.Component<AboutProps, AboutState> {
                         </div>
                     </section>
 
+                    <KeyMissionComponents
+                        title={this.props.t('keyMissionComponentsTitle')}
+                        components={
+                            this.props.t<{ title: string; text: string }[]>
+                                ('keyMissionComponents', { returnObjects: true })
+                        }
+                    />
+
                     <section className='card about about-us card-lg'>
                         <h2 className='title capitalize text-xxl m-b text-center'>
                             {this.props.t('title')}
@@ -91,7 +104,6 @@ class About extends React.Component<AboutProps, AboutState> {
                             }
                         </div>
                     </section>
-
                     {
                         this.state.pastor &&
                         (

@@ -1,4 +1,5 @@
 import React from 'react';
+import { months } from '../../lib/const';
 
 interface DateSelectorProps {
     year: string;
@@ -22,26 +23,21 @@ export const DateSelector: React.SFC<DateSelectorProps> = props => {
     };
 
     const getMonths = () => {
-        let months = [
-            'January', 'February', 'March', 'April', 'May', 'June', 'July',
-            'August', 'September', 'October', 'November', 'December',
-        ];
-
         if (year === String(date.getFullYear())) {
             const currMonth = date.getMonth();
-            months = months.slice(0, currMonth + 2);
+            return months.slice(0, currMonth + 2);
         }
 
         return months;
     };
 
     return (
-        <div className='mx-3'>
+        <div>
             <select
                 name='year'
                 onChange={handleChange}
                 value={year}
-                className='mx-2'
+                className='custom-select mr-3'
             >
                 <option
                     label='Select Year'
@@ -68,7 +64,7 @@ export const DateSelector: React.SFC<DateSelectorProps> = props => {
                         name='month'
                         onChange={handleChange}
                         value={props.month}
-                        className='mx-2'
+                        className='custom-select mr-3'
                     >
                         <option
                             label='Select Month'

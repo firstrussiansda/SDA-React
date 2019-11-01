@@ -14,7 +14,7 @@ export interface HeaderLocale {
     language: string;
 }
 
-class Header extends React.Component <WithTranslation> {
+class Header extends React.Component<WithTranslation> {
     static async getInitialProps() {
         return {
             namespacesRequired: ['common'],
@@ -61,7 +61,7 @@ class Header extends React.Component <WithTranslation> {
                             <li className='nav-item'>
                                 <Link href='/about'>
                                     <a className='nav-link hvr-overline-from-center'>
-                                        { headerLocales.about }
+                                        {headerLocales.about}
                                         <span className='sr-only'>(current)</span>
                                     </a>
                                 </Link>
@@ -70,8 +70,7 @@ class Header extends React.Component <WithTranslation> {
                             <li className='nav-item'>
                                 <Link href='/groups'>
                                     <a className='nav-link hvr-overline-from-center'>
-                                        { headerLocales.groups }
-                                        <span className='sr-only'>(current)</span>
+                                        {headerLocales.groups}
                                     </a>
                                 </Link>
 
@@ -80,13 +79,20 @@ class Header extends React.Component <WithTranslation> {
                             <li className='nav-item'>
                                 <Link href='/calendar'>
                                     <a className='nav-link hvr-overline-from-center'>
-                                        { headerLocales.calendar }
+                                        {headerLocales.calendar}
                                     </a>
                                 </Link>
 
                             </li>
+                            <li className='nav-item'>
+                                <Link href='/sermons'>
+                                    <a className='nav-link hvr-overline-from-center'>
+                                        {headerLocales.sermons}
+                                    </a>
+                                </Link>
+                            </li>
 
-                            <li className='nav-item dropdown'>
+                            {/* <li className='nav-item dropdown'>
                                 <a
                                     className='nav-link dropdown-toggle hvr-overline-from-center'
                                     href='#'
@@ -107,14 +113,13 @@ class Header extends React.Component <WithTranslation> {
                                             { headerLocales.gallery }
                                         </a>
                                     </Link>
-
                                     <Link href='/sermons'>
                                         <a className='dropdown-item'>
                                             { headerLocales.sermons }
                                         </a>
                                     </Link>
                                 </div>
-                            </li> {/* Media dropdown */}
+                            </li> Media dropdown */}
 
                             <li className='nav-item dropdown'>
                                 <a
@@ -127,7 +132,7 @@ class Header extends React.Component <WithTranslation> {
                                     aria-expanded='false'
                                 >
                                     <i className='fas fa-language' />
-                                    &nbsp;{ headerLocales.language }
+                                    &nbsp;{headerLocales.language}
                                 </a>
                                 <div
                                     className='dropdown-menu'

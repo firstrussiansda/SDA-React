@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Event } from '../../lib/interfaces';
-import { getDefaultImage, formatDate } from '../../lib/helpers';
+import { getDefaultImage, getDate } from '../../lib/helpers';
 
 class EventTile extends React.Component<Event, { image_url: string }> {
     constructor(props: Event) {
@@ -36,7 +36,7 @@ class EventTile extends React.Component<Event, { image_url: string }> {
                 }
                 <div className='card-body'>
                     <h5 className='card-title'>{this.props.title}</h5>
-                    <h6 className='card-date'>{formatDate(this.props.date)}</h6>
+                    <h6 className='card-date'>{getDate(this.props.date, ['month', 'day'])}</h6>
                     <h6 className='card-date'>{this.props.location_name}</h6>
                     <p className='card-text'>{this.props.description}</p>
                 </div>

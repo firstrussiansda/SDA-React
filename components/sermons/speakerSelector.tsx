@@ -9,11 +9,12 @@ interface SpeakerSelectorProps {
 
 export const SpeakerSelector: React.SFC<SpeakerSelectorProps> = props => {
     return (
-        <div className='mx-3'>
+        <div>
             <select
                 name='speakers'
                 onChange={props.handleChange}
                 value={props.selected}
+                className='custom-select'
             >
                 <option
                     label='Select Speaker'

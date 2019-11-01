@@ -36,16 +36,15 @@ class Groups extends React.Component<WithTranslation> {
         return (
             <main>
                 <div className='container'>
-                    <div className='row mb-1'>
-                        <div className='col-md-12'>
-                            {this.groups.map(([name, img]) => (
-                                <Group
-                                    key={name}
-                                    {...t<GroupLocale>(name, { returnObjects: true })}
-                                    img={img}
-                                />
-                            ))}
-                        </div>
+                    <h1 className='text-center capitalize my-3'>{t('title')}</h1>
+                    <div>
+                        {this.groups.map(([name, img]) => (
+                            <Group
+                                key={name}
+                                {...t<GroupLocale>(name, { returnObjects: true })}
+                                img={img}
+                            />
+                        ))}
                     </div>
                 </div>
             </main>

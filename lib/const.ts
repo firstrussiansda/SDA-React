@@ -7,5 +7,10 @@ export const defaultImages = {
     ],
 };
 
+export const months = [
+    'January', 'February', 'March', 'April', 'May', 'June', 'July',
+    'August', 'September', 'October', 'November', 'December',
+];
+
 export const isDevelopment = process.env.NODE_ENV !== 'production';
 export const nodeAPI = isDevelopment ? 'http://localhost:3000/api/' : 'https://firstrussian.miki725.com/api/';

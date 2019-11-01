@@ -1,5 +1,5 @@
 import React from 'react';
-import { InstImage } from '../../pages/gallery';
+import { InstImage } from './gallery';
 interface GalleryColumnProps {
     images: InstImage[];
 }
