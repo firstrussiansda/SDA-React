@@ -22,7 +22,7 @@ const HeadTag = () => (
             crossOrigin='anonymous'
         />
         <link
-            href='https://fonts.googleapis.com/css?family=Montserrat'
+            href='https://fonts.googleapis.com/css?family=Montserrat:display=swap'
             rel='stylesheet'
         />
         {/* Bootstrap imports */}

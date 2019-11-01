@@ -1,10 +1,10 @@
 import React from 'react';
 import { WithTranslation } from 'react-i18next';
-import { withTranslation } from '../i18n';
-import { fetchData } from '../lib/helpers';
-import { HeaderLocale } from '../components/shared/header';
+import { withTranslation } from '../../i18n';
+import { fetchData } from '../../lib/helpers';
+import { HeaderLocale } from '../../components/shared/header';
 
-import GalleryColumn from '../components/gallery/galleryColumn';
+import GalleryColumn from './galleryColumn';
 
 interface ImgMeta {
     width: number;

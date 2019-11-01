@@ -1,7 +1,9 @@
 import React from 'react';
+import { WithTranslation } from 'react-i18next';
+
 import { Person } from '../../lib/interfaces';
 
-interface SpeakerSelectorProps {
+interface SpeakerSelectorProps extends WithTranslation {
     selected: string;
     speakers: Person[];
     handleChange(e: React.FormEvent<HTMLSelectElement>): void;
@@ -9,17 +11,18 @@ interface SpeakerSelectorProps {
 
 export const SpeakerSelector: React.SFC<SpeakerSelectorProps> = props => {
     return (
-        <div className='mx-3'>
+        <div>
             <select
                 name='speakers'
                 onChange={props.handleChange}
                 value={props.selected}
+                className='custom-select'
             >
                 <option
-                    label='Select Speaker'
+                    label={props.t('selectSpeaker')}
                     value=''
                 >
-                    Select Speaker
+                    {props.t('selectSpeaker')}
                 </option>
                 {
                     props.speakers.map(speaker => (

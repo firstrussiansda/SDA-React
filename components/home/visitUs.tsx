@@ -61,17 +61,17 @@ const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
                                 }
                             </tbody>
                         </table>
-                        <a
-                            id='contact-btn'
-                            className='btn btn-outline-warning hvr-icon-forward mt-2'
-                            href='/contact'
-                            role='button'
-                            onClick={reportToGA}
-                        >
-                            {t('contactUs')}
-                            <i className='fas fa-arrow-circle-right hvr-icon' />
-                        </a>
                     </div>
+                    <a
+                        id='contact-btn'
+                        className='btn btn-outline-warning hvr-icon-forward visit'
+                        href='/contact'
+                        role='button'
+                        onClick={reportToGA}
+                    >
+                        {t('contactUs')}&nbsp;
+                        <i className='fas fa-arrow-circle-right hvr-icon' />
+                    </a>
                 </div>
                 <div className='col-md-6'>
                     <iframe

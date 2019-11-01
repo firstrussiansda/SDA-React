@@ -1,6 +1,9 @@
 import React from 'react';
+import { WithTranslation } from 'react-i18next';
 
-interface DateSelectorProps {
+import { getLocalizedMonths } from '../../lib/const';
+
+interface DateSelectorProps extends WithTranslation {
     year: string;
     month: string;
     handleChange(e: React.FormEvent<HTMLSelectElement>): void;
@@ -22,32 +25,29 @@ export const DateSelector: React.SFC<DateSelectorProps> = props => {
     };
 
     const getMonths = () => {
-        let months = [
-            'January', 'February', 'March', 'April', 'May', 'June', 'July',
-            'August', 'September', 'October', 'November', 'December',
-        ];
+        const localizedMonths = getLocalizedMonths(props.i18n.language);
 
         if (year === String(date.getFullYear())) {
             const currMonth = date.getMonth();
-            months = months.slice(0, currMonth + 2);
+            return localizedMonths.slice(0, currMonth + 1);
         }
 
-        return months;
+        return localizedMonths;
     };
 
     return (
-        <div className='mx-3'>
+        <div>
             <select
                 name='year'
                 onChange={handleChange}
                 value={year}
-                className='mx-2'
+                className='custom-select mr-3'
             >
                 <option
-                    label='Select Year'
+                    label={props.t('selectYear')}
                     value=''
                 >
-                    Select Year
+                {props.t('selectYear')}
                 </option>
                 {
                     getYears().map(year => (
@@ -68,13 +68,13 @@ export const DateSelector: React.SFC<DateSelectorProps> = props => {
                         name='month'
                         onChange={handleChange}
                         value={props.month}
-                        className='mx-2'
+                        className='custom-select mr-3'
                     >
                         <option
-                            label='Select Month'
+                            label={props.t('selectMonth')}
                             value=''
                         >
-                            Select Month
+                            {props.t('selectMonth')}
                         </option>
                         {
                             getMonths().map((month, i) => (

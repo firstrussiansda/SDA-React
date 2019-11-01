@@ -4,11 +4,11 @@ interface KeyMissionComponentProps {
     img: string;
     alt: string;
     title: string;
-    description: string;
+    text: string;
 }
 
 const KeyMissionComponent: React.FunctionComponent<KeyMissionComponentProps> = ({
-    img, alt, title, description,
+    img, alt, title, text,
 }) => (
         <div className='card border-light mb-5'>
             <img
@@ -23,8 +23,8 @@ const KeyMissionComponent: React.FunctionComponent<KeyMissionComponentProps> = (
                 `}
             />
             <div className='card-body'>
-                <h5 className='card-title'>{title}</h5>
-                <p className='card-text'>{description}</p>
+                <h5 className='card-title capitalize'>{title}</h5>
+                <p className='card-text'>{text}</p>
             </div>
         </div>
     );

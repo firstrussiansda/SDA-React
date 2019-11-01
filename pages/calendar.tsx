@@ -72,18 +72,23 @@ class Calendar extends React.Component<SermonsProps, SermonsState> {
     render() {
         return (
             <div className='row justify-content-center'>
-                <main className=''>
+                <main className='container'>
                     <h1 className='text-center capitalize my-3'>
                         {this.props.t<HeaderLocale>('header', { returnObjects: true }).calendar}
                     </h1>
-                    {
-                        this.state.events.map(e => (
-                            <EventTile
-                                {...e}
-                                key={e.title}
-                            />
-                        ))
-                    }
+                    <div>
+                        {
+                            this.state.events.map(e => (
+                                <EventTile
+                                    {...e}
+                                    key={e.title}
+                                    t={this.props.t}
+                                    i18n={this.props.i18n}
+                                    tReady={this.props.tReady}
+                                />
+                            ))
+                        }
+                    </div>
                     <div className='d-flex justify-content-center'>
                     {
                         this.state.isLoading ?
