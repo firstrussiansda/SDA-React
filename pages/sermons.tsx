@@ -115,6 +115,9 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
                     month={this.state.month}
                     selectedSpeaker={this.state.selectedSpeaker}
                     speakers={this.props.speakers}
+                    t={this.props.t}
+                    i18n={this.props.i18n}
+                    tReady={this.props.tReady}
                 />
                 {
                     this.state.count === 0 &&

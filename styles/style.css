@@ -357,7 +357,7 @@ hr {
     background-color: rgba(0,0,0,.6);
 }
 
-.sermon-tile .image-overlay > h5, .sermon-tile .image-overlay > h6 {
+.sermon-tile .image-overlay-text {
 	z-index: 1;
 	color: #fff;
 }
