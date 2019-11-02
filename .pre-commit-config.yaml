@@ -24,7 +24,6 @@ repos:
         files: \.(ts[x])$
         # https://github.com/pre-commit/pre-commit/issues/1064
         # https://github.com/ekalinin/nodeenv/issues/204
-        language_version: system
         additional_dependencies:
           - tslint
           - tslint-react
@@ -37,7 +36,6 @@ repos:
       - id: eslint
         # https://github.com/pre-commit/pre-commit/issues/1064
         # https://github.com/ekalinin/nodeenv/issues/204
-        language_version: system
         args: ["--ext=.js", .]
         additional_dependencies:
           - eslint@6.3.0
