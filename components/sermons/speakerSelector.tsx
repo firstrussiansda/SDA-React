@@ -11,7 +11,7 @@ interface SpeakerSelectorProps extends WithTranslation {
 
 export const SpeakerSelector: React.SFC<SpeakerSelectorProps> = props => {
     return (
-        <div>
+        <div className='my-2'>
             <select
                 name='speakers'
                 onChange={props.handleChange}

@@ -36,7 +36,7 @@ export const DateSelector: React.SFC<DateSelectorProps> = props => {
     };
 
     return (
-        <div>
+        <div className='my-2'>
             <select
                 name='year'
                 onChange={handleChange}
