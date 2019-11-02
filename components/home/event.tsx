@@ -39,11 +39,13 @@ class EventTile extends React.Component<EventTileProps, { image_url: string }> {
                 }
                 <div className='card-body'>
                     <h5 className='card-title'>{this.props.title}</h5>
-                    <h6 className='card-date'>
-                        {getDate(this.props.date, ['month', 'day'], this.props.i18n.language)}
-                    </h6>
-                    <h6 className='card-date'>{this.props.location_name}</h6>
                     <p className='card-text'>{this.props.description}</p>
+                </div>
+                <div className='card-footer'>
+                    <h5 className='card-date'>
+                        {getDate(this.props.date, ['month', 'day'], this.props.i18n.language)}
+                    </h5>
+                    <h6 className='card-date'>{this.props.location_name}</h6>
                 </div>
             </div>
         );

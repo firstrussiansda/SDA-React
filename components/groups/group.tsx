@@ -1,29 +1,72 @@
 import React from 'react';
-import GroupActivity, { Activity } from './groupActivity';
 import { GroupLocale } from '../../pages/groups';
 
 export interface GroupProps extends GroupLocale {
     img: string;
 }
 
+export interface Activity {
+    subTitle: string;
+    time: string;
+    description: string;
+}
+
 const Group: React.FunctionComponent<GroupProps> = ({ title, activities, img, imgAlt }) => {
-    if (!title || !activities || !img || ! imgAlt) {
+    if (!title || !activities || !img || !imgAlt) {
         return null;
     }
 
     return (
-        <div className='col-md-12'>
-            <div className='card flex-md-row mb-4 box-shadow h-md-250'>
-                <div className='card-body d-flex flex-column'>
-                    <h3 className='card-title mb-2'>{title}</h3>
-                    { activities.map(act => <GroupActivity {...act} key={act.time} />) }
+        <div className='card mb-3 group'>
+            <div className='row no-gutters'>
+                <div
+                    className='col-md-4 col-lg-3 d-flex align-items-center justify-content-center image-overlay d-sm-none'
+                    style={{
+                        backgroundImage: `url("${img}")`,
+                        backgroundColor: '#cccccc',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: 'cover',
+                    }}
+                >
+                    <div className='image-overlay-text py-5'>
+                        {title}
+                    </div>
                 </div>
-                <img
-                    className='card-img-right img-groups flex-auto d-md-block'
-                    alt={imgAlt}
-                    src={img}
-                    data-holder-rendered='true'
-                />
+                <div className='col-md-8 col-lg-9 activities'>
+                    {
+                        activities.map(activity => (
+                            <div
+                                className={`row align-items-center h-${100 / activities.length} py-3`}
+                                key={activity.subTitle}
+                            >
+                                <div className='col-lg-3 text-center'>
+                                    <h5 className='d-inline d-lg-none'>{activity.subTitle}</h5>
+                                    <h5 className='d-none d-lg-inline'>{activity.time}</h5>
+                                </div>
+                                <div className='col-lg-9 align-items-center'>
+                                    <h5 className='d-none d-lg-inline'>{activity.subTitle}</h5>
+                                    <h6 className='d-inline d-lg-none'>{activity.time}</h6>
+                                    <p>{activity.description}</p>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+                <div
+                    className='col-md-4 col-lg-3  align-items-center justify-content-center image-overlay d-none d-sm-flex'
+                    style={{
+                        backgroundImage: `url("${img}")`,
+                        backgroundColor: '#cccccc',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: 'cover',
+                    }}
+                >
+                    <div className='image-overlay-text py-5'>
+                        {title}
+                    </div>
+                </div>
             </div>
         </div>
     );

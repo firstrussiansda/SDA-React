@@ -5,7 +5,7 @@
     "activities": [
       {
         "subTitle": "Sabbath School",
-        "time": "Saturdays at 10:00 AM",
+        "time": "Saturday 10:00 AM",
         "description": "Held weekly on the first floor of First Russian SDA church and designed to teach children about Jesus. \n\"Kids study in two groups\": Kindergarten group (age of 2 to 5) and Junior group (age of 6 to 10)"
       }
     ],
@@ -17,12 +17,12 @@
     "activities": [
       {
         "subTitle": "Bible Study Groups",
-        "time": "Fridays at 7:30 PM",
+        "time": "Friday 7:30 PM",
         "description": "Held weekly and consists of thoughtful dialogue and discussion on various Biblical topics."
       },
       {
         "subTitle": "Sabbath School",
-        "time": "Saturdays at 10:00 AM",
+        "time": "Saturday 10:00 AM",
         "description": "Held weekly on the third floor of the First Russian SDA church."
       }
     ],
@@ -34,12 +34,12 @@
     "activities": [
       {
         "subTitle": "Common Prayer",
-        "time": "Tuesdays at 8:30 PM",
+        "time": "Tuesday 8:30 PM",
         "description": "Held weekly via the phone to pray for each other and the community."
       },
       {
         "subTitle": "Prayer Meeting",
-        "time": "Saturdays at 9:00 AM",
+        "time": "Saturday 9:00 AM",
         "description": "Held weekly in the First Russian SDA church to pray for each other and the community."
       }
     ],
