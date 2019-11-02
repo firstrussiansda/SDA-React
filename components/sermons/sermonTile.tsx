@@ -67,7 +67,8 @@ class SermonTile extends React.Component<SermonTileProps, SermonTileState> {
                             backgroundSize: 'cover',
                         }}
                     >
-                        <div className='image-overlay-text py-5'>
+                        <div className='image-overlay-text py-5 text-center'>
+                            <h5>{getDate(sermon.date, ['month', 'day', ',', 'year'], this.props.i18n.language)}</h5>
                             {
                                 sermon.speakers.length !== 0 &&
                                 (
@@ -76,7 +77,7 @@ class SermonTile extends React.Component<SermonTileProps, SermonTileState> {
                                     </h6>
                                 )
                             }
-                            <h5>{getDate(sermon.date, ['month', 'day', ',', 'year'], this.props.i18n.language)}</h5>
+
                         </div>
                     </div>
                     <div className='col-md-5 col-lg-6 d-flex align-items-center'>

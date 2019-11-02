@@ -1,8 +1,7 @@
 import React from 'react';
-import Group, { GroupProps } from '../components/groups/group';
+import Group, { Activity } from '../components/groups/group';
 import { withTranslation } from '../i18n';
 import { WithTranslation } from 'react-i18next';
-import { Activity } from '../components/groups/groupActivity';
 
 export interface GroupLocale {
     title: string;

@@ -52,7 +52,7 @@ const PrayerRequest: React.FunctionComponent<WithTranslation> = ({ t, tReady }) 
                         onSubmit={reportToGA}
                     >
                         <div className='row'>
-                            <div className='col-sm-6 mt-2 form-group'>
+                            <div className='col-lg-6 mt-2 form-group'>
                                 <label htmlFor='name-field'>{localizedText.name}</label>
                                 <input
                                     id='name-field'
@@ -64,7 +64,7 @@ const PrayerRequest: React.FunctionComponent<WithTranslation> = ({ t, tReady }) 
                                     required={true}
                                 />
                             </div>
-                            <div className='col-sm-6 mt-2 form-group'>
+                            <div className='col-lg-6 mt-2 form-group'>
                                 <label htmlFor='email-field'>{localizedText.email}</label>
                                 <input
                                     id='email-field'
