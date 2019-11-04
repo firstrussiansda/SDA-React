@@ -97,7 +97,12 @@ class SermonTile extends React.Component<SermonTileProps, SermonTileState> {
                                             href={sermon.youtube_assets[0].object_url}
                                             target='_blank'
                                         >
-                                            <img src='/static/svg/youtube.svg' width='40px' height='30px' />
+                                            <img
+                                                src='/static/svg/youtube.svg'
+                                                width='40px'
+                                                height='30px'
+                                                alt='youtube logo'
+                                            />
                                             {this.props.t('watch')}
                                         </a>
                                     </div>
@@ -112,7 +117,12 @@ class SermonTile extends React.Component<SermonTileProps, SermonTileState> {
                                             onClick={this.toggleAudioPlayer}
                                             className='btn btn-md sound-cloud capitalize'
                                         >
-                                            <img src='/static/svg/soundcloud.svg' width='40px' height='30px' />
+                                            <img
+                                                src='/static/svg/soundcloud.svg'
+                                                width='40px'
+                                                height='30px'
+                                                alt='soundcloud logo'
+                                            />
                                             {this.props.t('listen')}
                                         </button>
                                     </div>
