@@ -26,7 +26,7 @@ const reportToGA = () => {
 };
 
 const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
-    // TODO: this leads to server and client side HTML not matching sometimes. Hope to fix before PROD release
+    // Make sure translations are loaded before render
     if (!tReady) {
         return null;
     }

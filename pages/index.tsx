@@ -27,8 +27,6 @@ class Homepage extends React.Component<HomepageProps> {
     render() {
         const { t, i18n, tReady } = this.props;
 
-        // TODO: this leads to server and client side HTML not matching sometimes.
-        // Hope to fix before PROD release
         if (!tReady) {
             return null;
         }

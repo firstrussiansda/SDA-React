@@ -1,5 +1,5 @@
 import React from 'react';
-import KeyMissionComponent from './keyMissionComponent';
+import KeyMissionComponentTile from './keyMissionComponentTile';
 
 interface KeyMissionComponentsProps {
     title: string;
@@ -32,7 +32,7 @@ const KeyMissionComponents: React.FunctionComponent<KeyMissionComponentsProps> =
             <div className='card-deck'>
                 {
                     props.components.map((item, idx) => (
-                        <KeyMissionComponent
+                        <KeyMissionComponentTile
                             {...item}
                             img={componentImages[idx].img}
                             alt={componentImages[idx].alt}

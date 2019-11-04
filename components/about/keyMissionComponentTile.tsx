@@ -1,13 +1,13 @@
 import React from 'react';
 
-interface KeyMissionComponentProps {
+interface KeyMissionComponentTileProps {
     img: string;
     alt: string;
     title: string;
     text: string;
 }
 
-const KeyMissionComponent: React.FunctionComponent<KeyMissionComponentProps> = ({
+const keyMissionComponentTile: React.FunctionComponent<KeyMissionComponentTileProps> = ({
     img, alt, title, text,
 }) => (
         <div className='card border-light mb-5'>
@@ -29,4 +29,4 @@ const KeyMissionComponent: React.FunctionComponent<KeyMissionComponentProps> = (
         </div>
     );
 
-export default KeyMissionComponent;
+export default keyMissionComponentTile;
