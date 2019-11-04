@@ -43,7 +43,7 @@ export const fetchData = async (
     }
 };
 
-export const getDate = (dateStr: string, attributes: string[], lang: string = 'ru' ) => {
+export const formatDate = (dateStr: string, attributes: string[], lang: string = 'ru' ) => {
     const rawDate = new Date(dateStr);
 
     const methods = {
@@ -60,19 +60,4 @@ export const getDate = (dateStr: string, attributes: string[], lang: string = 'r
         }
         return acc + ' ';
     }, '');
-};
-
-export const formatDate = (rawDate: string) => {
-    try {
-        return (new Date(rawDate)).toLocaleDateString(i18n.language, {
-            weekday: 'long', month: 'long', day: 'numeric',
-        });
-    } catch (_e) {
-        return rawDate;
-    }
-};
-
-export const getDefaultImage = (type: 'event') => {
-    const images = defaultImages[type];
-    return images[Math.floor(Math.random() * images.length)];
 };

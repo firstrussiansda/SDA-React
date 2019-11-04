@@ -1,17 +1,18 @@
 import React from 'react';
 import { GroupLocale } from '../../pages/groups';
 
-export interface GroupProps extends GroupLocale {
+export interface GroupTileProps extends GroupLocale {
     img: string;
 }
 
 export interface Activity {
     subTitle: string;
     time: string;
+    day: string;
     description: string;
 }
 
-const Group: React.FunctionComponent<GroupProps> = ({ title, activities, img, imgAlt }) => {
+const GroupTile: React.FunctionComponent<GroupTileProps> = ({ title, activities, img, imgAlt }) => {
     if (!title || !activities || !img || !imgAlt) {
         return null;
     }
@@ -41,11 +42,13 @@ const Group: React.FunctionComponent<GroupProps> = ({ title, activities, img, im
                                 key={activity.subTitle}
                             >
                                 <div className='col-lg-3 text-center'>
-                                    <h5 className='d-inline d-lg-none'>{activity.subTitle}</h5>
-                                    <h5 className='d-none d-lg-inline'>{activity.time}</h5>
+                                    <h5 className='d-block d-lg-none'>{activity.subTitle}</h5>
+                                    <h5 className='d-none d-lg-block'>{activity.day}</h5>
+                                    <h6 className='d-none d-lg-block'>{activity.time}</h6>
                                 </div>
                                 <div className='col-lg-9 align-items-center'>
-                                    <h5 className='d-none d-lg-inline'>{activity.subTitle}</h5>
+                                    <h5 className='d-none d-lg-block'>{activity.subTitle}</h5>
+                                    <h6 className='d-inline d-lg-none'>{activity.day} &nbsp;</h6>
                                     <h6 className='d-inline d-lg-none'>{activity.time}</h6>
                                     <p>{activity.description}</p>
                                 </div>
@@ -72,4 +75,4 @@ const Group: React.FunctionComponent<GroupProps> = ({ title, activities, img, im
     );
 };
 
-export default Group;
+export default GroupTile;
