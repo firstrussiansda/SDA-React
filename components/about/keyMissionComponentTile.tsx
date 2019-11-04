@@ -10,16 +10,18 @@ interface KeyMissionComponentTileProps {
 const keyMissionComponentTile: React.FunctionComponent<KeyMissionComponentTileProps> = ({
     img, alt, title, text,
 }) => (
-        <div className='card border-light mb-5'>
+        <div className='card mb-5'>
             <img
                 className='card-img-top'
-                src={`${img}w=428&q=80`}
+                src={`${img}w=400&q=80`}
                 alt={alt}
                 srcSet={`
-                    ${img}w=428&q=80 767w,
-                    ${img}w=260&q=80 1023w,
-                    ${img}w=350&q=80 1365w,
-                    ${img}w=428&q=80 5000w
+                    ${img}w=400&q=80 420w,
+                    ${img}w=510&q=80 573w,
+                    ${img}w=250&q=80 768w,
+                    ${img}w=210&q=80 990w,
+                    ${img}w=290&q=80 1200w,
+                    ${img}w=350&q=80 5000w
                 `}
             />
             <div className='card-body'>

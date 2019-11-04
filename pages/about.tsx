@@ -71,72 +71,73 @@ class About extends React.Component<AboutProps, AboutState> {
         }
 
         return (
-            <div className='row justify-content-md-center'>
-                <div className='col-xxs-12 col-lg-10 m-c-auto'>
-                    {/* Mission statement */}
-                    <section className='card about card-lg' id='about-mission'>
-                        <h2 className='title capitalize text-xxxl m-b-sm m-t-sm text-center'>
-                            {this.props.t('missionHeader')}
-                        </h2>
-                        <div className='blockquote text-center'>
-                            <p id='mission-statement' className='m-b-xs'>
-                                {this.props.t('mission')}
-                            </p>
-                        </div>
-                    </section>
+            <div className='container'>
+                {/* Mission statement */}
+                <section className='card about card-lg' id='about-mission'>
+                    <h2 className='title capitalize text-xxxl m-b-sm m-t-sm text-center'>
+                        {this.props.t('missionHeader')}
+                    </h2>
+                    <div className='blockquote text-center'>
+                        <p id='mission-statement' className='m-b-xs'>
+                            {this.props.t('mission')}
+                        </p>
+                    </div>
+                </section>
+                <KeyMissionComponents
+                    title={this.props.t('keyMissionComponentsTitle')}
+                    components={
+                        this.props.t<{ title: string; text: string }[]>
+                            ('keyMissionComponents', { returnObjects: true })
+                    }
+                />
 
-                    <KeyMissionComponents
-                        title={this.props.t('keyMissionComponentsTitle')}
-                        components={
-                            this.props.t<{ title: string; text: string }[]>
-                                ('keyMissionComponents', { returnObjects: true })
+                <section className='card about about-us card-lg'>
+                    <h2 className='title capitalize text-xxl m-b text-center'>
+                        {this.props.t('title')}
+                    </h2>
+                    <div className='text-center text-justify m-x-auto'>
+                        {
+                            this.props.t<string[]>('about', { returnObjects: true })
+                                .map(text => (<p className='m-b-xs' key={text}>{text}</p>))
                         }
-                    />
-
-                    <section className='card about about-us card-lg'>
-                        <h2 className='title capitalize text-xxl m-b text-center'>
-                            {this.props.t('title')}
-                        </h2>
-                        <div className='text-center text-justify m-x-auto'>
-                            {
-                                this.props.t<string[]>('about', { returnObjects: true })
-                                    .map(text => (<p className='m-b-xs' key={text}>{text}</p>))
-                            }
-                        </div>
-                    </section>
-                    {
-                        this.state.pastor &&
-                        (
-                            <section className='card about card-lg pb-5 text-xxs-center'>
-                                <h2 className='title capitalize m-b-xxl text-center'>{this.props.t('ourPastor')}</h2>
-                                <div className='row'>
-                                    <div className='col m-b-xxl'>
-                                        <img
-                                            className='img-circle img-fluid m-x-auto m-b'
-                                            src={this.state.pastor.profile_image_url}
-                                        />
-                                        <h3 className='name text-md text-center'>
-                                            {this.state.pastor.name}
-                                        </h3>
-                                        {
-                                            this.state.pastor.about &&
-                                            (
-                                                <p className='text-center m-b-sm m-x-auto short-bio'>
-                                                    {this.state.pastor.about}
-                                                </p>
-                                            )
-                                        }
-                                    </div>
+                    </div>
+                </section>
+                {
+                    this.state.pastor &&
+                    (
+                        <section className='card about card-lg pb-5 text-xxs-center'>
+                            <h2
+                                className='title capitalize m-b-xxl text-center'
+                            >
+                                {this.props.t('ourPastor')}
+                            </h2>
+                            <div className='row'>
+                                <div className='col m-b-xxl'>
+                                    <img
+                                        className='img-circle img-fluid m-x-auto m-b'
+                                        src={this.state.pastor.profile_image_url}
+                                    />
+                                    <h3 className='name text-md text-center'>
+                                        {this.state.pastor.name}
+                                    </h3>
+                                    {
+                                        this.state.pastor.about &&
+                                        (
+                                            <p className='text-center m-b-sm m-x-auto short-bio'>
+                                                {this.state.pastor.about}
+                                            </p>
+                                        )
+                                    }
                                 </div>
-                            </section>
-                        )
-                    }
+                            </div>
+                        </section>
+                    )
+                }
 
-                    {
-                        this.state.people.length > 0 &&
-                        <Leadership people={this.state.people} />
-                    }
-                </div>
+                {
+                    this.state.people.length > 0 &&
+                    <Leadership people={this.state.people} />
+                }
             </div>
         );
     }

@@ -6,8 +6,23 @@ import { formatDate } from '../../lib/helpers';
 
 interface EventTileProps extends Event, WithTranslation { }
 
+const getImage = (url: string, description: string) => (
+    <img
+        className='card-img-top'
+        src={`${url}w=400&q=80`}
+        alt={description}
+        srcSet={`
+            ${url}w=400&q=80 420w,
+            ${url}w=510&q=80 767w,
+            ${url}w=173&q=80 990w,
+            ${url}w=230&q=80 1200w,
+            ${url}w=277&q=80 5000w
+        `}
+    />
+);
+
 const EventTile: React.FunctionComponent<EventTileProps> = props => {
-    const image_url = props.image_url.split('crop&')[0];
+    const image_url = props.image_url.split('crop&')[0] + 'crop&';
 
     return (
         <React.Fragment>
@@ -24,36 +39,12 @@ const EventTile: React.FunctionComponent<EventTileProps> = props => {
                         </div>
                     </div>
                     <div className='col-md-3'>
-                        <img
-                            className=''
-                            src={`${image_url}w=320&q=80`}
-                            alt={props.image_description}
-                            srcSet={`
-                                ${image_url}w=320&q=80 1023w,
-                                ${image_url}w=260&q=80 1365w,
-                                ${image_url}w=320&q=80 5000w
-                            `}
-                        />
+                        {getImage(image_url, props.image_description)}
                     </div>
                 </div>
             </div>
             <div className='card d-block d-sm-none'>
-                {
-                    image_url &&
-                    (
-                        <img
-                            className='card-img-top'
-                            src={`${image_url}w=400&q=80`}
-                            alt={props.image_description}
-                            srcSet={`
-                                ${image_url}w=400&q=80 767w,
-                                ${image_url}w=250&q=80 1023w,
-                                ${image_url}w=330&q=80 1365w,
-                                ${image_url}w=450&q=80 5000w
-                            `}
-                        />
-                    )
-                }
+                {getImage(image_url, props.image_description)}
                 <div className='card-body'>
                     <h5 className='card-title'>{props.title}</h5>
                     <p className='card-text'>{props.description}</p>
