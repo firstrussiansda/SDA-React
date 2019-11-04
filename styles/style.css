@@ -4,6 +4,7 @@ html, body {
 }
 body {
 	font-family: 'Montserrat', sans-serif;
+	font-display: auto;
 	color: black;
 }
 main {
@@ -448,6 +449,10 @@ hr {
 .custom-select {
 	color: rgba(0,0,0,.85);
 	width: fit-content;
+}
+
+.page-link {
+	color: #014fa2;
 }
 
 

@@ -16,6 +16,7 @@ export const SpeakerSelector: React.SFC<SpeakerSelectorProps> = props => {
                 name='speakers'
                 onChange={props.handleChange}
                 value={props.selected}
+                aria-label={props.t('selectSpeaker')}
                 className='custom-select'
             >
                 <option
