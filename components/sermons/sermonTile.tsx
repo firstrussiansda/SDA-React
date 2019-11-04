@@ -95,6 +95,7 @@ class SermonTile extends React.Component<SermonTileProps, SermonTileState> {
                                         <a
                                             className='btn btn-md youtube capitalize'
                                             href={sermon.youtube_assets[0].object_url}
+                                            rel='noopener'
                                             target='_blank'
                                         >
                                             <img
