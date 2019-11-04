@@ -7,7 +7,7 @@ import { formatDate } from '../../lib/helpers';
 interface EventTileProps extends Event, WithTranslation {}
 
 const EventTile: React.FunctionComponent<EventTileProps> = props => {
-    const image_url = props.image_url.split('crop&')[0];
+    const image_url = props.image_url.split('crop&')[0] + 'crop&';
 
     return (
         <div className='card'>
@@ -16,10 +16,12 @@ const EventTile: React.FunctionComponent<EventTileProps> = props => {
                 src={`${image_url}w=400&q=80`}
                 alt={props.image_description}
                 srcSet={`
-                    ${image_url}w=400&q=80 767w,
-                    ${image_url}w=250&q=80 1023w,
-                    ${image_url}w=330&q=80 1365w,
-                    ${image_url}w=450&q=80 5000w
+                    ${image_url}w=400&q=80 420w,
+                    ${image_url}w=543&q=80 573w,
+                    ${image_url}w=150&q=80 768w,
+                    ${image_url}w=210&q=80 990w,
+                    ${image_url}w=290&q=80 1200w,
+                    ${image_url}w=350&q=80 5000w
                 `}
             />
             <div className='card-body'>

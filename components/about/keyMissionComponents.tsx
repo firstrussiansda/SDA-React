@@ -28,7 +28,7 @@ const KeyMissionComponents: React.FunctionComponent<KeyMissionComponentsProps> =
 
     return (
         <section id='mission-components'>
-            <h2 className='title text-xxl m-b text-center'>{props.title}</h2>
+            <h2 className='title text-xxl text-center'>{props.title}</h2>
             <div className='card-deck'>
                 {
                     props.components.map((item, idx) => (
