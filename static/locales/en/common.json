@@ -6,14 +6,16 @@
     "copyright": "All Rights Reserved 2018"
   },
   "header": {
-    "home": "First Russian SDA",
-    "about": "about",
-    "groups": "groups",
-    "calendar": "calendar",
-    "media": "media",
-    "gallery": "gallery",
-    "sermons": "sermons",
-    "language": "english"
+    "homeFull": "First Russian SDA",
+    "home": "Home",
+    "about": "About",
+    "groups": "Groups",
+    "calendar": "Calendar",
+    "media": "Media",
+    "gallery": "Gallery",
+    "sermons": "Sermons",
+    "language": "English",
+    "contact": "Contact us"
   },
   "error": {
     "blah": "foo {{la}} papa"

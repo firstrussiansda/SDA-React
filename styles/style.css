@@ -53,6 +53,72 @@ hr {
 	outline: none;
 }
 
+.mobile-nav-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	flex-direction:row;
+	justify-content:flex-start;
+	height:100vh;
+	z-index: 1000000;
+}
+
+.mobile-nav-content {
+	padding: 1rem 0 0 2rem;
+	overflow: hidden;
+	transition: flex 0.3s ease-out;
+	background-color: #f8f9fa;
+	height: 100%;
+	left: -280px;
+	position: absolute;
+	width: 280px;
+	top: 0;
+}
+
+.mobile-nav-content li {
+	padding: 0.5rem;
+}
+
+.mobile-nav-content a {
+	color: rgba(0,0,0,.85)!important;
+	font-size: 1rem;
+}
+
+.mobile-nav-content i {
+	padding-right: 0.7rem;
+}
+
+.mobile-nav-content.collapsed {
+	transform: translateX(-280px);
+	transition: 0.5s;
+}
+
+.mobile-nav-content.expanded {
+	transform: translateX(280px);
+	transition: 0.5s;
+}
+
+.mobile-nav-background {
+	background-color: #000;
+	opacity: 0;
+	position: fixed;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.mobile-nav-background.collapsed {
+	opacity: 0;
+	transition: 0.5s;
+}
+
+.mobile-nav-background.expanded {
+	opacity: 0.8;
+	transition: 0.5s;
+}
+
 #btn-contact-header {
 	border: none;
 	border-radius: 0;
