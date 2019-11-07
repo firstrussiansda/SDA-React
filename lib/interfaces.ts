@@ -37,13 +37,28 @@ export interface SoundCloudAsset extends MediaAsset {
     track_id: string;
 }
 
-export interface Sermon extends Base {
+export interface JustSermonSeries {
+    id:	string;
+    url: string;
+    title: string;
+    description: string;
+}
+
+export interface JustSermon {
     title: string;
     description: string;
     date: string;
     speakers: Person[];
     soundcloud_assets: SoundCloudAsset[];
     youtube_assets: MediaAsset[];
+}
+
+export interface Sermon extends Base, JustSermon {
+    series?: JustSermonSeries;
+}
+
+export interface SermonSeries extends JustSermonSeries {
+    sermons: JustSermon[];
 }
 
 export interface ReqParams {
