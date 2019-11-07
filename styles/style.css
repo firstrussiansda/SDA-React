@@ -726,7 +726,7 @@ hr {
 
 	/* adjusting titles */
 	.title{
-		font-size: 30px; 
+		font-size: 30px;
 		padding: 30px 0 30px 0;
 	}
 
@@ -743,12 +743,12 @@ hr {
 		font-size: 1.1rem;
 	}
 
-	#praying-request  form [class*="col-"], 
+	#praying-request  form [class*="col-"],
 	#praying-request  form .col {
 		padding: 0px;
 	}
 
-	#praying-request form button, 
+	#praying-request form button,
 	#contact-btn.btn-outline-warning{
 		margin: auto;
 		display: block;
@@ -777,7 +777,7 @@ hr {
 	}
 
 	.card.about-us{
-		margin-top: 60px; 
+		margin-top: 60px;
 	}
 
 	.page-footer a{margin: 10px;}
