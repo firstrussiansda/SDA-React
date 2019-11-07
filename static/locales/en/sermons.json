@@ -4,6 +4,7 @@
   "listen": "listen",
   "selectYear": "Select Year",
   "selectMonth": "Select Month",
+  "selectSeries": "Select Series",
   "selectSpeaker": "Select Speaker",
   "noData": "We tried really hard but unfortunately couldn't find any sermons with selected filters"
 }

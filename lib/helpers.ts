@@ -44,10 +44,11 @@ export const fetchData = async (
 };
 
 export const formatDate = (dateStr: string, attributes: string[], lang: string = 'ru' ) => {
-    const rawDate = new Date(dateStr);
+    // have to do it to mitigate TZ issue
+    const rawDate = new Date(`${dateStr}T12:00:00`);
 
     const methods = {
-        day: rawDate.getDate() + 1,
+        day: rawDate.getDate(),
         month: getLocalizedMonths(lang)[rawDate.getMonth()],
         year: rawDate.getFullYear(),
     } as { [k: string]: string | number };

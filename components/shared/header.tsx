@@ -1,4 +1,5 @@
 import React from 'react';
+import Router from 'next/router';
 import Link from 'next/link';
 import { withTranslation } from '../../i18n';
 import { WithTranslation } from 'react-i18next';
@@ -19,18 +20,33 @@ export interface HeaderLocale {
 interface HeaderState {
     menuClass: string;
     menuDisplay: string;
+    currentRoute?: string;
 }
 
 class Header extends React.Component<WithTranslation, HeaderState> {
     constructor(props: WithTranslation) {
         super(props);
-        this.state = { menuClass: 'collapsed', menuDisplay: 'none' };
+        this.state = {
+            menuClass: 'collapsed',
+            menuDisplay: 'none',
+        };
+    }
+
+    componentDidMount() {
+        this.setState({ currentRoute: Router.route });
+        Router.events.on('routeChangeComplete', this.handleRouteChange);
+    }
+
+    componentWillUnmount() {
+        Router.events.off('routeChangeComplete', this.handleRouteChange);
     }
 
     static async getInitialProps() {
-        return {
-            namespacesRequired: ['common'],
-        };
+        return { namespacesRequired: ['common'] };
+    }
+
+    private handleRouteChange = (currentRoute: string) => {
+        this.setState({ currentRoute });
     }
 
     openMenu = () => {
@@ -48,6 +64,10 @@ class Header extends React.Component<WithTranslation, HeaderState> {
     changeLanguage = (lang: string) => {
         this.props.i18n.changeLanguage(lang);
         this.closeMenu();
+    }
+
+    getCurrentClass = (route: string) => {
+        return this.state.currentRoute === route ? 'current' : '';
     }
 
     render() {
@@ -86,7 +106,7 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                             id='navbarSupportedContent'
                         >
                             <ul className='navbar-nav ml-auto'>
-                                <li className='nav-item'>
+                                <li className={`nav-item ${this.getCurrentClass('/about')}`}>
                                     <Link href='/about'>
                                         <a className='nav-link hvr-overline-from-center'>
                                             {headerLocales.about}
@@ -95,7 +115,7 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                     </Link>
                                 </li>
 
-                                <li className='nav-item'>
+                                <li className={`nav-item ${this.getCurrentClass('/groups')}`}>
                                     <Link href='/groups'>
                                         <a className='nav-link hvr-overline-from-center'>
                                             {headerLocales.groups}
@@ -104,7 +124,7 @@ class Header extends React.Component<WithTranslation, HeaderState> {
 
                                 </li>
 
-                                <li className='nav-item'>
+                                <li className={`nav-item ${this.getCurrentClass('/calendar')}`}>
                                     <Link href='/calendar'>
                                         <a className='nav-link hvr-overline-from-center'>
                                             {headerLocales.calendar}
@@ -112,7 +132,7 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                     </Link>
 
                                 </li>
-                                <li className='nav-item'>
+                                <li className={`nav-item ${this.getCurrentClass('/sermons')}`}>
                                     <Link href='/sermons'>
                                         <a className='nav-link hvr-overline-from-center'>
                                             {headerLocales.sermons}
@@ -188,7 +208,10 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                     />
                     <div className={`mobile-nav-content ${this.state.menuClass}`}>
                         <ul className='navbar-nav ml-auto'>
-                            <li className='nav-item' onClick={this.closeMenu}>
+                            <li
+                                className={`nav-item ${this.getCurrentClass('/')}`}
+                                onClick={this.closeMenu}
+                            >
                                 <Link href='/'>
                                     <a id='brand' className='navbar-brand' >
                                         <i className='fas fa-home' />
@@ -197,7 +220,10 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                     </a>
                                 </Link>
                             </li>
-                            <li className='nav-item' onClick={this.closeMenu}>
+                            <li
+                                className={`nav-item ${this.getCurrentClass('/about')}`}
+                                onClick={this.closeMenu}
+                            >
                                 <Link href='/about'>
                                     <a className='nav-link hvr-overline-from-center'>
                                         <i className='fas fa-info-circle' />
@@ -208,7 +234,10 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                 </Link>
                             </li>
 
-                            <li className='nav-item' onClick={this.closeMenu}>
+                            <li
+                                className={`nav-item ${this.getCurrentClass('/groups')}`}
+                                onClick={this.closeMenu}
+                            >
                                 <Link href='/groups'>
                                     <a className='nav-link hvr-overline-from-center'>
                                         <i className='fas fa-users' />
@@ -218,7 +247,10 @@ class Header extends React.Component<WithTranslation, HeaderState> {
 
                             </li>
 
-                            <li className='nav-item' onClick={this.closeMenu}>
+                            <li
+                                className={`nav-item ${this.getCurrentClass('/calendar')}`}
+                                onClick={this.closeMenu}
+                            >
                                 <Link href='/calendar'>
                                     <a className='nav-link hvr-overline-from-center'>
                                         <i className='far fa-calendar-alt' />
@@ -228,7 +260,10 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                 </Link>
 
                             </li>
-                            <li className='nav-item' onClick={this.closeMenu}>
+                            <li
+                                className={`nav-item ${this.getCurrentClass('/sermons')}`}
+                                onClick={this.closeMenu}
+                            >
                                 <Link href='/sermons'>
                                     <a className='nav-link hvr-overline-from-center'>
                                         <i className='far fa-play-circle' />
@@ -237,7 +272,10 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                     </a>
                                 </Link>
                             </li>
-                            <li className='nav-item' onClick={this.closeMenu}>
+                            <li
+                                className={`nav-item ${this.getCurrentClass('/contact')}`}
+                                onClick={this.closeMenu}
+                            >
                                 <Link href='/contact'>
                                     <a className='nav-link hvr-overline-from-center'>
                                         <i className='far fa-envelope' />
