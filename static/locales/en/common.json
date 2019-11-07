@@ -17,9 +17,8 @@
     "language": "English",
     "contact": "Contact us"
   },
-  "error": {
-    "blah": "foo {{la}} papa"
-  },
+  "errorMessage": "Ooops... Something went wrong. If you think this is something on our side please let us know through a contact form, send us a message or let us know in person!",
+  "errorCode": "Error code",
   "test": {
     "foo": "Foo"
   }

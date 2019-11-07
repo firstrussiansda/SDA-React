@@ -7,26 +7,26 @@ interface ErrorProps extends WithTranslation {
     statusCode: number;
 }
 
-interface ErrorLocale {
-    blah: string;
-}
-
 class Error extends React.Component<ErrorProps> {
-    static getInitialProps({ res, err }: {res: NextApiResponse, err: NextApiResponse}) {
+    static getInitialProps({ res, err }: { res: NextApiResponse, err: NextApiResponse }) {
         const statusCode = res ? res.statusCode : err ? err.statusCode : null;
         return { statusCode, namespacesRequired: ['common'] };
     }
 
     render() {
         return (
-            <p>
-                {
-                    this.props.statusCode
-                        ? `An error ${this.props.statusCode} occurred on server`
-                        : 'An error occurred on client'
-                }
-                {this.props.t<ErrorLocale>('error', { returnObjects: true }).blah }
-            </p>
+            <div className='container d-flex justify-content-center align-items-center'>
+                <p className='text-center'>
+                    <h2>{this.props.t('errorMessage')}</h2>
+                    {
+                        this.props.statusCode &&
+                        <p>
+                            {this.props.t('errorCode')}: {this.props.statusCode};
+                    </p>
+                    }
+                </p>
+
+            </div>
         );
     }
 }

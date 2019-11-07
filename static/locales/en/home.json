@@ -20,8 +20,8 @@
     "namePlaceholder": "Ivan Ivanov",
     "email": "Email",
     "prayerNeed": "Prayer Need",
-    "prayerNeedPlaceholder": "Enter your prayer need",
-    "sendPrayerNeed": "Send Prayer Need"
+    "prayerNeedPlaceholder": "Enter your prayer request",
+    "sendPrayerNeed": "Submit Prayer Request"
   },
   "visitUs": {
     "title": "Come Visit Us",
