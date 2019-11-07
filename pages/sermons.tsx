@@ -3,7 +3,7 @@ import { WithTranslation } from 'react-i18next';
 import { withTranslation } from '../i18n';
 
 import { fetchData } from '../lib/helpers';
-import { Sermon, Person, ReqParams } from '../lib/interfaces';
+import { Sermon, JustSermonSeries, Person, ReqParams } from '../lib/interfaces';
 
 import SermonTile from '../components/sermons/sermonTile';
 import Filter from '../components/sermons/filter';
@@ -16,6 +16,7 @@ interface SermonsProps extends WithTranslation {
         results: Sermon[];
         count: number;
     };
+    series: JustSermonSeries[];
     speakers: Person[];
 }
 
@@ -26,6 +27,7 @@ interface SermonsState {
     year: string;
     month: string;
     selectedSpeaker: string;
+    selectedSeries: string;
 }
 
 class Sermons extends React.Component<SermonsProps, SermonsState> {
@@ -39,13 +41,21 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
             year: '',
             month: '',
             selectedSpeaker: '',
+            selectedSeries: '',
         };
 
     }
     static async getInitialProps({ req }: any) {
+        // TODO: Promise.all?
         const sermons = await fetchData('sermons', req, { page_size: PAGE_SIZE });
         const speakers = await fetchData('people', req);
-        return { sermons, speakers: speakers.results, namespacesRequired: ['sermons'] };
+        const series = await fetchData('series', req);
+        return {
+            sermons,
+            series: series.results,
+            speakers: speakers.results,
+            namespacesRequired: ['sermons'],
+        };
     }
 
     componentDidMount() {
@@ -66,6 +76,9 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
                 break;
             case 'speakers':
                 this.setState({ selectedSpeaker: value }, this.applyFilter);
+                break;
+            case 'series':
+                this.setState({ selectedSeries: value }, this.applyFilter);
                 break;
         }
     }
@@ -96,7 +109,11 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
         }
 
         if (this.state.selectedSpeaker) {
-            params.speakers__name__exact = this.state.selectedSpeaker;
+            params.speakers__id = this.state.selectedSpeaker;
+        }
+
+        if (this.state.selectedSeries) {
+            params.series__id = this.state.selectedSeries;
         }
 
         const data = await fetchData('sermons', null, params);
@@ -114,6 +131,8 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
                     year={this.state.year}
                     month={this.state.month}
                     selectedSpeaker={this.state.selectedSpeaker}
+                    selectedSeries={this.state.selectedSeries}
+                    series={this.props.series}
                     speakers={this.props.speakers}
                     t={this.props.t}
                     i18n={this.props.i18n}
