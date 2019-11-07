@@ -66,9 +66,13 @@ class Header extends React.Component<WithTranslation, HeaderState> {
         this.closeMenu();
     }
 
-    getCurrentClass = (route: string) => {
-        return this.state.currentRoute === route ? 'current' : '';
-    }
+    getCurrentClass = (route: string) => (
+        this.state.currentRoute === route ? 'current' : ''
+    )
+
+    getHomeClass = () => (
+        this.state.currentRoute === '/' ? ' home-nav' : ''
+    )
 
     render() {
         const { t, i18n } = this.props;
@@ -76,7 +80,7 @@ class Header extends React.Component<WithTranslation, HeaderState> {
 
         return (
             <React.Fragment>
-                <nav className='navbar navbar-expand-lg navbar-light'>
+                <nav className={`navbar navbar-expand-lg navbar-light${this.getHomeClass()}`}>
                     <div className='container'>
                         <Link href='/'>
                             <a id='brand' className='navbar-brand' >
@@ -196,7 +200,7 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                 </nav>
 
                 <div
-                    className='mobile-nav-container'
+                    className={`mobile-nav-container${this.getHomeClass()}`}
                     style={{ display: this.state.menuDisplay }}
                 >
                     <div
