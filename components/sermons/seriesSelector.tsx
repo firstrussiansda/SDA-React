@@ -1,38 +1,38 @@
 import React from 'react';
 import { WithTranslation } from 'react-i18next';
 
-import { Person } from '../../lib/interfaces';
+import { JustSermonSeries } from '../../lib/interfaces';
 
-interface SpeakerSelectorProps extends WithTranslation {
+interface SeriesSelectorProps extends WithTranslation {
     selected: string;
-    speakers: Person[];
+    series: JustSermonSeries[];
     handleChange(e: React.FormEvent<HTMLSelectElement>): void;
 }
 
-export const SpeakerSelector: React.SFC<SpeakerSelectorProps> = props => {
+export const SeriesSelector: React.SFC<SeriesSelectorProps> = props => {
     return (
         <div className='my-2 mr-3'>
             <select
-                name='speakers'
+                name='series'
                 onChange={props.handleChange}
                 value={props.selected}
-                aria-label={props.t('selectSpeaker')}
+                aria-label={props.t('selectSeries')}
                 className='custom-select'
             >
                 <option
-                    label={props.t('selectSpeaker')}
+                    label={props.t('selectSeries')}
                     value=''
                 >
-                    {props.t('selectSpeaker')}
+                    {props.t('selectSeries')}
                 </option>
                 {
-                    props.speakers.map(speaker => (
+                    props.series.map(item => (
                         <option
-                            key={speaker.id}
-                            label={speaker.name}
-                            value={speaker.id}
+                            key={item.id}
+                            label={item.title}
+                            value={item.id}
                         >
-                            {speaker.name}
+                            {item.title}
                         </option>
                     ))
                 }

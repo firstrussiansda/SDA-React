@@ -19,6 +19,8 @@ React site for First Russian SDA Church in NYC
 - push you local branch to GitHub
 - open a PR to develop when feature is completed
 - PR to be rewieved by a code owner before merge is allowed
+- local testing on develop branch
+- PR to master from develop -> autodeploy on merge
 
 ## Pre-commit
 
