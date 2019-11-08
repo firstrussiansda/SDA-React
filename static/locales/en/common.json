@@ -18,8 +18,5 @@
         "contact": "Contact us"
     },
     "errorMessage": "Ooops... Something went wrong. We did not anticipate this happening :(",
-    "errorCode": "Error code",
-    "test": {
-        "foo": "Foo"
-    }
+    "errorCode": "Error code"
 }

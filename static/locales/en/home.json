@@ -1,50 +1,50 @@
 {
-  "mainQuote": {
-    "origin": "Joshua 1:9, WEB",
-    "text": "God is with you wherever you go"
-  },
-  "contactUsQuote": {
-    "origin": "Psalm 133:1",
-    "text": "How good and pleasant it is when God’s people live together in unity!"
-  },
-  "contactUs": "Contact Us",
-  "events": "Events",
-  "allEvents": "All Events",
-  "prayerRequest": {
-    "title": "Do you have a prayer need?",
-    "quote": {
-      "origin": "James 5:16",
-      "text": "Therefore, confess your sins to one another and pray for one another, that you may be healed. The prayer of a righteous person has great power as it is working."
+    "mainQuote": {
+        "origin": "Joshua 1:9, WEB",
+        "text": "God is with you wherever you go"
     },
-    "name": "Name",
-    "namePlaceholder": "Ivan Ivanov",
-    "email": "Email",
-    "prayerNeed": "Prayer Need",
-    "prayerNeedPlaceholder": "Enter your prayer request",
-    "sendPrayerNeed": "Submit Prayer Request"
-  },
-  "visitUs": {
-    "title": "Come Visit Us",
-    "location": {
-      "name": "First Russian SDA church",
-      "area": "is located in Gravesend area of Brooklyn, NY.",
-      "address": "1913 W 7th St Brooklyn, NY 11223",
-      "header": "Location:"
+    "contactUsQuote": {
+        "origin": "Psalm 133:1",
+        "text": "How good and pleasant it is when God’s people live together in unity!"
     },
-    "servicesHeader": "Worship times - Saturdays:",
-    "services": [
-      {
-        "name": "Praying Group",
-        "time": "9:00 AM"
-      },
-      {
-        "name": "Sabbath School",
-        "time": "10:00 AM"
-      },
-      {
-        "name": "Sermons",
-        "time": "11:00 AM"
-      }
-    ]
-  }
+    "contactUs": "Contact Us",
+    "events": "Events",
+    "allEvents": "All Events",
+    "prayerRequest": {
+        "title": "Do you have a prayer need?",
+        "quote": {
+            "origin": "James 5:16",
+            "text": "Therefore, confess your sins to one another and pray for one another, that you may be healed. The prayer of a righteous person has great power as it is working."
+        },
+        "name": "Name",
+        "namePlaceholder": "Ivan Ivanov",
+        "email": "Email",
+        "prayerNeed": "Prayer Need",
+        "prayerNeedPlaceholder": "Enter your prayer request",
+        "sendPrayerNeed": "Submit Prayer Request"
+    },
+    "visitUs": {
+        "title": "Come Visit Us",
+        "location": {
+            "name": "First Russian SDA church",
+            "area": "is located in Gravesend area of Brooklyn, NY.",
+            "address": "1913 W 7th St Brooklyn, NY 11223",
+            "header": "Location:"
+        },
+        "servicesHeader": "Worship times - Saturdays:",
+        "services": [
+            {
+                "name": "Praying Group",
+                "time": "9:00 AM"
+            },
+            {
+                "name": "Sabbath School",
+                "time": "10:00 AM"
+            },
+            {
+                "name": "Sermons",
+                "time": "11:00 AM"
+            }
+        ]
+    }
 }

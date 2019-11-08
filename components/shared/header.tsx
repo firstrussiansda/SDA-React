@@ -217,7 +217,7 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                 onClick={this.closeMenu}
                             >
                                 <Link href='/'>
-                                    <a id='brand' className='navbar-brand' >
+                                    <a className='nav-link hvr-overline-from-center' >
                                         <i className='fas fa-home' />
                                         &nbsp;
                                         {headerLocales.home}
