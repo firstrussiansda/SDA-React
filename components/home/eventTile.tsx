@@ -11,19 +11,19 @@ const EventTile: React.FunctionComponent<EventTileProps> = props => {
 
     return (
         <div className='card'>
-            <img
-                className='card-img-top'
-                src={`${image_url}w=400&q=80`}
-                alt={props.image_description}
-                srcSet={`
-                    ${image_url}w=400&q=80 420w,
-                    ${image_url}w=543&q=80 573w,
-                    ${image_url}w=150&q=80 768w,
-                    ${image_url}w=210&q=80 990w,
-                    ${image_url}w=290&q=80 1200w,
-                    ${image_url}w=350&q=80 5000w
-                `}
-            />
+            <picture>
+                <source srcSet={`${image_url}w=400&q=80`} media='(max-width: 420px)' />
+                <source srcSet={`${image_url}w=543&q=80`} media='(max-width: 575px)' />
+                <source srcSet={`${image_url}w=150&q=80`} media='(max-width: 768px)' />
+                <source srcSet={`${image_url}w=220&q=80`} media='(max-width: 990px)' />
+                <source srcSet={`${image_url}w=290&q=80`} media='(max-width: 1200px)' />
+                <source srcSet={`${image_url}w=350&q=80`} media='(min-width: 1201px)' />
+                <img
+                    src={`${image_url}w=400&q=80`}
+                    alt={props.image_description}
+                    className='card-img-top'
+                />
+            </picture>
             <div className='card-body'>
                 <h5 className='card-title'>{props.title}</h5>
                 <p className='card-text'>{props.description}</p>

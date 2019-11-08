@@ -7,18 +7,14 @@ import { formatDate } from '../../lib/helpers';
 interface EventTileProps extends Event, WithTranslation { }
 
 const getImage = (url: string, description: string) => (
-    <img
-        className='card-img-top'
-        src={`${url}w=400&q=80`}
-        alt={description}
-        srcSet={`
-            ${url}w=400&q=80 420w,
-            ${url}w=510&q=80 767w,
-            ${url}w=173&q=80 990w,
-            ${url}w=230&q=80 1200w,
-            ${url}w=277&q=80 5000w
-        `}
-    />
+    <picture>
+        <source srcSet={`${url}w=400&q=80`} media='(max-width: 420px)' />
+        <source srcSet={`${url}w=510&q=80`} media='(max-width: 767px)' />
+        <source srcSet={`${url}w=173&q=80`} media='(max-width: 990px)' />
+        <source srcSet={`${url}w=230&q=80`} media='(max-width: 1200px)' />
+        <source srcSet={`${url}w=277&q=80`} media='(min-width: 1201px)' />
+        <img src={`${url}w=400&q=80`} alt={description} className='card-img-top' />
+    </picture>
 );
 
 const EventTile: React.FunctionComponent<EventTileProps> = props => {
