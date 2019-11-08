@@ -20,9 +20,7 @@ class Error extends React.Component<ErrorProps> {
                     <h2>{this.props.t('errorMessage')}</h2>
                     {
                         this.props.statusCode &&
-                        <p>
-                            {this.props.t('errorCode')}: {this.props.statusCode};
-                    </p>
+                        <p>{this.props.t('errorCode')}: {this.props.statusCode}</p>
                     }
                 </p>
 
