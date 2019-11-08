@@ -1,26 +1,22 @@
 {
-  "title": "NY First Russian SDA",
-  "description": "First Russian SDA church is a religious organization . . . ",
-  "footer": {
-    "main": "First Russian SDA Church of New York City | 1913 W 7th St, New York, New York 11223",
-    "copyright": "All Rights Reserved 2018"
-  },
-  "header": {
-    "homeFull": "First Russian SDA",
-    "home": "Home",
-    "about": "About",
-    "groups": "Groups",
-    "calendar": "Calendar",
-    "media": "Media",
-    "gallery": "Gallery",
-    "sermons": "Sermons",
-    "language": "English",
-    "contact": "Contact us"
-  },
-  "error": {
-    "blah": "foo {{la}} papa"
-  },
-  "test": {
-    "foo": "Foo"
-  }
+    "title": "NY First Russian SDA",
+    "description": "First Russian SDA church is a religious organization . . . ",
+    "footer": {
+        "main": "First Russian SDA Church of New York City | 1913 W 7th St, New York, New York 11223",
+        "copyright": "All Rights Reserved 2019"
+    },
+    "header": {
+        "homeFull": "First Russian SDA",
+        "home": "Home",
+        "about": "About",
+        "groups": "Groups",
+        "calendar": "Calendar",
+        "media": "Media",
+        "gallery": "Gallery",
+        "sermons": "Sermons",
+        "language": "English",
+        "contact": "Contact us"
+    },
+    "errorMessage": "Ooops... Something went wrong. We did not anticipate this happening :(",
+    "errorCode": "Error code"
 }

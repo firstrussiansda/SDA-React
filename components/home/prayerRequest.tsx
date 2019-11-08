@@ -8,10 +8,10 @@ interface PrayerRequestLocales {
     quote: Quote;
     name: string;
     email: string;
-    'namePlaceholder': string;
-    'prayerNeed': string;
-    'prayerNeedPlaceholder': string;
-    'sendPrayerNeed': string;
+    namePlaceholder: string;
+    prayerNeed: string;
+    prayerNeedPlaceholder: string;
+    sendPrayerNeed: string;
 }
 
 const reportToGA = () => {
@@ -36,11 +36,11 @@ const PrayerRequest: React.FunctionComponent<WithTranslation> = ({ t, tReady }) 
                 <div className='col-md-6 m-auto'>
                     <div className='text-center'>
                         <blockquote className='blockquote'>
-                            <h5 className='m-4 mb-0 dispa'>
+                            <h5 className='m-4 mb-0'>
                                 &quot;
                                     {localizedText.quote.text}
                                 &quot;
-                                </h5>
+                            </h5>
                             <footer className='blockquote-footer'>{localizedText.quote.origin}</footer>
                         </blockquote>
                     </div>
