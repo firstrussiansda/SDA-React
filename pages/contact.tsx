@@ -19,7 +19,7 @@ class Contact extends React.Component<WithTranslation> {
     render() {
         return (
             <div id='contactUs'>
-                <h1 className='text-center capitalize my-3'>{this.props.t('title')}</h1>
+                <h1 className='text-center my-3'>{this.props.t('title')}</h1>
                 <h2 className='text-center'>{this.props.t('header')}</h2>
                 <div className='row justify-content-md-center'>
                     <form
@@ -29,7 +29,7 @@ class Contact extends React.Component<WithTranslation> {
                         onSubmit={this.reportToGA}
                     >
                         <div className='form-field string required'>
-                            <label htmlFor='nameInput' className='capitalize'>
+                            <label htmlFor='nameInput'>
                                 {this.props.t('name')}
                             </label>
                             <input
@@ -58,7 +58,7 @@ class Contact extends React.Component<WithTranslation> {
                         </div>
 
                         <div className='form-field string required'>
-                            <label htmlFor='message-input' className='capitalize'>
+                            <label htmlFor='message-input'>
                                 {this.props.t('message')}
                             </label>
                             <textarea
@@ -76,7 +76,7 @@ class Contact extends React.Component<WithTranslation> {
                             value={this.props.t<string>('send')}
                             role='button'
                             id='submit-btn'
-                            className='btn btn-outline-warning hvr-icon-forward capitalize'
+                            className='btn btn-outline-warning hvr-icon-forward'
                         />
                     </form>
 
