@@ -2,9 +2,10 @@
   "listen": "слухати",
   "watch": "дивитися",
   "title": "Проповіді",
-  "selectYear": "Виберіть Рік",
-  "selectMonth": "Виберіть Місяць",
-  "selectSeries": "Выберите Серію",
-  "selectSpeaker": "Виберіть Спікера",
+  "selectYear": "Рік",
+  "selectMonth": "Місяць",
+  "selectSeries": "Серія",
+  "selectSpeaker": "Спікер",
+  "resetFilter": "Скасувати",
   "noData": "Ми дуже старалися, але, на жаль, не змогли знайти жодної проповіді з вибраними фільтрами"
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Person } from '../../lib/interfaces';
+import { Person } from '../../lib/types';
 
 interface LeadershipProps {
     people: Person[];

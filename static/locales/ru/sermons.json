@@ -2,9 +2,10 @@
   "listen": "слушать",
   "watch": "смотреть",
   "title": "Проповеди",
-  "selectYear": "Выберите Год",
-  "selectMonth": "Выберите Месяц",
-  "selectSeries": "Выберите Серию",
-  "selectSpeaker": "Выберите Cпикера",
+  "selectYear": "Год",
+  "selectMonth": "Месяц",
+  "selectSeries": "Серия",
+  "selectSpeaker": "Cпикер",
+  "resetFilter": "Сбросить",
   "noData": "Мы очень старались, но, к сожалению, не смогли найти проповеди с выбранными фильтрами."
 }

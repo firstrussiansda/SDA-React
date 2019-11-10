@@ -4,7 +4,7 @@ import { WithTranslation } from 'react-i18next';
 import { fetchData } from '../lib/helpers';
 import { withTranslation } from '../i18n';
 import { HeaderLocale } from '../components/shared/header';
-import { Event } from '../lib/interfaces';
+import { Event } from '../lib/types';
 import EventTile from '../components/calendar/eventTile';
 
 const PAGE_SIZE = 5;
@@ -19,6 +19,7 @@ interface SermonsState {
     page: number;
     count: number;
     isLoading: boolean;
+    changingLanguage: boolean;
 }
 
 class Calendar extends React.Component<SermonsProps, SermonsState> {
@@ -30,11 +31,15 @@ class Calendar extends React.Component<SermonsProps, SermonsState> {
             page: 1,
             count: 0,
             isLoading: true,
+            changingLanguage: false,
         };
     }
 
     static async getInitialProps({ req }: any) {
-        const data = await fetchData('events', req, { page_size: PAGE_SIZE });
+        const data = await fetchData('events', req, {
+            page_size: PAGE_SIZE,
+            date__gte: new Date().toISOString().split('T')[0],
+        });
 
         if (data && 'results' in data) {
             return {
@@ -90,38 +95,38 @@ class Calendar extends React.Component<SermonsProps, SermonsState> {
                         }
                     </div>
                     <div className='d-flex justify-content-center'>
-                    {
-                        this.state.isLoading ?
-                        (
-                            <React.Fragment>
-                                <div className='spinner-grow text-primary' role='status'>
-                                    <span className='sr-only'>Loading...</span>
-                                </div>
-                                <div className='spinner-grow text-primary' role='status'>
-                                    <span className='sr-only'>Loading...</span>
-                                </div>
-                                <div className='spinner-grow text-primary' role='status'>
-                                    <span className='sr-only'>Loading...</span>
-                                </div>
-                            </React.Fragment>
-                        ) : (
-                            <React.Fragment>
-                                {
-                                    this.isMoreAvailable() &&
-                                    (
-                                        <button
-                                            type='button'
-                                            className='btn btn-outline-primary'
-                                            onClick={this.loadMore}
-                                        >
-                                            Load more
-                                        </button>
+                        {
+                            this.state.isLoading ?
+                                (
+                                    <React.Fragment>
+                                        <div className='spinner-grow text-primary' role='status'>
+                                            <span className='sr-only'>Loading...</span>
+                                        </div>
+                                        <div className='spinner-grow text-primary' role='status'>
+                                            <span className='sr-only'>Loading...</span>
+                                        </div>
+                                        <div className='spinner-grow text-primary' role='status'>
+                                            <span className='sr-only'>Loading...</span>
+                                        </div>
+                                    </React.Fragment>
+                                ) : (
+                                    <React.Fragment>
+                                        {
+                                            this.isMoreAvailable() &&
+                                            (
+                                                <button
+                                                    type='button'
+                                                    className='btn btn-outline-primary'
+                                                    onClick={this.loadMore}
+                                                >
+                                                    Load more
+                                                </button>
 
-                                    )
-                                }
-                            </React.Fragment>
-                        )
-                    }
+                                            )
+                                        }
+                                    </React.Fragment>
+                                )
+                        }
                     </div>
                 </main>
 

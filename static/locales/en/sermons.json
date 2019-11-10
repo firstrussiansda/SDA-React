@@ -2,9 +2,10 @@
   "title": "sermons",
   "watch": "watch",
   "listen": "listen",
-  "selectYear": "Select Year",
-  "selectMonth": "Select Month",
-  "selectSeries": "Select Series",
-  "selectSpeaker": "Select Speaker",
+  "selectYear": "Year",
+  "selectMonth": "Month",
+  "selectSeries": "Series",
+  "selectSpeaker": "Speaker",
+  "resetFilter": "Reset",
   "noData": "We tried really hard but unfortunately couldn't find any sermons with selected filters"
 }

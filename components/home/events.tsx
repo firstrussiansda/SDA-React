@@ -1,7 +1,7 @@
 import React from 'react';
 import { WithTranslation } from 'react-i18next';
 
-import { Event } from '../../lib/interfaces';
+import { Event } from '../../lib/types';
 import EventTile from './eventTile';
 
 interface EventsProps extends WithTranslation {

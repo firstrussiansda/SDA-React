@@ -3,7 +3,7 @@ import { WithTranslation } from 'react-i18next';
 import { withTranslation } from '../i18n';
 
 import { fetchData } from '../lib/helpers';
-import { Sermon, JustSermonSeries, Person, ReqParams } from '../lib/interfaces';
+import { Sermon, JustSermonSeries, Person, ReqParams, YearMonths } from '../lib/types';
 
 import SermonTile from '../components/sermons/sermonTile';
 import Filter from '../components/sermons/filter';
@@ -18,6 +18,7 @@ interface SermonsProps extends WithTranslation {
     };
     series: JustSermonSeries[];
     speakers: Person[];
+    yearMonths: YearMonths;
 }
 
 interface SermonsState {
@@ -48,10 +49,12 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
     static async getInitialProps({ req }: any) {
         // TODO: Promise.all?
         const sermons = await fetchData('sermons', req, { page_size: PAGE_SIZE });
-        const speakers = await fetchData('people', req);
+        const speakers = await fetchData('people', req, { sermons__id__isnull: false });
+        const yearMonths = await fetchData('sermons/year-months', req);
         const series = await fetchData('series', req);
         return {
             sermons,
+            yearMonths,
             series: series.results,
             speakers: speakers.results,
             namespacesRequired: ['sermons'],
@@ -63,13 +66,29 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
         this.setState({ sermons: results, count });
     }
 
+    resetFilters = () => {
+        if (
+            this.state.year ||
+            this.state.month ||
+            this.state.selectedSeries ||
+            this.state.selectedSpeaker
+        ) {
+            this.setState({
+                year: '',
+                month: '',
+                selectedSpeaker: '',
+                selectedSeries: '',
+            }, this.applyFilter);
+        }
+    }
+
     handleFilter = (e: React.FormEvent<HTMLSelectElement>) => {
         const property = e.currentTarget.name;
         const value = e.currentTarget.value;
 
         switch(property) {
             case 'year':
-                this.setState({ year: value }, this.applyFilter);
+                this.setState({ year: value, month: '' }, this.applyFilter);
                 break;
             case 'month':
                 this.setState({ month: value }, this.applyFilter);
@@ -100,7 +119,7 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
 
             lastDayOfTheMonth = new Date(
                 Number(this.state.year),
-                toMonth + 1,
+                toMonth,
                 0,
             ).getUTCDate();
 
@@ -127,16 +146,18 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
             <div className='container sermons-page'>
                 <h1 className='text-center capitalize my-3'>{this.props.t('title')}</h1>
                 <Filter
-                    handleChange={this.handleFilter}
-                    year={this.state.year}
-                    month={this.state.month}
                     selectedSpeaker={this.state.selectedSpeaker}
                     selectedSeries={this.state.selectedSeries}
-                    series={this.props.series}
+                    yearMonths={this.props.yearMonths}
+                    resetFilters={this.resetFilters}
+                    handleChange={this.handleFilter}
                     speakers={this.props.speakers}
-                    t={this.props.t}
-                    i18n={this.props.i18n}
+                    series={this.props.series}
                     tReady={this.props.tReady}
+                    month={this.state.month}
+                    year={this.state.year}
+                    i18n={this.props.i18n}
+                    t={this.props.t}
                 />
                 {
                     this.state.count === 0 &&

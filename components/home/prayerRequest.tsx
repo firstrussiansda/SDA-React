@@ -1,6 +1,6 @@
 import React from 'react';
 import { WithTranslation } from 'react-i18next';
-import { Quote } from '../../lib/interfaces';
+import { Quote } from '../../lib/types';
 import { event } from '../../lib/gtag';
 
 interface PrayerRequestLocales {

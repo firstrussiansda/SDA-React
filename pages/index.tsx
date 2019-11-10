@@ -7,7 +7,7 @@ import PrayerRequest from '../components/home/prayerRequest';
 import VisitUs from '../components/home/visitUs';
 
 import { fetchData } from '../lib/helpers';
-import { Quote, Event } from '../lib/interfaces';
+import { Quote, Event } from '../lib/types';
 
 interface HomepageProps extends WithTranslation {
     events: Event[];
@@ -15,7 +15,10 @@ interface HomepageProps extends WithTranslation {
 
 class Homepage extends React.Component<HomepageProps> {
     static async getInitialProps({ req }: any) {
-        const data = await fetchData('events/featured', req, { page_size: 3 });
+        const data = await fetchData('events/featured', req, {
+            page_size: 3,
+            date__gte: new Date().toISOString().split('T')[0],
+        });
 
         if (data && 'results' in data) {
             return { events: data.results, namespacesRequired: ['home'] };

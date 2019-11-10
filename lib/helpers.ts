@@ -1,6 +1,6 @@
 import { i18n } from '../i18n';
-import { pythonAPI, nodeAPI, defaultImages, getLocalizedMonths } from './const';
-import { ReqParams } from './interfaces';
+import { pythonAPI, nodeAPI, getLocalizedMonths } from './const';
+import { ReqParams } from './types';
 
 const buildQuery = (params: ReqParams) => (
     Object.entries(params)
@@ -9,12 +9,12 @@ const buildQuery = (params: ReqParams) => (
 );
 
 export const fetchData = async (
-    type: string,
+    path: string,
     req: any,
     params: ReqParams = {},
 ) => {
     try {
-        const url = `${type === 'images' ? nodeAPI : pythonAPI}${type}`;
+        const url = `${path === 'images' ? nodeAPI : pythonAPI}${path}`;
 
         // server side
         if (req) {

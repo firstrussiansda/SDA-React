@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { fetchData } from '../lib/helpers';
-import { Person } from '../lib/interfaces';
+import { Person } from '../lib/types';
 import { WithTranslation } from 'react-i18next';
 import { withTranslation } from '../i18n';
 import Leadership from '../components/about/leadership';
