@@ -2,37 +2,51 @@ import React from 'react';
 import { WithTranslation } from 'react-i18next';
 
 import { getLocalizedMonths } from '../../lib/const';
+import { YearMonths } from '../../lib/types';
 
 interface DateSelectorProps extends WithTranslation {
-    year: string;
-    month: string;
     handleChange(e: React.FormEvent<HTMLSelectElement>): void;
+    yearMonths: YearMonths;
+    month: string;
+    year: string;
 }
 
 export const DateSelector: React.SFC<DateSelectorProps> = props => {
     const { year, handleChange } = props;
-    const date = new Date();
 
-    const getYears = () => {
-        const currYear = date.getFullYear();
-        const years: string[] = [];
-
-        for (let i = currYear; i >= 2010; i--) {
-            years.push(String(i));
-        }
-
-        return years;
-    };
+    const getYears = () => (
+        Object.keys(props.yearMonths).map(year => (
+            <option
+                key={year}
+                label={year}
+                value={year}
+            >
+                {String(year)}
+            </option>
+        ))
+    );
 
     const getMonths = () => {
         const localizedMonths = getLocalizedMonths(props.i18n.language);
-
-        if (year === String(date.getFullYear())) {
-            const currMonth = date.getMonth();
-            return localizedMonths.slice(0, currMonth + 1);
+        const year = props.yearMonths[props.year];
+        const months: React.ReactElement[] = [];
+        if (year) {
+            for (let i = 1; i <= 12; i++) {
+                if (year[i]) {
+                    months.push((
+                        <option
+                            key={year[i]}
+                            label={localizedMonths[i - 1]}
+                            value={i}
+                        >
+                            {localizedMonths[i - 1]}
+                        </option>
+                    ));
+                }
+            }
         }
 
-        return localizedMonths;
+        return months;
     };
 
     return (
@@ -50,48 +64,24 @@ export const DateSelector: React.SFC<DateSelectorProps> = props => {
                 >
                     {props.t('selectYear')}
                 </option>
-                {
-                    getYears().map(year => (
-                        <option
-                            key={year}
-                            label={year}
-                            value={year}
-                        >
-                            {String(year)}
-                        </option>
-                    ))
-                }
+                {getYears()}
             </select>
-            {
-                year &&
-                (
-                    <select
-                        name='month'
-                        aria-label={props.t('selectMonth')}
-                        onChange={handleChange}
-                        value={props.month}
-                        className='custom-select mr-3'
-                    >
-                        <option
-                            label={props.t('selectMonth')}
-                            value=''
-                        >
-                            {props.t('selectMonth')}
-                        </option>
-                        {
-                            getMonths().map((month, i) => (
-                                <option
-                                    key={month}
-                                    label={month}
-                                    value={i + 1}
-                                >
-                                    {month}
-                                </option>
-                            ))
-                        }
-                    </select>
-                )
-            }
+            <select
+                disabled={!props.year}
+                name='month'
+                aria-label={props.t('selectMonth')}
+                onChange={handleChange}
+                value={props.month}
+                className='custom-select mr-3'
+            >
+                <option
+                    label={props.t('selectMonth')}
+                    value=''
+                >
+                    {props.t('selectMonth')}
+                </option>
+                {getMonths()}
+            </select>
         </div>
     );
 };

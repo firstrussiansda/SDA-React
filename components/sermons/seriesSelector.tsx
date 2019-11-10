@@ -1,23 +1,25 @@
 import React from 'react';
 import { WithTranslation } from 'react-i18next';
 
-import { JustSermonSeries } from '../../lib/interfaces';
+import { JustSermonSeries } from '../../lib/types';
 
 interface SeriesSelectorProps extends WithTranslation {
-    selected: string;
-    series: JustSermonSeries[];
     handleChange(e: React.FormEvent<HTMLSelectElement>): void;
+    series: JustSermonSeries[];
+    isDisabled: boolean;
+    selected: string;
 }
 
 export const SeriesSelector: React.SFC<SeriesSelectorProps> = props => {
     return (
         <div className='my-2 mr-3'>
             <select
-                name='series'
-                onChange={props.handleChange}
-                value={props.selected}
                 aria-label={props.t('selectSeries')}
+                onChange={props.handleChange}
+                disabled={props.isDisabled}
                 className='custom-select'
+                value={props.selected}
+                name='series'
             >
                 <option
                     label={props.t('selectSeries')}

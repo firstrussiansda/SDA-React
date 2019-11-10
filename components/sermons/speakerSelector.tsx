@@ -1,23 +1,25 @@
 import React from 'react';
 import { WithTranslation } from 'react-i18next';
 
-import { Person } from '../../lib/interfaces';
+import { Person } from '../../lib/types';
 
 interface SpeakerSelectorProps extends WithTranslation {
+    handleChange(e: React.FormEvent<HTMLSelectElement>): void;
+    isDisabled: boolean;
     selected: string;
     speakers: Person[];
-    handleChange(e: React.FormEvent<HTMLSelectElement>): void;
 }
 
 export const SpeakerSelector: React.SFC<SpeakerSelectorProps> = props => {
     return (
         <div className='my-2 mr-3'>
             <select
-                name='speakers'
-                onChange={props.handleChange}
-                value={props.selected}
                 aria-label={props.t('selectSpeaker')}
+                onChange={props.handleChange}
+                disabled={props.isDisabled}
                 className='custom-select'
+                value={props.selected}
+                name='speakers'
             >
                 <option
                     label={props.t('selectSpeaker')}

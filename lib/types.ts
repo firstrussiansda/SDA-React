@@ -64,3 +64,9 @@ export interface SermonSeries extends JustSermonSeries {
 export interface ReqParams {
     [k: string]: string | number | boolean;
 }
+
+export interface YearMonths {
+    [year: string]: {
+        [month: number]: number;
+    };
+}

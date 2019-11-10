@@ -3,7 +3,7 @@ import { WithTranslation } from 'react-i18next';
 
 import { formatDate } from '../../lib/helpers';
 
-import { Sermon } from '../../lib/interfaces';
+import { Sermon } from '../../lib/types';
 import AudioDropdown from './audioEmbed';
 
 interface SermonTileProps extends WithTranslation {
