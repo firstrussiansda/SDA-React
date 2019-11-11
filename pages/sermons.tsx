@@ -109,22 +109,12 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
     applyFilter = async () => {
         const params = { page_size: PAGE_SIZE, page: this.state.page } as ReqParams;
 
-        let fromMonth: number;
-        let toMonth: number;
-        let lastDayOfTheMonth: number;
-
         if (this.state.year) {
-            fromMonth = this.state.month ? Number(this.state.month) : 1;
-            toMonth = this.state.month ? Number(this.state.month) : 12;
+            params.date__year = this.state.year;
 
-            lastDayOfTheMonth = new Date(
-                Number(this.state.year),
-                toMonth,
-                0,
-            ).getUTCDate();
-
-            params.date__range = `${this.state.year}-${fromMonth}-1` +
-                `,${this.state.year}-${toMonth}-${lastDayOfTheMonth}`;
+            if (this.state.month) {
+                params.date__month = this.state.month;
+            }
         }
 
         if (this.state.selectedSpeaker) {
