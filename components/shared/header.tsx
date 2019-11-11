@@ -83,15 +83,14 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                 <nav className={`navbar navbar-expand-lg navbar-light${this.getHomeClass()}`}>
                     <div className='container'>
                         <Link href='/'>
-                            <a id='brand' className='navbar-brand' >
+                            <a id='brand' className='navbar-brand d-flex' >
                                 <img
-                                    src='/static/img/rsz_logo.png'
-                                    width='30'
-                                    height='30'
-                                    className='d-inline-block'
+                                    src='/static/svg/logo.svg'
+                                    width='40'
+                                    height='40'
                                     alt='SDA logo'
                                 />
-                                {headerLocales.homeFull}
+                                <span className='mt-2'>{headerLocales.homeFull}</span>
                             </a>
                         </Link>
 
