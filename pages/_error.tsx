@@ -21,11 +21,7 @@ class Error extends React.Component<ErrorProps> {
                     <h1 className='errorCode'>{this.props.statusCode}</h1>
                     <span>{this.props.t('errorMessage')}</span>
                     <div className='my-3'>
-                        <Link href='/'>
-                            <a>
-                                Return to home
-                            </a>
-                        </Link>
+                        <Link href='/'><a>Return to home</a></Link>
                     </div>
                 </section>
             </div>

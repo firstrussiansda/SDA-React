@@ -62,8 +62,7 @@ class Header extends React.Component<WithTranslation, HeaderState> {
     }
 
     changeLanguage = (lang: string) => {
-        this.props.i18n.changeLanguage(lang);
-        this.closeMenu();
+        this.props.i18n.changeLanguage(lang, () => window.location.reload());
     }
 
     getCurrentClass = (route: string) => (
@@ -162,19 +161,19 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                     >
                                         <button
                                             className='dropdown-item'
-                                            onClick={() => i18n.changeLanguage('en')}
+                                            onClick={() => this.changeLanguage('en')}
                                         >
                                             English
                                         </button>
                                         <button
                                             className='dropdown-item'
-                                            onClick={() => i18n.changeLanguage('ru')}
+                                            onClick={() => this.changeLanguage('ru')}
                                         >
                                             Русский
                                         </button>
                                         <button
                                             className='dropdown-item'
-                                            onClick={() => i18n.changeLanguage('uk')}
+                                            onClick={() => this.changeLanguage('uk')}
                                         >
                                             Українська
                                         </button>
