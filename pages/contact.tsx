@@ -21,7 +21,7 @@ class Contact extends React.Component<WithTranslation> {
             <div id='contactUs'>
                 <h1 className='text-center my-3'>{this.props.t('title')}</h1>
                 <h2 className='text-center'>{this.props.t('header')}</h2>
-                <div className='row justify-content-md-center'>
+                <div className='row justify-content-md-center top-space'>
                     <form
                         className='col-md-6 col-sm-12 m-3 pb-4'
                         action='https://formspree.io/skaistrenko@gmail.com'

@@ -81,7 +81,7 @@ class Calendar extends React.Component<SermonsProps, SermonsState> {
                     <h1 className='text-center capitalize my-3'>
                         {this.props.t<HeaderLocale>('header', { returnObjects: true }).calendar}
                     </h1>
-                    <div>
+                    <div className='top-space'>
                         {
                             this.state.events.map(e => (
                                 <EventTile

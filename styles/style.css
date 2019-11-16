@@ -31,9 +31,16 @@ hr {
 .navbar {
 	background-color: #f8f9fa;
 }
+
 #brand {
 	font-size: 1rem;
 }
+
+#brand img{
+	margin-top: -6px;
+	margin-right: 10px;
+}
+
 .nav-item {
 	margin: 0 5px 0 5px;
 }
@@ -58,6 +65,14 @@ hr {
 
 .navbar-toggler:focus {
 	outline: none;
+}
+
+.navbar#navbarSupportedContent{
+	padding-right: 0px;
+}
+
+.navbar#navbarSupportedContent .nav-item:last-child{
+	margin-right: 0px;
 }
 
 .dropdown-item.active,
@@ -155,12 +170,17 @@ hr {
 	letter-spacing: 1.5px;
 }
 
+.btn-outline-secondary:not(:disabled):not(.disabled).active:focus,
+.btn-outline-secondary:not(:disabled):not(.disabled):active:focus,
+.btn-outline-secondary.focus, .btn-outline-secondary:focus{
+	box-shadow: none;
+}
+
 .card {
 	box-shadow: 5px 5px 10px 0 rgba(37, 58, 75, 0.08);
 	background: #fff;
-    margin-bottom: 2rem;
     margin-top: 10px;
-	margin-bottom: 60px;
+	margin-bottom: 30px !important;
 	border: 1px;
 	border-radius: 0;
 }
@@ -183,6 +203,11 @@ hr {
 	border-top-right-radius: 0px;
 }
 
+/* group & calender top */
+.top-space{
+	margin-top: 45px !important;
+}
+
 /* Events */
 .card-date {
 	text-transform: capitalize;
@@ -191,13 +216,13 @@ hr {
 .calendar-tile img {
 	width: 100%;
 	height: 100%;
-    border-top-right-radius: calc(.25rem - 1px);
-    border-bottom-right-radius: calc(.25rem - 1px);
+   /* border-top-right-radius: calc(.25rem - 1px);
+    border-bottom-right-radius: calc(.25rem - 1px); */
 }
 
 .card.calendar-tile{
-	border-top-right-radius: calc(.25rem - 1px);
-    border-bottom-right-radius: calc(.25rem - 1px);
+	/* border-top-right-radius: calc(.25rem - 1px);
+    border-bottom-right-radius: calc(.25rem - 1px); */
 }
 
 .card-footer {
@@ -205,16 +230,30 @@ hr {
 }
 
 /* Pagination */
+nav .pagination{
+	margin-top: 60px;
+}
+
 .page-item.active .page-link{
 	background-color: #fdd007;
 	border-color: #fdd007;
 	color: black;
 }
 
+.page-item.disabled .page-link{
+	color: #6c757d !important;
+}
+
 .page-link,
 .page-link:hover{
 	color: black !important;
 }
+
+.page-link:focus{
+	box-shadow: none;
+}
+
+
 
 /* FOOTER */
 .page-footer {
@@ -400,7 +439,7 @@ hr {
 }
 
 .group .activities {
-	min-height: 150px;
+	min-height: 185px;
 }
 
 .group .image-overlay-text {
@@ -623,6 +662,7 @@ hr {
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
+
 .hvr-overline-from-center:hover:before, .hvr-overline-from-center:focus:before, .hvr-overline-from-center:active:before {
   left: 0;
   right: 0;
@@ -636,6 +676,12 @@ hr {
 	border:none;
 	overflow:hidden;
 	width:100%;
+}
+
+/* Error page */
+.errorCode{
+	font-size: 10rem;
+	color: #fdd007;
 }
 
 /*
@@ -704,6 +750,11 @@ hr {
 
 	.navbar-brand{
 		margin-top: -10px;
+	}
+
+	/* group & calender top */
+	.top-space{
+		margin-top: 25px !important;
 	}
 
 	/* removing hover on the mobile menu */

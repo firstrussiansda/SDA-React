@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { WithTranslation } from 'react-i18next';
 import { withTranslation } from '../i18n';
 import { NextApiResponse } from 'next';
@@ -15,15 +16,14 @@ class Error extends React.Component<ErrorProps> {
 
     render() {
         return (
-            <div className='container d-flex justify-content-center align-items-center'>
-                <p className='text-center'>
-                    <h2>{this.props.t('errorMessage')}</h2>
-                    {
-                        this.props.statusCode &&
-                        <p>{this.props.t('errorCode')}: {this.props.statusCode}</p>
-                    }
-                </p>
-
+            <div className='container'>
+                <section className='card card-lg text-center'>
+                    <h1 className='errorCode'>{this.props.statusCode}</h1>
+                    <span>{this.props.t('errorMessage')}</span>
+                    <div className='my-3'>
+                        <Link href='/'><a>Return to home</a></Link>
+                    </div>
+                </section>
             </div>
         );
     }

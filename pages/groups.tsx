@@ -32,7 +32,7 @@ class Groups extends React.Component<WithTranslation> {
             <main>
                 <div className='container'>
                     <h1 className='text-center capitalize my-3'>{t('title')}</h1>
-                    <div>
+                    <div className='top-space'>
                         {Object.entries(t<GroupsLocale>('data', { returnObjects: true }))
                             .map(([name, group]) => (
                                 <GroupTile
