@@ -49,13 +49,23 @@ const Filter: React.FunctionComponent<FilterProps> = (props) => {
                 i18n={props.i18n}
                 t={props.t}
             />
-            <button
-                type='button'
-                className='btn btn-outline-secondary my-2'
-                onClick={props.resetFilters}
-            >
-                {props.t('resetFilter')}
-            </button>
+            {
+                (
+                    props.selectedSeries ||
+                    props.selectedSpeaker ||
+                    props.month ||
+                    props.year
+                ) &&
+                (
+                    <button
+                        type='button'
+                        className='btn btn-outline-secondary my-2'
+                        onClick={props.resetFilters}
+                    >
+                        {props.t('resetFilter')}
+                    </button>
+                )
+            }
         </div>
     );
 };
