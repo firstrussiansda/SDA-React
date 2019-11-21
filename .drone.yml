@@ -21,6 +21,8 @@ steps:
   environment:
     COMPOSE_PROJECT_NAME: sda-react
     MOUNT_PATH: /tmp/app
+    API_SITE_URL:
+      from_secret:  API_SITE_URL
     INSTAGRAM_SECRET:
       from_secret:  INSTAGRAM_SECRET
   volumes:
@@ -41,6 +43,13 @@ volumes:
 
 ---
 kind: secret
+name: API_SITE_URL
+get:
+  path: drone/data/firstrussianny/SDA-React
+  name: API_SITE_URL
+
+---
+kind: secret
 name: INSTAGRAM_SECRET
 get:
   path: drone/data/firstrussianny/SDA-React
@@ -48,6 +57,6 @@ get:
 
 ---
 kind: signature
-hmac: b3c60a626acf7860132247a5fdabe354a0b0c1b135fc8eb8a1b2168507e3f902
+hmac: b098a8a81255f433e5ab7ec7ff81505c988c984dbc045980108eae12e677f361
 
 ...
