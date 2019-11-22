@@ -1,5 +1,7 @@
 const withCSS = require('@zeit/next-css');
 
+console.log("API_SITE_URL on build", process.env.API_SITE_URL);
+
 module.exports = withCSS({
     publicRuntimeConfig: {
         localeSubpaths: typeof process.env.LOCALE_SUBPATHS === 'string'
