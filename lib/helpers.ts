@@ -14,6 +14,8 @@ export const fetchData = async (
     params: ReqParams = {},
 ) => {
     try {
+        // tslint:disable-next-line:no-console
+        console.log('API_SITE_URL', process.env.API_SITE_URL);
         const url = process.env.API_SITE_URL + path;
 
         // server side
@@ -32,12 +34,12 @@ export const fetchData = async (
             return await response.json();
         }
     } catch (e) {
-        if (process.env.NODE_ENV !== 'production') {
+        if (req) {
             // tslint:disable-next-line:no-console
             console.error(e);
         } else {
             // tslint:disable-next-line:no-console
-            console.error('Error occurred while fetching events =(');
+            console.error('Error occurred while fetching API data');
         }
         return null;
     }
