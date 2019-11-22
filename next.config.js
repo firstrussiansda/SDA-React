@@ -7,6 +7,6 @@ module.exports = withCSS({
             : 'none',
     },
     env: {
-        API_SITE_URL: process.env.API_SITE_URL,
+        MY_SITE_URL: process.env.API_SITE_URL,
     },
 });
