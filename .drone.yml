@@ -31,6 +31,7 @@ steps:
   commands:
     - docker-compose build --pull
     - docker-compose up -d
+    - timeout -t 10 docker-compose logs -f app || true
 
 trigger:
   ref:
@@ -57,6 +58,6 @@ get:
 
 ---
 kind: signature
-hmac: b098a8a81255f433e5ab7ec7ff81505c988c984dbc045980108eae12e677f361
+hmac: 4409d6b1aa8795e33968fb334fc91701659cb679b78a9a057854687e9deb546e
 
 ...
