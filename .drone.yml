@@ -23,8 +23,6 @@ steps:
     MOUNT_PATH: /tmp/app
     API_SITE_URL:
       from_secret:  API_SITE_URL
-    INSTAGRAM_SECRET:
-      from_secret:  INSTAGRAM_SECRET
   volumes:
     - name: docker_sock
       path: /var/run/docker.sock
@@ -50,14 +48,7 @@ get:
   name: API_SITE_URL
 
 ---
-kind: secret
-name: INSTAGRAM_SECRET
-get:
-  path: drone/data/firstrussianny/SDA-React
-  name: INSTAGRAM_SECRET
-
----
 kind: signature
-hmac: 4409d6b1aa8795e33968fb334fc91701659cb679b78a9a057854687e9deb546e
+hmac: c980b3df817308006b9f5a9250d2742cc9b416f70dd2bd44f761245b64d2dd1c
 
 ...
