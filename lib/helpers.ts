@@ -1,5 +1,5 @@
 import { i18n } from '../i18n';
-import { pythonAPI, nodeAPI, getLocalizedMonths } from './const';
+import { getLocalizedMonths } from './const';
 import { ReqParams } from './types';
 
 const buildQuery = (params: ReqParams) => (
@@ -14,7 +14,7 @@ export const fetchData = async (
     params: ReqParams = {},
 ) => {
     try {
-        const url = `${path === 'images' ? nodeAPI : pythonAPI}${path}`;
+        const url = process.env.API_SITE_URL + path;
 
         // server side
         if (req) {

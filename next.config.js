@@ -6,4 +6,7 @@ module.exports = withCSS({
             ? process.env.LOCALE_SUBPATHS
             : 'none',
     },
+    env: {
+        API_SITE_URL: process.env.API_SITE_URL,
+    },
 });
