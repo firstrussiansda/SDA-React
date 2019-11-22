@@ -26,4 +26,5 @@ const handle = app.getRequestHandler();
     await server.listen(port);
     // eslint-disable-next-line no-console
     console.log(`> Ready on http://localhost:${port}`);
+    console.log('API_SITE_URL', process.env.API_SITE_URL);
 })();
