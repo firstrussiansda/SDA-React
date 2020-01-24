@@ -10,6 +10,7 @@ services:
     environment:
       - API_SITE_URL
     ports:
-      - "8080:3000"
+      - "${PUBLIC_PORT:-8080}:3000"
     volumes:
       - $PWD:${MOUNT_PATH:-/app}
+    restart: always
