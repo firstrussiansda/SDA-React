@@ -19,28 +19,34 @@ steps:
 - name: deploy
   image: docker/compose:1.24.1
   environment:
+    DOCKER_TLS_VERIFY: 1
+    DOCKER_CERT_PATH: /tmp/docker-certs
+    DOCKER_MACHINE_NAME: firstrussianny
     COMPOSE_PROJECT_NAME: sda-react
     MOUNT_PATH: /tmp/app
+    PUBLIC_PORT: "172.17.0.1:8080"
     API_SITE_URL:
       from_secret:  API_SITE_URL
-    INSTAGRAM_SECRET:
-      from_secret:  INSTAGRAM_SECRET
-  volumes:
-    - name: docker_sock
-      path: /var/run/docker.sock
+    DOCKER_HOST:
+      from_secret: DOCKER_HOST
+    DOCKER_CA_CERT:
+      from_secret: DOCKER_CA_CERT
+    DOCKER_CLIENT_CERT:
+      from_secret: DOCKER_CLIENT_CERT
+    DOCKER_CLIENT_KEY:
+      from_secret: DOCKER_CLIENT_KEY
   commands:
+    - mkdir -p $DOCKER_CERT_PATH
+    - printenv DOCKER_CA_CERT > $DOCKER_CERT_PATH/ca.pem
+    - printenv DOCKER_CLIENT_CERT > $DOCKER_CERT_PATH/cert.pem
+    - printenv DOCKER_CLIENT_KEY > $DOCKER_CERT_PATH/key.pem
     - docker-compose build --pull
     - docker-compose up -d
-    - timeout -t 10 docker-compose logs -f app || true
+    - timeout -t 60 docker-compose logs -f app || true
 
 trigger:
   ref:
     - refs/heads/master
-
-volumes:
-  - name: docker_sock
-    host:
-      path: /var/run/docker.sock
 
 ---
 kind: secret
@@ -51,13 +57,34 @@ get:
 
 ---
 kind: secret
-name: INSTAGRAM_SECRET
+name: DOCKER_HOST
 get:
-  path: drone/data/firstrussianny/SDA-React
-  name: INSTAGRAM_SECRET
+  path: drone/data/firstrussianny/SDA-API
+  name: DOCKER_HOST
+
+---
+kind: secret
+name: DOCKER_CA_CERT
+get:
+  path: drone/data/firstrussianny/SDA-API
+  name: DOCKER_CA_CERT
+
+---
+kind: secret
+name: DOCKER_CLIENT_CERT
+get:
+  path: drone/data/firstrussianny/SDA-API
+  name: DOCKER_CLIENT_CERT
+
+---
+kind: secret
+name: DOCKER_CLIENT_KEY
+get:
+  path: drone/data/firstrussianny/SDA-API
+  name: DOCKER_CLIENT_KEY
 
 ---
 kind: signature
-hmac: 4409d6b1aa8795e33968fb334fc91701659cb679b78a9a057854687e9deb546e
+hmac: cdd59a8a54cb7f132b41a87df4c3aa9fda29380b6c3dce38b4b3b7ca4a6cb413
 
 ...

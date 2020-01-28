@@ -5,10 +5,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        API_SITE_URL: $API_SITE_URL
     environment:
       - API_SITE_URL
-      - INSTAGRAM_SECRET
     ports:
-      - "8080:3000"
+      - "${PUBLIC_PORT:-8080}:3000"
     volumes:
       - $PWD:${MOUNT_PATH:-/app}
+    restart: always

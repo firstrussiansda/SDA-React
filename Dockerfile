@@ -2,6 +2,8 @@ FROM node:alpine
 
 WORKDIR /app
 
+ARG API_SITE_URL
+
 COPY package.json yarn.lock /app/
 RUN yarn
 
