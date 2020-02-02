@@ -14,8 +14,6 @@ export const fetchData = async (
     params: ReqParams = {},
 ) => {
     try {
-        // tslint:disable-next-line:no-console
-        console.log('MY_SITE_URL on FETCH', process.env.MY_SITE_URL);
         const url = process.env.MY_SITE_URL + path;
 
         // server side
