@@ -5,6 +5,7 @@ import { formatDate } from '../../lib/helpers';
 
 import { Sermon } from '../../lib/types';
 import AudioDropdown from './audioEmbed';
+import { Attachments } from '../shared/attachments';
 
 interface SermonTileProps extends WithTranslation {
     sermon: Sermon;
@@ -84,6 +85,7 @@ class SermonTile extends React.Component<SermonTileProps, SermonTileState> {
                         <div className='card-body'>
                             <h5 className='card-title'>{sermon.title}</h5>
                             <h6 className='card-text'> {sermon.description}</h6>
+                            <Attachments attachments={sermon.attachments} />
                         </div>
                     </div>
                     <div className='col-md-3 media-buttons pr-3 py-4'>
