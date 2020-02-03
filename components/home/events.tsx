@@ -11,7 +11,7 @@ interface EventsProps extends WithTranslation {
 const Events: React.FunctionComponent<EventsProps> = props => (
     <section>
         <h2 id='events' className='text-center title'>{props.t('events')}</h2>
-        <div className='card-deck'>
+        <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center'>
             {
                 props.events.map(e => (
                     <EventTile
