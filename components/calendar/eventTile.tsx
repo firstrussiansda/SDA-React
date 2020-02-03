@@ -3,6 +3,7 @@ import { WithTranslation } from 'react-i18next';
 
 import { Event } from '../../lib/types';
 import { formatDate } from '../../lib/helpers';
+import { Attachments } from '../shared/attachments';
 
 interface EventTileProps extends Event, WithTranslation { }
 
@@ -32,6 +33,7 @@ const EventTile: React.FunctionComponent<EventTileProps> = props => {
                         <div className='card-body'>
                             <h5 className='card-title'>{props.title}</h5>
                             <p className='card-text'>{props.description}</p>
+                            <Attachments attachments={props.attachments} />
                         </div>
                     </div>
                     <div className='col-md-3'>
@@ -44,6 +46,7 @@ const EventTile: React.FunctionComponent<EventTileProps> = props => {
                 <div className='card-body'>
                     <h5 className='card-title'>{props.title}</h5>
                     <p className='card-text'>{props.description}</p>
+                    <Attachments attachments={props.attachments} />
                 </div>
                 <div className='card-footer'>
                     <h5 className='card-date'>

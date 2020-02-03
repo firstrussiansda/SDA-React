@@ -8,6 +8,13 @@ interface Base {
     url: string;
 }
 
+export interface Attachment {
+  id: string;
+  url: string;
+  name: string;
+  file: string;
+}
+
 export interface Event extends Base {
     title: string;
     description: string;
@@ -16,6 +23,7 @@ export interface Event extends Base {
     location_name: string;
     image_url: string;
     image_description: string;
+    attachments: Attachment[];
 }
 
 export interface Person extends Base {
@@ -51,6 +59,7 @@ export interface JustSermon {
     speakers: Person[];
     soundcloud_assets: SoundCloudAsset[];
     youtube_assets: MediaAsset[];
+    attachments: Attachment[];
 }
 
 export interface Sermon extends Base, JustSermon {
