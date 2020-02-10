@@ -41,8 +41,8 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
 
         if (data && 'results' in data) {
             return {
-                events: data.results,
-                count: data.count,
+                events: data?.results || [],
+                count: data?.count || 0,
                 namespacesRequired: ['common'],
             };
         }
