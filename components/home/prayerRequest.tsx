@@ -47,7 +47,7 @@ const PrayerRequest: React.FunctionComponent<WithTranslation> = ({ t, tReady }) 
                 </div>
                 <div className='col-md-6'>
                     <form
-                        action='https://formspree.io/skaistrenko@gmail.com'
+                        action='https://formspree.io/firstrussianprayer@gmail.com'
                         method='POST'
                         onSubmit={reportToGA}
                     >

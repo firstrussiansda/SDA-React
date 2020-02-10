@@ -8,6 +8,7 @@ COPY package.json yarn.lock /app/
 RUN yarn
 
 COPY . /app
+RUN yarn cs
 RUN yarn build
 
 CMD yarn start

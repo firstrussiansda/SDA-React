@@ -1,10 +1,9 @@
-const express = require('express');
-const next = require('next');
-const nextI18NextMiddleware = require('next-i18next/middleware').default;
+import express from 'express';
+import next from 'next';
+import nextI18NextMiddleware from 'next-i18next/middleware';
 
-const nextI18next = require('../i18n');
-
-const imagesHandler = require('./middleware/images');
+import { nextI18next } from './i18n';
+import { imagesController } from './controllers/images';
 
 const port = process.env.PORT || 3000;
 const app = next({ dev: process.env.NODE_ENV !== 'production' });
@@ -19,12 +18,14 @@ const handle = app.getRequestHandler();
     server.use(express.json()); // for parsing application/json
     server.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-    server.get('/api/images', imagesHandler);
+    server.get('/api/images', imagesController);
 
     server.get('*', (req, res) => handle(req, res));
 
     await server.listen(port);
-    // eslint-disable-next-line no-console
+    // tslint:disable-next-line:no-console
     console.log(`> Ready on http://localhost:${port}`);
+
+    // tslint:disable-next-line:no-console
     console.log('API_SITE_URL ON START', process.env.API_SITE_URL);
 })();

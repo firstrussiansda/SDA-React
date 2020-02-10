@@ -24,7 +24,7 @@ class Contact extends React.Component<WithTranslation> {
                 <div className='row justify-content-md-center top-space'>
                     <form
                         className='col-md-6 col-sm-12 m-3 pb-4'
-                        action='https://formspree.io/skaistrenko@gmail.com'
+                        action='https://formspree.io/firstrussiansdachurch@gmail.com'
                         method='POST'
                         onSubmit={this.reportToGA}
                     >

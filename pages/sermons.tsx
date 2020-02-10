@@ -2,14 +2,13 @@ import React from 'react';
 import { WithTranslation } from 'react-i18next';
 import { withTranslation } from '../i18n';
 
-import { fetchData } from '../lib/helpers';
+import { fetchData, getPageCount } from '../lib/helpers';
 import { Sermon, JustSermonSeries, Person, ReqParams, YearMonths } from '../lib/types';
 
 import SermonTile from '../components/sermons/sermonTile';
 import Filter from '../components/sermons/filter';
 import Pagination from '../components/sermons/pagination';
-
-const PAGE_SIZE = 10;
+import { PAGE_SIZE } from '../lib/config';
 
 interface SermonsProps extends WithTranslation {
     sermons: {
@@ -24,6 +23,7 @@ interface SermonsProps extends WithTranslation {
 interface SermonsState {
     sermons: Sermon[];
     page: number;
+    totalPages: number;
     count: number;
     year: string;
     month: string;
@@ -38,6 +38,7 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
         this.state = {
             sermons: [],
             page: 1,
+            totalPages: 1,
             count: 0,
             year: '',
             month: '',
@@ -62,8 +63,12 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
     }
 
     componentDidMount() {
-        const { results, count } = this.props.sermons;
-        this.setState({ sermons: results, count });
+        const { results: sermons, count } = this.props.sermons;
+        this.setState({
+            totalPages: getPageCount(count),
+            sermons,
+            count,
+        });
     }
 
     resetFilters = () => {
@@ -126,7 +131,17 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
         }
 
         const data = await fetchData('sermons', null, params);
-        this.setState({ sermons: data.results, count: data.count });
+
+        if (data) {
+            this.setState({
+                sermons: data.results,
+                count: data.count,
+                totalPages: getPageCount(data.count)
+            });
+        } else {
+            // tslint:disable-next-line:no-console
+            console.error('Invalid response');
+        }
     }
 
     getPageCount = () =>  Math.ceil(this.state.count / PAGE_SIZE);
@@ -171,7 +186,7 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
                             updatePage={this.updatePage}
                             curPage={this.state.page}
                             count={this.state.count}
-                            pageCount={this.getPageCount()}
+                            pageCount={getPageCount(this.state.count)}
                         />
                     )
                 }
