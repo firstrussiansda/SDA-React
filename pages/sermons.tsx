@@ -11,10 +11,8 @@ import Pagination from '../components/sermons/pagination';
 import { PAGE_SIZE } from '../lib/config';
 
 interface SermonsProps extends WithTranslation {
-    sermons: {
-        results: Sermon[];
-        count: number;
-    };
+    sermons: Sermon[];
+    sermonsCount: number;
     series: JustSermonSeries[];
     speakers: Person[];
     yearMonths: YearMonths;
@@ -54,16 +52,17 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
         const yearMonths = await fetchData('sermons/year-months', req);
         const series = await fetchData('series', req);
         return {
-            sermons,
-            yearMonths,
-            series: series.results,
-            speakers: speakers.results,
+            sermons: sermons?.results || [],
+            sermonsCount: sermons?.count || 0,
+            yearMonths: yearMonths || [],
+            series: series?.results || [],
+            speakers: speakers?.results || [],
             namespacesRequired: ['sermons'],
         };
     }
 
     componentDidMount() {
-        const { results: sermons, count } = this.props.sermons;
+        const { sermons, sermonsCount: count } = this.props;
         this.setState({
             totalPages: getPageCount(count),
             sermons,

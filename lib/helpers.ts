@@ -23,7 +23,7 @@ export const fetchData = async (
             const fetch = (await import('node-fetch')).default;
 
             params.lang = req.language;
-            const reqUrl = url + `?${buildQuery(params)}`;
+            const reqUrl = url + `/?${buildQuery(params)}`;
 
             const response = await fetch(reqUrl);
             const json = await response.json();
@@ -42,7 +42,7 @@ export const fetchData = async (
             // client side
             params.lang = i18n.language;
 
-            const response = await fetch(url + `?${buildQuery(params)}`);
+            const response = await fetch(url + `/?${buildQuery(params)}`);
             return await response.json();
         }
     } catch (e) {
