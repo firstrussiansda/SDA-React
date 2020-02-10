@@ -9,21 +9,20 @@ import EventTile from '../components/calendar/eventTile';
 
 const PAGE_SIZE = 5;
 
-interface SermonsProps extends WithTranslation {
+interface CalendarProps extends WithTranslation {
     events: Event[];
     count: number;
 }
 
-interface SermonsState {
+interface CalendarState {
     events: Event[];
     page: number;
     count: number;
     isLoading: boolean;
-    changingLanguage: boolean;
 }
 
-class Calendar extends React.Component<SermonsProps, SermonsState> {
-    constructor(props: SermonsProps) {
+class Calendar extends React.Component<CalendarProps, CalendarState> {
+    constructor(props: CalendarProps) {
         super(props);
 
         this.state = {
@@ -31,7 +30,6 @@ class Calendar extends React.Component<SermonsProps, SermonsState> {
             page: 1,
             count: 0,
             isLoading: true,
-            changingLanguage: false,
         };
     }
 
@@ -66,8 +64,15 @@ class Calendar extends React.Component<SermonsProps, SermonsState> {
                     { page_size: PAGE_SIZE, page: this.state.page + 1 },
                 );
 
-                const events = this.state.events.concat(data.results);
-                this.setState({ events, page: this.state.page + 1, isLoading: false });
+                if (data) {
+                    const events = this.state.events.concat(data.results);
+                    this.setState({ events, page: this.state.page + 1, isLoading: false });
+                } else {
+                    // tslint:disable-next-line:no-console
+                    console.error('Invalid response');
+
+                    this.setState({ isLoading: false });
+                }
             });
         }
     }

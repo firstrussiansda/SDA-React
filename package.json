@@ -8,6 +8,8 @@
     "dev": "nodemon",
     "build": "next build",
     "start": "NODE_ENV=production node index.js",
+    "cs": "tsc -p server/tsconfig.json",
+    "cs:watch": "tsc -p server/tsconfig.json -w",
     "lint": "tslint -c tslint.json '**/*.{ts,tsx}'  -e **/*.d.ts --fix ; eslint '**/*.js' --fix",
     "lint:no-fix": "tslint -c tslint.json '**/*.{ts,tsx}'  -e **/*.d.ts ; eslint '**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"

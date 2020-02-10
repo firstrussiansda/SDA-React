@@ -1,6 +1,8 @@
 import { i18n } from '../i18n';
-import { getLocalizedMonths } from './const';
 import { ReqParams } from './types';
+import { PAGE_SIZE } from './config';
+
+export const isDevelopment = process.env.NODE_ENV !== 'production';
 
 const buildQuery = (params: ReqParams) => (
     Object.entries(params)
@@ -18,17 +20,29 @@ export const fetchData = async (
 
         // server side
         if (req) {
-            const fetch = require('node-fetch');
+            const fetch = (await import('node-fetch')).default;
 
             params.lang = req.language;
+            const reqUrl = url + `?${buildQuery(params)}`;
 
-            const response = await fetch(url + `/?${buildQuery(params)}`);
-            return await response.json();
+            const response = await fetch(reqUrl);
+            const json = await response.json();
+
+            // node-fetch doesn't throw on unsuccessful request
+            if (!response.ok) {
+                if (response.status !== 404) {
+                    // tslint:disable-next-line:no-console
+                    console.error(`Error fetching url: ${reqUrl}. Reason: ${json}`);
+                }
+                return null;
+            }
+
+            return json;
         } else {
             // client side
             params.lang = i18n.language;
 
-            const response = await fetch(url + `/?${buildQuery(params)}`);
+            const response = await fetch(url + `?${buildQuery(params)}`);
             return await response.json();
         }
     } catch (e) {
@@ -40,6 +54,29 @@ export const fetchData = async (
             console.error('Error occurred while fetching API data');
         }
         return null;
+    }
+};
+
+export const getLocalizedMonths = (lan?: string) => {
+    const months = {
+        ru: [
+            'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль',
+            'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь',
+        ],
+        uk: [
+            'Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень',
+            'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень',
+        ],
+        en: [
+            'January', 'February', 'March', 'April', 'May', 'June', 'July',
+            'August', 'September', 'October', 'November', 'December',
+        ],
+    } as { [k: string]: string[] };
+
+    if (lan && lan in months) {
+        return months[lan];
+    } else {
+        return [];
     }
 };
 
@@ -62,3 +99,14 @@ export const formatDate = (dateStr: string, attributes: string[], lang: string =
         return acc + ' ';
     }, '');
 };
+
+export const getPageCount = (count: number, page_size: number = PAGE_SIZE) =>   Math.ceil(count / page_size);
+
+export const getImgUrl = (
+    url: string,
+    width: number,
+    height?: number,
+    fit = 'crop',
+) => (
+    `${url}?auto=format&fit=${fit}&q=80&w=${width}${ height ? `&h=${height}` : ''}`
+);
