@@ -15,14 +15,17 @@ export interface Attachment {
   file: string;
 }
 
-export interface Event extends Base {
+export interface Image {
+    image_url: string;
+    image_description: string;
+}
+
+export interface Event extends Base, Image {
     title: string;
     description: string;
     date: string;
     is_featured: boolean;
     location_name: string;
-    image_url: string;
-    image_description: string;
     attachments: Attachment[];
 }
 
@@ -68,6 +71,15 @@ export interface Sermon extends Base, JustSermon {
 
 export interface SermonSeries extends JustSermonSeries {
     sermons: JustSermon[];
+}
+
+export interface Thought extends Base, Image {
+    title: string;
+    description: string;
+    thought_html: string;
+    date: string;
+    attachments: Attachment[];
+    authors: Person[];
 }
 
 export interface ReqParams {

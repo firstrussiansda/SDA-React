@@ -2,26 +2,24 @@ import React from 'react';
 import { WithTranslation } from 'react-i18next';
 
 import { Event } from '../../lib/types';
-import { formatDate } from '../../lib/helpers';
+import { formatDate, getImgUrl } from '../../lib/helpers';
 import { Attachments } from '../shared/attachments';
 
 interface EventTileProps extends Event, WithTranslation {}
 
 const EventTile: React.FunctionComponent<EventTileProps> = props => {
-    const image_url = props.image_url.split('crop&')[0] + 'crop&';
-
     return (
         <div className='col'>
             <div className='card event-card'>
                 <picture>
-                    <source srcSet={`${image_url}w=400&q=80`} media='(max-width: 420px)' />
-                    <source srcSet={`${image_url}w=543&q=80`} media='(max-width: 575px)' />
-                    <source srcSet={`${image_url}w=150&q=80`} media='(max-width: 768px)' />
-                    <source srcSet={`${image_url}w=220&q=80`} media='(max-width: 990px)' />
-                    <source srcSet={`${image_url}w=290&q=80`} media='(max-width: 1200px)' />
-                    <source srcSet={`${image_url}w=350&q=80`} media='(min-width: 1201px)' />
+                    <source srcSet={getImgUrl(props.image_url, 400, 350)} media='(max-width: 420px)' />
+                    <source srcSet={getImgUrl(props.image_url, 543, 350)} media='(max-width: 575px)' />
+                    <source srcSet={getImgUrl(props.image_url, 150, 250)} media='(max-width: 768px)' />
+                    <source srcSet={getImgUrl(props.image_url, 220, 250)} media='(max-width: 990px)' />
+                    <source srcSet={getImgUrl(props.image_url, 290, 250)} media='(max-width: 1200px)' />
+                    <source srcSet={getImgUrl(props.image_url, 350, 250)} media='(min-width: 1201px)' />
                     <img
-                        src={`${image_url}w=400&q=80`}
+                        src={getImgUrl(props.image_url, 400, 350)}
                         alt={props.image_description}
                         className='card-img-top'
                     />

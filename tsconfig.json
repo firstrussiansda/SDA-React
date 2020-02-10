@@ -19,15 +19,14 @@
     "forceConsistentCasingInFileNames": false
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "server"
   ],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "server/server.js",
-    "server/index.js",
     "next.config.js",
-    "i18n.js"
+    "i18n.ts"
   ]
 }

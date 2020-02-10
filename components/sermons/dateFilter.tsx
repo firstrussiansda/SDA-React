@@ -1,7 +1,7 @@
 import React from 'react';
 import { WithTranslation } from 'react-i18next';
 
-import { getLocalizedMonths } from '../../lib/const';
+import { getLocalizedMonths } from '../../lib/helpers';
 import { YearMonths } from '../../lib/types';
 
 interface DateSelectorProps extends WithTranslation {

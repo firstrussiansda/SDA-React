@@ -15,6 +15,7 @@ export interface HeaderLocale {
     sermons: string;
     language: string;
     contact: string;
+    thoughts: string;
 }
 
 interface HeaderState {
@@ -74,7 +75,7 @@ class Header extends React.Component<WithTranslation, HeaderState> {
     )
 
     render() {
-        const { t, i18n } = this.props;
+        const { t } = this.props;
         const headerLocales = t<HeaderLocale>('header', { returnObjects: true });
 
         return (
@@ -134,10 +135,19 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                     </Link>
 
                                 </li>
+
                                 <li className={`nav-item ${this.getCurrentClass('/sermons')}`}>
                                     <Link href='/sermons'>
                                         <a className='nav-link hvr-overline-from-center'>
                                             {headerLocales.sermons}
+                                        </a>
+                                    </Link>
+                                </li>
+
+                                <li className={`nav-item ${this.getCurrentClass('/thoughts')}`}>
+                                    <Link href='/thoughts'>
+                                        <a className='nav-link hvr-overline-from-center'>
+                                            {headerLocales.thoughts}
                                         </a>
                                     </Link>
                                 </li>
@@ -271,6 +281,18 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                         <i className='far fa-play-circle' />
                                         &nbsp;
                                         {headerLocales.sermons}
+                                    </a>
+                                </Link>
+                            </li>
+                            <li
+                                className={`nav-item ${this.getCurrentClass('/thoughts')}`}
+                                onClick={this.closeMenu}
+                            >
+                                <Link href='/thoughts'>
+                                    <a className='nav-link hvr-overline-from-center'>
+                                        <i className='far fa-play-circle' />
+                                        &nbsp;
+                                        {headerLocales.thoughts}
                                     </a>
                                 </Link>
                             </li>

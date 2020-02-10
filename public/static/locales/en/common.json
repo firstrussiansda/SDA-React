@@ -15,7 +15,8 @@
         "gallery": "Gallery",
         "sermons": "Sermons",
         "language": "English",
-        "contact": "Contact us"
+        "contact": "Contact us",
+        "thoughts": "Thoughts"
     },
     "errorMessage": "Ooops... Something went wrong. We did not anticipate this happening :(",
     "errorCode": "Error code"
