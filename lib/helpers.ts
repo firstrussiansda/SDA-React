@@ -75,13 +75,13 @@ export const getLocalizedMonths = (lan?: string) => {
 
     if (lan && lan in months) {
         return months[lan];
-    } else {
-        return [];
     }
+
+    return [];
 };
 
 export const formatDate = (dateStr: string, attributes: string[], lang: string = 'ru' ) => {
-    // have to do it to mitigate TZ issue
+    // have to do this to mitigate TZ issue
     const rawDate = new Date(`${dateStr}T12:00:00`);
 
     const methods = {

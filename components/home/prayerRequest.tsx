@@ -92,7 +92,7 @@ const PrayerRequest: React.FunctionComponent<WithTranslation> = ({ t, tReady }) 
                         <button
                             type='submit'
                             role='button'
-                            className='btn btn-outline-warning'
+                            className='btn btn-outline-warning custom-warning'
                         >
                             {localizedText['sendPrayerNeed']}
                         </button>

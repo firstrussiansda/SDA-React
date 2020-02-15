@@ -19,12 +19,13 @@ const getImage = (url: string, description: string) => (
 );
 
 const EventTile: React.FunctionComponent<EventTileProps> = props => {
+    const formatedDate = formatDate(props.date, ['month', 'day', ',', 'year'], props.i18n.language);
     return (
         <React.Fragment>
             <div className='card mb-3 calendar-tile d-none d-sm-flex'>
                 <div className='row no-gutters'>
                     <div className='col-md-2 d-flex flex-column align-items-center justify-content-center text-center pl-4'>
-                        <h5>{formatDate(props.date, ['month', 'day'], props.i18n.language)}</h5>
+                        <h5>{formatedDate}</h5>
                         <h6 className='card-text'>{props.location_name}</h6>
                     </div>
                     <div className='col-md-7 d-flex align-items-center'>
@@ -48,7 +49,7 @@ const EventTile: React.FunctionComponent<EventTileProps> = props => {
                 </div>
                 <div className='card-footer'>
                     <h5 className='card-date'>
-                        {formatDate(props.date, ['month', 'day'], props.i18n.language)}
+                        {formatedDate}
                     </h5>
                     <h6 className='card-date'>{props.location_name}</h6>
                 </div>

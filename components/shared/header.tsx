@@ -290,8 +290,7 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                             >
                                 <Link href='/thoughts'>
                                     <a className='nav-link hvr-overline-from-center'>
-                                        <i className='far fa-play-circle' />
-                                        &nbsp;
+                                        <i className='fas fa-praying-hands' />
                                         {headerLocales.thoughts}
                                     </a>
                                 </Link>

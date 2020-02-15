@@ -160,13 +160,24 @@ hr {
 	border: none;
 	background-color: #fdd007;
 }
+
 .btn-outline-warning {
+  border-color: #fdd007;
+  color: #343a40;
+}
+.btn-outline-warning.active {
+  background-color: #fdd007 !important;
+}
+.btn-outline-warning:hover {
+  background-color: #fdd007 !important;
+}
+
+.custom-warning.btn-outline-warning {
 	border-radius: 0;
-	border-color: #fdd007;
-    background-color: #fdd007;
-    color: #343a40;
-    height: 45px;
-    line-height: 2;
+  background-color: #fdd007;
+  color: #343a40;
+  height: 45px;
+  line-height: 2;
 	letter-spacing: 1.5px;
 }
 
@@ -678,6 +689,54 @@ nav .pagination{
   -webkit-transform: translateX(4px);
   transform: translateX(4px);
 }
+
+/* Icon Down */
+.hvr-icon-down {
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+  .hvr-icon-down .hvr-icon {
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+}
+  .hvr-icon-down:hover .hvr-icon, .hvr-icon-down:focus .hvr-icon, .hvr-icon-down:active .hvr-icon {
+	-webkit-animation-name: hvr-icon-down;
+	animation-name: hvr-icon-down;
+	-webkit-animation-duration: 0.75s;
+	animation-duration: 0.75s;
+	-webkit-animation-timing-function: ease-out;
+	animation-timing-function: ease-out;
+}
+@-webkit-keyframes hvr-icon-down {
+  0%,
+	50%,
+	100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  25%,
+	75% {
+    -webkit-transform: translateY(6px);
+    transform: translateY(6px);
+  }
+}
+@keyframes hvr-icon-down {
+  0%,
+	50%,
+	100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  25%,
+	75% {
+    -webkit-transform: translateY(6px);
+    transform: translateY(6px);
+  }
+}
+
 /* Overline From Center */
 .hvr-overline-from-center {
   display: inline-block;
