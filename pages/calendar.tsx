@@ -3,12 +3,12 @@ import { WithTranslation } from 'react-i18next';
 
 import { fetchData } from '../lib/helpers';
 import { withTranslation } from '../i18n';
-import { HeaderLocale } from '../components/shared/header';
 import { Event } from '../lib/types';
 import EventTile from '../components/calendar/eventTile';
 import { Spinner } from '../components/shared/spinner';
 import { LoadMoreButton } from '../components/shared/loadMoreButton';
 import { ArchiveToggle } from '../components/calendar/archiveToggle';
+import { FlexCenter } from '../components/shared/flex-center';
 
 const PAGE_SIZE = 5;
 
@@ -132,11 +132,8 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
                     />
                     {
                         this.state.isLoading
-                        ? (
-                            <div className='d-flex justify-content-center'>
-                                <Spinner />
-                            </div>
-                        ) : (
+                        ? <FlexCenter><Spinner /></FlexCenter>
+                        : (
                             <React.Fragment>
                                 <div className='top-space'>
                                     {
