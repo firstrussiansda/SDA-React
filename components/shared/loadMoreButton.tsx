@@ -1,5 +1,6 @@
 import React from 'react';
 import { Spinner } from './spinner';
+import { FlexCenter } from './flex-center';
 
 interface LoadMoreButtonProps {
     isMoreAvailable: boolean;
@@ -13,7 +14,7 @@ export const LoadMoreButton: React.FunctionComponent<LoadMoreButtonProps> = prop
     }
 
     return (
-        <div className='d-flex justify-content-center'>
+        <FlexCenter>
             {
                 props.isLoading
                 ? <Spinner  />
@@ -29,6 +30,6 @@ export const LoadMoreButton: React.FunctionComponent<LoadMoreButtonProps> = prop
                     </button>
                 )
             }
-        </div>
+        </FlexCenter>
     );
 };
