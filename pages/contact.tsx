@@ -76,7 +76,7 @@ class Contact extends React.Component<WithTranslation> {
                             value={this.props.t<string>('send')}
                             role='button'
                             id='submit-btn'
-                            className='btn btn-outline-warning hvr-icon-forward'
+                            className='btn btn-outline-warning custom-warning hvr-icon-forward'
                         />
                     </form>
 

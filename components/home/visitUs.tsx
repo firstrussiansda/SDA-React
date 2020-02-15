@@ -64,7 +64,7 @@ const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
                     </div>
                     <a
                         id='contact-btn'
-                        className='btn btn-outline-warning hvr-icon-forward visit'
+                        className='btn btn-outline-warning custom-warning hvr-icon-forward visit'
                         href='/contact'
                         role='button'
                         onClick={reportToGA}
