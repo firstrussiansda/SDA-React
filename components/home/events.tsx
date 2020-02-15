@@ -27,7 +27,7 @@ const Events: React.FunctionComponent<EventsProps> = props => (
         <div className='d-flex mt-4'>
             <a
                 id='all-events'
-                className='btn btn-outline-warning hvr-icon-forward mt-5 mx-auto'
+                className='btn btn-outline-warning custom-warning hvr-icon-forward mt-5 mx-auto'
                 href='/calendar'
             >
                 {props.t('allEvents')}&nbsp;

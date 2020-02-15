@@ -65,7 +65,6 @@ class Thoughts extends React.Component<ThoughtsProps, ThoughtsState> {
 
         if (data) {
             this.setState({
-                totalPages: getPageCount(data.count),
                 thoughts: data.results,
                 count: data.count,
             });
