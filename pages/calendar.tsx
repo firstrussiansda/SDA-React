@@ -91,8 +91,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
             page_size: PAGE_SIZE,
             ...(
                 this.state.isArchive
-                // TODO: swap sort direction here when available
-                ? { date__lt: curDate  }
+                ? { date__lt: curDate, order_by: '-date'  }
                 : { date__gte: curDate }
             )
         });

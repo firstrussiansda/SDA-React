@@ -1,5 +1,6 @@
-import React from 'react';
 import { WithTranslation } from 'react-i18next';
+import Link from 'next/link';
+import React from 'react';
 
 import { Event } from '../../lib/types';
 import EventTile from './eventTile';
@@ -25,14 +26,15 @@ const Events: React.FunctionComponent<EventsProps> = props => (
             }
         </div>
         <div className='d-flex mt-4'>
-            <a
-                id='all-events'
-                className='btn btn-outline-warning custom-warning hvr-icon-forward mt-5 mx-auto'
-                href='/calendar'
-            >
-                {props.t('allEvents')}&nbsp;
-                <i className='fas fa-arrow-circle-right hvr-icon' />
-            </a>
+            <Link href='/calendar'>
+                <a
+                    id='all-events'
+                    className='btn btn-outline-warning custom-warning hvr-icon-forward mt-5 mx-auto'
+                >
+                    {props.t('allEvents')}&nbsp;
+                    <i className='fas fa-arrow-circle-right hvr-icon' />
+                </a>
+            </Link>
         </div>
     </section>
 );

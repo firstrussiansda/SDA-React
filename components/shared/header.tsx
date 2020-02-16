@@ -124,7 +124,6 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                             {headerLocales.groups}
                                         </a>
                                     </Link>
-
                                 </li>
 
                                 <li className={`nav-item ${this.getCurrentClass('/calendar')}`}>
@@ -133,7 +132,6 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                             {headerLocales.calendar}
                                         </a>
                                     </Link>
-
                                 </li>
 
                                 <li className={`nav-item ${this.getCurrentClass('/sermons')}`}>

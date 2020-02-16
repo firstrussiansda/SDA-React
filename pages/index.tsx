@@ -15,9 +15,10 @@ interface HomepageProps extends WithTranslation {
 
 class Homepage extends React.Component<HomepageProps> {
     static async getInitialProps({ req }: any) {
-        const data = await fetchData('events/featured', req, {
+        const data = await fetchData('events', req, {
             page_size: 3,
             date__gte: new Date().toISOString().split('T')[0],
+            order_by: ['-is_featured', 'date']
         });
 
         if (data && 'results' in data) {
