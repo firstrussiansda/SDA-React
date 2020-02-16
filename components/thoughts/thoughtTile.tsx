@@ -43,7 +43,7 @@ export const ThoughtTile: React.FunctionComponent<ThoughtTileProps> = ({ thought
                             <p className='card-text'>
                                 {thought.description}
                                 &nbsp;
-                                <Link href={`/thoughts/[id]?id=${thought.id}`} as={`/thoughts/${thought.id}`} >
+                                <Link href={`/thoughts/[slug]?slug=${thought.slug}`} as={`/thoughts/${thought.slug}`} >
                                     <a>Read more</a>
                                 </Link>
                             </p>

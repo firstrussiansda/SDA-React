@@ -49,7 +49,7 @@ const Thought: I18nPage<ThoughtsProps> = ({ thought }) => {
 };
 
 Thought.getInitialProps = async ({ query, req, res }: any) => {
-    const thought = await fetchData(`thoughts/${query.id}`, req);
+    const thought = await fetchData(`thoughts/${query.slug}`, req);
 
     if (!thought && res) {
         res.statusCode = 404;

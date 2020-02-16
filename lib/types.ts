@@ -75,6 +75,7 @@ export interface SermonSeries extends JustSermonSeries {
 
 export interface Thought extends Base, Image {
     title: string;
+    slug: string;
     description: string;
     thought_html: string;
     date: string;
