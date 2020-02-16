@@ -6,7 +6,13 @@ export const isDevelopment = process.env.NODE_ENV !== 'production';
 
 const buildQuery = (params: ReqParams) => (
     Object.entries(params)
-        .reduce((acc, [key, val]) => acc + `&${key}=${val}`, '')
+        .reduce((acc, [key, val]) => {
+            if (Array.isArray(val)) {
+                return acc + val.map(v => `&${key}=${v}`).join('');
+            }
+
+            return acc + `&${key}=${val}`;
+        }, '')
         .slice(1)
 );
 

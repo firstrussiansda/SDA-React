@@ -87,10 +87,6 @@ class Contact extends React.Component<WithTranslation> {
                                     <td><i className='fas fa-map-marker-alt' /></td>
                                     <td>Brooklyn, NY</td>
                                 </tr>
-                                {/* <tr>
-                                    <td><i className='fas fa-phone' /></td>
-                                    <td>555-555-5555</td>
-                                </tr> */}
                                 <tr>
                                     <td><i className='far fa-envelope' /></td>
                                     <td>firstrussiansdachurch@gmail.com</td>

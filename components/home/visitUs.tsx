@@ -1,5 +1,7 @@
-import React from 'react';
 import { WithTranslation } from 'react-i18next';
+import Link from 'next/link';
+import React from 'react';
+
 import { event } from '../../lib/gtag';
 
 interface ServicesTypes {
@@ -43,7 +45,7 @@ const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
                         {localizedText.location.area}
                     </div>
                     <address className='visit m-b-lg'>
-                        <a> <strong>{localizedText.location.header}</strong></a>
+                        <span><strong>{localizedText.location.header}</strong></span>
                         &nbsp;
                         {localizedText.location.address}
                     </address>
@@ -62,16 +64,17 @@ const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
                             </tbody>
                         </table>
                     </div>
-                    <a
-                        id='contact-btn'
-                        className='btn btn-outline-warning custom-warning hvr-icon-forward visit'
-                        href='/contact'
-                        role='button'
-                        onClick={reportToGA}
-                    >
-                        {t('contactUs')}&nbsp;
-                        <i className='fas fa-arrow-circle-right hvr-icon' />
-                    </a>
+                    <Link href='/contact'>
+                        <a
+                            id='contact-btn'
+                            className='btn btn-outline-warning custom-warning hvr-icon-forward visit'
+                            role='button'
+                            onClick={reportToGA}
+                        >
+                            {t('contactUs')}&nbsp;
+                            <i className='fas fa-arrow-circle-right hvr-icon' />
+                        </a>
+                    </Link>
                 </div>
                 <div className='col-md-6'>
                     <iframe

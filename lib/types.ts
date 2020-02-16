@@ -84,7 +84,7 @@ export interface Thought extends Base, Image {
 }
 
 export interface ReqParams {
-    [k: string]: string | number | boolean;
+    [k: string]: string | number | boolean | (string | number | boolean)[];
 }
 
 export interface YearMonths {
