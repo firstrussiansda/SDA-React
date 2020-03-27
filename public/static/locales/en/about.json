@@ -22,5 +22,61 @@
             "title": "wholeness",
             "text": "Our distinctive, Christ-centered message not only points toward the future-it adds \"more abundant life\" to the present! Hundreds of scientific studies have confirmed the benefits of our Adventist message of health of body, mind, and spirit. Sabbath rest nourishes the soul. Our ideas of education (and Social Responsibilities) involve the harmonious development of the whole person-physical, mental, spiritual, social-extending from life on this earth to eternity."
         }
-    ]
+    ],
+    "groups": {
+        "title": "Groups",
+        "data": {
+            "kids": {
+                "title": "Kids",
+                "activities": [
+                    {
+                        "subTitle": "Sabbath School",
+                        "day": "Saturday",
+                        "time": "10:00 AM",
+                        "description": "Held weekly at the First Russian SDA church and designed to teach children about Jesus. Kids study in two groups: Kindergarten group (2-5 years old) and Junior group (6-10 years old)"
+                    }
+                ],
+                "img": "https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?ixlib=rb-0.3.5&s=b603f124f479ef5a275d119dc12b3eda&auto=format&fit=crop&w=300&q=80",
+                "imgAlt": "a child with the Bible"
+            },
+            "youth": {
+                "title": "Youth",
+                "activities": [
+                    {
+                        "subTitle": "Bible Study Group",
+                        "day": "Friday",
+                        "time": "7:30 PM",
+                        "description": "Held weekly and consists of thoughtful dialogue and discussion on various Biblical topics"
+                    },
+                    {
+                        "subTitle": "Sabbath School",
+                        "day": "Saturday",
+                        "time": "10:00 AM",
+                        "description": "Held weekly at the First Russian SDA church and designed to foster Christian growth"
+                    }
+                ],
+                "img": "https://images.unsplash.com/photo-1522008250122-19c4add9df75?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a11e57d4eb2477ec63a311d5a451ef1e&auto=format&fit=crop&w=300&q=80",
+                "imgAlt": "woman reading the Bible"
+            },
+            "prayingGroups": {
+                "title": "Praying Group",
+                "activities": [
+                    {
+                        "subTitle": "Common Prayer",
+                        "day": "Tuesday",
+                        "time": "8:30 PM",
+                        "description": "Held weekly via the phone to pray for each other and the community"
+                    },
+                    {
+                        "subTitle": "Prayer Meeting",
+                        "day": "Saturday",
+                        "time": "9:00 AM",
+                        "description": "Held weekly in the First Russian SDA church to pray for each other and the community"
+                    }
+                ],
+                "img": "https://images.unsplash.com/photo-1520857014576-2c4f4c972b57?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ac3b568666389c970a9d24e6367104b2&auto=format&fit=crop&w=300&q=80",
+                "imgAlt": "people praying in a circle"
+            }
+        }
+    }
 }

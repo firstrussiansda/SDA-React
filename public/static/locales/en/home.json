@@ -46,5 +46,7 @@
                 "time": "11:00 AM"
             }
         ]
-    }
+    },
+    "givingHeader": "Giving is now available online",
+    "givingButton": "Donate"
 }

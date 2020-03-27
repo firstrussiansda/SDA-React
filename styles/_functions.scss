@@ -1,0 +1,15 @@
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+@function get-palette-color($palette, $key) {
+    @if map-has_key($palettes, $palette) {
+        @return map-deep-get($palettes, $palette, $key);
+    }
+
+    @warn "Unknown `#{$palette}` in $palettes.";
+    @return null;
+}

@@ -16,7 +16,9 @@
         "sermons": "Sermons",
         "language": "English",
         "contact": "Contact us",
-        "thoughts": "Thoughts"
+        "thoughts": "Thoughts",
+        "updates": "Updates",
+        "giving": "Giving"
     },
     "errorMessage": "Ooops... Something went wrong. We did not anticipate this happening :(",
     "errorCode": "Error code"

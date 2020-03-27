@@ -1,0 +1,57 @@
+// Basic Variables
+$color-white: #ffffff;
+$color-black: #000000;
+
+$palettes: (
+    red: (
+        600: #c6002b,
+        500: #cd212e,
+        400: #e22c3a,
+        300: #f4747c,
+        200: #f79096,
+        100: #f4adb1,
+    ),
+    orange: (
+        600: #cc8838,
+        500: #da994d,
+        400: #edb574,
+        300: #f2c086,
+        200: #f7ca94,
+        100: #f5d2a9,
+    ),
+    green: (
+        600: #46815a,
+        500: #62aa7b,
+        400: #78d297,
+        300: #8bdea7,
+        200: #9ce2b4,
+        100: #ace7c0,
+    ),
+    blue: (
+        600: #267883,
+        500: #509da7,
+        400: #60bac6,
+        300: #68c8d5,
+        200: #84dae5,
+        100: #a3e2eb,
+    ),
+    purple: (
+        600: #5b34cc,
+        500: #6b44da,
+        400: #7d5ae0,
+        300: #8b6ae9,
+        200: #a488f3,
+        100: #bba6f8,
+    ),
+    grey: (
+        600: #27292d,
+        500: #3f4447,
+        400: #717277,
+        300: #c5cdd2,
+        200: #e6eaed,
+        100: #f6f8f9,
+    ),
+);
+
+$small-tablet-breakpoint: 768px;
+$mobile-breakpoint: 1060px;

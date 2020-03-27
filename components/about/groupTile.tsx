@@ -1,5 +1,5 @@
 import React from 'react';
-import { GroupLocale } from '../../pages/groups';
+import { GroupLocale } from '../../pages/about';
 
 export interface GroupTileProps extends GroupLocale {
     img: string;
