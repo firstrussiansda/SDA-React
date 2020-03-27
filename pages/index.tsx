@@ -1,5 +1,6 @@
 import React from 'react';
 import { WithTranslation } from 'react-i18next';
+import Container from 'react-bootstrap/Container';
 import { withTranslation } from '../i18n';
 
 import Events from '../components/home/events';
@@ -8,6 +9,7 @@ import VisitUs from '../components/home/visitUs';
 
 import { fetchData } from '../lib/helpers';
 import { Quote, Event } from '../lib/types';
+import { Giving } from '../components/home/Giving.component';
 
 interface HomepageProps extends WithTranslation {
     events: Event[];
@@ -52,17 +54,21 @@ class Homepage extends React.Component<HomepageProps> {
                 </div>
                 <hr />
 
-                <main className='container'>
+
+
+                <Container>
                     <Events events={this.props.events} i18n={i18n} t={t} tReady={tReady} />
+                </Container>
+
+                <Giving i18n={i18n} t={t} tReady={tReady} />
+
+                <Container>
                     <PrayerRequest i18n={i18n} t={t} tReady={tReady} />
-
                     <VisitUs i18n={i18n} t={t} tReady={tReady} />
-
-                </main>
+                </Container>
             </div>
         );
     }
-
 }
 
 export default withTranslation('home')(Homepage);

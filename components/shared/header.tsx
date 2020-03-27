@@ -3,6 +3,7 @@ import Router from 'next/router';
 import Link from 'next/link';
 import { withTranslation } from '../../i18n';
 import { WithTranslation } from 'react-i18next';
+import { USAFlagIcon, RussiaFlagIcon, UkraineFlagIcon } from '../icons';
 
 export interface HeaderLocale {
     home: string;
@@ -16,6 +17,8 @@ export interface HeaderLocale {
     language: string;
     contact: string;
     thoughts: string;
+    updates: string;
+    giving: string;
 }
 
 interface HeaderState {
@@ -74,6 +77,19 @@ class Header extends React.Component<WithTranslation, HeaderState> {
         this.state.currentRoute === '/' ? ' home-nav' : ''
     )
 
+    getCurrentFlag = () => {
+        switch (this.props.i18n.language) {
+            case 'uk':
+                return <UkraineFlagIcon />;
+            case 'en':
+                return <USAFlagIcon />;
+            case 'ru':
+                return <RussiaFlagIcon />;
+            default:
+                return null;
+        }
+    }
+
     render() {
         const { t } = this.props;
         const headerLocales = t<HeaderLocale>('header', { returnObjects: true });
@@ -118,14 +134,6 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                     </Link>
                                 </li>
 
-                                <li className={`nav-item ${this.getCurrentClass('/groups')}`}>
-                                    <Link href='/groups'>
-                                        <a className='nav-link hvr-overline-from-center'>
-                                            {headerLocales.groups}
-                                        </a>
-                                    </Link>
-                                </li>
-
                                 <li className={`nav-item ${this.getCurrentClass('/calendar')}`}>
                                     <Link href='/calendar'>
                                         <a className='nav-link hvr-overline-from-center'>
@@ -133,6 +141,14 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                         </a>
                                     </Link>
                                 </li>
+
+                                {/* <li className={`nav-item ${this.getCurrentClass('/updates')}`}>
+                                    <Link href='/updates'>
+                                        <a className='nav-link hvr-overline-from-center'>
+                                            {headerLocales.updates}
+                                        </a>
+                                    </Link>
+                                </li> */}
 
                                 <li className={`nav-item ${this.getCurrentClass('/sermons')}`}>
                                     <Link href='/sermons'>
@@ -150,6 +166,16 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                     </Link>
                                 </li>
 
+                                <li className='nav-item'>
+                                    <a
+                                        className='nav-link hvr-overline-from-center'
+                                        href='https://adventistgiving.org/#/org/AN48FN/envelope/start'
+                                        target='_blank'
+                                    >
+                                        {headerLocales.giving}
+                                    </a>
+                                </li>
+
                                 <li className='nav-item dropdown'>
                                     <a
                                         className='nav-link dropdown-toggle hvr-overline-from-center'
@@ -160,8 +186,7 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                         aria-haspopup='true'
                                         aria-expanded='false'
                                     >
-                                        <i className='fas fa-language' />
-                                        &nbsp;{headerLocales.language}
+                                        {this.getCurrentFlag()}
                                     </a>
                                     <div
                                         className='dropdown-menu'
@@ -171,19 +196,19 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                             className='dropdown-item'
                                             onClick={() => this.changeLanguage('en')}
                                         >
-                                            English
+                                            <USAFlagIcon /> English
                                         </button>
                                         <button
                                             className='dropdown-item'
                                             onClick={() => this.changeLanguage('ru')}
                                         >
-                                            Русский
+                                            <RussiaFlagIcon /> Русский
                                         </button>
                                         <button
                                             className='dropdown-item'
                                             onClick={() => this.changeLanguage('uk')}
                                         >
-                                            Українська
+                                            <UkraineFlagIcon /> Українська
                                         </button>
                                     </div>
                                 </li> {/* Locale dropdown */}
@@ -224,8 +249,6 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                             >
                                 <Link href='/'>
                                     <a className='nav-link hvr-overline-from-center' >
-                                        <i className='fas fa-home' />
-                                        &nbsp;
                                         {headerLocales.home}
                                     </a>
                                 </Link>
@@ -236,25 +259,10 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                             >
                                 <Link href='/about'>
                                     <a className='nav-link hvr-overline-from-center'>
-                                        <i className='fas fa-info-circle' />
-                                        &nbsp;
                                         {headerLocales.about}
                                         <span className='sr-only'>(current)</span>
                                     </a>
                                 </Link>
-                            </li>
-
-                            <li
-                                className={`nav-item ${this.getCurrentClass('/groups')}`}
-                                onClick={this.closeMenu}
-                            >
-                                <Link href='/groups'>
-                                    <a className='nav-link hvr-overline-from-center'>
-                                        <i className='fas fa-users' />
-                                        {headerLocales.groups}
-                                    </a>
-                                </Link>
-
                             </li>
 
                             <li
@@ -263,47 +271,61 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                             >
                                 <Link href='/calendar'>
                                     <a className='nav-link hvr-overline-from-center'>
-                                        <i className='far fa-calendar-alt' />
-                                        &nbsp;
                                         {headerLocales.calendar}
                                     </a>
                                 </Link>
 
                             </li>
+
+                            {/* <li className={`nav-item ${this.getCurrentClass('/updates')}`}>
+                                <Link href='/updates'>
+                                    <a className='nav-link hvr-overline-from-center'>
+                                        {headerLocales.updates}
+                                    </a>
+                                </Link>
+                            </li> */}
+
                             <li
                                 className={`nav-item ${this.getCurrentClass('/sermons')}`}
                                 onClick={this.closeMenu}
                             >
                                 <Link href='/sermons'>
                                     <a className='nav-link hvr-overline-from-center'>
-                                        <i className='far fa-play-circle' />
-                                        &nbsp;
                                         {headerLocales.sermons}
                                     </a>
                                 </Link>
                             </li>
+
                             <li
                                 className={`nav-item ${this.getCurrentClass('/thoughts')}`}
                                 onClick={this.closeMenu}
                             >
                                 <Link href='/thoughts'>
                                     <a className='nav-link hvr-overline-from-center'>
-                                        <i className='fas fa-praying-hands' />
                                         {headerLocales.thoughts}
                                     </a>
                                 </Link>
                             </li>
+
                             <li
                                 className={`nav-item ${this.getCurrentClass('/contact')}`}
                                 onClick={this.closeMenu}
                             >
                                 <Link href='/contact'>
                                     <a className='nav-link hvr-overline-from-center'>
-                                        <i className='far fa-envelope' />
-                                        &nbsp;
                                         {headerLocales.contact}
                                     </a>
                                 </Link>
+                            </li>
+
+                            <li className='nav-item'>
+                                <a
+                                    className='nav-link hvr-overline-from-center'
+                                    href='https://adventistgiving.org/#/org/AN48FN/envelope/start'
+                                    target='_blank'
+                                >
+                                    {headerLocales.giving}
+                                </a>
                             </li>
 
                             <li className='nav-item dropdown'>
@@ -316,7 +338,7 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                     aria-haspopup='true'
                                     aria-expanded='false'
                                 >
-                                    <i className='fas fa-language' />
+                                    {this.getCurrentFlag()}
                                     &nbsp;{headerLocales.language}
                                 </a>
                                 <div
@@ -327,19 +349,19 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                         className='dropdown-item'
                                         onClick={() => this.changeLanguage('en')}
                                     >
-                                        English
+                                        <USAFlagIcon /> English
                                     </button>
                                     <button
                                         className='dropdown-item'
                                         onClick={() => this.changeLanguage('ru')}
                                     >
-                                        Русский
+                                        <RussiaFlagIcon /> Русский
                                     </button>
                                     <button
                                         className='dropdown-item'
                                         onClick={() => this.changeLanguage('uk')}
                                     >
-                                        Українська
+                                        <UkraineFlagIcon /> Українська
                                     </button>
                                 </div>
                             </li> {/* Locale dropdown */}

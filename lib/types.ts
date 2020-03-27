@@ -29,6 +29,17 @@ export interface Event extends Base, Image {
     attachments: Attachment[];
 }
 
+export interface Announcement extends Base, Image {
+    slug: string;
+    title: string;
+    description: string;
+    is_featured: boolean;
+    start_date: string;
+    end_date: string;
+    attachments: Attachment[];
+    alert_level: 'DANGER' | 'WARNING' | 'INFO';
+}
+
 export interface Person extends Base {
     name: string;
     profile_image_url: string;
