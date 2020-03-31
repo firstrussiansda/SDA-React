@@ -1,0 +1,12 @@
+@import "./vars";
+@import "./functions";
+
+:root {
+    --navbar-heigh-mobile: 55px;
+
+    @each $colorname, $palette in $palettes {
+        @each $key, $value in $palette {
+            --palette-#{$colorname}-#{$key}: #{$value};
+        }
+    }
+}

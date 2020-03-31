@@ -9,7 +9,7 @@ import HeadTag from '../components/shared/_head';
 import Header from '../components/shared/header';
 import Footer from '../components/shared/footer';
 
-import '../styles/style.css';
+import '../styles/style.scss';
 
 Router.events.on('routeChangeComplete', url => pageview(url));
 

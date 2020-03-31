@@ -6,6 +6,19 @@ import { WithTranslation } from 'react-i18next';
 import { withTranslation } from '../i18n';
 import Leadership from '../components/about/leadership';
 import KeyMissionComponents from '../components/about/keyMissionComponents';
+import GroupTile, { Activity } from '../components/about/groupTile';
+
+export interface GroupLocale {
+    title: string;
+    activities: Activity[];
+    img: string;
+    imgAlt: string;
+}
+
+interface GroupsLocale {
+    title: string;
+    data: { [name: string]: GroupLocale; };
+}
 
 interface AboutProps extends WithTranslation {
     people: Person[];
@@ -33,11 +46,11 @@ class About extends React.Component<AboutProps, AboutState> {
             return {
                 people: data.results,
                 count: data.count,
-                namespacesRequired: ['about'],
+                namespacesRequired: ['about', 'group'],
             };
         }
 
-        return { people: [], count: 0, namespacesRequired: ['about'] };
+        return { people: [], count: 0, namespacesRequired: ['about', 'group'] };
     }
 
     componentDidMount() {
@@ -70,6 +83,8 @@ class About extends React.Component<AboutProps, AboutState> {
             return null;
         }
 
+        const groupsLocale = this.props.t<GroupsLocale>('groups', { returnObjects: true });
+
         return (
             <div className='container'>
                 {/* Mission statement */}
@@ -83,6 +98,7 @@ class About extends React.Component<AboutProps, AboutState> {
                         </p>
                     </div>
                 </section>
+
                 <KeyMissionComponents
                     title={this.props.t('keyMissionComponentsTitle')}
                     components={
@@ -91,17 +107,6 @@ class About extends React.Component<AboutProps, AboutState> {
                     }
                 />
 
-                <section className='card about about-us card-lg'>
-                    <h2 className='title capitalize text-xxl m-b text-center'>
-                        {this.props.t('title')}
-                    </h2>
-                    <div className='text-center text-justify m-x-auto'>
-                        {
-                            this.props.t<string[]>('about', { returnObjects: true })
-                                .map(text => (<p className='m-b-xs' key={text}>{text}</p>))
-                        }
-                    </div>
-                </section>
                 {
                     this.state.pastor &&
                     (
@@ -138,9 +143,32 @@ class About extends React.Component<AboutProps, AboutState> {
                     this.state.people.length > 0 &&
                     <Leadership people={this.state.people} />
                 }
+
+                <section className='card about about-us card-lg'>
+                    <h2 className='title capitalize text-xxl m-b text-center'>
+                        {this.props.t('title')}
+                    </h2>
+                    <div className='text-center text-justify m-x-auto'>
+                        {
+                            this.props.t<string[]>('about', { returnObjects: true })
+                                .map(text => (<p className='m-b-xs' key={text}>{text}</p>))
+                        }
+                    </div>
+                </section>
+
+                <section>
+                    <h2 className='title capitalize text-xxl m-b text-center'>
+                        {groupsLocale.title}
+                    </h2>
+                    <div className='top-space'>
+                        {Object.entries(groupsLocale.data)
+                            .map(([name, group]) => <GroupTile key={name} {...group} />)
+                        }
+                    </div>
+                </section>
             </div>
         );
     }
 }
 
-export default withTranslation('about')(About);
+export default withTranslation(['about', 'group'])(About);

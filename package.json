@@ -10,35 +10,39 @@
     "start": "NODE_ENV=production node index.js",
     "cs": "tsc -p server/tsconfig.json",
     "cs:watch": "tsc -p server/tsconfig.json -w",
-    "lint": "tslint -c tslint.json '**/*.{ts,tsx}'  -e **/*.d.ts --fix ; eslint '**/*.js' --fix",
-    "lint:no-fix": "tslint -c tslint.json '**/*.{ts,tsx}'  -e **/*.d.ts ; eslint '**/*.js'",
+    "lint": "tslint -c tslint.json '**/*.{ts,tsx}'  -e **/*.d.ts --fix; eslint '**/*.js' --fix",
+    "lint:no-fix": "tslint -c tslint.json '**/*.{ts,tsx}'  -e **/*.d.ts eslint '**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@zeit/next-css": "^1.0.1",
+    "classnames": "^2.2.6",
     "express": "^4.17.1",
     "i18next": "^19.1.0",
-    "next": "^9.2.1",
-    "next-i18next": "^4.1.0",
-    "nodemon": "^1.19.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.9.0",
+    "next": "^9.3.2",
+    "next-i18next": "^4.2.1",
+    "nodemon": "^2.0.2",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.0-beta.17",
+    "react-dom": "^16.13.1",
     "react-i18next": "^11.3.1",
-    "ts-node": "^8.6.2"
+    "ts-node": "^8.7.0"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.10",
     "@types/express": "^4.17.1",
-    "@types/node": "^12.7.4",
+    "@types/node": "^13.9.2",
     "@types/node-fetch": "^2.5.0",
-    "@types/react": "^16.9.2",
+    "@types/react": "^16.9.25",
     "@types/react-dom": "^16.9.0",
+    "@zeit/next-sass": "^1.0.1",
     "cross-env": "^7.0.0",
     "eslint": "^6.8.0",
     "node-fetch": "^2.6.0",
-    "tslint": "6.0.0",
+    "node-sass": "^4.13.1",
+    "tslint": "^6.1.0",
     "tslint-eslint-rules": "^5.4.0",
     "tslint-react": "^4.2.0",
-    "typescript": "^3.7.5",
-    "webpack": "^4.41.5"
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.0"
   }
 }
