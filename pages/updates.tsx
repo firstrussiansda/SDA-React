@@ -2,12 +2,12 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { Announcement } from '../lib/types';
 import { I18nPage, useTranslation } from '../i18n';
 import { fetchData, formatDate } from '../lib/helpers';
-import { HeaderLocale } from '../components/shared/header';
+import { HeaderLocale } from '../components/shared/Header.component';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
 import { FlexCenter } from '../components/shared/flex-center';
-import { Spinner } from '../components/shared/spinner';
-import { LoadMoreButton } from '../components/shared/loadMoreButton';
+import { Spinner } from '../components/shared/Spinner.component';
+import { LoadMoreButton } from '../components/shared/LoadMoreButton.component';
 
 const PAGE_SIZE = 2;
 

@@ -5,8 +5,8 @@ import { fetchData } from '../lib/helpers';
 import { withTranslation } from '../i18n';
 import { Event } from '../lib/types';
 import EventTile from '../components/calendar/eventTile';
-import { Spinner } from '../components/shared/spinner';
-import { LoadMoreButton } from '../components/shared/loadMoreButton';
+import { Spinner } from '../components/shared/Spinner.component';
+import { LoadMoreButton } from '../components/shared/LoadMoreButton.component';
 import { ArchiveToggle } from '../components/calendar/archiveToggle';
 import { FlexCenter } from '../components/shared/flex-center';
 

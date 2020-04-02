@@ -1,9 +1,10 @@
-import React from 'react';
 import classnames from 'classnames';
+import Link from 'next/link';
+import React from 'react';
 
-interface FauxButtonProps {
+interface FauxMagicButtonProps {
     url: string;
-    target?: string;
+    as?: string;
     className?: string;
     type?: 'filled' | 'outline' | 'text';
     size?: 'regular' | 'small' | 'x-small';
@@ -11,7 +12,7 @@ interface FauxButtonProps {
     onClick?: () => void;
 }
 
-export const FauxButton = (props: FauxButtonProps) => {
+export const FauxMagicButton = (props: FauxMagicButtonProps) => {
     const buttonClasses = classnames(['component-button', 'button-faux'], {
         [`button-${props.type || 'filled'}`]: props.type,
         [`${props.className}`]: props.className,
@@ -21,9 +22,11 @@ export const FauxButton = (props: FauxButtonProps) => {
 
     return (
         <div className={buttonClasses}>
-            <a target={props.target || '_blank'} href={props.url} onClick={props.onClick}>
-                {props.children}
-            </a>
+            <Link href={props.url} {...props.as && { as: props.as }}>
+                <a onClick={props.onClick}>
+                    {props.children}
+                </a>
+            </Link>
         </div>
     );
 };

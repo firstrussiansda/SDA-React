@@ -6,7 +6,7 @@ import { withTranslation } from '../i18n';
 import { Thought, ReqParams } from '../lib/types';
 import Pagination from '../components/sermons/pagination';
 import { ThoughtTile } from '../components/thoughts/thoughtTile';
-import { HeaderLocale } from '../components/shared/header';
+import { HeaderLocale } from '../components/shared/Header.component';
 
 interface ThoughtsProps extends WithTranslation {
     thoughts: Thought[];

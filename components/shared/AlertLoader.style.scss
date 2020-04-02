@@ -20,11 +20,15 @@
         align-items: baseline;
     }
 
-    i {
+    .svg-icon {
         margin-right: 10px;
     }
 
     p {
         margin: 0;
+    }
+
+    .button-faux {
+        margin-top: 1rem;
     }
 }

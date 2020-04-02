@@ -19,32 +19,34 @@ class Footer extends React.Component<WithTranslation> {
 
     render() {
         return (
-            <footer className='component-page-footer'>
+            <React.Fragment>
                 <AlertLoader />
-                <p className='media-icons'>
-                    <a
-                        href='https://www.facebook.com/firstrussianny/'
-                        aria-label='facebook'
-                    >
-                        <FacebookIcon />
-                    </a>
-                    <a
-                        href='https://www.instagram.com/youthgroupfriends/'
-                        aria-label='instagram'
-                    >
-                        <InstagramIcon />
-                    </a>
-                    <a
-                        href='mailto:firstrussiansdachurch@gmail.com'
-                        aria-label='email'
-                    >
-                        <EnvelopeFillIcon />
-                    </a>
-                </p>
-                <p>{this.props.t<FooterLocale>('footer', { returnObjects: true }).main}</p>
-                {/* <a><a href='/site-policy'>Policy</a></a> */}
-                <p>&copy; {this.props.t<FooterLocale>('footer', { returnObjects: true }).copyright}</p>
-            </footer>
+                <footer className='component-page-footer'>
+                    <p className='media-icons'>
+                        <a
+                            href='https://www.facebook.com/firstrussianny/'
+                            aria-label='facebook'
+                        >
+                            <FacebookIcon />
+                        </a>
+                        <a
+                            href='https://www.instagram.com/youthgroupfriends/'
+                            aria-label='instagram'
+                        >
+                            <InstagramIcon />
+                        </a>
+                        <a
+                            href='mailto:firstrussiansdachurch@gmail.com'
+                            aria-label='email'
+                        >
+                            <EnvelopeFillIcon width={20} height={20} />
+                        </a>
+                    </p>
+                    <p>{this.props.t<FooterLocale>('footer', { returnObjects: true }).main}</p>
+                    {/* <a><a href='/site-policy'>Policy</a></a> */}
+                    <p>&copy; {this.props.t<FooterLocale>('footer', { returnObjects: true }).copyright}</p>
+                </footer>
+            </React.Fragment>
         );
     }
 }

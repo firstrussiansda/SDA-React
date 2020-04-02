@@ -1,5 +1,5 @@
 import React from 'react';
-import { Spinner } from './spinner';
+import { Spinner } from './Spinner.component';
 import { FlexCenter } from './flex-center';
 import { ArrowCircleDownIcon } from '../icons';
 

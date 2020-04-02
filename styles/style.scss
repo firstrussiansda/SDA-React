@@ -157,12 +157,29 @@ hr {
 	background-color: #fdd007;
 }
 
-#contact-btn {
-	border: none;
-}
-#contact-btn:hover {
-	border: none;
+#contact-btn.btn-outline-warning {
+	border-radius: 0;
+	border-color: #fdd007;
 	background-color: #fdd007;
+	color: #343a40;
+	height: 45px;
+	line-height: 2;
+	letter-spacing: 1.5px;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+
+	&:hover {
+		border: none;
+		background-color: #fdd007;
+	}
+
+	@media screen and (min-width: $small-tablet-breakpoint) {
+		display: inline-flex;
+		width: initial;
+	}
 }
 
 .btn-outline-warning {
@@ -289,22 +306,6 @@ nav .pagination{
     height: 100%;
 }
 
-#contact-btn {
-	border: none;
-}
-#contact-btn:hover {
-	border: none;
-	background-color: #fdd007;
-}
-#contact-btn.btn-outline-warning {
-	border-radius: 0;
-	border-color: #fdd007;
-    background-color: #fdd007;
-    color: #343a40;
-    height: 45px;
-    line-height: 2;
-	letter-spacing: 1.5px;
-}
 .main-title {
 	letter-spacing: 3px;
 	text-transform: uppercase;
@@ -889,11 +890,7 @@ nav .pagination{
 	}
 
 	#praying-request form button,
-	#contact-btn.btn-outline-warning{
-		margin: auto;
-		display: block;
-		width: 100%;
-	}
+
 
 	.visit{
 		margin: 0px;

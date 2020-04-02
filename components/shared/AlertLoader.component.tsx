@@ -4,6 +4,7 @@ import { fetchData } from '../../lib/helpers';
 import { InfoCircleFillIcon } from '../icons';
 import Alert from 'react-bootstrap/Alert';
 import './AlertLoader.style.scss';
+import { FauxMagicButton } from '../ui';
 
 const curDate = new Date().toISOString().split('T')[0];
 const storageKey = 'viewedAlerts';
@@ -69,12 +70,26 @@ export const AlertLoader = () => {
     }
 
     return (
-        <Alert variant={getAlertVariant(alert.alert_level)} dismissible={true} onClose={closeAlert} className='component-alert-loader'>
+        <Alert
+            variant={getAlertVariant(alert.alert_level)}
+            dismissible={true}
+            onClose={closeAlert}
+            className='component-alert-loader'
+        >
             <Alert.Heading>
                 <InfoCircleFillIcon width={24} height={20} />
                 {alert.title}
             </Alert.Heading>
             <p dangerouslySetInnerHTML={{ __html: alert.description }} />
+            <FauxMagicButton
+                url={`updates/[slug]?slug=${alert.slug}`}
+                as={`/thoughts/${alert.slug}`}
+                type='filled'
+                size='x-small'
+                onClick={closeAlert}
+            >
+                Read More
+            </FauxMagicButton>
         </Alert>
     );
 };

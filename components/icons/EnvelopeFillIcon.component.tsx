@@ -4,13 +4,15 @@ export const EnvelopeFillIcon = ({ width = 18, height = 18 }) => (
     <svg
         tabIndex={-1}
         focusable='false'
-        className='svg-icon icon-envelope-fill'
+        className='svg-icon icon-envelope'
         width={width}
         height={height}
-        viewBox='0 0 18 18'
+        viewBox='0 0 64 64'
         fill='currentColor'
         xmlns='http://www.w3.org/2000/svg'
     >
-        <path d='M.05 3.555L8 8.414l7.95-4.859A2 2 0 0014 2H2A2 2 0 00.05 3.555zM16 4.697l-5.875 3.59L16 11.743V4.697zm-.168 8.108L9.157 8.879 8 9.586l-1.157-.707-6.675 3.926A2 2 0 002 14h12a2 2 0 001.832-1.195zM0 11.743l5.875-3.456L0 4.697v7.046z' />
+        <path fill='#202020' d='M2 14.7v34.4l17.2-17.5L2 14.7zm42.8 16.9L62 49.1V14.7L44.8 31.6z' />
+        <path fill='#202020' d='M59.1 12H5l27 26.6L59.1 12z' />
+        <path fill='#202020' d='M32 44.2l-10-9.8L4.7 52h54.6L42 34.4l-10 9.8z' />
     </svg>
 );
