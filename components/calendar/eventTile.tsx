@@ -3,7 +3,7 @@ import { WithTranslation } from 'react-i18next';
 
 import { Event } from '../../lib/types';
 import { formatDate, getImgUrl } from '../../lib/helpers';
-import { Attachments } from '../shared/attachments';
+import { Attachments } from '../shared/Attachments.component';
 
 interface EventTileProps extends Event, WithTranslation { }
 

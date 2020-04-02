@@ -1,6 +1,7 @@
 import React from 'react';
 import { Spinner } from './spinner';
 import { FlexCenter } from './flex-center';
+import { ArrowCircleDownIcon } from '../icons';
 
 interface LoadMoreButtonProps {
     isMoreAvailable: boolean;
@@ -26,7 +27,7 @@ export const LoadMoreButton: React.FunctionComponent<LoadMoreButtonProps> = prop
                     >
                         Load more
                         &nbsp;
-                        <i className='fas fa-arrow-circle-down hvr-icon' />
+                        <ArrowCircleDownIcon className='hvr-icon' />
                     </button>
                 )
             }

@@ -7,7 +7,7 @@ import { pageview } from '../lib/gtag';
 
 import HeadTag from '../components/shared/_head';
 import Header from '../components/shared/header';
-import Footer from '../components/shared/footer';
+import Footer from '../components/shared/Footer.component';
 
 import '../styles/style.scss';
 

@@ -23,27 +23,6 @@ hr {
     margin: 0 0 20px 0;
 }
 
-.alert {
-	position: fixed;
-	padding: 30px;
-	z-index: 1;
-	margin: 0;
-	width: 100%;
-	bottom: 0;
-	right: 0;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.alert i {
-	margin-right: 10px;
-}
-
-.alert p {
-	margin: 0;
-}
-
 .capitalize {
 	text-transform: capitalize;
 }
@@ -289,25 +268,6 @@ nav .pagination{
 	box-shadow: none;
 }
 
-
-
-/* FOOTER */
-.page-footer {
-	background-color: #f8f9fa;
-	padding: 2.5rem 0 2.5rem;
-	text-align: center;
-	letter-spacing: 2px;
-	color: black;
-	width: 100%;
-}
-.page-footer i {
-	color: black;
-	letter-spacing: 5px;
-}
-.page-footer i:hover {
-	color: rgb(222, 55, 0);
-	transition: 0.4s;
-}
 #main-page-img {
 	background-image: url("https://images.unsplash.com/photo-1530688957198-8570b1819eeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1647&q=80");
 	background-size: cover;
@@ -904,10 +864,6 @@ nav .pagination{
 		margin-top: 0.75rem !important;
 	}
 
-	.alert {
-		align-items: initial;
-	}
-
 	/* adjusting titles */
 	.title{
 		font-size: 30px;
@@ -967,10 +923,6 @@ nav .pagination{
 	.thought-detail {
 		padding: 75px 25px;
 	}
-
-	.page-footer a {
-		margin: 10px;
-	}
 }
 
 @media screen and (min-width: 421px) and (max-width: 767px) {
@@ -983,14 +935,7 @@ nav .pagination{
 	.main-title{
 		padding-top: 25%;
 	}
-	.page-footer i {
-		font-size: 1.5rem;
-		color: black;
-	}
-	.page-footer {
-		font-size: .6875rem;
-		line-height: 0.9rem;
-	}
+
 	.carousel-caption {
 	    bottom: 0;
 	}
@@ -1003,13 +948,7 @@ nav .pagination{
 	.main-title {
 		padding-top: 12%;
 	}
-	.page-footer i {
-		font-size: 1rem;
-	}
-	.page-footer {
-		font-size: 11px;
-		line-height: 0.4rem;
-	}
+
 	.img.column {
 		flex: 25%;
 		padding: 0 4px;

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 
 import { formatDate, getImgUrl } from '../../lib/helpers';
-import { Attachments } from '../shared/attachments';
+import { Attachments } from '../shared/Attachments.component';
 import { Thought } from '../../lib/types';
 import { Authors } from './authors';
 

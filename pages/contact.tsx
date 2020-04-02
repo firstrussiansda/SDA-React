@@ -1,8 +1,9 @@
-import React from 'react';
-import { event } from '../lib/gtag';
-
-import { withTranslation } from '../i18n';
 import { WithTranslation } from 'react-i18next';
+import React from 'react';
+
+import { EnvelopeIcon, InstagramIcon, FacebookIcon, MapMarkerIcon } from '../components/icons';
+import { withTranslation } from '../i18n';
+import { event } from '../lib/gtag';
 
 class Contact extends React.Component<WithTranslation> {
     static async getInitialProps() {
@@ -84,11 +85,11 @@ class Contact extends React.Component<WithTranslation> {
                         <table>
                             <tbody>
                                 <tr>
-                                    <td><i className='fas fa-map-marker-alt' /></td>
+                                    <td><MapMarkerIcon /></td>
                                     <td>Brooklyn, NY</td>
                                 </tr>
                                 <tr>
-                                    <td><i className='far fa-envelope' /></td>
+                                    <td><EnvelopeIcon /></td>
                                     <td>firstrussiansdachurch@gmail.com</td>
                                 </tr>
                             </tbody>
@@ -99,26 +100,21 @@ class Contact extends React.Component<WithTranslation> {
                                     <td>
                                         <div className='box facebook hvr-wobble-vertical'>
                                             <a href='https://www.facebook.com/%D0%A2%D0%B2%D0%BE%D0%B8-%D0%B4%D1%80%D1%83%D0%B7%D1%8C%D1%8F-%D0%B2-NYC-141818969217488/?__tn__=%2Cdk%2CP-R&eid=ARDkX64MnnE3mMUEAFCdA0Uk804LPzHbzOevV1tkPonAU5frQEWQnFZRLRqUsGI5dzHUhtvCDg6cNWfM' target='_blank'>
-                                                <i className='fab fa-facebook-f' />
+                                                <FacebookIcon />
                                             </a>
                                         </div>
                                     </td>
                                     <td>
                                         <div className='box instagram hvr-wobble-vertical'>
                                             <a href='https://www.instagram.com/youthgroupfriends/' target='_blank'>
-                                                <i className='fab fa-instagram' />
+                                                <InstagramIcon />
                                             </a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className='box youtube hvr-wobble-vertical'>
-                                            <i className='fab fa-youtube' />
                                         </div>
                                     </td>
                                     <td>
                                         <div className='box maps hvr-wobble-vertical'>
                                             <a href='https://www.google.com/maps?ll=40.600665,-73.978986&z=15&t=m&hl=ru-RU&gl=US&mapclient=embed&q=1913+W+7th+St+Brooklyn,+NY+11223' target='_blank'>
-                                                <i className='fas fa-map-marker-alt' />
+                                                <MapMarkerIcon height={22} width={22} />
                                             </a>
                                         </div>
                                     </td>

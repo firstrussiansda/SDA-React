@@ -2,6 +2,7 @@ import { WithTranslation } from 'react-i18next';
 import Link from 'next/link';
 import React from 'react';
 
+import { ArrowCircleRightIcon } from '../icons';
 import { event } from '../../lib/gtag';
 
 interface ServicesTypes {
@@ -72,7 +73,7 @@ const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
                             onClick={reportToGA}
                         >
                             {t('contactUs')}&nbsp;
-                            <i className='fas fa-arrow-circle-right hvr-icon' />
+                            <ArrowCircleRightIcon className='hvr-icon' />
                         </a>
                     </Link>
                 </div>

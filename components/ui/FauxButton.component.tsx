@@ -8,6 +8,7 @@ interface FauxButtonProps {
     type?: 'filled' | 'outline' | 'text';
     size?: 'regular' | 'small';
     children?: React.ReactNode;
+    onClick?: () => void;
 }
 
 export const FauxButton = (props: FauxButtonProps) => {
@@ -19,7 +20,7 @@ export const FauxButton = (props: FauxButtonProps) => {
 
     return (
         <div className={buttonClasses}>
-            <a target={props.target || '_blank'} href={props.url}>
+            <a target={props.target || '_blank'} href={props.url} onClick={props.onClick}>
                 {props.children}
             </a>
         </div>
