@@ -1,15 +1,16 @@
-import React from 'react';
-import { WithTranslation } from 'react-i18next';
 import Container from 'react-bootstrap/Container';
-import { withTranslation } from '../i18n';
+import { WithTranslation } from 'react-i18next';
+import React from 'react';
 
-import Events from '../components/home/events';
+import { GatherOnline } from '../components/home/GatherOnline.component';
 import PrayerRequest from '../components/home/prayerRequest';
-import VisitUs from '../components/home/visitUs';
-
-import { fetchData } from '../lib/helpers';
-import { Quote, Event } from '../lib/types';
 import { Giving } from '../components/home/Giving.component';
+import VisitUs from '../components/home/visitUs';
+import Events from '../components/home/events';
+
+import { Quote, Event } from '../lib/types';
+import { fetchData } from '../lib/helpers';
+import { withTranslation } from '../i18n';
 
 interface HomepageProps extends WithTranslation {
     events: Event[];
@@ -57,6 +58,7 @@ class Homepage extends React.Component<HomepageProps> {
 
 
                 <Container>
+                    <GatherOnline i18n={i18n} t={t} tReady={tReady} />
                     <Events events={this.props.events} i18n={i18n} t={t} tReady={tReady} />
                 </Container>
 

@@ -6,7 +6,6 @@ import { FauxButton } from '../ui';
 import './Giving.style.scss';
 
 export const Giving = ({ t }: WithTranslation) => {
-
     return (
         <section className='component-giving'>
             <h2>{t('givingHeader')}</h2>

@@ -5,6 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "predev": "yarn cs",
     "dev": "nodemon",
     "build": "next build",
     "start": "NODE_ENV=production node index.js",

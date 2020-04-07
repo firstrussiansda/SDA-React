@@ -10,13 +10,6 @@ class Contact extends React.Component<WithTranslation> {
         return { namespacesRequired: ['contact'] };
     }
 
-    reportToGA = () => {
-        event({
-            action: 'submit_form',
-            category: 'Contact',
-        });
-    }
-
     render() {
         return (
             <div id='contactUs'>
@@ -27,7 +20,7 @@ class Contact extends React.Component<WithTranslation> {
                         className='col-md-6 col-sm-12 m-3 pb-4'
                         action='https://formspree.io/firstrussiansdachurch@gmail.com'
                         method='POST'
-                        onSubmit={this.reportToGA}
+                        onSubmit={() => event({ action: 'submit_form', category: 'Contact' })}
                     >
                         <div className='form-field string required'>
                             <label htmlFor='nameInput'>

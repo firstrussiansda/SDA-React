@@ -4,7 +4,7 @@ export const RussiaFlagIcon = ({ width = 24, height = 15 }) => (
     <svg
         tabIndex={-1}
         focusable='false'
-        className='svg-icon icon-russian-flag'
+        className='svg-icon icon-russia-flag'
         width={width}
         height={height}
         viewBox='0 0 24 15'

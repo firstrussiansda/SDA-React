@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import Alert from 'react-bootstrap/Alert';
+
 import { Announcement } from '../../lib/types';
 import { fetchData } from '../../lib/helpers';
 import { InfoCircleFillIcon } from '../icons';
-import Alert from 'react-bootstrap/Alert';
-import './AlertLoader.style.scss';
 import { FauxMagicButton } from '../ui';
+import './AlertLoader.style.scss';
 
 const curDate = new Date().toISOString().split('T')[0];
 const storageKey = 'viewedAlerts';

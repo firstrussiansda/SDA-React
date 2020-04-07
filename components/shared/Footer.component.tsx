@@ -12,6 +12,8 @@ interface FooterLocale {
     copyright: string;
 }
 
+const currentYear = (new Date()).getFullYear();
+
 class Footer extends React.Component<WithTranslation> {
     static async getInitialProps() {
         return { namespacesRequired: ['common'] };
@@ -44,7 +46,12 @@ class Footer extends React.Component<WithTranslation> {
                     </p>
                     <p>{this.props.t<FooterLocale>('footer', { returnObjects: true }).main}</p>
                     {/* <a><a href='/site-policy'>Policy</a></a> */}
-                    <p>&copy; {this.props.t<FooterLocale>('footer', { returnObjects: true }).copyright}</p>
+                    <p>
+                        &copy;
+                        {this.props.t<FooterLocale>('footer', { returnObjects: true }).copyright}
+                        &nbsp;
+                        {currentYear}
+                    </p>
                 </footer>
             </React.Fragment>
         );
