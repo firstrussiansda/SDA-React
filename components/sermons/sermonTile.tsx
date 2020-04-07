@@ -5,7 +5,7 @@ import { formatDate } from '../../lib/helpers';
 
 import { Sermon } from '../../lib/types';
 import AudioDropdown from './audioEmbed';
-import { Attachments } from '../shared/attachments';
+import { Attachments } from '../shared/Attachments.component';
 
 interface SermonTileProps extends WithTranslation {
     sermon: Sermon;

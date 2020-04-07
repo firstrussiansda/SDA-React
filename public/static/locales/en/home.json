@@ -48,5 +48,14 @@
         ]
     },
     "givingHeader": "Giving is now available online",
-    "givingButton": "Donate"
+    "givingButton": "Donate",
+    "gatherOnline": {
+        "title": "Join us Saturday mornings as we gather online.",
+        "body": [
+            "First Russian SDA Church wants to do everything we can to ensure that our communities are taking the necessary precautions to slow the spread of COVID-19. At the same time, we want to make it possible for everyone to experience the fellowship and Biblical teaching that keeps our faith strong, which is more important now than ever.",
+            "With this in mind, we are ready to offer a series of special live stream worship services, Saturdays at 10 am EST. These will take the place of in-person services. We hope you’ll join us online!"
+        ],
+        "reactOut": "Reach out to get meeting details",
+        "contact": "Reach out to get meeting details"
+    }
 }

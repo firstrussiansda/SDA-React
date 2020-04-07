@@ -1,10 +1,10 @@
 import React from 'react';
 
-export const UkraineFlagIcon = ({ width = `24`, height = `15` }) => (
+export const UkraineFlagIcon = ({ width = 24, height = 15 }) => (
     <svg
         tabIndex={-1}
         focusable='false'
-        className='svg-icon icon-user'
+        className='svg-icon icon-ukraine-flag'
         width={width}
         height={height}
         viewBox='0 0 24 15'

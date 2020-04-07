@@ -2,6 +2,7 @@ import { WithTranslation } from 'react-i18next';
 import Link from 'next/link';
 import React from 'react';
 
+import { ArrowCircleRightIcon } from '../icons';
 import { event } from '../../lib/gtag';
 
 interface ServicesTypes {
@@ -19,13 +20,6 @@ interface VisitUsLocales {
     servicesHeader: string;
     services: ServicesTypes[];
 }
-
-const reportToGA = () => {
-    event({
-        action: 'link_click',
-        category: 'Contact',
-    });
-};
 
 const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
     // Make sure translations are loaded before render
@@ -66,13 +60,12 @@ const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
                     </div>
                     <Link href='/contact'>
                         <a
-                            id='contact-btn'
-                            className='btn btn-outline-warning custom-warning hvr-icon-forward visit'
+                            className='btn btn-outline-warning custom-warning hvr-icon-forward visit contact-btn'
                             role='button'
-                            onClick={reportToGA}
+                            onClick={() => event({ action: 'link_click', category: 'Contact (Visit Us)' })}
                         >
                             {t('contactUs')}&nbsp;
-                            <i className='fas fa-arrow-circle-right hvr-icon' />
+                            <ArrowCircleRightIcon className='hvr-icon' />
                         </a>
                     </Link>
                 </div>

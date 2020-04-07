@@ -1,7 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import Alert from 'react-bootstrap/Alert';
+
 import { Announcement } from '../../lib/types';
 import { fetchData } from '../../lib/helpers';
-import Alert from 'react-bootstrap/Alert';
+import { InfoCircleFillIcon } from '../icons';
+import { FauxMagicButton } from '../ui';
+import './AlertLoader.style.scss';
 
 const curDate = new Date().toISOString().split('T')[0];
 const storageKey = 'viewedAlerts';
@@ -67,12 +71,26 @@ export const AlertLoader = () => {
     }
 
     return (
-        <Alert variant={getAlertVariant(alert.alert_level)} dismissible={true} onClose={closeAlert}>
+        <Alert
+            variant={getAlertVariant(alert.alert_level)}
+            dismissible={true}
+            onClose={closeAlert}
+            className='component-alert-loader'
+        >
             <Alert.Heading>
-                <i className='fas fa-info-circle' />
+                <InfoCircleFillIcon width={24} height={20} />
                 {alert.title}
             </Alert.Heading>
             <p dangerouslySetInnerHTML={{ __html: alert.description }} />
+            <FauxMagicButton
+                url={`updates/[slug]?slug=${alert.slug}`}
+                as={`/thoughts/${alert.slug}`}
+                type='filled'
+                size='x-small'
+                onClick={closeAlert}
+            >
+                Read More
+            </FauxMagicButton>
         </Alert>
     );
 };

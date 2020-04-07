@@ -1,5 +1,6 @@
 import React from 'react';
 import { Attachment } from '../../lib/types';
+import { FileDownloadIcon } from '../icons';
 
 interface AttachmentsProps {
     attachments: Attachment[] | null;
@@ -13,7 +14,7 @@ export const Attachments: React.FunctionComponent<AttachmentsProps> = props => (
             props.attachments.map(attachment => (
             <p key={attachment.id} className={props.class || ''}>
                 <a href={attachment.url} >
-                    <i className='fas fa-file-download' />
+                    <FileDownloadIcon height={20} width={20} />
                     &nbsp;
                     {attachment.name}
                 </a>

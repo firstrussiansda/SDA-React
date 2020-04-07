@@ -5,6 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "predev": "yarn cs",
     "dev": "nodemon",
     "build": "next build",
     "start": "NODE_ENV=production node index.js",
@@ -18,7 +19,7 @@
     "classnames": "^2.2.6",
     "express": "^4.17.1",
     "i18next": "^19.1.0",
-    "next": "^9.3.1",
+    "next": "^9.3.2",
     "next-i18next": "^4.2.1",
     "nodemon": "^2.0.2",
     "react": "^16.13.1",

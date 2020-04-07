@@ -16,12 +16,6 @@ const HeadTag = () => (
             content='We are the Russian speaking Seventh-day Adventist church serving the New York metropolitan area for more than 20 years. We are a diverse community of people with a passion to be the light and the salt of the earth.'
         />
         <link
-            rel='stylesheet'
-            href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'
-            integrity='sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU'
-            crossOrigin='anonymous'
-        />
-        <link
             href='https://fonts.googleapis.com/css?family=Montserrat:display=swap'
             rel='stylesheet'
         />

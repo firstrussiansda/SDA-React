@@ -1,9 +1,12 @@
-import React from 'react';
+import { WithTranslation } from 'react-i18next';
 import Router from 'next/router';
 import Link from 'next/link';
+import React from 'react';
+
+import { USAFlagIcon, RussiaFlagIcon, UkraineFlagIcon, EnvelopeIcon } from '../icons';
 import { withTranslation } from '../../i18n';
-import { WithTranslation } from 'react-i18next';
-import { USAFlagIcon, RussiaFlagIcon, UkraineFlagIcon } from '../icons';
+import { event } from '../../lib/gtag';
+
 
 export interface HeaderLocale {
     home: string;
@@ -171,6 +174,10 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                         className='nav-link hvr-overline-from-center'
                                         href='https://adventistgiving.org/#/org/AN48FN/envelope/start'
                                         target='_blank'
+                                        onClick={() => event({
+                                            action: 'link_click',
+                                            category: 'Giving Header Mobile'
+                                        })}
                                     >
                                         {headerLocales.giving}
                                     </a>
@@ -221,7 +228,7 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                             id='btn-contact-header'
                                             className='btn btn-outline-dark hvr-wobble-vertical'
                                         >
-                                            <i className='far fa-envelope' />
+                                            <EnvelopeIcon height={16} width={16} />
                                         </a>
                                     </Link>
                                 </li>
@@ -323,6 +330,7 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                     className='nav-link hvr-overline-from-center'
                                     href='https://adventistgiving.org/#/org/AN48FN/envelope/start'
                                     target='_blank'
+                                    onClick={() => event({ action: 'link_click', category: 'Giving Header Desktop' })}
                                 >
                                     {headerLocales.giving}
                                 </a>

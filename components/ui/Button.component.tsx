@@ -4,7 +4,7 @@ import './Button.style.scss';
 
 interface ButtonProps {
     type?: 'filled' | 'outline' | 'text';
-    size?: 'regular' | 'small';
+    size?: 'regular' | 'small' | 'x-small';
     block?: boolean;
     round?: boolean;
     disabled?: boolean;
@@ -19,6 +19,7 @@ export class Button extends React.Component<ButtonProps> {
             [`button-${this.props.type || 'filled'}`]: this.props.type,
             'button-block': this.props.block,
             'button-small': this.props.size === 'small',
+            'button-x-small': this.props.size === 'x-small',
             'button-round': this.props.round,
             disabled: this.props.disabled === true,
             [`${this.props.className}`]: this.props.className,
