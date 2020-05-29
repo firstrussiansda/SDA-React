@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import { WithTranslation } from 'react-i18next';
 import React from 'react';
 
+import { ChildrenVideo } from '../components/home/ChildrenVideo.component';
 import { GatherOnline } from '../components/home/GatherOnline.component';
 import PrayerRequest from '../components/home/prayerRequest';
 import { Giving } from '../components/home/Giving.component';
@@ -55,14 +56,14 @@ class Homepage extends React.Component<HomepageProps> {
                 </div>
                 <hr />
 
-
-
                 <Container>
                     <GatherOnline i18n={i18n} t={t} tReady={tReady} />
                     <Events events={this.props.events} i18n={i18n} t={t} tReady={tReady} />
                 </Container>
 
                 <Giving i18n={i18n} t={t} tReady={tReady} />
+
+                <ChildrenVideo i18n={i18n} t={t} tReady={tReady} />
 
                 <Container>
                     <PrayerRequest i18n={i18n} t={t} tReady={tReady} />

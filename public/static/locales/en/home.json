@@ -23,6 +23,11 @@
         "prayerNeedPlaceholder": "Enter your prayer request",
         "sendPrayerNeed": "Submit Prayer Request"
     },
+    "childrenVideo": {
+        "title": "Special wishes for our community from the children",
+        "quote": "We wish everyone good health and abundant blessings, and as a special wish we send you the inspiring psalm of David.",
+        "quoteFooter": "Department of Children's Ministry of the First Russian SDA Church"
+    },
     "visitUs": {
         "title": "Come Visit Us",
         "location": {

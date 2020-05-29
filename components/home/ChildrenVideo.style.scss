@@ -1,0 +1,48 @@
+@import "../../styles/vars";
+
+.component-children-video {
+    .content {
+        blockquote {
+            background-color: #ededed;
+            text-align: center;
+            padding: 1.5rem;
+
+            h5 {
+                font-size: 1.1rem;
+            }
+
+            footer {
+                font-size: 1.1rem;
+                font-style: italic;
+                color: black;
+            }
+        }
+
+        iframe {
+            max-width: 100%;
+        }
+
+        @media screen and (min-width: $small-tablet-breakpoint) {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            iframe {
+                width: 100%;
+            }
+        }
+
+        @media screen and (min-width: $mobile-breakpoint) {
+            flex-direction: row;
+            justify-content: space-between;
+
+            .text {
+                width: 40%;
+            }
+
+            iframe {
+                width: 50%;
+            }
+        }
+    }
+}
