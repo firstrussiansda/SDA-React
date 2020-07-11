@@ -1,12 +1,13 @@
 import React from 'react';
 import { WithTranslation } from 'react-i18next';
 
-import { fetchData, getPageCount } from '../lib/helpers';
-import { withTranslation } from '../i18n';
-import { Thought, ReqParams } from '../lib/types';
-import Pagination from '../components/sermons/pagination';
-import { ThoughtTile } from '../components/thoughts/thoughtTile';
 import { HeaderLocale } from '../components/shared/Header.component';
+import { ThoughtTile } from '../components/thoughts/thoughtTile';
+import Pagination from '../components/sermons/pagination';
+import { fetchData, getPageCount } from '../lib/helpers';
+import { Thought, ReqParams } from '../lib/types';
+import { DEFAULT_PAGE_SIZE } from '../lib/config';
+import { withTranslation } from '../i18n';
 
 interface ThoughtsProps extends WithTranslation {
     thoughts: Thought[];
@@ -21,8 +22,6 @@ interface ThoughtsState {
     count: number;
     isLoading: boolean;
 }
-
-const PAGE_SIZE = 10;
 
 class Thoughts extends React.Component<ThoughtsProps, ThoughtsState> {
     constructor(props: ThoughtsProps) {
@@ -39,7 +38,7 @@ class Thoughts extends React.Component<ThoughtsProps, ThoughtsState> {
 
     static async getInitialProps({ req }: any) {
         const data = await fetchData('thoughts', req, {
-            page_size: PAGE_SIZE,
+            page_size: DEFAULT_PAGE_SIZE,
         });
 
         if (data && 'results' in data) {
@@ -47,7 +46,7 @@ class Thoughts extends React.Component<ThoughtsProps, ThoughtsState> {
                 thoughts: data.results,
                 count: data.count,
                 namespacesRequired: ['common'],
-                totalPages: getPageCount(data.count, PAGE_SIZE),
+                totalPages: getPageCount(data.count, DEFAULT_PAGE_SIZE),
             };
         }
 
@@ -60,7 +59,7 @@ class Thoughts extends React.Component<ThoughtsProps, ThoughtsState> {
     }
 
     paginate = async () => {
-        const params = { page_size: PAGE_SIZE, page: this.state.page } as ReqParams;
+        const params = { page_size: DEFAULT_PAGE_SIZE, page: this.state.page } as ReqParams;
         const data = await fetchData('thoughts', null, params);
 
         if (data) {
@@ -96,7 +95,7 @@ class Thoughts extends React.Component<ThoughtsProps, ThoughtsState> {
                     ))
                 }
                 {
-                    this.state.count > PAGE_SIZE &&
+                    this.state.count > DEFAULT_PAGE_SIZE &&
                     (
                         <Pagination
                             updatePage={this.updatePage}

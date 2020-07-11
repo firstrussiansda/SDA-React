@@ -29,10 +29,11 @@ export interface Event extends Base, Image {
     attachments: Attachment[];
 }
 
-export interface Announcement extends Base, Image {
+export interface Update extends Base {
     slug: string;
     title: string;
     description: string;
+    announcement_html?: string;
     is_featured: boolean;
     start_date: string;
     end_date: string;

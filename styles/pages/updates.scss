@@ -1,0 +1,39 @@
+@import "../vars";
+
+.component-updates-page {
+    .cards-container {
+        @media screen and (min-width: $small-tablet-breakpoint) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .card {
+            .card-body {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .icon-bookmark-fill {
+                margin-right: 1rem;
+                margin-top: -0.1rem;
+                align-self: flex-end;
+            }
+            .bookmark-placeholder {
+                height: 2.3rem;
+            }
+
+            .read-more-link {
+                margin-top: auto;
+            }
+
+            @media screen and (min-width: $small-tablet-breakpoint) {
+                flex: 0 0 48%;
+            }
+
+            @media screen and (min-width: $mobile-breakpoint) {
+                flex: 0 0 32%;
+            }
+        }
+    }
+}
