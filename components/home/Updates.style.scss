@@ -1,12 +1,11 @@
-@import "../vars";
+@import "../../styles/vars";
 
-.component-updates-page {
+.component-updates {
     .cards-container {
-        margin-bottom: 2rem;
-
         @media screen and (min-width: $small-tablet-breakpoint) {
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-evenly;
         }
     }
 }

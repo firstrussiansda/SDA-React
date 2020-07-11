@@ -1,3 +1,13 @@
+export interface ListUpdatesResponse extends ListResponse<Update> {}
+export interface ListEventsResponse extends ListResponse<Event> {}
+
+export interface ListResponse<T> {
+    count: number;
+    next: string | null;
+    previous: string | null;
+    results: T[];
+}
+
 export interface Quote {
     origin: string;
     text: string;
