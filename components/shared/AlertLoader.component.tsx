@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Alert from 'react-bootstrap/Alert';
 
+import { Attachments } from './Attachments.component';
 import { fetchData } from '../../lib/helpers';
 import { InfoCircleFillIcon } from '../icons';
 import { Update } from '../../lib/types';
@@ -87,6 +88,7 @@ export const AlertLoader = () => {
                 {alert.title}
             </Alert.Heading>
             <p dangerouslySetInnerHTML={{ __html: alert.description }} />
+            <Attachments attachments={alert.attachments} />
             {alert.announcement_html && (
                 <FauxMagicButton
                     url={`updates/[slug]?slug=${alert.slug}`}

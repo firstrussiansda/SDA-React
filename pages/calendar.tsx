@@ -61,7 +61,11 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
 
     componentDidMount() {
         const { events, count, next } = this.props;
-        this.setState({ events, count, next, isLoading: false });
+        if (events.length) {
+            this.setState({ events, count, next, isLoading: false });
+        } else {
+            this.toggleIsArchive();
+        }
     }
 
     loadMore = () => {
@@ -136,7 +140,8 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
                             <React.Fragment>
                                 <div className='top-space'>
                                     {
-                                        this.state.events.map(e => (
+                                        this.state.events.length
+                                        ? this.state.events.map(e => (
                                             <EventTile
                                                 {...e}
                                                 key={e.title}
@@ -145,6 +150,11 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
                                                 tReady={this.props.tReady}
                                             />
                                         ))
+                                        : (
+                                            <FlexCenter>
+                                                <p>{this.props.t(this.state.isArchive ? 'noPastEvent' : 'noUpcomingEvent')}</p>
+                                            </FlexCenter>
+                                        )
                                     }
                                 </div>
                                 <LoadMoreButton

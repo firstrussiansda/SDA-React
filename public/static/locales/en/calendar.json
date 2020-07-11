@@ -1,5 +1,7 @@
 {
     "title": "Calendar",
     "pastEvents": "Past Events",
-    "upcomingEvents": "Upcoming events"
+    "upcomingEvents": "Upcoming events",
+    "noUpcomingEvent": "There are no upcoming events scheduled",
+    "noPastEvent": "There are no past events"
 }
