@@ -1,0 +1,11 @@
+@import "../../styles/vars";
+
+.component-updates {
+    .cards-container {
+        @media screen and (min-width: $small-tablet-breakpoint) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+    }
+}
