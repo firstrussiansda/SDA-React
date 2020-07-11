@@ -5,10 +5,10 @@ import { withTranslation } from '../i18n';
 import { fetchData, getPageCount } from '../lib/helpers';
 import { Sermon, JustSermonSeries, Person, ReqParams, YearMonths } from '../lib/types';
 
-import Pagination from '../components/sermons/pagination';
 import SermonTile from '../components/sermons/sermonTile';
 import Filter from '../components/sermons/filter';
-import { DEFAULT_PAGE_SIZE } from '../lib/config';
+import Pagination from '../components/sermons/pagination';
+import { PAGE_SIZE } from '../lib/config';
 
 interface SermonsProps extends WithTranslation {
     sermons: Sermon[];
@@ -47,7 +47,7 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
     }
     static async getInitialProps({ req }: any) {
         // TODO: Promise.all?
-        const sermons = await fetchData('sermons', req, { page_size: DEFAULT_PAGE_SIZE });
+        const sermons = await fetchData('sermons', req, { page_size: PAGE_SIZE });
         const speakers = await fetchData('people', req, { sermons__id__isnull: false });
         const yearMonths = await fetchData('sermons/year-months', req);
         const series = await fetchData('series', req);
@@ -111,7 +111,7 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
     }
 
     applyFilter = async () => {
-        const params = { page_size: DEFAULT_PAGE_SIZE, page: this.state.page } as ReqParams;
+        const params = { page_size: PAGE_SIZE, page: this.state.page } as ReqParams;
 
         if (this.state.year) {
             params.date__year = this.state.year;
@@ -143,7 +143,7 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
         }
     }
 
-    getPageCount = () =>  Math.ceil(this.state.count / DEFAULT_PAGE_SIZE);
+    getPageCount = () =>  Math.ceil(this.state.count / PAGE_SIZE);
 
     render() {
         return (
@@ -179,7 +179,7 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
                     ))
                 }
                 {
-                    this.state.count > DEFAULT_PAGE_SIZE &&
+                    this.state.count > PAGE_SIZE &&
                     (
                         <Pagination
                             updatePage={this.updatePage}

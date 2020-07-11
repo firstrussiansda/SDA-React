@@ -17,19 +17,10 @@ main {
 hr {
     border: 0;
     height: 1px;
-    background-image: linear-gradient(to right, $brand-yellow, rgba(0, 0, 0, 0.75), $brand-yellow);
+    background-image: linear-gradient(to right, #fdd007, rgba(0, 0, 0, 0.75), #fdd007);
     width: 100%;
     height: 5px;
     margin: 0 0 20px 0;
-}
-
-.page-container {
-	position: relative;
-	min-height: 100vh;
-
-	.page-content {
-		padding-bottom: 210px;
-	}
 }
 
 .capitalize {
@@ -90,7 +81,7 @@ hr {
 
 .dropdown-item.active,
 .dropdown-item:active{
-	background-color: $brand-yellow;
+	background-color: #fdd007;
 	color: black;
 }
 
@@ -163,13 +154,13 @@ hr {
 #btn-contact-header {
 	border: none;
 	border-radius: 0;
-	background-color: $brand-yellow;
+	background-color: #fdd007;
 }
 
 .contact-btn.btn-outline-warning {
 	border-radius: 0;
-	border-color: $brand-yellow;
-	background-color: $brand-yellow;
+	border-color: #fdd007;
+	background-color: #fdd007;
 	color: #343a40;
 	height: 45px;
 	line-height: 2;
@@ -182,7 +173,7 @@ hr {
 
 	&:hover {
 		border: none;
-		background-color: $brand-yellow;
+		background-color: #fdd007;
 	}
 
 	@media screen and (min-width: $small-tablet-breakpoint) {
@@ -192,19 +183,19 @@ hr {
 }
 
 .btn-outline-warning {
-  border-color: $brand-yellow;
+  border-color: #fdd007;
   color: #343a40;
 }
 .btn-outline-warning.active {
-  background-color: $brand-yellow !important;
+  background-color: #fdd007 !important;
 }
 .btn-outline-warning:hover {
-  background-color: $brand-yellow !important;
+  background-color: #fdd007 !important;
 }
 
 .custom-warning.btn-outline-warning {
 	border-radius: 0;
-  background-color: $brand-yellow;
+  background-color: #fdd007;
   color: #343a40;
   height: 45px;
   line-height: 2;
@@ -276,8 +267,8 @@ nav .pagination{
 }
 
 .page-item.active .page-link{
-	background-color: $brand-yellow;
-	border-color: $brand-yellow;
+	background-color: #fdd007;
+	border-color: #fdd007;
 	color: black;
 }
 
@@ -757,7 +748,7 @@ nav .pagination{
   left: 51%;
   right: 51%;
   top: 0;
-  background: $brand-yellow;
+  background: #fdd007;
   height: 4px;
   -webkit-transition-property: left, right;
   transition-property: left, right;
@@ -785,7 +776,7 @@ nav .pagination{
 /* Error page */
 .errorCode{
 	font-size: 10rem;
-	color: $brand-yellow;
+	color: #fdd007;
 }
 
 /*
