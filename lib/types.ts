@@ -1,13 +1,3 @@
-export interface ListUpdatesResponse extends ListResponse<Update> {}
-export interface ListEventsResponse extends ListResponse<Event> {}
-
-export interface ListResponse<T> {
-    count: number;
-    next: string | null;
-    previous: string | null;
-    results: T[];
-}
-
 export interface Quote {
     origin: string;
     text: string;
@@ -39,11 +29,10 @@ export interface Event extends Base, Image {
     attachments: Attachment[];
 }
 
-export interface Update extends Base {
+export interface Announcement extends Base, Image {
     slug: string;
     title: string;
     description: string;
-    announcement_html?: string;
     is_featured: boolean;
     start_date: string;
     end_date: string;

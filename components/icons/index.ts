@@ -4,7 +4,6 @@ export { InfoCircleFillIcon } from './InfoCircleFillIcon.component';
 export { CloudDownloadIcon } from './CloudDownloadIcon.component';
 export { EnvelopeFillIcon } from './EnvelopeFillIcon.component';
 export { FileDownloadIcon } from './FileDownloadIcon.component';
-export { BookmarkFillIcon } from './BookmarkFillIcon.component';
 export { UkraineFlagIcon } from './UkraineFlagIcon.component';
 export { RussiaFlagIcon } from './RussiaFlagIcon.component';
 export { InstagramIcon } from './InstagramIcon.component';
