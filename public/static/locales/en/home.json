@@ -62,5 +62,7 @@
         ],
         "reactOut": "Reach out to get meeting details",
         "contact": "Reach out to get meeting details"
-    }
+    },
+    "updates": "Updates",
+    "allUpdates": "All Updates"
 }

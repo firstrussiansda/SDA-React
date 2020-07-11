@@ -19,11 +19,15 @@ class MyApp extends App {
         return (
             <div>
                 <HeadTag />
-                <Header />
 
-                <Component {...pageProps} />
+                <div className='page-container'>
+                    <div className='page-content'>
+                        <Header />
+                        <Component {...pageProps} />
+                    </div>
 
-                <Footer />
+                    <Footer />
+                </div>
             </div>
         );
     }

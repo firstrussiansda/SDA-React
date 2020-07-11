@@ -3,8 +3,8 @@ import Link from 'next/link';
 import React from 'react';
 
 import { ArrowCircleRightIcon } from '../icons';
+import EventTile from './EventTile.component';
 import { Event } from '../../lib/types';
-import EventTile from './eventTile';
 
 interface EventsProps extends WithTranslation {
     events: Event[];
