@@ -1,8 +1,10 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
-import { withTranslation } from '../../i18n';
 import { WithTranslation } from 'react-i18next';
+import dynamic from 'next/dynamic';
+import React from 'react';
+
 import { EnvelopeFillIcon, InstagramIcon, FacebookIcon } from '../icons';
+import { withTranslation } from '../../i18n';
+
 import './Footer.style.scss';
 
 const AlertLoader = dynamic(() => import('./AlertLoader.component'), { ssr: false });

@@ -1,6 +1,6 @@
-import { i18n } from '../i18n';
+import { DEFAULT_PAGE_SIZE } from './config';
 import { ReqParams } from './types';
-import { PAGE_SIZE } from './config';
+import { i18n } from '../i18n';
 
 export const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -16,7 +16,7 @@ const buildQuery = (params: ReqParams) => (
         .slice(1)
 );
 
-export const fetchData = async (
+export const fetchData = async <T = any>(
     path: string,
     req: any,
     params: ReqParams = {},
@@ -43,13 +43,13 @@ export const fetchData = async (
                 return null;
             }
 
-            return json;
+            return json as T;
         } else {
             // client side
             params.lang = i18n.language;
 
             const response = await fetch(url + `/?${buildQuery(params)}`);
-            return await response.json();
+            return await response.json() as T;
         }
     } catch (e) {
         if (req) {
@@ -106,7 +106,7 @@ export const formatDate = (dateStr: string, attributes: string[], lang: string =
     }, '');
 };
 
-export const getPageCount = (count: number, page_size: number = PAGE_SIZE) =>   Math.ceil(count / page_size);
+export const getPageCount = (count: number, page_size: number = DEFAULT_PAGE_SIZE) =>   Math.ceil(count / page_size);
 
 export const getImgUrl = (
     url: string,

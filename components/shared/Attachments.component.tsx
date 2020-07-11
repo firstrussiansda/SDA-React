@@ -13,7 +13,7 @@ export const Attachments: React.FunctionComponent<AttachmentsProps> = props => (
             props.attachments &&
             props.attachments.map(attachment => (
             <p key={attachment.id} className={props.class || ''}>
-                <a href={attachment.url} >
+                <a href={attachment.file} target='_blank'>
                     <FileDownloadIcon height={20} width={20} />
                     &nbsp;
                     {attachment.name}
