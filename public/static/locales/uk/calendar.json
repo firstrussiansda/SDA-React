@@ -1,5 +1,7 @@
 {
     "title": "Календар",
     "pastEvents": "Минулі події",
-    "upcomingEvents": "Майбутні події"
+    "upcomingEvents": "Майбутні події",
+    "noUpcomingEvent": "Нині ніяких подій не заплановано",
+    "noPastEvent": "Ще не відбулося ніяких подій"
 }
