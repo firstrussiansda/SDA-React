@@ -1,9 +1,9 @@
-import React from 'react';
 import { WithTranslation } from 'react-i18next';
 import { withTranslation } from '../i18n';
+import React from 'react';
 
-import { fetchData, getPageCount } from '../lib/helpers';
 import { Sermon, JustSermonSeries, Person, ReqParams, YearMonths } from '../lib/types';
+import { fetchData, getPageCount } from '../lib/helpers';
 
 import Pagination from '../components/sermons/pagination';
 import SermonTile from '../components/sermons/sermonTile';
@@ -22,12 +22,13 @@ interface SermonsState {
     sermons: Sermon[];
     page: number;
     totalPages: number;
-    count: number;
     year: string;
     month: string;
     selectedSpeaker: string;
     selectedSeries: string;
 }
+
+const defaultSermonsParams: ReqParams =  { page_size: DEFAULT_PAGE_SIZE };
 
 class Sermons extends React.Component<SermonsProps, SermonsState> {
     constructor(props: SermonsProps) {
@@ -37,7 +38,6 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
             sermons: [],
             page: 1,
             totalPages: 1,
-            count: 0,
             year: '',
             month: '',
             selectedSpeaker: '',
@@ -47,7 +47,7 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
     }
     static async getInitialProps({ req }: any) {
         // TODO: Promise.all?
-        const sermons = await fetchData('sermons', req, { page_size: DEFAULT_PAGE_SIZE });
+        const sermons = await fetchData('sermons', req, defaultSermonsParams);
         const speakers = await fetchData('people', req, { sermons__id__isnull: false });
         const yearMonths = await fetchData('sermons/year-months', req);
         const series = await fetchData('series', req);
@@ -62,11 +62,9 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
     }
 
     componentDidMount() {
-        const { sermons, sermonsCount: count } = this.props;
         this.setState({
-            totalPages: getPageCount(count),
-            sermons,
-            count,
+            totalPages: getPageCount(this.props.sermonsCount),
+            sermons: this.props.sermons,
         });
     }
 
@@ -111,39 +109,48 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
     }
 
     applyFilter = async () => {
-        const params = { page_size: DEFAULT_PAGE_SIZE, page: this.state.page } as ReqParams;
+        const params = { page: this.state.page } as ReqParams;
+        let query = '';
 
         if (this.state.year) {
             params.date__year = this.state.year;
+            query += `year=${this.state.year}`;
 
             if (this.state.month) {
                 params.date__month = this.state.month;
+                query += `month=${this.state.month}`;
             }
         }
 
         if (this.state.selectedSpeaker) {
+            query += `speaker=${this.state.selectedSpeaker}`;
             params.speakers__id = this.state.selectedSpeaker;
         }
 
         if (this.state.selectedSeries) {
+            query += `series=${this.state.selectedSeries}`;
             params.series__id = this.state.selectedSeries;
         }
 
-        const data = await fetchData('sermons', null, params);
+        this.pushToHistory(query);
+
+        const data = await fetchData('sermons', null, { ...params, ...defaultSermonsParams });
 
         if (data) {
-            this.setState({
-                sermons: data.results,
-                count: data.count,
-                totalPages: getPageCount(data.count)
-            });
+            this.setState({ sermons: data.results, totalPages: getPageCount(data.count) });
         } else {
             // tslint:disable-next-line:no-console
             console.error('Invalid response');
         }
     }
 
-    getPageCount = () =>  Math.ceil(this.state.count / DEFAULT_PAGE_SIZE);
+    pushToHistory = (query: string) => {
+        window.history.pushState(
+            { ...this.state },
+            'Sermons Filters',
+            query ? `?${query}` : '',
+        );
+    }
 
     render() {
         return (
@@ -164,11 +171,8 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
                     t={this.props.t}
                 />
                 {
-                    this.state.count === 0 &&
-                    <p className='text-center'>{this.props.t('noData')}</p>
-                }
-                {
-                    this.state.sermons.map(sermon => (
+                    this.state.sermons.length
+                    ? this.state.sermons.map(sermon => (
                         <SermonTile
                             sermon={sermon}
                             key={sermon.id}
@@ -177,15 +181,15 @@ class Sermons extends React.Component<SermonsProps, SermonsState> {
                             tReady={this.props.tReady}
                         />
                     ))
+                    : <p className='text-center'>{this.props.t('noData')}</p>
                 }
                 {
-                    this.state.count > DEFAULT_PAGE_SIZE &&
+                    this.state.totalPages > 1 &&
                     (
                         <Pagination
                             updatePage={this.updatePage}
                             curPage={this.state.page}
-                            count={this.state.count}
-                            pageCount={getPageCount(this.state.count)}
+                            pageCount={this.state.totalPages}
                         />
                     )
                 }

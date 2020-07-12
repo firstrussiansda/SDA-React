@@ -3,7 +3,6 @@ import React from 'react';
 interface PaginationProps {
     updatePage: (page: number) => void;
     curPage: number;
-    count: number;
     pageCount: number;
 }
 

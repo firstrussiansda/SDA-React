@@ -32,7 +32,7 @@ const Filter: React.FunctionComponent<FilterProps> = (props) => {
                 t={props.t}
             />
             <SeriesSelector
-                isDisabled={props.selectedSpeaker !== ''}
+                isDisabled={false}
                 handleChange={props.handleChange}
                 selected={props.selectedSeries}
                 series={props.series}
@@ -41,7 +41,7 @@ const Filter: React.FunctionComponent<FilterProps> = (props) => {
                 t={props.t}
             />
             <SpeakerSelector
-                isDisabled={props.selectedSeries  !== ''}
+                isDisabled={false}
                 handleChange={props.handleChange}
                 selected={props.selectedSpeaker}
                 speakers={props.speakers}
