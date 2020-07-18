@@ -1,5 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import { WithTranslation } from 'react-i18next';
+import { NextPageContext } from 'next';
 import React from 'react';
 
 import { ChildrenVideo } from '../components/home/ChildrenVideo.component';
@@ -47,7 +48,7 @@ async function fetchUpdates(req: any) {
 }
 
 class Homepage extends React.Component<HomepageProps> {
-    static async getInitialProps({ req }: any) {
+    static async getInitialProps({ req }: NextPageContext) {
         return {
             events: await fetchEvents(req),
             updates: await fetchUpdates(req),

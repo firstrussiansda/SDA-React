@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import { NextPageContext } from 'next';
 
 import { LoadMoreButton } from '../components/shared/LoadMoreButton.component';
 import { UpdateCard } from '../components/updates/UpdateCard.component';
@@ -87,7 +88,7 @@ const Updates: I18nPage<UpdatesProps> = props => {
     );
 };
 
-Updates.getInitialProps = async ({ req }: any) => {
+Updates.getInitialProps = async ({ req }: NextPageContext) => {
     const data = await fetchData<ListUpdatesResponse>(
         'announcements',
         req,
