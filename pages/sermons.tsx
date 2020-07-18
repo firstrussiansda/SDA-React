@@ -21,6 +21,8 @@ import {
     Sermon,
     Person,
 } from '../lib/types';
+import { FlexCenter } from '../components/shared/flex-center';
+import { Spinner } from '../components/shared/Spinner.component';
 
 interface SermonsProps extends WithTranslation {
     sermons: Sermon[];
@@ -85,6 +87,7 @@ const queryParamsToFilters = (query: ParsedUrlQuery): FilterParams => ({
 
 const Sermons: I18nPage<SermonsProps> = props => {
     const [filterParams, setFilterParams] = useState<FilterParams>(defaultFilterParams);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const [totalPages, setTotalPages] = useState<number>(1);
     const [sermons, setSermons] = useState<Sermon[]>([]);
     const ignoreFilterParams = useRef(true);
@@ -135,6 +138,7 @@ const Sermons: I18nPage<SermonsProps> = props => {
     }, [filterParams]);
 
     const applyFilters = useCallback(async (params: FilterParams) => {
+        setIsLoading(true);
         ignoreQueryUpdate.current = true;
         const data = await fetchFilteredSermons({ ...defaultFilterParams, ...params }, undefined, router);
 
@@ -145,6 +149,8 @@ const Sermons: I18nPage<SermonsProps> = props => {
             // tslint:disable-next-line:no-console
             console.error('Invalid response');
         }
+
+        setIsLoading(false);
     }, []);
 
     useEffect(() => {
@@ -172,17 +178,19 @@ const Sermons: I18nPage<SermonsProps> = props => {
             />
 
             {
-                sermons?.length
-                ? sermons.map(sermon => (
-                    <SermonTile
-                        sermon={sermon}
-                        key={sermon.id}
-                        t={props.t}
-                        i18n={props.i18n}
-                        tReady={props.tReady}
-                    />
-                ))
-                : <p className='text-center'>{props.t('noData')}</p>
+                isLoading
+                    ? <FlexCenter><Spinner /></FlexCenter>
+                    : sermons?.length
+                        ? sermons.map(sermon => (
+                            <SermonTile
+                                sermon={sermon}
+                                key={sermon.id}
+                                t={props.t}
+                                i18n={props.i18n}
+                                tReady={props.tReady}
+                            />
+                        ))
+                        : <p className='text-center'>{props.t('noData')}</p>
             }
 
             <Pagination
