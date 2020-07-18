@@ -1,16 +1,14 @@
-import { WithTranslation } from 'react-i18next';
-import { NextPageContext } from 'next';
 import React from 'react';
-
-import { LoadMoreButton } from '../components/shared/LoadMoreButton.component';
-import { ArchiveToggle } from '../components/calendar/archiveToggle';
-import { Spinner } from '../components/shared/Spinner.component';
-import { FlexCenter } from '../components/shared/flex-center';
-import EventTile from '../components/calendar/eventTile';
+import { WithTranslation } from 'react-i18next';
 
 import { fetchData } from '../lib/helpers';
 import { withTranslation } from '../i18n';
 import { Event } from '../lib/types';
+import EventTile from '../components/calendar/eventTile';
+import { Spinner } from '../components/shared/Spinner.component';
+import { LoadMoreButton } from '../components/shared/LoadMoreButton.component';
+import { ArchiveToggle } from '../components/calendar/archiveToggle';
+import { FlexCenter } from '../components/shared/flex-center';
 
 const PAGE_SIZE = 5;
 
@@ -43,7 +41,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
         };
     }
 
-    static async getInitialProps({ req }: NextPageContext) {
+    static async getInitialProps({ req }: any) {
         const data = await fetchData('events', req, {
             page_size: PAGE_SIZE,
             date__gte: new Date().toISOString().split('T')[0],
