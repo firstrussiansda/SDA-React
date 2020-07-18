@@ -20,8 +20,6 @@
         "updates": "Updates",
         "giving": "Giving"
     },
-    "errorMessage": "Ooops... Something went wrong. We did not anticipate this happening 😔",
-    "error404Message": "Ooops... We couldn't find the page you were looking for 😔",
-    "returnToHome": "Return to home",
+    "errorMessage": "Ooops... Something went wrong. We did not anticipate this happening :(",
     "errorCode": "Error code"
 }

@@ -1,63 +1,61 @@
 import React from 'react';
 import { WithTranslation } from 'react-i18next';
 
-import { Person, JustSermonSeries, YearMonths, ReqParams } from '../../lib/types';
+import { Person, JustSermonSeries, YearMonths } from '../../lib/types';
 import { DateSelector } from './dateFilter';
 import { SpeakerSelector } from './speakerSelector';
 import { SeriesSelector } from './seriesSelector';
-
-export interface FilterParams extends ReqParams {
-    page: number;
-    year: string;
-    month: string;
-    speaker: string;
-    series: string;
-}
 
 interface FilterProps extends WithTranslation {
     handleChange(e: React.FormEvent<HTMLSelectElement>): void;
     resetFilters(): void;
 
     series: JustSermonSeries[];
+    selectedSpeaker: string;
     yearMonths: YearMonths;
-    params: FilterParams;
+    selectedSeries: string;
     speakers: Person[];
+    month: string;
+    year: string;
 }
 
-export const Filter: React.FunctionComponent<FilterProps> = (props) => {
+const Filter: React.FunctionComponent<FilterProps> = (props) => {
     return (
         <div className='input-group mb-3'>
             <DateSelector
                 handleChange={props.handleChange}
                 yearMonths={props.yearMonths}
                 tReady={props.tReady}
-                month={props.params.month}
+                month={props.month}
                 i18n={props.i18n}
-                year={props.params.year}
+                year={props.year}
                 t={props.t}
             />
-
             <SeriesSelector
-                isDisabled={false}
+                isDisabled={props.selectedSpeaker !== ''}
                 handleChange={props.handleChange}
-                selected={props.params.series}
+                selected={props.selectedSeries}
                 series={props.series}
                 tReady={props.tReady}
                 i18n={props.i18n}
                 t={props.t}
             />
-
             <SpeakerSelector
-                isDisabled={false}
+                isDisabled={props.selectedSeries  !== ''}
                 handleChange={props.handleChange}
-                selected={props.params.speaker}
+                selected={props.selectedSpeaker}
                 speakers={props.speakers}
                 tReady={props.tReady}
                 i18n={props.i18n}
                 t={props.t}
             />
             {
-                (props.series || props.params.speaker || props.params.month || props.params.year) &&
+                (
+                    props.selectedSeries ||
+                    props.selectedSpeaker ||
+                    props.month ||
+                    props.year
+                ) &&
                 (
                     <button
                         type='button'
@@ -71,3 +69,5 @@ export const Filter: React.FunctionComponent<FilterProps> = (props) => {
         </div>
     );
 };
+
+export default Filter;
