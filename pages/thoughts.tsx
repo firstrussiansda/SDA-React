@@ -101,7 +101,6 @@ class Thoughts extends React.Component<ThoughtsProps, ThoughtsState> {
                         <Pagination
                             updatePage={this.updatePage}
                             curPage={this.state.page}
-                            count={this.state.count}
                             pageCount={this.state.totalPages}
                         />
                     )
