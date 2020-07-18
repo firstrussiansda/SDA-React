@@ -1,4 +1,5 @@
 import { WithTranslation } from 'react-i18next';
+import { NextPageContext } from 'next';
 import React from 'react';
 
 import { HeaderLocale } from '../../components/shared/Header.component';
@@ -31,7 +32,7 @@ interface GalleryProps extends WithTranslation {
 }
 
 class Gallery extends React.Component<GalleryProps> {
-    static async getInitialProps({ req }: any) {
+    static async getInitialProps({ req }: NextPageContext) {
         const images = await fetchData('images', req);
 
         if (images && 'data' in images) {

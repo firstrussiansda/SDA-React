@@ -1,11 +1,13 @@
 import { useTranslation } from 'react-i18next';
+import { NextPageContext } from 'next';
 import React from 'react';
+
+import { Attachments } from '../../components/shared/Attachments.component';
+import Error from '../_error';
 
 import { fetchData, formatDate } from '../../lib/helpers';
 import { Update as IUpdate } from '../../lib/types';
 import { I18nPage } from '../../i18n';
-import Error from '../_error';
-import { Attachments } from '../../components/shared/Attachments.component';
 
 interface UpdatesProps {
     update: IUpdate | null;
@@ -28,7 +30,7 @@ const Update: I18nPage<UpdatesProps> = ({ update }) => {
     );
 };
 
-Update.getInitialProps = async ({ query, req, res }: any) => {
+Update.getInitialProps = async ({ query, req, res }: NextPageContext) => {
     const update = await fetchData(`announcements/${query.slug}`, req);
 
     if (!update && res) {
@@ -37,6 +39,5 @@ Update.getInitialProps = async ({ query, req, res }: any) => {
 
     return { update, namespacesRequired: ['common'] };
 };
-
 
 export default Update;
