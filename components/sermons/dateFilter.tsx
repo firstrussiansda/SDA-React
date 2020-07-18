@@ -35,7 +35,7 @@ export const DateSelector: React.SFC<DateSelectorProps> = props => {
                 if (year[i]) {
                     months.push((
                         <option
-                            key={year[i]}
+                            key={localizedMonths[i - 1]}
                             label={localizedMonths[i - 1]}
                             value={i}
                         >

@@ -4,7 +4,7 @@ import { i18n } from '../i18n';
 
 export const isDevelopment = process.env.NODE_ENV !== 'production';
 
-const buildQuery = (params: ReqParams) => (
+export const buildQuery = (params: ReqParams) => (
     Object.entries(params)
         .reduce((acc, [key, val]) => {
             if (Array.isArray(val)) {

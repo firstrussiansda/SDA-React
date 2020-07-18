@@ -1,3 +1,4 @@
+import { NextPageContext } from 'next';
 import React from 'react';
 
 import { fetchData, getImgUrl, formatDate } from '../../lib/helpers';
@@ -48,7 +49,7 @@ const Thought: I18nPage<ThoughtsProps> = ({ thought }) => {
     );
 };
 
-Thought.getInitialProps = async ({ query, req, res }: any) => {
+Thought.getInitialProps = async ({ query, req, res }: NextPageContext) => {
     const thought = await fetchData(`thoughts/${query.slug}`, req);
 
     if (!thought && res) {
