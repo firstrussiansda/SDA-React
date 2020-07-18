@@ -1,4 +1,6 @@
+export interface ListSermonSeriesResponse extends ListResponse<SermonSeries> {}
 export interface ListUpdatesResponse extends ListResponse<Update> {}
+export interface ListSermonsResponse extends ListResponse<Sermon> {}
 export interface ListEventsResponse extends ListResponse<Event> {}
 
 export interface ListResponse<T> {
@@ -52,6 +54,7 @@ export interface Update extends Base {
 }
 
 export interface Person extends Base {
+    slug: string;
     name: string;
     profile_image_url: string;
     position: string;
@@ -71,6 +74,7 @@ export interface SoundCloudAsset extends MediaAsset {
 }
 
 export interface JustSermonSeries {
+    slug: string;
     id:	string;
     url: string;
     title: string;
@@ -78,6 +82,7 @@ export interface JustSermonSeries {
 }
 
 export interface JustSermon {
+    slug: string;
     title: string;
     description: string;
     date: string;

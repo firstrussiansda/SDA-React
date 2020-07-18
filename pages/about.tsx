@@ -1,12 +1,14 @@
+import { WithTranslation } from 'react-i18next';
+import { NextPageContext } from 'next';
 import React from 'react';
 
-import { fetchData } from '../lib/helpers';
-import { Person } from '../lib/types';
-import { WithTranslation } from 'react-i18next';
-import { withTranslation } from '../i18n';
-import Leadership from '../components/about/leadership';
 import KeyMissionComponents from '../components/about/keyMissionComponents';
 import GroupTile, { Activity } from '../components/about/groupTile';
+import Leadership from '../components/about/leadership';
+
+import { fetchData } from '../lib/helpers';
+import { withTranslation } from '../i18n';
+import { Person } from '../lib/types';
 
 export interface GroupLocale {
     title: string;
@@ -39,7 +41,7 @@ class About extends React.Component<AboutProps, AboutState> {
         };
     }
 
-    static async getInitialProps({ req }: any) {
+    static async getInitialProps({ req }: NextPageContext) {
         const data = await fetchData('people', req, { position__isnull: false });
 
         if (data && 'results' in data) {
