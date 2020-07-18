@@ -1,5 +1,6 @@
-import React from 'react';
 import { WithTranslation } from 'react-i18next';
+import { NextPageContext } from 'next';
+import React from 'react';
 
 import { HeaderLocale } from '../components/shared/Header.component';
 import { ThoughtTile } from '../components/thoughts/thoughtTile';
@@ -36,7 +37,7 @@ class Thoughts extends React.Component<ThoughtsProps, ThoughtsState> {
         };
     }
 
-    static async getInitialProps({ req }: any) {
+    static async getInitialProps({ req }: NextPageContext) {
         const data = await fetchData('thoughts', req, {
             page_size: DEFAULT_PAGE_SIZE,
         });
@@ -100,7 +101,6 @@ class Thoughts extends React.Component<ThoughtsProps, ThoughtsState> {
                         <Pagination
                             updatePage={this.updatePage}
                             curPage={this.state.page}
-                            count={this.state.count}
                             pageCount={this.state.totalPages}
                         />
                     )

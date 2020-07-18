@@ -3,7 +3,6 @@ import React from 'react';
 interface PaginationProps {
     updatePage: (page: number) => void;
     curPage: number;
-    count: number;
     pageCount: number;
 }
 
@@ -54,6 +53,10 @@ export default class Pagination extends React.Component<PaginationProps> {
     }
 
     render() {
+        if (this.props.pageCount < 2) {
+            return null;
+        }
+
         return (
             <nav aria-label='page selector'>
                 <ul className='pagination justify-content-center'>

@@ -32,7 +32,7 @@ export const SpeakerSelector: React.SFC<SpeakerSelectorProps> = props => {
                         <option
                             key={speaker.id}
                             label={speaker.name}
-                            value={speaker.id}
+                            value={speaker.slug}
                         >
                             {speaker.name}
                         </option>

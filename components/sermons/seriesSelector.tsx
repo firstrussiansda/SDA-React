@@ -32,7 +32,7 @@ export const SeriesSelector: React.SFC<SeriesSelectorProps> = props => {
                         <option
                             key={item.id}
                             label={item.title}
-                            value={item.id}
+                            value={item.slug}
                         >
                             {item.title}
                         </option>
