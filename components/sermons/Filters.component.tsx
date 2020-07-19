@@ -1,11 +1,14 @@
-import { DebounceInput } from 'react-debounce-input';
+// import { DebounceInput } from 'react-debounce-input';
+import Accordion from 'react-bootstrap/Accordion';
 import { WithTranslation } from 'react-i18next';
-import React from 'react';
+import Button from 'react-bootstrap/Button';
+import React, { useMemo } from 'react';
 
 import { Person, JustSermonSeries, YearMonths, ReqParams } from '../../lib/types';
 import { SpeakerFilter } from './SpeakerFilter.component';
 import { SeriesFilter } from './SeriesFilter.component';
 import { DateSelector } from './DateFilter.component';
+import { FunnelFillIcon } from '../icons';
 import './Filters.style.scss';
 
 export interface FiltersParams extends ReqParams {
@@ -16,7 +19,6 @@ export interface FiltersParams extends ReqParams {
     series: string;
     query: string;
 }
-
 interface FiltersProps extends WithTranslation {
     handleChange(e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>): void;
     resetFilters(): void;
@@ -27,62 +29,87 @@ interface FiltersProps extends WithTranslation {
     speakers: Person[];
 }
 
-export const Filters: React.FunctionComponent<FiltersProps> = (props) => {
+export const Filters: React.FunctionComponent<FiltersProps> = ({
+    resetFilters,
+    handleChange,
+    yearMonths,
+    speakers,
+    params,
+    series,
+    tReady,
+    i18n,
+    t,
+}) => {
+    const hasFiltersSet = useMemo(
+        () => params.series || params.speaker || params.month || params.year || params.query,
+        [params]
+    );
+
     return (
-        <div className='input-group mb-3 component-sermons-filters'>
-            <DateSelector
-                handleChange={props.handleChange}
-                yearMonths={props.yearMonths}
-                tReady={props.tReady}
-                month={props.params.month}
-                i18n={props.i18n}
-                year={props.params.year}
-                t={props.t}
-            />
-
-            <SeriesFilter
-                isDisabled={false}
-                handleChange={props.handleChange}
-                selected={props.params.series}
-                series={props.series}
-                tReady={props.tReady}
-                i18n={props.i18n}
-                t={props.t}
-            />
-
-            <SpeakerFilter
-                isDisabled={false}
-                handleChange={props.handleChange}
-                selected={props.params.speaker}
-                speakers={props.speakers}
-                tReady={props.tReady}
-                i18n={props.i18n}
-                t={props.t}
-            />
-
-            <div className='mr-3 my-2'>
-                <DebounceInput
-                    placeholder={props.t('searchByTitle')}
-                    className='query-input form-control'
-                    onChange={props.handleChange}
-                    value={props.params.query}
-                    debounceTimeout={500}
-                    name='query'
-                />
+        <Accordion className='component-sermons-filters'>
+            <div className='toggle-wrapper'>
+                {
+                    hasFiltersSet &&
+                    (
+                        <button
+                            type='button'
+                            className='btn reset-filters sermons-sub-filter'
+                            onClick={resetFilters}
+                        >
+                            {t('resetFilter')}
+                        </button>
+                    )
+                }
+                <Accordion.Toggle as={Button} variant='filters-visible-toggle' eventKey='filters'>
+                    {t('filterBy')}
+                    &nbsp;
+                    <FunnelFillIcon />
+                </Accordion.Toggle>
             </div>
+            <Accordion.Collapse eventKey='filters'>
+                <div className='input-group mb-3 filters-body'>
+                    <SeriesFilter
+                        isDisabled={false}
+                        handleChange={handleChange}
+                        selected={params.series}
+                        series={series}
+                        tReady={tReady}
+                        i18n={i18n}
+                        t={t}
+                    />
 
-            {
-                (props.series || props.params.speaker || props.params.month || props.params.year) &&
-                (
-                    <button
-                        type='button'
-                        className='btn btn-outline-secondary my-2'
-                        onClick={props.resetFilters}
-                    >
-                        {props.t('resetFilter')}
-                    </button>
-                )
-            }
-        </div>
+                    <SpeakerFilter
+                        isDisabled={false}
+                        handleChange={handleChange}
+                        selected={params.speaker}
+                        speakers={speakers}
+                        tReady={tReady}
+                        i18n={i18n}
+                        t={t}
+                    />
+
+                    <DateSelector
+                        handleChange={handleChange}
+                        yearMonths={yearMonths}
+                        tReady={tReady}
+                        month={params.month}
+                        i18n={i18n}
+                        year={params.year}
+                        t={t}
+                    />
+
+                    {/* <div className='sermons-sub-filter query-filter'>
+                        <DebounceInput
+                            placeholder={t('searchByTitle')}
+                            className='form-control'
+                            onChange={handleChange}
+                            value={params.query}
+                            debounceTimeout={500}
+                            name='query'
+                        />
+                    </div> */}
+                </div>
+            </Accordion.Collapse>
+        </Accordion>
     );
 };

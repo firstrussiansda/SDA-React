@@ -102,7 +102,7 @@ const Sermons: I18nPage<SermonsProps> = props => {
     const router = useRouter();
 
     useEffect(() => {
-        setTotalPages(getPageCount(props.sermonsCount));
+        setTotalPages(getPageCount(props.sermonsCount, DEFAULT_PAGE_SIZE));
         setFilterParams(props.filterParams);
         setSermons(props.sermons);
     }, []);
@@ -153,7 +153,7 @@ const Sermons: I18nPage<SermonsProps> = props => {
 
         if (data) {
             setSermons(data.results);
-            setTotalPages(getPageCount(data.count));
+            setTotalPages(getPageCount(data.count, DEFAULT_PAGE_SIZE));
         } else {
             console.error('Invalid response');
         }

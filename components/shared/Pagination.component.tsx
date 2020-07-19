@@ -15,14 +15,14 @@ function getPageButtons(
     handleClick: (e: React.SyntheticEvent, page: number) => void,
 ) {
     let first = 1;
-    let last = pageCount < 11 ? pageCount : 10;
+    let last = pageCount <= 5 ? pageCount : 5;
 
-    if (pageCount > 10 && curPage > 5) {
-        if (curPage + 5 <= pageCount) {
-            first = curPage - 4;
-            last = curPage + 5;
+    if (pageCount > 5 && curPage > 3) {
+        if (curPage + 3 <= pageCount) {
+            first = curPage - 2;
+            last = curPage + 3;
         } else {
-            first = pageCount - 9;
+            first = pageCount - 4;
             last = pageCount;
         }
     }
@@ -51,12 +51,12 @@ export const Pagination: React.FunctionComponent<PaginationProps> = ({ pageCount
     const handleClick = useCallback((e: React.SyntheticEvent, page: number) => {
         e.preventDefault();
 
-        if (0 < page && page <= pageCount) {
+        if (page < 0 || page <= pageCount) {
             updatePage(page);
         } else {
             throw new Error('Invalid page number');
         }
-    }, []);
+    }, [pageCount]);
 
     const prevClass = classnames('page-item', {
         disabled: curPage === 1,

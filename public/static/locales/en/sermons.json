@@ -5,8 +5,9 @@
   "selectYear": "Year",
   "selectMonth": "Month",
   "selectSeries": "Series",
+  "filterBy": "Filter by",
   "selectSpeaker": "Speaker",
-  "resetFilter": "Reset",
+  "resetFilter": "Reset Filters",
   "searchByTitle": "Search by Title",
   "noData": "We tried really hard but unfortunately couldn't find any sermons with selected filters"
 }

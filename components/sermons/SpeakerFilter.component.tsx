@@ -12,7 +12,7 @@ interface SpeakerFilterProps extends WithTranslation {
 
 export const SpeakerFilter: React.SFC<SpeakerFilterProps> = props => {
     return (
-        <div className='my-2 mr-3'>
+        <div className='component-speaker-filter sermons-sub-filter'>
             <select
                 aria-label={props.t('selectSpeaker')}
                 onChange={props.handleChange}

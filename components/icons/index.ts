@@ -7,6 +7,7 @@ export { FileDownloadIcon } from './FileDownloadIcon.component';
 export { BookmarkFillIcon } from './BookmarkFillIcon.component';
 export { UkraineFlagIcon } from './UkraineFlagIcon.component';
 export { RussiaFlagIcon } from './RussiaFlagIcon.component';
+export { FunnelFillIcon } from './FunnelFillIcon.component';
 export { InstagramIcon } from './InstagramIcon.component';
 export { MapMarkerIcon } from './MapMarkerIcon.component';
 export { FacebookIcon } from './FacebookIcon.component';
