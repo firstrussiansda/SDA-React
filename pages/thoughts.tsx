@@ -69,7 +69,6 @@ class Thoughts extends React.Component<ThoughtsProps, ThoughtsState> {
                 count: data.count,
             });
         } else {
-            // tslint:disable-next-line:no-console
             console.error('Invalid response');
         }
     }

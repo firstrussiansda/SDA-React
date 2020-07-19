@@ -22,10 +22,9 @@ export const fetchData = async <T = any>(path: string, req: any, params: ReqPara
         params.lang = req?.language || i18n.language;
         params.format = 'json';
 
-        const response = await fetch(url + `/?${buildQuery(params)}`);
+        const response = await fetch(encodeURI(url + `/?${buildQuery(params)}`));
         return await response.json() as T;
     } catch (e) {
-        // tslint:disable-next-line:no-console
         console.error('Error occurred while fetching API data', e);
         return null;
     }

@@ -5,7 +5,7 @@ import { getLocalizedMonths } from '../../lib/helpers';
 import { YearMonths } from '../../lib/types';
 
 interface DateSelectorProps extends WithTranslation {
-    handleChange(e: React.FormEvent<HTMLSelectElement>): void;
+    handleChange(e: React.ChangeEvent<HTMLSelectElement>): void;
     yearMonths: YearMonths;
     month: string;
     year: string;
@@ -50,38 +50,43 @@ export const DateSelector: React.SFC<DateSelectorProps> = props => {
     };
 
     return (
-        <div className='my-2'>
-            <select
-                name='year'
-                onChange={handleChange}
-                value={year}
-                aria-label={props.t('selectYear')}
-                className='custom-select mr-3'
-            >
-                <option
-                    label={props.t('selectYear')}
-                    value=''
+        <React.Fragment>
+            <div className='sermons-sub-filter'>
+                <select
+                    name='year'
+                    onChange={handleChange}
+                    value={year}
+                    aria-label={props.t('selectYear')}
+                    className='custom-select'
                 >
-                    {props.t('selectYear')}
-                </option>
-                {getYears()}
-            </select>
-            <select
-                disabled={!props.year}
-                name='month'
-                aria-label={props.t('selectMonth')}
-                onChange={handleChange}
-                value={props.month}
-                className='custom-select mr-3'
-            >
-                <option
-                    label={props.t('selectMonth')}
-                    value=''
+                    <option
+                        label={props.t('selectYear')}
+                        value=''
+                    >
+                        {props.t('selectYear')}
+                    </option>
+                    {getYears()}
+                </select>
+            </div>
+
+            <div className='sermons-sub-filter'>
+                <select
+                    disabled={!props.year}
+                    name='month'
+                    aria-label={props.t('selectMonth')}
+                    onChange={handleChange}
+                    value={props.month}
+                    className='custom-select'
                 >
-                    {props.t('selectMonth')}
-                </option>
-                {getMonths()}
-            </select>
-        </div>
+                    <option
+                        label={props.t('selectMonth')}
+                        value=''
+                    >
+                        {props.t('selectMonth')}
+                    </option>
+                    {getMonths()}
+                </select>
+            </div>
+        </React.Fragment>
     );
 };

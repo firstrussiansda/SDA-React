@@ -5,11 +5,11 @@ import { ParsedUrlQuery } from 'querystring';
 import { NextPageContext } from 'next';
 import { IncomingMessage } from 'http';
 
+import { Filters, FiltersParams } from '../components/sermons/Filters.component';
+import { SermonTile } from '../components/sermons/SermonTile.component';
 import { Pagination } from '../components/shared/Pagination.component';
-import { Filter, FilterParams } from '../components/sermons/filter';
 import { Spinner } from '../components/shared/Spinner.component';
 import { FlexCenter } from '../components/shared/flex-center';
-import SermonTile from '../components/sermons/sermonTile';
 
 import { fetchData, getPageCount } from '../lib/helpers';
 import { withTranslation, I18nPage } from '../i18n';
@@ -30,13 +30,13 @@ interface SermonsProps extends WithTranslation {
     series: JustSermonSeries[];
     speakers: Person[];
     yearMonths: YearMonths;
-    filterParams: FilterParams;
+    filterParams: FiltersParams;
 }
 
+const defaultFilterParams: FiltersParams = { page: 1, year: '', month: '', speaker: '', series: '', query: '' };
 const defaultSermonsParams: ReqParams =  { page_size: DEFAULT_PAGE_SIZE };
-const defaultFilterParams: FilterParams = { page: 1, year: '', month: '', speaker: '', series: '' };
 
-const fetchFilteredSermons = async (filterParams: FilterParams, req?: IncomingMessage, router?: NextRouter) => {
+const fetchFilteredSermons = async (filterParams: FiltersParams, req?: IncomingMessage, router?: NextRouter) => {
     const params: ReqParams = { page: filterParams.page, ...defaultSermonsParams };
 
     const urlParams: string[] = [];
@@ -61,6 +61,11 @@ const fetchFilteredSermons = async (filterParams: FilterParams, req?: IncomingMe
         params.series__slug = filterParams.series;
     }
 
+    if (filterParams.query) {
+        urlParams.push(`query=${filterParams.query}`);
+        params.title__icontains = filterParams.query;
+    }
+
     if (params.page > 1) {
         urlParams.push(`page=${params.page}`);
     }
@@ -76,17 +81,18 @@ const fetchFilteredSermons = async (filterParams: FilterParams, req?: IncomingMe
     return fetchData<ListSermonsResponse>('sermons', req, params);
 };
 
-const queryParamsToFilters = (query: ParsedUrlQuery): FilterParams => ({
+const queryParamsToFilters = (query: ParsedUrlQuery): FiltersParams => ({
     ...defaultFilterParams,
     ...(query.page ? { page: +query.page } : {}),
     ...(typeof query.year === 'string' ? { year: query.year } : {}),
     ...(typeof query.month === 'string' ? { month: query.month } : {}),
     ...(typeof query.speaker === 'string' ? { speaker: query.speaker } : {}),
     ...(typeof query.series === 'string' ? { series: query.series } : {}),
+    ...(typeof query.query === 'string' ? { query: query.query } : {}),
 });
 
 const Sermons: I18nPage<SermonsProps> = props => {
-    const [filterParams, setFilterParams] = useState<FilterParams>(defaultFilterParams);
+    const [filterParams, setFilterParams] = useState<FiltersParams>(defaultFilterParams);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [totalPages, setTotalPages] = useState<number>(1);
     const [sermons, setSermons] = useState<Sermon[]>([]);
@@ -96,7 +102,7 @@ const Sermons: I18nPage<SermonsProps> = props => {
     const router = useRouter();
 
     useEffect(() => {
-        setTotalPages(getPageCount(props.sermonsCount));
+        setTotalPages(getPageCount(props.sermonsCount, DEFAULT_PAGE_SIZE));
         setFilterParams(props.filterParams);
         setSermons(props.sermons);
     }, []);
@@ -117,9 +123,9 @@ const Sermons: I18nPage<SermonsProps> = props => {
         }
     }, [filterParams]);
 
-    const handleFilter = useCallback((e: React.FormEvent<HTMLSelectElement>) => {
-        const property = e.currentTarget.name;
-        const value = e.currentTarget.value;
+    const handleFilter = useCallback((e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
+        const property = e.target.name;
+        const value = e.target.value;
 
         switch(property) {
             case 'year':
@@ -134,19 +140,21 @@ const Sermons: I18nPage<SermonsProps> = props => {
             case 'series':
                 setFilterParams({ ...filterParams, series: value, page: 1 });
                 break;
+            case 'query':
+                setFilterParams({ ...filterParams, query: e.target.value, page: 1 });
+                break;
         }
     }, [filterParams]);
 
-    const applyFilters = useCallback(async (params: FilterParams) => {
+    const applyFilters = useCallback(async (params: FiltersParams) => {
         setIsLoading(true);
         ignoreQueryUpdate.current = true;
         const data = await fetchFilteredSermons({ ...defaultFilterParams, ...params }, undefined, router);
 
         if (data) {
             setSermons(data.results);
-            setTotalPages(getPageCount(data.count));
+            setTotalPages(getPageCount(data.count, DEFAULT_PAGE_SIZE));
         } else {
-            // tslint:disable-next-line:no-console
             console.error('Invalid response');
         }
 
@@ -165,7 +173,7 @@ const Sermons: I18nPage<SermonsProps> = props => {
         <div className='container sermons-page'>
             <h1 className='text-center capitalize my-3'>{props.t('title')}</h1>
 
-            <Filter
+            <Filters
                 yearMonths={props.yearMonths}
                 resetFilters={resetFilters}
                 handleChange={handleFilter}

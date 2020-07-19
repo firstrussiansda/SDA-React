@@ -5,7 +5,9 @@
   "selectYear": "Рік",
   "selectMonth": "Місяць",
   "selectSeries": "Серія",
+  "filterBy": "Фільтри",
   "selectSpeaker": "Спікер",
-  "resetFilter": "Скасувати",
+  "resetFilter": "Скасувати фільтри",
+  "searchByTitle": "Пошук за назвою",
   "noData": "Ми дуже старалися, але, на жаль, не змогли знайти жодної проповіді з вибраними фільтрами"
 }

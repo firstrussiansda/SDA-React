@@ -14,6 +14,9 @@ body {
 main {
 	overflow-x: hidden;
 }
+a {
+	color: var(--palette-light-blue-800);
+}
 hr {
     border: 0;
     height: 1px;
@@ -455,41 +458,6 @@ hr {
 	padding: 10px 5px 10px 5px;
 }
 
-/* Sermons page */
-.sermons-page .media-buttons button, .sermons-page .media-buttons a {
-	width: 100%;
-	border: 1px solid;
-	transition: all 0.3s ease 0s;
-}
-
-.sermons-page .media-buttons .row {
-	height: 100%;
-}
-
-.embed-responsive {
-	margin: 3.125rem 0;
-}
-
-.sermons-page .media-buttons .youtube {
-	border-color: #f61c0d;
-}
-
-.sermons-page .media-buttons .sound-cloud {
-	border-color: #ff7700;
-}
-
-.sermons-page .media-buttons .youtube:hover {
-	transform: translateY(-7px);
-}
-
-.sermons-page .media-buttons .sound-cloud:hover {
-	transform: translateY(-7px);
-}
-
-.sermon-tile {
-	min-height: 11rem;
-}
-
 /* Image overlay */
 .image-overlay::before {
 	content: '';
@@ -545,16 +513,6 @@ hr {
 
 .authors img {
 	height: 50px;
-}
-
-/* SELECT */
-.custom-select {
-	color: rgba(0,0,0,.85);
-	width: fit-content;
-}
-
-.page-link {
-	color: #014fa2;
 }
 
 .clear {

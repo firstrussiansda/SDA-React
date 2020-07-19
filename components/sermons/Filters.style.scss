@@ -1,0 +1,54 @@
+@import "../../styles/vars";
+
+.component-sermons-filters {
+    & .toggle-wrapper {
+        display: flex;
+        justify-content: flex-end;
+
+        & .reset-filters {
+            padding-left: 0;
+            font-weight: 700;
+            color: var(--palette-light-blue-800);
+        }
+    }
+
+    .btn-filters-visible-toggle {
+        background-color: $color-white;
+        border-color: var(--palette-grey-300);
+        color: $color-black;
+
+        & > svg {
+            color: var(--palette-grey-500);
+        }
+    }
+
+    .filters-body {
+        justify-content: space-between;
+
+        .sermons-sub-filter {
+            margin-top: 0.5rem;
+            width: 100%;
+
+            @media screen and (min-width: $small-tablet-breakpoint) {
+                &:not(.query-filter) {
+                    width: 49.5%;
+                }
+            }
+
+            &.component-date-filter {
+                display: flex;
+                justify-content: space-between;
+
+                & .custom-select {
+                    width: 49%;
+                }
+            }
+        }
+
+        .custom-select {
+            color: rgba(0,0,0,.85);
+            min-width: fit-content;
+            width: 100%;
+        }
+    }
+}

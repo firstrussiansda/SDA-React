@@ -81,7 +81,6 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
                         const events = this.state.events.concat(data.results);
                         this.setState({ events, next: data.next, isLoadingMore: false });
                     } else {
-                        // tslint:disable-next-line:no-console
                         console.error('Invalid response');
                         this.setState({ isLoadingMore: false });
                     }

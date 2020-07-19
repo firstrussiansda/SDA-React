@@ -5,7 +5,9 @@
   "selectYear": "Год",
   "selectMonth": "Месяц",
   "selectSeries": "Серия",
+  "filterBy": "Фильтры",
   "selectSpeaker": "Cпикер",
-  "resetFilter": "Сбросить",
+  "resetFilter": "Сбросить фильтры",
+  "searchByTitle": "Поиск по названию",
   "noData": "Мы очень старались, но, к сожалению, не смогли найти проповеди с выбранными фильтрами."
 }
