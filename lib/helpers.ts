@@ -16,49 +16,17 @@ export const buildQuery = (params: ReqParams) => (
         .slice(1)
 );
 
-export const fetchData = async <T = any>(
-    path: string,
-    req: any,
-    params: ReqParams = {},
-) => {
+export const fetchData = async <T = any>(path: string, req: any, params: ReqParams = {}) => {
     try {
         const url = process.env.MY_SITE_URL + path;
+        params.lang = req?.language || i18n.language;
+        params.format = 'json';
 
-        // server side
-        if (req) {
-            const fetch = (await import('node-fetch')).default;
-
-            params.lang = req.language;
-            const reqUrl = url + `/?${buildQuery(params)}`;
-
-            const response = await fetch(reqUrl);
-            const json = await response.json();
-
-            // node-fetch doesn't throw on unsuccessful request
-            if (!response.ok) {
-                if (response.status !== 404) {
-                    // tslint:disable-next-line:no-console
-                    console.error(`Error fetching url: ${reqUrl}. Reason: ${json}`);
-                }
-                return null;
-            }
-
-            return json as T;
-        } else {
-            // client side
-            params.lang = i18n.language;
-
-            const response = await fetch(url + `/?${buildQuery(params)}`);
-            return await response.json() as T;
-        }
+        const response = await fetch(url + `/?${buildQuery(params)}`);
+        return await response.json() as T;
     } catch (e) {
-        if (req) {
-            // tslint:disable-next-line:no-console
-            console.error(e);
-        } else {
-            // tslint:disable-next-line:no-console
-            console.error('Error occurred while fetching API data');
-        }
+        // tslint:disable-next-line:no-console
+        console.error('Error occurred while fetching API data', e);
         return null;
     }
 };

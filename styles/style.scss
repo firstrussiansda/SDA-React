@@ -257,41 +257,10 @@ hr {
 .calendar-tile img {
 	width: 100%;
 	height: 100%;
-   /* border-top-right-radius: calc(.25rem - 1px);
-    border-bottom-right-radius: calc(.25rem - 1px); */
-}
-
-.card.calendar-tile{
-	/* border-top-right-radius: calc(.25rem - 1px);
-    border-bottom-right-radius: calc(.25rem - 1px); */
 }
 
 .card-footer {
 	text-align: center;
-}
-
-/* Pagination */
-nav .pagination{
-	margin-top: 60px;
-}
-
-.page-item.active .page-link{
-	background-color: $brand-yellow;
-	border-color: $brand-yellow;
-	color: black;
-}
-
-.page-item.disabled .page-link{
-	color: #6c757d !important;
-}
-
-.page-link,
-.page-link:hover{
-	color: black !important;
-}
-
-.page-link:focus{
-	box-shadow: none;
 }
 
 #main-page-img {

@@ -1,6 +1,7 @@
-import fetch from 'node-fetch';
-import { chunkArray } from '../lib';
 import { Request, Response } from 'express';
+import axios from 'axios';
+
+import { chunkArray } from '../lib';
 
 const GET_IMAGES_URI = 'https://api.instagram.com/v1/users/self/media/recent/?access_token=';
 const DEFAULT_LIMIT = 12;
@@ -22,19 +23,18 @@ export async function imagesController(req: Request, res: Response) {
     }
 
     try {
-        const response = await fetch(uri);
-        const json = await response.json();
+        const response = (await axios(uri)).data;
 
-        if (!json.meta || json.meta.code !== 200) {
+        if (!response.meta || response.meta.code !== 200) {
             // tslint:disable-next-line:no-console
-            console.log('Error fetching images', 'URI:', uri, 'JSON:', json);
+            console.log('Error fetching images', 'URI:', uri, 'JSON:', response);
 
             return res.sendStatus(500);
         }
 
         res.send({
-            data: chunkArray(json.data, 4),
-            nextMaxId: json.pagination.next_max_id,
+            data: chunkArray(response.data, 4),
+            nextMaxId: response.pagination.next_max_id,
         });
 
     } catch (e) {

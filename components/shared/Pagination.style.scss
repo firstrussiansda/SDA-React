@@ -1,0 +1,25 @@
+@import "../../styles/vars";
+
+.component-pagination {
+    margin-top: 60px;
+
+    .page-item {
+        &.active .page-link {
+            background-color: $brand-yellow;
+            border-color: $brand-yellow;
+            color: black;
+        }
+
+        &.disabled .page-link {
+            color: #6c757d !important;
+        }
+
+        .page-link {
+            color: $color-black;
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
+}
