@@ -5,8 +5,10 @@ import { ParsedUrlQuery } from 'querystring';
 import { NextPageContext } from 'next';
 import { IncomingMessage } from 'http';
 
+import { Pagination } from '../components/shared/Pagination.component';
 import { Filter, FilterParams } from '../components/sermons/filter';
-import Pagination from '../components/sermons/pagination';
+import { Spinner } from '../components/shared/Spinner.component';
+import { FlexCenter } from '../components/shared/flex-center';
 import SermonTile from '../components/sermons/sermonTile';
 
 import { fetchData, getPageCount } from '../lib/helpers';
@@ -21,8 +23,6 @@ import {
     Sermon,
     Person,
 } from '../lib/types';
-import { FlexCenter } from '../components/shared/flex-center';
-import { Spinner } from '../components/shared/Spinner.component';
 
 interface SermonsProps extends WithTranslation {
     sermons: Sermon[];
@@ -203,7 +203,7 @@ const Sermons: I18nPage<SermonsProps> = props => {
 };
 
 Sermons.getInitialProps = async ({ req, query }: NextPageContext) => {
-    const filterParams = { ...defaultFilterParams, ...query };
+    const filterParams = { ...defaultFilterParams, ...queryParamsToFilters(query) };
 
     // TODO: Promise.all?
     const sermons = await fetchFilteredSermons(filterParams, req);

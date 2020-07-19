@@ -2,9 +2,9 @@ import { WithTranslation } from 'react-i18next';
 import { NextPageContext } from 'next';
 import React from 'react';
 
+import { Pagination } from '../components/shared/Pagination.component';
 import { HeaderLocale } from '../components/shared/Header.component';
 import { ThoughtTile } from '../components/thoughts/thoughtTile';
-import Pagination from '../components/sermons/pagination';
 import { fetchData, getPageCount } from '../lib/helpers';
 import { Thought, ReqParams } from '../lib/types';
 import { DEFAULT_PAGE_SIZE } from '../lib/config';
