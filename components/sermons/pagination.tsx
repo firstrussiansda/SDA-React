@@ -7,7 +7,9 @@ interface PaginationProps {
 }
 
 export default class Pagination extends React.Component<PaginationProps> {
-    private handleClick = (page: number) => {
+    private handleClick = (e: React.SyntheticEvent, page: number) => {
+        e.preventDefault();
+
         if (0 < page && page <= this.props.pageCount) {
             this.props.updatePage(page);
         } else {
@@ -38,7 +40,7 @@ export default class Pagination extends React.Component<PaginationProps> {
                     <a
                         className='page-link'
                         href='#'
-                        onClick={() => this.handleClick(idx)}
+                        onClick={e => this.handleClick(e, idx)}
                     >
                         {idx}
                         {
@@ -64,7 +66,7 @@ export default class Pagination extends React.Component<PaginationProps> {
                         <a
                             className='page-link'
                             href='#'
-                            onClick={() => this.handleClick(this.props.curPage - 1)}
+                            onClick={e => this.handleClick(e, this.props.curPage - 1)}
                         >
                             Previous
                         </a>
@@ -74,7 +76,7 @@ export default class Pagination extends React.Component<PaginationProps> {
                         <a
                             className='page-link'
                             href='#'
-                            onClick={() => this.handleClick(this.props.curPage + 1)}
+                            onClick={e => this.handleClick(e, this.props.curPage + 1)}
                         >
                             Next
                         </a>
