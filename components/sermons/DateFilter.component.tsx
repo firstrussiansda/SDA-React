@@ -5,7 +5,7 @@ import { getLocalizedMonths } from '../../lib/helpers';
 import { YearMonths } from '../../lib/types';
 
 interface DateSelectorProps extends WithTranslation {
-    handleChange(e: React.FormEvent<HTMLSelectElement>): void;
+    handleChange(e: React.ChangeEvent<HTMLSelectElement>): void;
     yearMonths: YearMonths;
     month: string;
     year: string;
@@ -50,7 +50,7 @@ export const DateSelector: React.SFC<DateSelectorProps> = props => {
     };
 
     return (
-        <div className='my-2'>
+        <div className='my-2 d-flex'>
             <select
                 name='year'
                 onChange={handleChange}

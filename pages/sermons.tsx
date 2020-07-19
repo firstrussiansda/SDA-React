@@ -33,8 +33,8 @@ interface SermonsProps extends WithTranslation {
     filterParams: FiltersParams;
 }
 
+const defaultFilterParams: FiltersParams = { page: 1, year: '', month: '', speaker: '', series: '', query: '' };
 const defaultSermonsParams: ReqParams =  { page_size: DEFAULT_PAGE_SIZE };
-const defaultFilterParams: FiltersParams = { page: 1, year: '', month: '', speaker: '', series: '' };
 
 const fetchFilteredSermons = async (filterParams: FiltersParams, req?: IncomingMessage, router?: NextRouter) => {
     const params: ReqParams = { page: filterParams.page, ...defaultSermonsParams };
@@ -61,6 +61,11 @@ const fetchFilteredSermons = async (filterParams: FiltersParams, req?: IncomingM
         params.series__slug = filterParams.series;
     }
 
+    if (filterParams.query) {
+        urlParams.push(`query=${filterParams.query}`);
+        params.title__icontains = filterParams.query;
+    }
+
     if (params.page > 1) {
         urlParams.push(`page=${params.page}`);
     }
@@ -83,6 +88,7 @@ const queryParamsToFilters = (query: ParsedUrlQuery): FiltersParams => ({
     ...(typeof query.month === 'string' ? { month: query.month } : {}),
     ...(typeof query.speaker === 'string' ? { speaker: query.speaker } : {}),
     ...(typeof query.series === 'string' ? { series: query.series } : {}),
+    ...(typeof query.query === 'string' ? { query: query.query } : {}),
 });
 
 const Sermons: I18nPage<SermonsProps> = props => {
@@ -117,9 +123,9 @@ const Sermons: I18nPage<SermonsProps> = props => {
         }
     }, [filterParams]);
 
-    const handleFilter = useCallback((e: React.FormEvent<HTMLSelectElement>) => {
-        const property = e.currentTarget.name;
-        const value = e.currentTarget.value;
+    const handleFilter = useCallback((e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
+        const property = e.target.name;
+        const value = e.target.value;
 
         switch(property) {
             case 'year':
@@ -133,6 +139,9 @@ const Sermons: I18nPage<SermonsProps> = props => {
                 break;
             case 'series':
                 setFilterParams({ ...filterParams, series: value, page: 1 });
+                break;
+            case 'query':
+                setFilterParams({ ...filterParams, query: e.target.value, page: 1 });
                 break;
         }
     }, [filterParams]);

@@ -1,10 +1,12 @@
-import React from 'react';
+import { DebounceInput } from 'react-debounce-input';
 import { WithTranslation } from 'react-i18next';
+import React from 'react';
 
 import { Person, JustSermonSeries, YearMonths, ReqParams } from '../../lib/types';
-import { DateSelector } from './DateFilter.component';
 import { SpeakerFilter } from './SpeakerFilter.component';
 import { SeriesFilter } from './SeriesFilter.component';
+import { DateSelector } from './DateFilter.component';
+import './Filters.style.scss';
 
 export interface FiltersParams extends ReqParams {
     page: number;
@@ -12,10 +14,11 @@ export interface FiltersParams extends ReqParams {
     month: string;
     speaker: string;
     series: string;
+    query: string;
 }
 
 interface FiltersProps extends WithTranslation {
-    handleChange(e: React.FormEvent<HTMLSelectElement>): void;
+    handleChange(e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>): void;
     resetFilters(): void;
 
     series: JustSermonSeries[];
@@ -26,7 +29,7 @@ interface FiltersProps extends WithTranslation {
 
 export const Filters: React.FunctionComponent<FiltersProps> = (props) => {
     return (
-        <div className='input-group mb-3'>
+        <div className='input-group mb-3 component-sermons-filters'>
             <DateSelector
                 handleChange={props.handleChange}
                 yearMonths={props.yearMonths}
@@ -56,6 +59,18 @@ export const Filters: React.FunctionComponent<FiltersProps> = (props) => {
                 i18n={props.i18n}
                 t={props.t}
             />
+
+            <div className='mr-3 my-2'>
+                <DebounceInput
+                    placeholder={props.t('searchByTitle')}
+                    className='query-input form-control'
+                    onChange={props.handleChange}
+                    value={props.params.query}
+                    debounceTimeout={500}
+                    name='query'
+                />
+            </div>
+
             {
                 (props.series || props.params.speaker || props.params.month || props.params.year) &&
                 (

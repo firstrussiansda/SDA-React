@@ -7,5 +7,6 @@
   "selectSeries": "Series",
   "selectSpeaker": "Speaker",
   "resetFilter": "Reset",
+  "searchByTitle": "Search by Title",
   "noData": "We tried really hard but unfortunately couldn't find any sermons with selected filters"
 }

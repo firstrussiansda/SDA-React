@@ -4,7 +4,7 @@ import { WithTranslation } from 'react-i18next';
 import { Person } from '../../lib/types';
 
 interface SpeakerFilterProps extends WithTranslation {
-    handleChange(e: React.FormEvent<HTMLSelectElement>): void;
+    handleChange(e: React.ChangeEvent<HTMLSelectElement>): void;
     isDisabled: boolean;
     selected: string;
     speakers: Person[];

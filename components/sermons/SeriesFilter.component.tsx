@@ -4,7 +4,7 @@ import { WithTranslation } from 'react-i18next';
 import { JustSermonSeries } from '../../lib/types';
 
 interface SeriesFilterProps extends WithTranslation {
-    handleChange(e: React.FormEvent<HTMLSelectElement>): void;
+    handleChange(e: React.ChangeEvent<HTMLSelectElement>): void;
     series: JustSermonSeries[];
     isDisabled: boolean;
     selected: string;
