@@ -2,11 +2,11 @@ import React from 'react';
 import { WithTranslation } from 'react-i18next';
 
 import { Person, JustSermonSeries, YearMonths, ReqParams } from '../../lib/types';
-import { DateSelector } from './dateFilter';
-import { SpeakerSelector } from './speakerSelector';
-import { SeriesSelector } from './seriesSelector';
+import { DateSelector } from './DateFilter.component';
+import { SpeakerFilter } from './SpeakerFilter.component';
+import { SeriesFilter } from './SeriesFilter.component';
 
-export interface FilterParams extends ReqParams {
+export interface FiltersParams extends ReqParams {
     page: number;
     year: string;
     month: string;
@@ -14,17 +14,17 @@ export interface FilterParams extends ReqParams {
     series: string;
 }
 
-interface FilterProps extends WithTranslation {
+interface FiltersProps extends WithTranslation {
     handleChange(e: React.FormEvent<HTMLSelectElement>): void;
     resetFilters(): void;
 
     series: JustSermonSeries[];
     yearMonths: YearMonths;
-    params: FilterParams;
+    params: FiltersParams;
     speakers: Person[];
 }
 
-export const Filter: React.FunctionComponent<FilterProps> = (props) => {
+export const Filters: React.FunctionComponent<FiltersProps> = (props) => {
     return (
         <div className='input-group mb-3'>
             <DateSelector
@@ -37,7 +37,7 @@ export const Filter: React.FunctionComponent<FilterProps> = (props) => {
                 t={props.t}
             />
 
-            <SeriesSelector
+            <SeriesFilter
                 isDisabled={false}
                 handleChange={props.handleChange}
                 selected={props.params.series}
@@ -47,7 +47,7 @@ export const Filter: React.FunctionComponent<FilterProps> = (props) => {
                 t={props.t}
             />
 
-            <SpeakerSelector
+            <SpeakerFilter
                 isDisabled={false}
                 handleChange={props.handleChange}
                 selected={props.params.speaker}

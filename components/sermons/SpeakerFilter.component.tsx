@@ -3,14 +3,14 @@ import { WithTranslation } from 'react-i18next';
 
 import { Person } from '../../lib/types';
 
-interface SpeakerSelectorProps extends WithTranslation {
+interface SpeakerFilterProps extends WithTranslation {
     handleChange(e: React.FormEvent<HTMLSelectElement>): void;
     isDisabled: boolean;
     selected: string;
     speakers: Person[];
 }
 
-export const SpeakerSelector: React.SFC<SpeakerSelectorProps> = props => {
+export const SpeakerFilter: React.SFC<SpeakerFilterProps> = props => {
     return (
         <div className='my-2 mr-3'>
             <select

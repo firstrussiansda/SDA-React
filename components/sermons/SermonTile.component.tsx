@@ -4,7 +4,7 @@ import { WithTranslation } from 'react-i18next';
 import { formatDate } from '../../lib/helpers';
 
 import { Sermon } from '../../lib/types';
-import AudioDropdown from './audioEmbed';
+import AudioDropdown from './AudioEmbed.component';
 import { Attachments } from '../shared/Attachments.component';
 
 interface SermonTileProps extends WithTranslation {

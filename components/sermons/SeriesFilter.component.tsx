@@ -3,14 +3,14 @@ import { WithTranslation } from 'react-i18next';
 
 import { JustSermonSeries } from '../../lib/types';
 
-interface SeriesSelectorProps extends WithTranslation {
+interface SeriesFilterProps extends WithTranslation {
     handleChange(e: React.FormEvent<HTMLSelectElement>): void;
     series: JustSermonSeries[];
     isDisabled: boolean;
     selected: string;
 }
 
-export const SeriesSelector: React.SFC<SeriesSelectorProps> = props => {
+export const SeriesFilter: React.SFC<SeriesFilterProps> = props => {
     return (
         <div className='my-2 mr-3'>
             <select
