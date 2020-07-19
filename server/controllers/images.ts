@@ -26,8 +26,7 @@ export async function imagesController(req: Request, res: Response) {
         const response = (await axios(uri)).data;
 
         if (!response.meta || response.meta.code !== 200) {
-            // tslint:disable-next-line:no-console
-            console.log('Error fetching images', 'URI:', uri, 'JSON:', response);
+            console.error('Error fetching images', 'URI:', uri, 'JSON:', response);
 
             return res.sendStatus(500);
         }
@@ -38,8 +37,7 @@ export async function imagesController(req: Request, res: Response) {
         });
 
     } catch (e) {
-        // tslint:disable-next-line:no-console
-        console.log('Error fetching images', e);
+        console.error('Error fetching images', e);
         return res.sendStatus(500);
     }
 }

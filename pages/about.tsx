@@ -64,7 +64,6 @@ class About extends React.Component<AboutProps, AboutState> {
                 if (pastorIdx < 0) {
                     pastorIdx = idx;
                 } else {
-                    // tslint:disable-next-line:no-console
                     console.error('More than one pastor located');
                 }
             }

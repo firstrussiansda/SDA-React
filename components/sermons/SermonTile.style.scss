@@ -1,0 +1,33 @@
+.component-sermon-tile {
+    & > div {
+        min-height: 11rem;
+    }
+
+    & .series {
+        font-size: 0.95rem;
+    }
+
+    .media-buttons {
+        & button, & a {
+            width: 100%;
+            border: 1px solid;
+            transition: all 0.3s ease 0s;
+        }
+
+        .row {
+            height: 100%;
+        }
+
+        .youtube {
+            border-color: #f61c0d;
+        }
+
+        .sound-cloud {
+            border-color: #ff7700;
+        }
+
+        & .youtube:hover, & .sound-cloud:hover {
+            transform: translateY(-7px);
+        }
+    }
+}

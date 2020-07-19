@@ -5,11 +5,11 @@ import { ParsedUrlQuery } from 'querystring';
 import { NextPageContext } from 'next';
 import { IncomingMessage } from 'http';
 
-import { Pagination } from '../components/shared/Pagination.component';
 import { Filters, FiltersParams } from '../components/sermons/Filters.component';
+import { SermonTile } from '../components/sermons/SermonTile.component';
+import { Pagination } from '../components/shared/Pagination.component';
 import { Spinner } from '../components/shared/Spinner.component';
 import { FlexCenter } from '../components/shared/flex-center';
-import SermonTile from '../components/sermons/SermonTile.component';
 
 import { fetchData, getPageCount } from '../lib/helpers';
 import { withTranslation, I18nPage } from '../i18n';
@@ -146,7 +146,6 @@ const Sermons: I18nPage<SermonsProps> = props => {
             setSermons(data.results);
             setTotalPages(getPageCount(data.count));
         } else {
-            // tslint:disable-next-line:no-console
             console.error('Invalid response');
         }
 

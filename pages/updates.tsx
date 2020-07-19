@@ -40,7 +40,6 @@ const Updates: I18nPage<UpdatesProps> = props => {
                 setNext(data.next);
             }   setIsLoadingMore(false);
         } catch (e) {
-            // tslint:disable-next-line:no-console
             console.error(e);
             setIsLoadingMore(false);
         }
