@@ -45,8 +45,10 @@ steps:
     - timeout -t 60 docker-compose logs -f app || true
 
 trigger:
-  ref:
-    - refs/heads/master
+  event:
+    - promote
+  target:
+    - production
 
 ---
 kind: secret
@@ -85,6 +87,6 @@ get:
 
 ---
 kind: signature
-hmac: cdd59a8a54cb7f132b41a87df4c3aa9fda29380b6c3dce38b4b3b7ca4a6cb413
+hmac: e8d770bd11d15541371925499c583ea1caa4e332724f48be5a9fafaba80ebb58
 
 ...
