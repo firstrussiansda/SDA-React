@@ -9,6 +9,7 @@
 	width: 100vw;
 	margin: 2.5rem 0;
 	height: calc(100vh - var(--navbar-heigh-mobile));
+	max-height: 60vh;
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
@@ -35,7 +36,7 @@
 
         @media screen and (min-width: $mobile-breakpoint) {
             color: white;
-            margin-top: 400px;
+            margin-top: 0;
             font-size: 60px;
         }
     }
