@@ -8,8 +8,7 @@
 	opacity: 0.9;
 	width: 100vw;
 	margin: 2.5rem 0;
-	height: calc(100vh - var(--navbar-heigh-mobile));
-	max-height: 60vh;
+	height: 60vh;
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
@@ -18,7 +17,6 @@
 
     @media screen and (min-width: $small-tablet-breakpoint) {
         background-image: url("https://images.unsplash.com/photo-1533360416430-2b45be60248c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1060&h=1400&q=80");
-        height: 100vh;
     }
 
     @media screen and (min-width: $mobile-breakpoint) {

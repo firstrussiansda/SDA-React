@@ -1,4 +1,4 @@
-// import { DebounceInput } from 'react-debounce-input';
+import { DebounceInput } from 'react-debounce-input';
 import Accordion from 'react-bootstrap/Accordion';
 import { WithTranslation } from 'react-i18next';
 import Button from 'react-bootstrap/Button';
@@ -98,7 +98,7 @@ export const Filters: React.FunctionComponent<FiltersProps> = ({
                         t={t}
                     />
 
-                    {/* <div className='sermons-sub-filter query-filter'>
+                    <div className='sermons-sub-filter query-filter'>
                         <DebounceInput
                             placeholder={t('searchByTitle')}
                             className='form-control'
@@ -107,7 +107,7 @@ export const Filters: React.FunctionComponent<FiltersProps> = ({
                             debounceTimeout={500}
                             name='query'
                         />
-                    </div> */}
+                    </div>
                 </div>
             </Accordion.Collapse>
         </Accordion>
