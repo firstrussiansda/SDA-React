@@ -119,3 +119,7 @@ export interface YearMonths {
         [month: number]: number;
     };
 }
+
+export interface BaseApiResponse {
+    detail?: string;
+}
