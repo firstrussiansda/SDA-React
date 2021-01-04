@@ -1,5 +1,5 @@
+import { BaseApiResponse, ReqParams } from './types';
 import { DEFAULT_PAGE_SIZE } from './config';
-import { ReqParams } from './types';
 import { i18n } from '../i18n';
 
 export const isDevelopment = process.env.NODE_ENV !== 'production';
@@ -16,14 +16,23 @@ export const buildQuery = (params: ReqParams) => (
         .slice(1)
 );
 
-export const fetchData = async <T = any>(path: string, req: any, params: ReqParams = {}) => {
+export const fetchData = async <T extends BaseApiResponse = BaseApiResponse>(
+    path: string, req: any, params: ReqParams = {}
+) => {
     try {
         const url = process.env.MY_SITE_URL + path;
         params.lang = req?.language || i18n.language;
         params.format = 'json';
 
         const response = await fetch(encodeURI(url + `/?${buildQuery(params)}`));
-        return await response.json() as T;
+        const json = await response.json() as T;
+
+        // fetch doesn't throw on error response codes 🤦‍♂️
+        if (!response.ok) {
+            throw new Error(`API Error (${response.status}): ${json.detail || 'Unknown error'}`);
+        }
+
+        return json;
     } catch (e) {
         console.error('Error occurred while fetching API data', e);
         return null;
