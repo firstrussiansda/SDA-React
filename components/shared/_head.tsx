@@ -26,8 +26,8 @@ const HeadTag = () => (
             integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh'
             crossOrigin='anonymous'
         />
-        <link rel='shortcut icon' href='static/img/favicon.ico' type='image/x-icon' />
-        <link rel='icon' href='static/img/favicon.ico' type='image/x-icon' />
+        <link rel='shortcut icon' href='/static/img/favicon.ico' type='image/x-icon' />
+        <link rel='icon' href='/static/img/favicon.ico' type='image/x-icon' />
         <script
             async={true}
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}

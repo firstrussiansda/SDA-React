@@ -31,10 +31,7 @@ export const UpdateCard: React.FunctionComponent<UpdatesProps> = ({ update }) =>
                     <Attachments attachments={update.attachments} />
                     {update.announcement_html && (
                         <div className='read-more-link'>
-                            <Link
-                                href={`/updates/[slug]?slug=${update.slug}`}
-                                as={`/updates/${update.slug}`}
-                            >
+                            <Link href={`/updates/${update.slug}`}>
                                 <a>Read more</a>
                             </Link>
                         </div>

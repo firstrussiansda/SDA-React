@@ -91,8 +91,7 @@ export const AlertLoader = () => {
             <Attachments attachments={alert.attachments} />
             {alert.announcement_html && (
                 <FauxMagicButton
-                    url={`updates/[slug]?slug=${alert.slug}`}
-                    as={`/thoughts/${alert.slug}`}
+                    url={`/updates/${alert.slug}`}
                     type='filled'
                     size='x-small'
                     onClick={closeAlert}

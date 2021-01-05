@@ -4,7 +4,6 @@ import React from 'react';
 
 interface FauxMagicButtonProps {
     url: string;
-    as?: string;
     className?: string;
     type?: 'filled' | 'outline' | 'text';
     size?: 'regular' | 'small' | 'x-small';
@@ -22,7 +21,7 @@ export const FauxMagicButton = (props: FauxMagicButtonProps) => {
 
     return (
         <div className={buttonClasses}>
-            <Link href={props.url} {...props.as && { as: props.as }}>
+            <Link href={props.url}>
                 <a onClick={props.onClick}>
                     {props.children}
                 </a>
