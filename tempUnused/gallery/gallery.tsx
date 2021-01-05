@@ -2,7 +2,6 @@ import { WithTranslation } from 'react-i18next';
 // import { NextPageContext } from 'next';
 import React from 'react';
 
-import { HeaderLocale } from '../../components/shared/Header.component';
 import { withTranslation } from '../../i18n';
 // import { fetchData } from '../../lib/helpers';
 
@@ -45,7 +44,7 @@ class Gallery extends React.Component<GalleryProps> {
         return (
             <div className='container'>
                 <h1 className='text-center capitalize my-3'>
-                    {this.props.t<HeaderLocale>('header', { returnObjects: true }).gallery}
+                    {this.props.t('header.gallery')}
                 </h1>
                 <section className='gallery row'>
                     {this.props.images.map((images, i) => <GalleryColumn images={images} key={i} />)}

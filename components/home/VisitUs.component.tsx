@@ -27,7 +27,7 @@ const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
         return null;
     }
 
-    const localizedText = t<VisitUsLocales>('visitUs', { returnObjects: true });
+    const localizedText = t('visitUs', { returnObjects: true }) as VisitUsLocales;
     return (
         <section id='visit-block' className='card card-lg pb-5'>
             <h2 id='directions-title' className='title text-center'>{localizedText.title}</h2>

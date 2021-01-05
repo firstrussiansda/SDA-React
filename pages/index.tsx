@@ -11,7 +11,7 @@ import VisitUs from '../components/home/VisitUs.component';
 import Updates from '../components/home/Updates.component';
 import Events from '../components/home/Events.component';
 
-import { Quote, Event, Update, ListEventsResponse, ListUpdatesResponse } from '../lib/types';
+import { Event, Update, ListEventsResponse, ListUpdatesResponse } from '../lib/types';
 import { fetchData } from '../lib/helpers';
 import { withTranslation } from '../i18n';
 
@@ -70,11 +70,11 @@ class Homepage extends React.Component<HomepageProps> {
                     <div className='card-body text-center '>
                         <h1 className='px-3 text-shadow main-title'>
                             &#34;
-                            {t<Quote>('mainQuote', { returnObjects: true }).text}
+                            {t('mainQuote.text')}
                             &#34;
                         </h1>
                         <footer className='blockquote-footer'>
-                            {t<Quote>('mainQuote', { returnObjects: true }).origin}
+                            {t('mainQuote.origin')}
                         </footer>
                     </div>
                 </div>

@@ -4,7 +4,6 @@ import React from 'react';
 
 import { Thought, ReqParams, ListThoughtsResponse } from '../lib/types';
 import { Pagination } from '../components/shared/Pagination.component';
-import { HeaderLocale } from '../components/shared/Header.component';
 import { ThoughtTile } from '../components/thoughts/thoughtTile';
 import { fetchData, getPageCount } from '../lib/helpers';
 import { DEFAULT_PAGE_SIZE } from '../lib/config';
@@ -81,7 +80,7 @@ class Thoughts extends React.Component<ThoughtsProps, ThoughtsState> {
         return (
             <div className='container thoughts-page'>
                 <h1 className='text-center capitalize my-3'>
-                    {this.props.t<HeaderLocale>('header', { returnObjects: true }).thoughts}
+                    {this.props.t('header.thoughts')}
                 </h1>
                 {
                     this.state.thoughts.map(thought => (

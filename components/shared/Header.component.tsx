@@ -95,7 +95,7 @@ class Header extends React.Component<WithTranslation, HeaderState> {
 
     render() {
         const { t } = this.props;
-        const headerLocales = t<HeaderLocale>('header', { returnObjects: true });
+        const headerLocales = t('header', { returnObjects: true }) as HeaderLocale;
 
         return (
             <React.Fragment>

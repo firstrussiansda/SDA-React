@@ -4,24 +4,16 @@ import React from 'react';
 
 import './ChildrenVideo.style.scss';
 
-interface ChildrenVideoLocales {
-    title: string;
-    quote: string;
-    quoteFooter: string;
-}
-
 export function ChildrenVideo({ t }: WithTranslation) {
-    const localizedText = t<ChildrenVideoLocales>('childrenVideo', { returnObjects: true });
-
     return (
         <div className='component-children-video'>
             <Container>
                 <div className='content'>
                     <div className='text'>
-                        <h2 className='title text-center'>{localizedText.title}</h2>
+                        <h2 className='title text-center'>{t('childrenVideo.title')}</h2>
                         <blockquote className='blockquote'>
-                            <h5>&quot;{localizedText.quote}&quot;</h5>
-                            <footer className='blockquote-footer'>{localizedText.quoteFooter}</footer>
+                            <h5>&quot;{t('childrenVideo.quote')}&quot;</h5>
+                            <footer className='blockquote-footer'>{t('childrenVideo.quoteFooter')}</footer>
                         </blockquote>
                     </div>
                     <iframe
