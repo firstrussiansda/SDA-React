@@ -2,11 +2,11 @@ import { WithTranslation } from 'react-i18next';
 import { NextPageContext } from 'next';
 import React from 'react';
 
+import { Thought, ReqParams, ListThoughtsResponse } from '../lib/types';
 import { Pagination } from '../components/shared/Pagination.component';
 import { HeaderLocale } from '../components/shared/Header.component';
 import { ThoughtTile } from '../components/thoughts/thoughtTile';
 import { fetchData, getPageCount } from '../lib/helpers';
-import { Thought, ReqParams } from '../lib/types';
 import { DEFAULT_PAGE_SIZE } from '../lib/config';
 import { withTranslation } from '../i18n';
 
@@ -38,7 +38,7 @@ class Thoughts extends React.Component<ThoughtsProps, ThoughtsState> {
     }
 
     static async getInitialProps({ req }: NextPageContext) {
-        const data = await fetchData('thoughts', req, {
+        const data = await fetchData<ListThoughtsResponse>('thoughts', req, {
             page_size: DEFAULT_PAGE_SIZE,
         });
 
@@ -61,7 +61,7 @@ class Thoughts extends React.Component<ThoughtsProps, ThoughtsState> {
 
     paginate = async () => {
         const params = { page_size: DEFAULT_PAGE_SIZE, page: this.state.page } as ReqParams;
-        const data = await fetchData('thoughts', null, params);
+        const data = await fetchData<ListThoughtsResponse>('thoughts', null, params);
 
         if (data) {
             this.setState({

@@ -1,14 +1,28 @@
-export interface ListSermonSeriesResponse extends ListResponse<SermonSeries> {}
-export interface ListUpdatesResponse extends ListResponse<Update> {}
-export interface ListSermonsResponse extends ListResponse<Sermon> {}
-export interface ListEventsResponse extends ListResponse<Event> {}
-
-export interface ListResponse<T> {
+export interface BaseApiResponse {
+    detail?: string;
+}
+export interface ListResponse<T> extends BaseApiResponse {
     count: number;
     next: string | null;
     previous: string | null;
     results: T[];
 }
+
+export interface ListSermonSeriesResponse extends ListResponse<SermonSeries> {}
+
+export interface GetThoughtResponse extends Thought, BaseApiResponse {}
+export interface ListThoughtsResponse extends ListResponse<Thought> {}
+
+export interface GetUpdateResponse extends Update, BaseApiResponse {}
+export interface ListUpdatesResponse extends ListResponse<Update> {}
+
+export interface ListYearMonthsResponse extends ListResponse<YearMonths> {}
+
+export interface ListSermonsResponse extends ListResponse<Sermon> {}
+
+export interface ListPeopleResponse extends ListResponse<Person> {}
+
+export interface ListEventsResponse extends ListResponse<Event> {}
 
 export interface Quote {
     origin: string;
@@ -118,8 +132,4 @@ export interface YearMonths {
     [year: string]: {
         [month: number]: number;
     };
-}
-
-export interface BaseApiResponse {
-    detail?: string;
 }
