@@ -13,7 +13,7 @@ interface GatherOnlineLocale {
 }
 
 export const GatherOnline = ({ t }: WithTranslation) => {
-    const localizedText = t<GatherOnlineLocale>('gatherOnline', { returnObjects: true });
+    const localizedText = t('gatherOnline', { returnObjects: true }) as GatherOnlineLocale;
     return (
         <section className='component-gather-online'>
             <h2 className='text-center title'>{localizedText.title}</h2>

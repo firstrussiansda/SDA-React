@@ -3,7 +3,6 @@ import { NextPageContext } from 'next';
 
 import { LoadMoreButton } from '../components/shared/LoadMoreButton.component';
 import { UpdateCard } from '../components/updates/UpdateCard.component';
-import { HeaderLocale } from '../components/shared/Header.component';
 import { Spinner } from '../components/shared/Spinner.component';
 import { FlexCenter } from '../components/shared/flex-center';
 
@@ -63,10 +62,7 @@ const Updates: I18nPage<UpdatesProps> = props => {
 
     return (
         <div className='container component-updates-page'>
-            <h1 className='text-center capitalize my-3'>
-                {t<HeaderLocale>('header', { returnObjects: true }).updates}
-            </h1>
-
+            <h1 className='text-center capitalize my-3'>{t('header.updates')}</h1>
             {
                 isLoading
                     ? <FlexCenter><Spinner /></FlexCenter>

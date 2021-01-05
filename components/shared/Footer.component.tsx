@@ -9,11 +9,6 @@ import './Footer.style.scss';
 
 const AlertLoader = dynamic(() => import('./AlertLoader.component'), { ssr: false });
 
-interface FooterLocale {
-    main: string;
-    copyright: string;
-}
-
 const currentYear = (new Date()).getFullYear();
 
 class Footer extends React.Component<WithTranslation> {
@@ -46,11 +41,11 @@ class Footer extends React.Component<WithTranslation> {
                             <EnvelopeFillIcon width={20} height={20} />
                         </a>
                     </p>
-                    <p>{this.props.t<FooterLocale>('footer', { returnObjects: true }).main}</p>
+                    <p>{this.props.t('footer.main')}</p>
                     {/* <a><a href='/site-policy'>Policy</a></a> */}
                     <p>
                         &copy;
-                        {this.props.t<FooterLocale>('footer', { returnObjects: true }).copyright}
+                        {this.props.t('footer.copyright')}
                         &nbsp;
                         {currentYear}
                     </p>

@@ -71,8 +71,8 @@ class About extends React.Component<AboutProps, AboutState> {
 
         if (pastorIdx >= 0) {
             const pastor = people[pastorIdx];
-            people = people.slice(0, pastorIdx)
-                .concat(people.slice(pastorIdx + 1));
+            people = people.slice(0, pastorIdx).concat(people.slice(pastorIdx + 1));
+
             this.setState({ people, pastor });
         } else {
             this.setState({ people, pastor: undefined });
@@ -84,7 +84,12 @@ class About extends React.Component<AboutProps, AboutState> {
             return null;
         }
 
-        const groupsLocale = this.props.t<GroupsLocale>('groups', { returnObjects: true });
+        const groupsLocale: GroupsLocale = this.props.t('groups', { returnObjects: true });
+        const keyMissionComponentsLocale: { title: string; text: string }[] = this.props.t(
+            'keyMissionComponents',
+            { returnObjects: true },
+        );
+        const aboutLocale: string[] = this.props.t('about', { returnObjects: true });
 
         return (
             <div className='container'>
@@ -102,10 +107,7 @@ class About extends React.Component<AboutProps, AboutState> {
 
                 <KeyMissionComponents
                     title={this.props.t('keyMissionComponentsTitle')}
-                    components={
-                        this.props.t<{ title: string; text: string }[]>
-                            ('keyMissionComponents', { returnObjects: true })
-                    }
+                    components={keyMissionComponentsLocale}
                 />
 
                 {
@@ -150,10 +152,7 @@ class About extends React.Component<AboutProps, AboutState> {
                         {this.props.t('title')}
                     </h2>
                     <div className='text-center text-justify m-x-auto'>
-                        {
-                            this.props.t<string[]>('about', { returnObjects: true })
-                                .map(text => (<p className='m-b-xs' key={text}>{text}</p>))
-                        }
+                        {aboutLocale.map(text => (<p className='m-b-xs' key={text}>{text}</p>))}
                     </div>
                 </section>
 

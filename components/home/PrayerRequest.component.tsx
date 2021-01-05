@@ -27,7 +27,7 @@ const PrayerRequest: React.FunctionComponent<WithTranslation> = ({ t, tReady }) 
         return null;
     }
 
-    const localizedText = t<PrayerRequestLocales>('prayerRequest', { returnObjects: true });
+    const localizedText = t('prayerRequest', { returnObjects: true }) as PrayerRequestLocales;
 
     return (
         <section id='praying-request'>
@@ -59,7 +59,7 @@ const PrayerRequest: React.FunctionComponent<WithTranslation> = ({ t, tReady }) 
                                     type='text'
                                     name='name'
                                     className='form-control'
-                                    placeholder={localizedText['namePlaceholder']}
+                                    placeholder={localizedText.namePlaceholder}
                                     aria-describedby='emailHelp'
                                     required={true}
                                 />
@@ -78,12 +78,12 @@ const PrayerRequest: React.FunctionComponent<WithTranslation> = ({ t, tReady }) 
                         </div>
                         <div className='row'>
                             <div className='col form-group'>
-                                <label htmlFor='prayer_request'>{localizedText['prayerNeed']}</label>
+                                <label htmlFor='prayer_request'>{localizedText.prayerNeed}</label>
                                 <textarea
                                     className='form-control'
                                     id='prayer_request'
                                     name='prayer_request'
-                                    placeholder={localizedText['prayerNeedPlaceholder']}
+                                    placeholder={localizedText.prayerNeedPlaceholder}
                                     rows={3}
                                     required={true}
                                 />
@@ -94,7 +94,7 @@ const PrayerRequest: React.FunctionComponent<WithTranslation> = ({ t, tReady }) 
                             role='button'
                             className='btn btn-outline-warning custom-warning'
                         >
-                            {localizedText['sendPrayerNeed']}
+                            {localizedText.sendPrayerNeed}
                         </button>
                     </form>
                 </div>

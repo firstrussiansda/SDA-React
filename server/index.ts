@@ -1,8 +1,6 @@
 import express from 'express';
 import next from 'next';
-import nextI18NextMiddleware from 'next-i18next/middleware';
 
-import { nextI18next } from './i18n';
 import { imagesController } from './controllers/images';
 
 const port = process.env.PORT || 3000;
@@ -12,8 +10,6 @@ const handle = app.getRequestHandler();
 (async () => {
     await app.prepare();
     const server = express();
-
-    server.use(nextI18NextMiddleware(nextI18next));
 
     server.use(express.json()); // for parsing application/json
     server.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded

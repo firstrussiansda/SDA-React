@@ -2,6 +2,7 @@ import { WithTranslation } from 'react-i18next';
 import React from 'react';
 
 import { EnvelopeIcon, InstagramIcon, FacebookIcon, MapMarkerIcon } from '../components/icons';
+import { GOOGLE_MAPS_EMBED } from '../lib/config';
 import { withTranslation } from '../i18n';
 import { event } from '../lib/gtag';
 
@@ -106,7 +107,7 @@ class Contact extends React.Component<WithTranslation> {
                                     </td>
                                     <td>
                                         <div className='box maps hvr-wobble-vertical'>
-                                            <a href='https://www.google.com/maps?ll=40.600665,-73.978986&z=15&t=m&hl=ru-RU&gl=US&mapclient=embed&q=1913+W+7th+St+Brooklyn,+NY+11223' target='_blank'>
+                                            <a href='https://goo.gl/maps/LwzPnmftqMkyLJKE9' target='_blank'>
                                                 <MapMarkerIcon height={22} width={22} />
                                             </a>
                                         </div>
@@ -122,7 +123,7 @@ class Contact extends React.Component<WithTranslation> {
                                 height='150'
                                 frameBorder='0'
                                 allowFullScreen={true}
-                                src='https://www.google.com/maps/embed/v1/place?q=1913%20W%207th%20St%2C%20New%20York%2C%20New%20York%2011223&key=AIzaSyCEp8zGhVStHmupL_fwpqiRZiSqxCSCD3U'
+                                src={GOOGLE_MAPS_EMBED}
                             />
                         </section>
                     </section>

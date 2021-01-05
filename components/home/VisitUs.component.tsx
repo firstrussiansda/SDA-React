@@ -2,6 +2,7 @@ import { WithTranslation } from 'react-i18next';
 import Link from 'next/link';
 import React from 'react';
 
+import { GOOGLE_MAPS_EMBED } from '../../lib/config';
 import { ArrowCircleRightIcon } from '../icons';
 import { event } from '../../lib/gtag';
 
@@ -27,7 +28,7 @@ const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
         return null;
     }
 
-    const localizedText = t<VisitUsLocales>('visitUs', { returnObjects: true });
+    const localizedText = t('visitUs', { returnObjects: true }) as VisitUsLocales;
     return (
         <section id='visit-block' className='card card-lg pb-5'>
             <h2 id='directions-title' className='title text-center'>{localizedText.title}</h2>
@@ -76,7 +77,7 @@ const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
                         max-height='80vh'
                         height='350'
                         frameBorder='0'
-                        src='https://www.google.com/maps/embed/v1/place?q=1913%20W%207th%20St%2C%20New%20York%2C%20New%20York%2011223&key=AIzaSyCEp8zGhVStHmupL_fwpqiRZiSqxCSCD3U'
+                        src={GOOGLE_MAPS_EMBED}
                         allowFullScreen={true}
                     />
                 </div>
