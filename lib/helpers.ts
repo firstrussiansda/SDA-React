@@ -4,6 +4,12 @@ import { i18n } from '../i18n';
 
 export const isDevelopment = process.env.NODE_ENV !== 'production';
 
+export class ResponseError extends Error {
+    constructor(message: string, public code: number) {
+        super(message);
+    }
+}
+
 export const buildQuery = (params: ReqParams) => (
     Object.entries(params)
         .reduce((acc, [key, val]) => {
@@ -29,12 +35,18 @@ export const fetchData = async <T extends BaseApiResponse = BaseApiResponse>(
 
         // fetch doesn't throw on error response codes 🤦‍♂️
         if (!response.ok) {
-            throw new Error(`API Error (${response.status}): ${json.detail || 'Unknown error'}`);
+            throw new ResponseError(
+                `API Error (${response.status}): ${json.detail || 'Unknown error'}`,
+                response.status,
+            );
         }
 
         return json;
     } catch (e) {
-        console.error('Error occurred while fetching API data', e);
+        if (!(e instanceof ResponseError) || e.code !== 404) {
+            console.error('Error occurred while fetching API data', e);
+        }
+
         return null;
     }
 };
