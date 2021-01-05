@@ -8,9 +8,9 @@ import { Spinner } from '../components/shared/Spinner.component';
 import { FlexCenter } from '../components/shared/flex-center';
 import EventTile from '../components/calendar/eventTile';
 
+import { Event, ListEventsResponse } from '../lib/types';
 import { fetchData } from '../lib/helpers';
 import { withTranslation } from '../i18n';
-import { Event } from '../lib/types';
 
 const PAGE_SIZE = 5;
 
@@ -44,7 +44,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
     }
 
     static async getInitialProps({ req }: NextPageContext) {
-        const data = await fetchData('events', req, {
+        const data = await fetchData<ListEventsResponse>('events', req, {
             page_size: PAGE_SIZE,
             date__gte: new Date().toISOString().split('T')[0],
         });
@@ -92,7 +92,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
     loadEvents = async () => {
         const curDate = new Date().toISOString().split('T')[0];
 
-        const data = await fetchData('events', null, {
+        const data = await fetchData<ListEventsResponse>('events', null, {
             page_size: PAGE_SIZE,
             ...(
                 this.state.isArchive

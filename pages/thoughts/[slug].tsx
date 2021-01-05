@@ -1,8 +1,8 @@
 import { NextPageContext } from 'next';
 import React from 'react';
 
+import { GetThoughtResponse, Thought as IThought } from '../../lib/types';
 import { fetchData, getImgUrl, formatDate } from '../../lib/helpers';
-import { Thought as IThought } from '../../lib/types';
 import { useTranslation } from '../../i18n';
 import { I18nPage } from '../../i18n';
 
@@ -50,7 +50,7 @@ const Thought: I18nPage<ThoughtsProps> = ({ thought }) => {
 };
 
 Thought.getInitialProps = async ({ query, req, res }: NextPageContext) => {
-    const thought = await fetchData(`thoughts/${query.slug}`, req);
+    const thought = await fetchData<GetThoughtResponse>(`thoughts/${query.slug}`, req);
 
     if (!thought && res) {
         res.statusCode = 404;

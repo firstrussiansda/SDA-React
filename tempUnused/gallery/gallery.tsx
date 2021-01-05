@@ -1,10 +1,10 @@
 import { WithTranslation } from 'react-i18next';
-import { NextPageContext } from 'next';
+// import { NextPageContext } from 'next';
 import React from 'react';
 
 import { HeaderLocale } from '../../components/shared/Header.component';
 import { withTranslation } from '../../i18n';
-import { fetchData } from '../../lib/helpers';
+// import { fetchData } from '../../lib/helpers';
 
 import GalleryColumn from './galleryColumn';
 
@@ -32,14 +32,14 @@ interface GalleryProps extends WithTranslation {
 }
 
 class Gallery extends React.Component<GalleryProps> {
-    static async getInitialProps({ req }: NextPageContext) {
-        const images = await fetchData('images', req);
+    // static async getInitialProps({ req }: NextPageContext) {
+    //     const images = await fetchData('images', req);
 
-        if (images && 'data' in images) {
-            return { images: images.data, namespacesRequired: ['common'] };
-        }
-        return { images: [], nextMaxId: images.nextMaxId,  namespacesRequired: ['common'] };
-    }
+    //     if (images && 'data' in images) {
+    //         return { images: images.data, namespacesRequired: ['common'] };
+    //     }
+    //     return { images: [], nextMaxId: images.nextMaxId,  namespacesRequired: ['common'] };
+    // }
 
     render() {
         return (

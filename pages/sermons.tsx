@@ -16,7 +16,9 @@ import { withTranslation, I18nPage } from '../i18n';
 import { DEFAULT_PAGE_SIZE } from '../lib/config';
 import {
     ListSermonSeriesResponse,
+    ListYearMonthsResponse,
     ListSermonsResponse,
+    ListPeopleResponse,
     JustSermonSeries,
     YearMonths,
     ReqParams,
@@ -215,8 +217,8 @@ Sermons.getInitialProps = async ({ req, query }: NextPageContext) => {
 
     // TODO: Promise.all?
     const sermons = await fetchFilteredSermons(filterParams, req);
-    const speakers = await fetchData('people', req, { sermons__id__isnull: false });
-    const yearMonths = await fetchData('sermons/year-months', req);
+    const speakers = await fetchData<ListPeopleResponse>('people', req, { sermons__id__isnull: false });
+    const yearMonths = await fetchData<ListYearMonthsResponse>('sermons/year-months', req);
     const series = await fetchData<ListSermonSeriesResponse>('series', req);
 
     return {

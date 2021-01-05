@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Alert from 'react-bootstrap/Alert';
 
+import { Update, ListUpdatesResponse } from '../../lib/types';
 import { Attachments } from './Attachments.component';
 import { fetchData } from '../../lib/helpers';
 import { InfoCircleFillIcon } from '../icons';
-import { Update } from '../../lib/types';
 import { FauxMagicButton } from '../ui';
 
 import './AlertLoader.style.scss';
@@ -36,7 +36,7 @@ const storeIsViewed = (slug: string) => {
 };
 
 const getAlert = async () => {
-    const announcements = await fetchData(
+    const announcements = await fetchData<ListUpdatesResponse>(
         `announcements`,
         null,
         {

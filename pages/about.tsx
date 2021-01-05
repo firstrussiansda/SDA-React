@@ -6,9 +6,9 @@ import KeyMissionComponents from '../components/about/keyMissionComponents';
 import GroupTile, { Activity } from '../components/about/groupTile';
 import Leadership from '../components/about/leadership';
 
+import { ListPeopleResponse, Person } from '../lib/types';
 import { fetchData } from '../lib/helpers';
 import { withTranslation } from '../i18n';
-import { Person } from '../lib/types';
 
 export interface GroupLocale {
     title: string;
@@ -42,7 +42,7 @@ class About extends React.Component<AboutProps, AboutState> {
     }
 
     static async getInitialProps({ req }: NextPageContext) {
-        const data = await fetchData('people', req, { position__isnull: false });
+        const data = await fetchData<ListPeopleResponse>('people', req, { position__isnull: false });
 
         if (data && 'results' in data) {
             return {
