@@ -5,8 +5,8 @@ import React from 'react';
 import { Attachments } from '../../components/shared/Attachments.component';
 import Error from '../_error';
 
+import { GetUpdateResponse, Update as IUpdate } from '../../lib/types';
 import { fetchData, formatDate } from '../../lib/helpers';
-import { Update as IUpdate } from '../../lib/types';
 import { I18nPage } from '../../i18n';
 
 interface UpdatesProps {
@@ -31,7 +31,7 @@ const Update: I18nPage<UpdatesProps> = ({ update }) => {
 };
 
 Update.getInitialProps = async ({ query, req, res }: NextPageContext) => {
-    const update = await fetchData(`announcements/${query.slug}`, req);
+    const update = await fetchData<GetUpdateResponse>(`announcements/${query.slug}`, req);
 
     if (!update && res) {
         res.statusCode = 404;

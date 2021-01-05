@@ -17,18 +17,18 @@ repos:
       - id: mixed-line-ending
       - id: trailing-whitespace
 
-  - repo: https://github.com/awebdeveloper/pre-commit-tslint/
-    rev: 'master'
-    hooks:
-      - id: tslint
-        files: \.(ts[x])$
-        # https://github.com/pre-commit/pre-commit/issues/1064
-        # https://github.com/ekalinin/nodeenv/issues/204
-        additional_dependencies:
-          - tslint
-          - tslint-react
-          - tslint-eslint-rules
-          - typescript
+  # - repo: https://github.com/awebdeveloper/pre-commit-tslint/
+  #   rev: 'master'
+  #   hooks:
+  #     - id: tslint
+  #       files: \.(ts[x])$
+  #       # https://github.com/pre-commit/pre-commit/issues/1064
+  #       # https://github.com/ekalinin/nodeenv/issues/204
+  #       additional_dependencies:
+  #         - tslint
+  #         - tslint-react
+  #         - tslint-eslint-rules
+  #         - typescript
 
   - repo: https://github.com/pre-commit/mirrors-eslint
     rev: 'master'
