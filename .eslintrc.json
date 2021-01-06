@@ -1,39 +1,25 @@
 {
-  "env": {
-    "es6": true,
-    "node": true,
-    "browser": true
-  },
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": 2019,
-    "ecmaFeatures": {
-      "impliedStrict": true
+    "env": {
+        "es6": true,
+        "node": true,
+        "browser": true
+    },
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 2019,
+        "ecmaFeatures": {
+            "impliedStrict": true
+        }
+    },
+    "extends": ["eslint:recommended"],
+    "rules": {
+        "indent": ["warn", 4],
+        "semi": ["error", "always"],
+        "strict": "off",
+        "no-var": "error",
+        "prefer-const": "error",
+        "require-yield": "off",
+        "comma-dangle": ["error", "always-multiline"],
+        "object-curly-spacing": ["error", "always"]
     }
-  },
-  "extends": [
-    "eslint:recommended"
-  ],
-  "rules": {
-    "indent": [
-      "warn",
-      4
-    ],
-    "semi": [
-      "error",
-      "always"
-    ],
-    "strict": "off",
-    "no-var": "error",
-    "prefer-const": "error",
-    "require-yield": "off",
-    "comma-dangle": [
-      "error",
-      "always-multiline"
-    ],
-    "object-curly-spacing": [
-      "error",
-      "always"
-    ]
-  }
 }

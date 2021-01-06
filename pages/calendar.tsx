@@ -58,7 +58,12 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
             };
         }
 
-        return { events: [], count: 0, namespacesRequired: ['common'], next: null };
+        return {
+            events: [],
+            count: 0,
+            namespacesRequired: ['common'],
+            next: null,
+        };
     }
 
     componentDidMount() {
@@ -79,7 +84,11 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
 
                     if (data && data.results) {
                         const events = this.state.events.concat(data.results);
-                        this.setState({ events, next: data.next, isLoadingMore: false });
+                        this.setState({
+                            events,
+                            next: data.next,
+                            isLoadingMore: false,
+                        });
                     } else {
                         console.error('Invalid response');
                         this.setState({ isLoadingMore: false });
@@ -87,18 +96,16 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
                 }
             });
         }
-    }
+    };
 
     loadEvents = async () => {
         const curDate = new Date().toISOString().split('T')[0];
 
         const data = await fetchData<ListEventsResponse>('events', null, {
             page_size: PAGE_SIZE,
-            ...(
-                this.state.isArchive
-                ? { date__lt: curDate, order_by: '-date'  }
-                : { date__gte: curDate }
-            )
+            ...(this.state.isArchive
+                ? { date__lt: curDate, order_by: '-date' }
+                : { date__gte: curDate }),
         });
 
         if (data && 'results' in data) {
@@ -110,21 +117,29 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
             });
         }
 
-        return this.setState({ events: [], count: 0, next: null, isLoading: false });
-    }
+        return this.setState({
+            events: [],
+            count: 0,
+            next: null,
+            isLoading: false,
+        });
+    };
 
     toggleIsArchive = () => {
-        this.setState({
-            isArchive: !this.state.isArchive,
-            isLoading: true,
-        }, this.loadEvents);
-    }
+        this.setState(
+            {
+                isArchive: !this.state.isArchive,
+                isLoading: true,
+            },
+            this.loadEvents,
+        );
+    };
 
     render() {
         return (
-            <div className='row justify-content-center'>
-                <main className='container'>
-                    <h1 className='text-center capitalize my-3'>
+            <div className="row justify-content-center">
+                <main className="container">
+                    <h1 className="text-center capitalize my-3">
                         {this.props.t('title')}
                     </h1>
                     <ArchiveToggle
@@ -134,38 +149,42 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
                         tReady={this.props.tReady}
                         i18n={this.props.i18n}
                     />
-                    {
-                        this.state.isLoading
-                        ? <FlexCenter><Spinner /></FlexCenter>
-                        : (
-                            <React.Fragment>
-                                <div className='top-space'>
-                                    {
-                                        this.state.events.length
-                                        ? this.state.events.map(e => (
-                                            <EventTile
-                                                {...e}
-                                                key={e.title}
-                                                t={this.props.t}
-                                                i18n={this.props.i18n}
-                                                tReady={this.props.tReady}
-                                            />
-                                        ))
-                                        : (
-                                            <FlexCenter>
-                                                <p>{this.props.t(this.state.isArchive ? 'noPastEvent' : 'noUpcomingEvent')}</p>
-                                            </FlexCenter>
-                                        )
-                                    }
-                                </div>
-                                <LoadMoreButton
-                                    loadMore={this.loadMore}
-                                    isLoading={this.state.isLoadingMore}
-                                    isMoreAvailable={!!this.state.next}
-                                />
-                            </React.Fragment>
-                        )
-                    }
+                    {this.state.isLoading ? (
+                        <FlexCenter>
+                            <Spinner />
+                        </FlexCenter>
+                    ) : (
+                        <React.Fragment>
+                            <div className="top-space">
+                                {this.state.events.length ? (
+                                    this.state.events.map(e => (
+                                        <EventTile
+                                            {...e}
+                                            key={e.title}
+                                            t={this.props.t}
+                                            i18n={this.props.i18n}
+                                            tReady={this.props.tReady}
+                                        />
+                                    ))
+                                ) : (
+                                    <FlexCenter>
+                                        <p>
+                                            {this.props.t(
+                                                this.state.isArchive
+                                                    ? 'noPastEvent'
+                                                    : 'noUpcomingEvent',
+                                            )}
+                                        </p>
+                                    </FlexCenter>
+                                )}
+                            </div>
+                            <LoadMoreButton
+                                loadMore={this.loadMore}
+                                isLoading={this.state.isLoadingMore}
+                                isMoreAvailable={!!this.state.next}
+                            />
+                        </React.Fragment>
+                    )}
                 </main>
             </div>
         );

@@ -33,9 +33,13 @@ export class Button extends React.Component<ButtonProps> {
 
         return (
             <button
-                type='button'
+                type="button"
                 className={buttonClasses}
-                onClick={(e: SyntheticEvent) => !this.props.disabled && this.props.click && this.props.click(e)}
+                onClick={(e: SyntheticEvent) =>
+                    !this.props.disabled &&
+                    this.props.click &&
+                    this.props.click(e)
+                }
                 {...ariaProps}
             >
                 {this.props.children}

@@ -19,7 +19,7 @@ jobs:
         env:
           COMPOSE_PROJECT_NAME: sda-react
           MOUNT_PATH: /tmp/app
-          PUBLIC_PORT: "172.17.0.1:8080"
+          PUBLIC_PORT: '172.17.0.1:8080'
           API_SITE_URL: ${{ secrets.API_SITE_URL }}
           DOCKER_CA_CERT: ${{ secrets.DOCKER_CA_CERT }}
           DOCKER_CLIENT_CERT: ${{ secrets.DOCKER_CLIENT_CERT }}

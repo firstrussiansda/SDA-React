@@ -21,7 +21,11 @@ export const FauxButton = (props: FauxButtonProps) => {
 
     return (
         <div className={buttonClasses}>
-            <a target={props.target || '_blank'} href={props.url} onClick={props.onClick}>
+            <a
+                target={props.target || '_blank'}
+                href={props.url}
+                onClick={props.onClick}
+            >
                 {props.children}
             </a>
         </div>

@@ -1,13 +1,13 @@
 {
-  "title": "sermons",
-  "watch": "watch",
-  "listen": "listen",
-  "selectYear": "Year",
-  "selectMonth": "Month",
-  "selectSeries": "Series",
-  "filterBy": "Filter by",
-  "selectSpeaker": "Speaker",
-  "resetFilter": "Reset Filters",
-  "searchByTitle": "Search by Title",
-  "noData": "We tried really hard but unfortunately couldn't find any sermons with selected filters"
+    "title": "sermons",
+    "watch": "watch",
+    "listen": "listen",
+    "selectYear": "Year",
+    "selectMonth": "Month",
+    "selectSeries": "Series",
+    "filterBy": "Filter by",
+    "selectSpeaker": "Speaker",
+    "resetFilter": "Reset Filters",
+    "searchByTitle": "Search by Title",
+    "noData": "We tried really hard but unfortunately couldn't find any sermons with selected filters"
 }

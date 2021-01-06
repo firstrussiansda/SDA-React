@@ -9,15 +9,9 @@ interface AuthorProps {
 }
 
 export const Authors: FunctionComponent<AuthorProps> = ({ authors, date }) => (
-    <section className='authors'>
-        {
-            authors.map((author, idx) => (
-                <Author
-                    key={author.id}
-                    {...author}
-                    {...( idx === 0 && { date })}
-                />
-            ))
-        }
+    <section className="authors">
+        {authors.map((author, idx) => (
+            <Author key={author.id} {...author} {...(idx === 0 && { date })} />
+        ))}
     </section>
 );

@@ -1,4 +1,4 @@
-@import "../../styles/vars";
+@import '../../styles/vars';
 
 .component-sermons-filters {
     & .toggle-wrapper {
@@ -46,7 +46,7 @@
         }
 
         .custom-select {
-            color: rgba(0,0,0,.85);
+            color: rgba(0, 0, 0, 0.85);
             min-width: fit-content;
             width: 100%;
         }

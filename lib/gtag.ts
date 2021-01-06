@@ -1,7 +1,9 @@
 export const GA_TRACKING_ID = 'UA-150983899-1';
 
 declare global {
-    interface Window { gtag: any; }
+    interface Window {
+        gtag: any;
+    }
 }
 
 interface EventOptions {

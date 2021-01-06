@@ -35,10 +35,10 @@ interface Base {
 }
 
 export interface Attachment {
-  id: string;
-  url: string;
-  name: string;
-  file: string;
+    id: string;
+    url: string;
+    name: string;
+    file: string;
 }
 
 export interface Image {
@@ -89,7 +89,7 @@ export interface SoundCloudAsset extends MediaAsset {
 
 export interface JustSermonSeries {
     slug: string;
-    id:	string;
+    id: string;
     url: string;
     title: string;
     description: string;

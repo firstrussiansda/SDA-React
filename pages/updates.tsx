@@ -37,7 +37,8 @@ const Updates: I18nPage<UpdatesProps> = props => {
             if (data?.results) {
                 setUpdates((updates || []).concat(data.results));
                 setNext(data.next);
-            }   setIsLoadingMore(false);
+            }
+            setIsLoadingMore(false);
         } catch (e) {
             console.error(e);
             setIsLoadingMore(false);
@@ -61,37 +62,37 @@ const Updates: I18nPage<UpdatesProps> = props => {
     }, [isLoadingMore]);
 
     return (
-        <div className='container component-updates-page'>
-            <h1 className='text-center capitalize my-3'>{t('header.updates')}</h1>
-            {
-                isLoading
-                    ? <FlexCenter><Spinner /></FlexCenter>
-                    : (
-                        <section>
-                            <div className='cards-container'>
-                                {updates.map(update => <UpdateCard key={update.id} update={update} />)}
-                            </div>
-                            <LoadMoreButton
-                                loadMore={loadMore}
-                                isLoading={isLoadingMore}
-                                isMoreAvailable={!!next}
-                            />
-                        </section>
-                    )
-            }
+        <div className="container component-updates-page">
+            <h1 className="text-center capitalize my-3">
+                {t('header.updates')}
+            </h1>
+            {isLoading ? (
+                <FlexCenter>
+                    <Spinner />
+                </FlexCenter>
+            ) : (
+                <section>
+                    <div className="cards-container">
+                        {updates.map(update => (
+                            <UpdateCard key={update.id} update={update} />
+                        ))}
+                    </div>
+                    <LoadMoreButton
+                        loadMore={loadMore}
+                        isLoading={isLoadingMore}
+                        isMoreAvailable={!!next}
+                    />
+                </section>
+            )}
         </div>
     );
 };
 
 Updates.getInitialProps = async ({ req }: NextPageContext) => {
-    const data = await fetchData<ListUpdatesResponse>(
-        'announcements',
-        req,
-        {
-            page_size: DEFAULT_PAGE_SIZE,
-            order_by: ['-is_featured', '-start_date'],
-        },
-    );
+    const data = await fetchData<ListUpdatesResponse>('announcements', req, {
+        page_size: DEFAULT_PAGE_SIZE,
+        order_by: ['-is_featured', '-start_date'],
+    });
 
     if (data?.results) {
         return {

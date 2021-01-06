@@ -7,9 +7,11 @@ import { withTranslation } from '../../i18n';
 
 import './Footer.style.scss';
 
-const AlertLoader = dynamic(() => import('./AlertLoader.component'), { ssr: false });
+const AlertLoader = dynamic(() => import('./AlertLoader.component'), {
+    ssr: false,
+});
 
-const currentYear = (new Date()).getFullYear();
+const currentYear = new Date().getFullYear();
 
 class Footer extends React.Component<WithTranslation> {
     static async getInitialProps() {
@@ -20,23 +22,23 @@ class Footer extends React.Component<WithTranslation> {
         return (
             <React.Fragment>
                 <AlertLoader />
-                <footer className='component-page-footer'>
-                    <p className='media-icons'>
+                <footer className="component-page-footer">
+                    <p className="media-icons">
                         <a
-                            href='https://www.facebook.com/firstrussianny/'
-                            aria-label='facebook'
+                            href="https://www.facebook.com/firstrussianny/"
+                            aria-label="facebook"
                         >
                             <FacebookIcon />
                         </a>
                         <a
-                            href='https://www.instagram.com/youthgroupfriends/'
-                            aria-label='instagram'
+                            href="https://www.instagram.com/youthgroupfriends/"
+                            aria-label="instagram"
                         >
                             <InstagramIcon />
                         </a>
                         <a
-                            href='mailto:firstrussiansdachurch@gmail.com'
-                            aria-label='email'
+                            href="mailto:firstrussiansdachurch@gmail.com"
+                            aria-label="email"
                         >
                             <EnvelopeFillIcon width={20} height={20} />
                         </a>

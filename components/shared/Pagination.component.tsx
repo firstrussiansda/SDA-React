@@ -30,33 +30,48 @@ function getPageButtons(
     const pageElements: JSX.Element[] = [];
 
     for (let idx = first; idx <= last; idx++) {
-        pageElements.push((
-            <li className={`page-item${idx === curPage ? ' active' : ''}`} key={idx}>
-                <button onClick={e => handleClick(e, idx)} className='page-link'>
+        pageElements.push(
+            <li
+                className={`page-item${idx === curPage ? ' active' : ''}`}
+                key={idx}
+            >
+                <button
+                    onClick={e => handleClick(e, idx)}
+                    className="page-link"
+                >
                     {idx}
-                    {idx === curPage ? <span className='sr-only'>(current)</span> : null}
+                    {idx === curPage ? (
+                        <span className="sr-only">(current)</span>
+                    ) : null}
                 </button>
-            </li>
-        ));
+            </li>,
+        );
     }
 
     return pageElements;
 }
 
-export const Pagination: React.FunctionComponent<PaginationProps> = ({ pageCount, curPage, updatePage }) => {
+export const Pagination: React.FunctionComponent<PaginationProps> = ({
+    pageCount,
+    curPage,
+    updatePage,
+}) => {
     if (pageCount < 2) {
         return null;
     }
 
-    const handleClick = useCallback((e: React.SyntheticEvent, page: number) => {
-        e.preventDefault();
+    const handleClick = useCallback(
+        (e: React.SyntheticEvent, page: number) => {
+            e.preventDefault();
 
-        if (page < 0 || page <= pageCount) {
-            updatePage(page);
-        } else {
-            throw new Error('Invalid page number');
-        }
-    }, [pageCount]);
+            if (page < 0 || page <= pageCount) {
+                updatePage(page);
+            } else {
+                throw new Error('Invalid page number');
+            }
+        },
+        [pageCount],
+    );
 
     const prevClass = classnames('page-item', {
         disabled: curPage === 1,
@@ -67,16 +82,22 @@ export const Pagination: React.FunctionComponent<PaginationProps> = ({ pageCount
     });
 
     return (
-        <nav aria-label='page selector' className='component-pagination'>
-            <ul className='pagination justify-content-center'>
+        <nav aria-label="page selector" className="component-pagination">
+            <ul className="pagination justify-content-center">
                 <li className={prevClass}>
-                    <button className='page-link' onClick={e => handleClick(e, curPage - 1)}>
+                    <button
+                        className="page-link"
+                        onClick={e => handleClick(e, curPage - 1)}
+                    >
                         Previous
                     </button>
                 </li>
                 {getPageButtons(curPage, pageCount, handleClick)}
                 <li className={nextClass}>
-                    <button className='page-link' onClick={e => handleClick(e, curPage + 1)}>
+                    <button
+                        className="page-link"
+                        onClick={e => handleClick(e, curPage + 1)}
+                    >
                         Next
                     </button>
                 </li>

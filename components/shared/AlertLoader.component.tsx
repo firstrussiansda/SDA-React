@@ -20,7 +20,8 @@ const getIsViewed = (slug: string) => {
     return false;
 };
 
-const getAlertVariant = (level: Update['alert_level']) => level.toLowerCase() as 'danger' | 'warning' | 'info';
+const getAlertVariant = (level: Update['alert_level']) =>
+    level.toLowerCase() as 'danger' | 'warning' | 'info';
 
 const storeIsViewed = (slug: string) => {
     let parsed: { [key: string]: true } = {};
@@ -44,10 +45,10 @@ const getAlert = async () => {
             start_date__lte: curDate,
             end_date__gt: curDate,
             page_size: 1,
-        }
+        },
     );
 
-    return announcements?.results?.[0] as Update || null;
+    return (announcements?.results?.[0] as Update) || null;
 };
 
 export const AlertLoader = () => {
@@ -81,7 +82,7 @@ export const AlertLoader = () => {
             variant={getAlertVariant(alert.alert_level)}
             dismissible={true}
             onClose={closeAlert}
-            className='component-alert-loader'
+            className="component-alert-loader"
         >
             <Alert.Heading>
                 <InfoCircleFillIcon width={24} height={20} />
@@ -92,8 +93,8 @@ export const AlertLoader = () => {
             {alert.announcement_html && (
                 <FauxMagicButton
                     url={`/updates/${alert.slug}`}
-                    type='filled'
-                    size='x-small'
+                    type="filled"
+                    size="x-small"
                     onClick={closeAlert}
                 >
                     Read More

@@ -14,17 +14,12 @@ interface DateSelectorProps extends WithTranslation {
 export const DateSelector: React.SFC<DateSelectorProps> = props => {
     const { year, handleChange } = props;
 
-    const getYears = () => (
+    const getYears = () =>
         Object.keys(props.yearMonths).map(year => (
-            <option
-                key={year}
-                label={year}
-                value={year}
-            >
+            <option key={year} label={year} value={year}>
                 {String(year)}
             </option>
-        ))
-    );
+        ));
 
     const getMonths = () => {
         const localizedMonths = getLocalizedMonths(props.i18n.language);
@@ -33,15 +28,15 @@ export const DateSelector: React.SFC<DateSelectorProps> = props => {
         if (year) {
             for (let i = 1; i <= 12; i++) {
                 if (year[i]) {
-                    months.push((
+                    months.push(
                         <option
                             key={localizedMonths[i - 1]}
                             label={localizedMonths[i - 1]}
                             value={i}
                         >
                             {localizedMonths[i - 1]}
-                        </option>
-                    ));
+                        </option>,
+                    );
                 }
             }
         }
@@ -51,37 +46,31 @@ export const DateSelector: React.SFC<DateSelectorProps> = props => {
 
     return (
         <React.Fragment>
-            <div className='sermons-sub-filter'>
+            <div className="sermons-sub-filter">
                 <select
-                    name='year'
+                    name="year"
                     onChange={handleChange}
                     value={year}
                     aria-label={props.t('selectYear')}
-                    className='custom-select'
+                    className="custom-select"
                 >
-                    <option
-                        label={props.t('selectYear')}
-                        value=''
-                    >
+                    <option label={props.t('selectYear')} value="">
                         {props.t('selectYear')}
                     </option>
                     {getYears()}
                 </select>
             </div>
 
-            <div className='sermons-sub-filter'>
+            <div className="sermons-sub-filter">
                 <select
                     disabled={!props.year}
-                    name='month'
+                    name="month"
                     aria-label={props.t('selectMonth')}
                     onChange={handleChange}
                     value={props.month}
-                    className='custom-select'
+                    className="custom-select"
                 >
-                    <option
-                        label={props.t('selectMonth')}
-                        value=''
-                    >
+                    <option label={props.t('selectMonth')} value="">
                         {props.t('selectMonth')}
                     </option>
                     {getMonths()}

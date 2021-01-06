@@ -20,8 +20,8 @@ class MyApp extends App {
             <div>
                 <HeadTag />
 
-                <div className='page-container'>
-                    <div className='page-content'>
+                <div className="page-container">
+                    <div className="page-content">
                         <Header />
                         <Component {...pageProps} />
                     </div>
