@@ -22,9 +22,7 @@ export const FauxMagicButton = (props: FauxMagicButtonProps) => {
     return (
         <div className={buttonClasses}>
             <Link href={props.url}>
-                <a onClick={props.onClick}>
-                    {props.children}
-                </a>
+                <a onClick={props.onClick}>{props.children}</a>
             </Link>
         </div>
     );

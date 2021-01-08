@@ -7,16 +7,22 @@ interface ArchiveToggleProps extends WithTranslation {
     isArchive: boolean;
 }
 
-export const ArchiveToggle: React.FunctionComponent<ArchiveToggleProps> = ({ handleChange, isArchive, t }) => (
+export const ArchiveToggle: React.FunctionComponent<ArchiveToggleProps> = ({
+    handleChange,
+    isArchive,
+    t,
+}) => (
     <FlexCenter>
-        <div className='btn-group btn-group-toggle'>
+        <div className="btn-group btn-group-toggle">
             <label
-                className={`btn btn-outline-warning ${!isArchive ? 'active' : ''}`}
+                className={`btn btn-outline-warning ${
+                    !isArchive ? 'active' : ''
+                }`}
             >
                 <input
-                    type='radio'
-                    name='options'
-                    id='option1'
+                    type="radio"
+                    name="options"
+                    id="option1"
                     checked={!isArchive}
                     onChange={handleChange}
                 />
@@ -24,12 +30,14 @@ export const ArchiveToggle: React.FunctionComponent<ArchiveToggleProps> = ({ han
             </label>
 
             <label
-                className={`btn btn-outline-warning ${isArchive ? 'active' : ''}`}
+                className={`btn btn-outline-warning ${
+                    isArchive ? 'active' : ''
+                }`}
             >
                 <input
-                    type='radio'
-                    name='options'
-                    id='option2'
+                    type="radio"
+                    name="options"
+                    id="option2"
                     checked={isArchive}
                     onChange={handleChange}
                 />

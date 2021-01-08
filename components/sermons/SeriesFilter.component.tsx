@@ -12,32 +12,23 @@ interface SeriesFilterProps extends WithTranslation {
 
 export const SeriesFilter: React.SFC<SeriesFilterProps> = props => {
     return (
-        <div className='component-series-filter sermons-sub-filter'>
+        <div className="component-series-filter sermons-sub-filter">
             <select
                 aria-label={props.t('selectSeries')}
                 onChange={props.handleChange}
                 disabled={props.isDisabled}
-                className='custom-select'
+                className="custom-select"
                 value={props.selected}
-                name='series'
+                name="series"
             >
-                <option
-                    label={props.t('selectSeries')}
-                    value=''
-                >
+                <option label={props.t('selectSeries')} value="">
                     {props.t('selectSeries')}
                 </option>
-                {
-                    props.series.map(item => (
-                        <option
-                            key={item.id}
-                            label={item.title}
-                            value={item.slug}
-                        >
-                            {item.title}
-                        </option>
-                    ))
-                }
+                {props.series.map(item => (
+                    <option key={item.id} label={item.title} value={item.slug}>
+                        {item.title}
+                    </option>
+                ))}
             </select>
         </div>
     );

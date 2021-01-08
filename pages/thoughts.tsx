@@ -50,7 +50,12 @@ class Thoughts extends React.Component<ThoughtsProps, ThoughtsState> {
             };
         }
 
-        return { thoughts: [], count: 0, namespacesRequired: ['common'], totalPages: 0 };
+        return {
+            thoughts: [],
+            count: 0,
+            namespacesRequired: ['common'],
+            totalPages: 0,
+        };
     }
 
     componentDidMount() {
@@ -59,8 +64,15 @@ class Thoughts extends React.Component<ThoughtsProps, ThoughtsState> {
     }
 
     paginate = async () => {
-        const params = { page_size: DEFAULT_PAGE_SIZE, page: this.state.page } as ReqParams;
-        const data = await fetchData<ListThoughtsResponse>('thoughts', null, params);
+        const params = {
+            page_size: DEFAULT_PAGE_SIZE,
+            page: this.state.page,
+        } as ReqParams;
+        const data = await fetchData<ListThoughtsResponse>(
+            'thoughts',
+            null,
+            params,
+        );
 
         if (data) {
             this.setState({
@@ -70,39 +82,34 @@ class Thoughts extends React.Component<ThoughtsProps, ThoughtsState> {
         } else {
             console.error('Invalid response');
         }
-    }
+    };
 
     updatePage = (page: number) => {
         this.setState({ page }, this.paginate);
-    }
+    };
 
     render() {
         return (
-            <div className='container thoughts-page'>
-                <h1 className='text-center capitalize my-3'>
+            <div className="container thoughts-page">
+                <h1 className="text-center capitalize my-3">
                     {this.props.t('header.thoughts')}
                 </h1>
-                {
-                    this.state.thoughts.map(thought => (
-                        <ThoughtTile
-                            key={thought.id}
-                            thought={thought}
-                            t={this.props.t}
-                            i18n={this.props.i18n}
-                            tReady={this.props.tReady}
-                        />
-                    ))
-                }
-                {
-                    this.state.count > DEFAULT_PAGE_SIZE &&
-                    (
-                        <Pagination
-                            updatePage={this.updatePage}
-                            curPage={this.state.page}
-                            pageCount={this.state.totalPages}
-                        />
-                    )
-                }
+                {this.state.thoughts.map(thought => (
+                    <ThoughtTile
+                        key={thought.id}
+                        thought={thought}
+                        t={this.props.t}
+                        i18n={this.props.i18n}
+                        tReady={this.props.tReady}
+                    />
+                ))}
+                {this.state.count > DEFAULT_PAGE_SIZE && (
+                    <Pagination
+                        updatePage={this.updatePage}
+                        curPage={this.state.page}
+                        pageCount={this.state.totalPages}
+                    />
+                )}
             </div>
         );
     }

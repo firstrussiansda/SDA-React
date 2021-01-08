@@ -4,7 +4,12 @@ import { WithTranslation } from 'react-i18next';
 import Button from 'react-bootstrap/Button';
 import React, { useMemo } from 'react';
 
-import { Person, JustSermonSeries, YearMonths, ReqParams } from '../../lib/types';
+import {
+    Person,
+    JustSermonSeries,
+    YearMonths,
+    ReqParams,
+} from '../../lib/types';
 import { SpeakerFilter } from './SpeakerFilter.component';
 import { SeriesFilter } from './SeriesFilter.component';
 import { DateSelector } from './DateFilter.component';
@@ -20,7 +25,9 @@ export interface FiltersParams extends ReqParams {
     query: string;
 }
 interface FiltersProps extends WithTranslation {
-    handleChange(e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>): void;
+    handleChange(
+        e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>,
+    ): void;
     resetFilters(): void;
 
     series: JustSermonSeries[];
@@ -41,33 +48,39 @@ export const Filters: React.FunctionComponent<FiltersProps> = ({
     t,
 }) => {
     const hasFiltersSet = useMemo(
-        () => params.series || params.speaker || params.month || params.year || params.query,
-        [params]
+        () =>
+            params.series ||
+            params.speaker ||
+            params.month ||
+            params.year ||
+            params.query,
+        [params],
     );
 
     return (
-        <Accordion className='component-sermons-filters'>
-            <div className='toggle-wrapper'>
-                {
-                    hasFiltersSet &&
-                    (
-                        <button
-                            type='button'
-                            className='btn reset-filters sermons-sub-filter'
-                            onClick={resetFilters}
-                        >
-                            {t('resetFilter')}
-                        </button>
-                    )
-                }
-                <Accordion.Toggle as={Button} variant='filters-visible-toggle' eventKey='filters'>
+        <Accordion className="component-sermons-filters">
+            <div className="toggle-wrapper">
+                {hasFiltersSet && (
+                    <button
+                        type="button"
+                        className="btn reset-filters sermons-sub-filter"
+                        onClick={resetFilters}
+                    >
+                        {t('resetFilter')}
+                    </button>
+                )}
+                <Accordion.Toggle
+                    as={Button}
+                    variant="filters-visible-toggle"
+                    eventKey="filters"
+                >
                     {t('filterBy')}
                     &nbsp;
                     <FunnelFillIcon />
                 </Accordion.Toggle>
             </div>
-            <Accordion.Collapse eventKey='filters'>
-                <div className='input-group mb-3 filters-body'>
+            <Accordion.Collapse eventKey="filters">
+                <div className="input-group mb-3 filters-body">
                     <SeriesFilter
                         isDisabled={false}
                         handleChange={handleChange}
@@ -98,14 +111,14 @@ export const Filters: React.FunctionComponent<FiltersProps> = ({
                         t={t}
                     />
 
-                    <div className='sermons-sub-filter query-filter'>
+                    <div className="sermons-sub-filter query-filter">
                         <DebounceInput
                             placeholder={t('searchByTitle')}
-                            className='form-control'
+                            className="form-control"
                             onChange={handleChange}
                             value={params.query}
                             debounceTimeout={500}
-                            name='query'
+                            name="query"
                         />
                     </div>
                 </div>

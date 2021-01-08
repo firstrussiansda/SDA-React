@@ -1,32 +1,33 @@
-@import "../../styles/vars";
+@import '../../styles/vars';
 
 .component-page-footer {
     background-color: #f8f9fa;
-	padding: 2.5rem 0 2.5rem;
-	text-align: center;
-	letter-spacing: 2px;
-	color: black;
+    padding: 2.5rem 0 2.5rem;
+    text-align: center;
+    letter-spacing: 2px;
+    color: black;
     width: 100%;
-    font-size: .6875rem;
-	line-height: 0.9rem;
-	position: absolute;
-	bottom: 0;
+    font-size: 0.6875rem;
+    line-height: 0.9rem;
+    position: absolute;
+    bottom: 0;
 
-	.media-icons {
-		display: flex;
-		justify-content: center;
+    .media-icons {
+        display: flex;
+        justify-content: center;
 
-		i, .svg-icon {
+        i,
+        .svg-icon {
             font-size: 1.2rem;
-			color: black;
-			letter-spacing: 5px;
+            color: black;
+            letter-spacing: 5px;
 
-			&:hover {
-				color: rgb(222, 55, 0);
-				transition: 0.4s;
-			}
-		}
-	}
+            &:hover {
+                color: rgb(222, 55, 0);
+                transition: 0.4s;
+            }
+        }
+    }
 
     a {
         margin: 10px;

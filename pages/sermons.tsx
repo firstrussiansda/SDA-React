@@ -5,7 +5,10 @@ import { ParsedUrlQuery } from 'querystring';
 import { NextPageContext } from 'next';
 import { IncomingMessage } from 'http';
 
-import { Filters, FiltersParams } from '../components/sermons/Filters.component';
+import {
+    Filters,
+    FiltersParams,
+} from '../components/sermons/Filters.component';
 import { SermonTile } from '../components/sermons/SermonTile.component';
 import { Pagination } from '../components/shared/Pagination.component';
 import { Spinner } from '../components/shared/Spinner.component';
@@ -35,11 +38,25 @@ interface SermonsProps extends WithTranslation {
     filterParams: FiltersParams;
 }
 
-const defaultFilterParams: FiltersParams = { page: 1, year: '', month: '', speaker: '', series: '', query: '' };
-const defaultSermonsParams: ReqParams =  { page_size: DEFAULT_PAGE_SIZE };
+const defaultFilterParams: FiltersParams = {
+    page: 1,
+    year: '',
+    month: '',
+    speaker: '',
+    series: '',
+    query: '',
+};
+const defaultSermonsParams: ReqParams = { page_size: DEFAULT_PAGE_SIZE };
 
-const fetchFilteredSermons = async (filterParams: FiltersParams, req?: IncomingMessage, router?: NextRouter) => {
-    const params: ReqParams = { page: filterParams.page, ...defaultSermonsParams };
+const fetchFilteredSermons = async (
+    filterParams: FiltersParams,
+    req?: IncomingMessage,
+    router?: NextRouter,
+) => {
+    const params: ReqParams = {
+        page: filterParams.page,
+        ...defaultSermonsParams,
+    };
 
     const urlParams: string[] = [];
 
@@ -94,7 +111,9 @@ const queryParamsToFilters = (query: ParsedUrlQuery): FiltersParams => ({
 });
 
 const Sermons: I18nPage<SermonsProps> = props => {
-    const [filterParams, setFilterParams] = useState<FiltersParams>(defaultFilterParams);
+    const [filterParams, setFilterParams] = useState<FiltersParams>(
+        defaultFilterParams,
+    );
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [totalPages, setTotalPages] = useState<number>(1);
     const [sermons, setSermons] = useState<Sermon[]>([]);
@@ -125,33 +144,57 @@ const Sermons: I18nPage<SermonsProps> = props => {
         }
     }, [filterParams]);
 
-    const handleFilter = useCallback((e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
-        const property = e.target.name;
-        const value = e.target.value;
+    const handleFilter = useCallback(
+        (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
+            const property = e.target.name;
+            const value = e.target.value;
 
-        switch(property) {
-            case 'year':
-                setFilterParams({ ...filterParams, year: value, month: '', page: 1 });
-                break;
-            case 'month':
-                setFilterParams({ ...filterParams, month: value, page: 1 });
-                break;
-            case 'speakers':
-                setFilterParams({ ...filterParams, speaker: value, page: 1 });
-                break;
-            case 'series':
-                setFilterParams({ ...filterParams, series: value, page: 1 });
-                break;
-            case 'query':
-                setFilterParams({ ...filterParams, query: e.target.value, page: 1 });
-                break;
-        }
-    }, [filterParams]);
+            switch (property) {
+                case 'year':
+                    setFilterParams({
+                        ...filterParams,
+                        year: value,
+                        month: '',
+                        page: 1,
+                    });
+                    break;
+                case 'month':
+                    setFilterParams({ ...filterParams, month: value, page: 1 });
+                    break;
+                case 'speakers':
+                    setFilterParams({
+                        ...filterParams,
+                        speaker: value,
+                        page: 1,
+                    });
+                    break;
+                case 'series':
+                    setFilterParams({
+                        ...filterParams,
+                        series: value,
+                        page: 1,
+                    });
+                    break;
+                case 'query':
+                    setFilterParams({
+                        ...filterParams,
+                        query: e.target.value,
+                        page: 1,
+                    });
+                    break;
+            }
+        },
+        [filterParams],
+    );
 
     const applyFilters = useCallback(async (params: FiltersParams) => {
         setIsLoading(true);
         ignoreQueryUpdate.current = true;
-        const data = await fetchFilteredSermons({ ...defaultFilterParams, ...params }, undefined, router);
+        const data = await fetchFilteredSermons(
+            { ...defaultFilterParams, ...params },
+            undefined,
+            router,
+        );
 
         if (data) {
             setSermons(data.results);
@@ -172,8 +215,8 @@ const Sermons: I18nPage<SermonsProps> = props => {
     }, [router.query]);
 
     return (
-        <div className='container sermons-page'>
-            <h1 className='text-center capitalize my-3'>{props.t('title')}</h1>
+        <div className="container sermons-page">
+            <h1 className="text-center capitalize my-3">{props.t('title')}</h1>
 
             <Filters
                 yearMonths={props.yearMonths}
@@ -187,21 +230,23 @@ const Sermons: I18nPage<SermonsProps> = props => {
                 t={props.t}
             />
 
-            {
-                isLoading
-                    ? <FlexCenter><Spinner /></FlexCenter>
-                    : sermons?.length
-                        ? sermons.map(sermon => (
-                            <SermonTile
-                                sermon={sermon}
-                                key={sermon.id}
-                                t={props.t}
-                                i18n={props.i18n}
-                                tReady={props.tReady}
-                            />
-                        ))
-                        : <p className='text-center'>{props.t('noData')}</p>
-            }
+            {isLoading ? (
+                <FlexCenter>
+                    <Spinner />
+                </FlexCenter>
+            ) : sermons?.length ? (
+                sermons.map(sermon => (
+                    <SermonTile
+                        sermon={sermon}
+                        key={sermon.id}
+                        t={props.t}
+                        i18n={props.i18n}
+                        tReady={props.tReady}
+                    />
+                ))
+            ) : (
+                <p className="text-center">{props.t('noData')}</p>
+            )}
 
             <Pagination
                 updatePage={page => setFilterParams({ ...filterParams, page })}
@@ -213,12 +258,20 @@ const Sermons: I18nPage<SermonsProps> = props => {
 };
 
 Sermons.getInitialProps = async ({ req, query }: NextPageContext) => {
-    const filterParams = { ...defaultFilterParams, ...queryParamsToFilters(query) };
+    const filterParams = {
+        ...defaultFilterParams,
+        ...queryParamsToFilters(query),
+    };
 
     // TODO: Promise.all?
     const sermons = await fetchFilteredSermons(filterParams, req);
-    const speakers = await fetchData<ListPeopleResponse>('people', req, { sermons__id__isnull: false });
-    const yearMonths = await fetchData<ListYearMonthsResponse>('sermons/year-months', req);
+    const speakers = await fetchData<ListPeopleResponse>('people', req, {
+        sermons__id__isnull: false,
+    });
+    const yearMonths = await fetchData<ListYearMonthsResponse>(
+        'sermons/year-months',
+        req,
+    );
     const series = await fetchData<ListSermonSeriesResponse>('series', req);
 
     return {

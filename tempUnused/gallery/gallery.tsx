@@ -42,12 +42,14 @@ class Gallery extends React.Component<GalleryProps> {
 
     render() {
         return (
-            <div className='container'>
-                <h1 className='text-center capitalize my-3'>
+            <div className="container">
+                <h1 className="text-center capitalize my-3">
                     {this.props.t('header.gallery')}
                 </h1>
-                <section className='gallery row'>
-                    {this.props.images.map((images, i) => <GalleryColumn images={images} key={i} />)}
+                <section className="gallery row">
+                    {this.props.images.map((images, i) => (
+                        <GalleryColumn images={images} key={i} />
+                    ))}
                 </section>
             </div>
         );

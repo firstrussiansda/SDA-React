@@ -10,7 +10,7 @@ export class ResponseError extends Error {
     }
 }
 
-export const buildQuery = (params: ReqParams) => (
+export const buildQuery = (params: ReqParams) =>
     Object.entries(params)
         .reduce((acc, [key, val]) => {
             if (Array.isArray(val)) {
@@ -19,24 +19,29 @@ export const buildQuery = (params: ReqParams) => (
 
             return acc + `&${key}=${val}`;
         }, '')
-        .slice(1)
-);
+        .slice(1);
 
 export const fetchData = async <T extends BaseApiResponse = BaseApiResponse>(
-    path: string, req: any, params: ReqParams = {}
+    path: string,
+    req: any,
+    params: ReqParams = {},
 ) => {
     try {
         const url = process.env.MY_SITE_URL + path;
         params.lang = req?.language || i18n.language;
         params.format = 'json';
 
-        const response = await fetch(encodeURI(url + `/?${buildQuery(params)}`));
-        const json = await response.json() as T;
+        const response = await fetch(
+            encodeURI(url + `/?${buildQuery(params)}`),
+        );
+        const json = (await response.json()) as T;
 
         // fetch doesn't throw on error response codes 🤦‍♂️
         if (!response.ok) {
             throw new ResponseError(
-                `API Error (${response.status}): ${json.detail || 'Unknown error'}`,
+                `API Error (${response.status}): ${
+                    json.detail || 'Unknown error'
+                }`,
                 response.status,
             );
         }
@@ -54,16 +59,46 @@ export const fetchData = async <T extends BaseApiResponse = BaseApiResponse>(
 export const getLocalizedMonths = (lan?: string) => {
     const months = {
         ru: [
-            'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль',
-            'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь',
+            'Январь',
+            'Февраль',
+            'Март',
+            'Апрель',
+            'Май',
+            'Июнь',
+            'Июль',
+            'Август',
+            'Сентябрь',
+            'Октябрь',
+            'Ноябрь',
+            'Декабрь',
         ],
         uk: [
-            'Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень',
-            'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень',
+            'Січень',
+            'Лютий',
+            'Березень',
+            'Квітень',
+            'Травень',
+            'Червень',
+            'Липень',
+            'Серпень',
+            'Вересень',
+            'Жовтень',
+            'Листопад',
+            'Грудень',
         ],
         en: [
-            'January', 'February', 'March', 'April', 'May', 'June', 'July',
-            'August', 'September', 'October', 'November', 'December',
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December',
         ],
     } as { [k: string]: string[] };
 
@@ -74,7 +109,11 @@ export const getLocalizedMonths = (lan?: string) => {
     return [];
 };
 
-export const formatDate = (dateStr: string, attributes: string[], lang: string = 'ru' ) => {
+export const formatDate = (
+    dateStr: string,
+    attributes: string[],
+    lang = 'ru',
+) => {
     // have to do this to mitigate TZ issue
     const rawDate = new Date(`${dateStr}T12:00:00`);
 
@@ -94,13 +133,17 @@ export const formatDate = (dateStr: string, attributes: string[], lang: string =
     }, '');
 };
 
-export const getPageCount = (count: number, page_size: number = DEFAULT_PAGE_SIZE) =>   Math.ceil(count / page_size);
+export const getPageCount = (
+    count: number,
+    page_size: number = DEFAULT_PAGE_SIZE,
+) => Math.ceil(count / page_size);
 
 export const getImgUrl = (
     url: string,
     width: number,
     height?: number,
     fit = 'crop',
-) => (
-    `${url}?auto=format&fit=${fit}&q=80&w=${width}${ height ? `&h=${height}` : ''}`
-);
+) =>
+    `${url}?auto=format&fit=${fit}&q=80&w=${width}${
+        height ? `&h=${height}` : ''
+    }`;

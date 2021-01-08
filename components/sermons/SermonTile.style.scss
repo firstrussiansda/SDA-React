@@ -8,7 +8,8 @@
     }
 
     .media-buttons {
-        & button, & a {
+        & button,
+        & a {
             width: 100%;
             border: 1px solid;
             transition: all 0.3s ease 0s;
@@ -26,7 +27,8 @@
             border-color: #ff7700;
         }
 
-        & .youtube:hover, & .sound-cloud:hover {
+        & .youtube:hover,
+        & .sound-cloud:hover {
             transform: translateY(-7px);
         }
     }

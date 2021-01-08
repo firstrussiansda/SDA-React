@@ -16,21 +16,18 @@ export const LoadMoreButton: React.FunctionComponent<LoadMoreButtonProps> = prop
 
     return (
         <FlexCenter>
-            {
-                props.isLoading
-                ? <Spinner  />
-                : (
-                    <button
-                        type='button'
-                        className='btn btn-outline-warning custom-warning hvr-icon-down'
-                        onClick={props.loadMore}
-                    >
-                        Load more
-                        &nbsp;
-                        <ArrowCircleDownIcon className='hvr-icon' />
-                    </button>
-                )
-            }
+            {props.isLoading ? (
+                <Spinner />
+            ) : (
+                <button
+                    type="button"
+                    className="btn btn-outline-warning custom-warning hvr-icon-down"
+                    onClick={props.loadMore}
+                >
+                    Load more &nbsp;
+                    <ArrowCircleDownIcon className="hvr-icon" />
+                </button>
+            )}
         </FlexCenter>
     );
 };

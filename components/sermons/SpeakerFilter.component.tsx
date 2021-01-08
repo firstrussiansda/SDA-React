@@ -12,32 +12,27 @@ interface SpeakerFilterProps extends WithTranslation {
 
 export const SpeakerFilter: React.SFC<SpeakerFilterProps> = props => {
     return (
-        <div className='component-speaker-filter sermons-sub-filter'>
+        <div className="component-speaker-filter sermons-sub-filter">
             <select
                 aria-label={props.t('selectSpeaker')}
                 onChange={props.handleChange}
                 disabled={props.isDisabled}
-                className='custom-select'
+                className="custom-select"
                 value={props.selected}
-                name='speakers'
+                name="speakers"
             >
-                <option
-                    label={props.t('selectSpeaker')}
-                    value=''
-                >
+                <option label={props.t('selectSpeaker')} value="">
                     {props.t('selectSpeaker')}
                 </option>
-                {
-                    props.speakers.map(speaker => (
-                        <option
-                            key={speaker.id}
-                            label={speaker.name}
-                            value={speaker.slug}
-                        >
-                            {speaker.name}
-                        </option>
-                    ))
-                }
+                {props.speakers.map(speaker => (
+                    <option
+                        key={speaker.id}
+                        label={speaker.name}
+                        value={speaker.slug}
+                    >
+                        {speaker.name}
+                    </option>
+                ))}
             </select>
         </div>
     );
