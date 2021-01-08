@@ -12,10 +12,14 @@ interface GatherOnlineLocale {
     title: string;
 }
 
+const handleContactClick = () =>
+    event({ action: 'link_click', category: 'Contact (Zoom)' });
+
 export const GatherOnline = ({ t }: WithTranslation) => {
     const localizedText = t('gatherOnline', {
         returnObjects: true,
     }) as GatherOnlineLocale;
+
     return (
         <section className="component-gather-online">
             <h2 className="text-center title">{localizedText.title}</h2>
@@ -30,12 +34,7 @@ export const GatherOnline = ({ t }: WithTranslation) => {
                     <a
                         className="btn btn-outline-warning custom-warning hvr-icon-forward visit contact-btn"
                         role="button"
-                        onClick={() =>
-                            event({
-                                action: 'link_click',
-                                category: 'Contact (Zoom)',
-                            })
-                        }
+                        onClick={handleContactClick}
                     >
                         {t('contactUs')}&nbsp;
                         <ArrowCircleRightIcon className="hvr-icon" />

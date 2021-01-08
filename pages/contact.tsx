@@ -115,6 +115,7 @@ class Contact extends React.Component<WithTranslation> {
                                             <a
                                                 href="https://www.facebook.com/%D0%A2%D0%B2%D0%BE%D0%B8-%D0%B4%D1%80%D1%83%D0%B7%D1%8C%D1%8F-%D0%B2-NYC-141818969217488/?__tn__=%2Cdk%2CP-R&eid=ARDkX64MnnE3mMUEAFCdA0Uk804LPzHbzOevV1tkPonAU5frQEWQnFZRLRqUsGI5dzHUhtvCDg6cNWfM"
                                                 target="_blank"
+                                                rel="noreferrer"
                                             >
                                                 <FacebookIcon />
                                             </a>
@@ -125,6 +126,7 @@ class Contact extends React.Component<WithTranslation> {
                                             <a
                                                 href="https://www.instagram.com/youthgroupfriends/"
                                                 target="_blank"
+                                                rel="noreferrer"
                                             >
                                                 <InstagramIcon />
                                             </a>
@@ -135,6 +137,7 @@ class Contact extends React.Component<WithTranslation> {
                                             <a
                                                 href="https://goo.gl/maps/LwzPnmftqMkyLJKE9"
                                                 target="_blank"
+                                                rel="noreferrer"
                                             >
                                                 <MapMarkerIcon
                                                     height={22}

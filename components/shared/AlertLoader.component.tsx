@@ -38,7 +38,7 @@ const storeIsViewed = (slug: string) => {
 
 const getAlert = async () => {
     const announcements = await fetchData<ListUpdatesResponse>(
-        `announcements`,
+        'announcements',
         null,
         {
             alert_level__in: 'DANGER,WARNING,INFO',

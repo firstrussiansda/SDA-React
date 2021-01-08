@@ -112,7 +112,7 @@ export const getLocalizedMonths = (lan?: string) => {
 export const formatDate = (
     dateStr: string,
     attributes: string[],
-    lang: string = 'ru',
+    lang = 'ru',
 ) => {
     // have to do this to mitigate TZ issue
     const rawDate = new Date(`${dateStr}T12:00:00`);

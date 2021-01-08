@@ -1,3 +1,4 @@
+import React from 'react';
 import { WithTranslation } from 'next-i18next';
 import Link from 'next/link';
 

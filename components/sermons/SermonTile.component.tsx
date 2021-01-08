@@ -41,6 +41,9 @@ export const SermonTile: React.FunctionComponent<SermonTileProps> = ({
         setThumbnail(getThumbnail(sermon));
     }, [sermon]);
 
+    const toggleAudioPlayerDisplay = () =>
+        setDisplayAudioPlayer(!displayAudioPlayer);
+
     if (!thumbnail) {
         return null;
     }
@@ -98,7 +101,7 @@ export const SermonTile: React.FunctionComponent<SermonTileProps> = ({
                                 <a
                                     className="btn btn-md youtube capitalize"
                                     href={sermon.youtube_assets[0].object_url}
-                                    rel="noopener"
+                                    rel="noreferrer"
                                     target="_blank"
                                 >
                                     <img
@@ -117,11 +120,7 @@ export const SermonTile: React.FunctionComponent<SermonTileProps> = ({
                             <div className="col col-xs-6 col-md-12">
                                 <button
                                     type="button"
-                                    onClick={() =>
-                                        setDisplayAudioPlayer(
-                                            !displayAudioPlayer,
-                                        )
-                                    }
+                                    onClick={toggleAudioPlayerDisplay}
                                     className="btn btn-md sound-cloud capitalize"
                                 >
                                     <img

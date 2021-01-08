@@ -12,7 +12,7 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "editor.formatOnPaste": true,
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": true,
     "html.format.endWithNewline": true,
     "html.format.indentInnerHtml": true
 }

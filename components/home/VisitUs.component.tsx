@@ -22,6 +22,9 @@ interface VisitUsLocales {
     services: ServicesTypes[];
 }
 
+const handleContactClick = () =>
+    event({ action: 'link_click', category: 'Contact (Visit Us)' });
+
 const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
     // Make sure translations are loaded before render
     if (!tReady) {
@@ -67,12 +70,7 @@ const VisitUs: React.FunctionComponent<WithTranslation> = ({ t, tReady }) => {
                         <a
                             className="btn btn-outline-warning custom-warning hvr-icon-forward visit contact-btn"
                             role="button"
-                            onClick={() =>
-                                event({
-                                    action: 'link_click',
-                                    category: 'Contact (Visit Us)',
-                                })
-                            }
+                            onClick={handleContactClick}
                         >
                             {t('contactUs')}&nbsp;
                             <ArrowCircleRightIcon className="hvr-icon" />

@@ -5,6 +5,9 @@ import { event } from '../../lib/gtag';
 import { FauxButton } from '../ui';
 import './Giving.style.scss';
 
+const handleGivingClick = () =>
+    event({ action: 'link_click', category: 'Giving Header Desktop' });
+
 export const Giving = ({ t }: WithTranslation) => {
     return (
         <section className="component-giving">
@@ -14,12 +17,7 @@ export const Giving = ({ t }: WithTranslation) => {
                 url="https://adventistgiving.org/#/org/AN48FN/envelope/start"
                 target="_blank"
                 className="giving-button"
-                onClick={() =>
-                    event({
-                        action: 'link_click',
-                        category: 'Giving Header Desktop',
-                    })
-                }
+                onClick={handleGivingClick}
             >
                 {t('givingButton')}
             </FauxButton>

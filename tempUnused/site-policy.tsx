@@ -1,6 +1,6 @@
 import React from 'react';
 
-class PrivacyPolicy extends React.Component<{}> {
+class PrivacyPolicy extends React.Component {
     static async getInitialProps() {
         return { namespacesRequired: [] };
     }
@@ -19,19 +19,19 @@ class PrivacyPolicy extends React.Component<{}> {
                     11223 - NY , United States
                 </address>
                 <p>
-                    It is FirstRussian's policy to respect your privacy
+                    It is FirstRussian&apos;s policy to respect your privacy
                     regarding any information we may collect while operating our
                     website. This Privacy Policy applies to&nbsp;
                     <a href="https://firstrussian.miki725.com/">
                         https://firstrussian.miki725.com/
                     </a>
-                    (hereinafter, "us", "we", or
-                    "https://firstrussian.miki725.com/"). We respect your
-                    privacy and are committed to protecting personally
+                    (hereinafter, &quot;us&quot;, &quot;we&quot;, or
+                    &quot;https://firstrussian.miki725.com/&quot;). We respect
+                    your privacy and are committed to protecting personally
                     identifiable information you may provide us through the
-                    Website. We have adopted this privacy policy ("Privacy
-                    Policy") to explain what information may be collected on our
-                    Website, how we use this information, and under what
+                    Website. We have adopted this privacy policy (&quot;Privacy
+                    Policy&quot;) to explain what information may be collected
+                    on our Website, how we use this information, and under what
                     circumstances we may disclose the information to third
                     parties. This Privacy Policy applies only to information we
                     collect through the Website and does not apply to our
@@ -50,17 +50,17 @@ class PrivacyPolicy extends React.Component<{}> {
                     non-personally-identifying information of the sort that web
                     browsers and servers typically make available, such as the
                     browser type, language preference, referring site, and the
-                    date and time of each visitor request. FirstRussian's
+                    date and time of each visitor request. FirstRussian&apos;s
                     purpose in collecting non-personally identifying information
-                    is to better understand how FirstRussian's visitors use its
-                    website. From time to time, FirstRussian may release
+                    is to better understand how FirstRussian&apos;s visitors use
+                    its website. From time to time, FirstRussian may release
                     non-personally-identifying information in the aggregate,
                     e.g., by publishing a report on trends in the usage of its
                     website.
                 </p>
                 <h2>Gathering of Personally-Identifying Information</h2>
                 <p>
-                    Certain visitors to FirstRussian's websites choose to
+                    Certain visitors to FirstRussian&apos;s websites choose to
                     interact with FirstRussian in ways that require FirstRussian
                     to gather personally-identifying information. The amount and
                     type of information that FirstRussian gathers depends on the
@@ -81,9 +81,9 @@ class PrivacyPolicy extends React.Component<{}> {
                 <p>
                     Our Service may contain links to external sites that are not
                     operated by us. If you click on a third party link, you will
-                    be directed to that third party's site. We strongly advise
-                    you to review the Privacy Policy and terms and conditions of
-                    every site you visit.
+                    be directed to that third party&apos;s site. We strongly
+                    advise you to review the Privacy Policy and terms and
+                    conditions of every site you visit.
                 </p>
                 <p>
                     We have no control over, and assume no responsibility for
@@ -93,34 +93,35 @@ class PrivacyPolicy extends React.Component<{}> {
                 <h2>Cookies</h2>
                 <p>
                     To enrich and perfect your online experience, FirstRussian
-                    uses "Cookies", similar technologies and services provided
-                    by others to display personalized content, appropriate
-                    advertising and store your preferences on your computer.
+                    uses &quot;Cookies&quot;, similar technologies and services
+                    provided by others to display personalized content,
+                    appropriate advertising and store your preferences on your
+                    computer.
                 </p>
                 <p>
                     A cookie is a string of information that a website stores on
-                    a visitor's computer, and that the visitor's browser
-                    provides to the website each time the visitor returns.
-                    FirstRussian uses cookies to help FirstRussian identify and
-                    track visitors, their usage of
+                    a visitor&apos;s computer, and that the visitor&apos;s
+                    browser provides to the website each time the visitor
+                    returns. FirstRussian uses cookies to help FirstRussian
+                    identify and track visitors, their usage of
                     https://firstrussian.miki725.com/, and their website access
                     preferences. FirstRussian visitors who do not wish to have
                     cookies placed on their computers should set their browsers
-                    to refuse cookies before using FirstRussian's websites, with
-                    the drawback that certain features of FirstRussian's
-                    websites may not function properly without the aid of
-                    cookies.
+                    to refuse cookies before using FirstRussian&apos;s websites,
+                    with the drawback that certain features of
+                    FirstRussian&apos;s websites may not function properly
+                    without the aid of cookies.
                 </p>
                 <p>
                     By continuing to navigate our website without changing your
                     cookie settings, you hereby acknowledge and agree to
-                    FirstRussian's use of cookies.
+                    FirstRussian&apos;s use of cookies.
                 </p>
                 <h2>Privacy Policy Changes</h2>
                 <p>
                     Although most changes are likely to be minor, FirstRussian
                     may change its Privacy Policy from time to time, and in
-                    FirstRussian's sole discretion. FirstRussian encourages
+                    FirstRussian&apos;s sole discretion. FirstRussian encourages
                     visitors to frequently check this page for any changes to
                     its Privacy Policy. Your continued use of this site after
                     any change in this Privacy Policy will constitute your
@@ -133,6 +134,7 @@ class PrivacyPolicy extends React.Component<{}> {
                         style={{ color: 'inherit', textDecoration: 'none' }}
                         href="https://termsandconditionstemplate.com/privacy-policy-generator/"
                         title="Privacy policy template generator"
+                        rel="noreferrer"
                         target="_blank"
                     >
                         termsandconditionstemplate.com

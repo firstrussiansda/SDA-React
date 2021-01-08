@@ -34,6 +34,12 @@ interface HeaderState {
     currentRoute?: string;
 }
 
+const handleGivingClickMobile = () =>
+    event({ action: 'link_click', category: 'Giving Header Mobile' });
+
+const handleGivingClickDesktop = () =>
+    event({ action: 'link_click', category: 'Giving Header Desktop' });
+
 class Header extends React.Component<WithTranslation, HeaderState> {
     constructor(props: WithTranslation) {
         super(props);
@@ -99,6 +105,10 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                 return null;
         }
     };
+
+    setEnglishLanguage = () => this.changeLanguage('en');
+    setRussianLanguage = () => this.changeLanguage('ru');
+    setUkrainianLanguage = () => this.changeLanguage('uk');
 
     render() {
         const { t } = this.props;
@@ -202,13 +212,8 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                         className="nav-link hvr-overline-from-center"
                                         href="https://adventistgiving.org/#/org/AN48FN/envelope/start"
                                         target="_blank"
-                                        onClick={() =>
-                                            event({
-                                                action: 'link_click',
-                                                category:
-                                                    'Giving Header Mobile',
-                                            })
-                                        }
+                                        rel="noreferrer"
+                                        onClick={handleGivingClickMobile}
                                     >
                                         {headerLocales.giving}
                                     </a>
@@ -231,25 +236,19 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                     >
                                         <button
                                             className="dropdown-item"
-                                            onClick={() =>
-                                                this.changeLanguage('en')
-                                            }
+                                            onClick={this.setEnglishLanguage}
                                         >
                                             <USAFlagIcon /> English
                                         </button>
                                         <button
                                             className="dropdown-item"
-                                            onClick={() =>
-                                                this.changeLanguage('ru')
-                                            }
+                                            onClick={this.setRussianLanguage}
                                         >
                                             <RussiaFlagIcon /> Русский
                                         </button>
                                         <button
                                             className="dropdown-item"
-                                            onClick={() =>
-                                                this.changeLanguage('uk')
-                                            }
+                                            onClick={this.setUkrainianLanguage}
                                         >
                                             <UkraineFlagIcon /> Українська
                                         </button>
@@ -385,12 +384,8 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                     className="nav-link hvr-overline-from-center"
                                     href="https://adventistgiving.org/#/org/AN48FN/envelope/start"
                                     target="_blank"
-                                    onClick={() =>
-                                        event({
-                                            action: 'link_click',
-                                            category: 'Giving Header Desktop',
-                                        })
-                                    }
+                                    rel="noreferrer"
+                                    onClick={handleGivingClickDesktop}
                                 >
                                     {headerLocales.giving}
                                 </a>
@@ -414,25 +409,19 @@ class Header extends React.Component<WithTranslation, HeaderState> {
                                 >
                                     <button
                                         className="dropdown-item"
-                                        onClick={() =>
-                                            this.changeLanguage('en')
-                                        }
+                                        onClick={this.setEnglishLanguage}
                                     >
                                         <USAFlagIcon /> English
                                     </button>
                                     <button
                                         className="dropdown-item"
-                                        onClick={() =>
-                                            this.changeLanguage('ru')
-                                        }
+                                        onClick={this.setRussianLanguage}
                                     >
                                         <RussiaFlagIcon /> Русский
                                     </button>
                                     <button
                                         className="dropdown-item"
-                                        onClick={() =>
-                                            this.changeLanguage('uk')
-                                        }
+                                        onClick={this.setUkrainianLanguage}
                                     >
                                         <UkraineFlagIcon /> Українська
                                     </button>

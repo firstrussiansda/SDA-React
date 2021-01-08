@@ -19,9 +19,9 @@ const handle = app.getRequestHandler();
     server.get('*', (req, res) => handle(req, res));
 
     await server.listen(port);
-    // tslint:disable-next-line:no-console
+    // eslint-disable-next-line no-console
     console.log(`> Ready on http://localhost:${port}`);
 
-    // tslint:disable-next-line:no-console
+    // eslint-disable-next-line no-console
     console.log('API_SITE_URL ON START', process.env.API_SITE_URL);
 })();

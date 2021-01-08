@@ -12,7 +12,7 @@ export const nextI18next = new NextI18next({
 export const appWithTranslation = nextI18next.appWithTranslation;
 export const i18n = nextI18next.i18n;
 export const withTranslation = nextI18next.withTranslation;
-export type I18nPage<P = {}> = NextComponentType<
+export type I18nPage<P = Record<string, any>> = NextComponentType<
     NextPageContext,
     { namespacesRequired: string[] },
     P & { namespacesRequired: string[] }
