@@ -1,5 +1,6 @@
 import { WithTranslation } from 'react-i18next';
 import { NextPageContext } from 'next';
+import Head from 'next/head';
 import React from 'react';
 
 import { Thought, ReqParams, ListThoughtsResponse } from '../lib/types';
@@ -91,6 +92,14 @@ class Thoughts extends React.Component<ThoughtsProps, ThoughtsState> {
     render() {
         return (
             <div className="container thoughts-page">
+                <Head>
+                    <title>
+                        {this.props.t('header.thoughts')}
+                        &nbsp;-&nbsp;
+                        {this.props.t('siteTitle')}
+                    </title>
+                </Head>
+
                 <h1 className="text-center capitalize my-3">
                     {this.props.t('header.thoughts')}
                 </h1>

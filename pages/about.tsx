@@ -1,5 +1,6 @@
 import { WithTranslation } from 'react-i18next';
 import { NextPageContext } from 'next';
+import Head from 'next/head';
 import React from 'react';
 
 import KeyMissionComponents from '../components/about/keyMissionComponents';
@@ -50,11 +51,15 @@ class About extends React.Component<AboutProps, AboutState> {
             return {
                 people: data.results,
                 count: data.count,
-                namespacesRequired: ['about', 'group'],
+                namespacesRequired: ['about', 'common'],
             };
         }
 
-        return { people: [], count: 0, namespacesRequired: ['about', 'group'] };
+        return {
+            people: [],
+            count: 0,
+            namespacesRequired: ['about', 'common'],
+        };
     }
 
     componentDidMount() {
@@ -103,6 +108,17 @@ class About extends React.Component<AboutProps, AboutState> {
 
         return (
             <div className="container">
+                <Head>
+                    <title>
+                        {this.props.t('pageTitle')}
+                        &nbsp;-&nbsp;
+                        {this.props.t('common:siteTitle')}
+                    </title>
+                </Head>
+                <h1 className="title capitalize text-xxl m-b text-center">
+                    {this.props.t('pageTitle')}
+                </h1>
+
                 {/* Mission statement */}
                 <section className="card about card-lg" id="about-mission">
                     <h2 className="title capitalize text-xxxl m-b-sm m-t-sm text-center">
@@ -149,9 +165,6 @@ class About extends React.Component<AboutProps, AboutState> {
                 )}
 
                 <section className="card about about-us card-lg">
-                    <h2 className="title capitalize text-xxl m-b text-center">
-                        {this.props.t('title')}
-                    </h2>
                     <div className="text-center text-justify m-x-auto">
                         {aboutLocale.map(text => (
                             <p className="m-b-xs" key={text}>
@@ -178,4 +191,4 @@ class About extends React.Component<AboutProps, AboutState> {
     }
 }
 
-export default withTranslation(['about', 'group'])(About);
+export default withTranslation(['about', 'common'])(About);

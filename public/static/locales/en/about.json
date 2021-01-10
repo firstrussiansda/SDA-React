@@ -1,13 +1,13 @@
 {
-    "title": "about",
-    "missionHeader": "mission",
+    "pageTitle": "About",
+    "missionHeader": "Mission",
     "mission": "Reach Ukrainian and Russian speaking people in Greater New York area with the distinctive, Christ-centered message of Hope and Wholeness.",
     "about": [
         "We are the Russian speaking Seventh-day Adventist church serving the New York metropolitan area for more than 20 years. We are a diverse community of people with a passion to be the light and the salt of the earth.",
         "Wherever you may be on your path, at the First Russian SDA Church you will find a supportive community with a wealth of opportunities for spiritual and personal growth. Join us every Saturday in the celebration of the Lord. Thank you for visiting us and God bless."
     ],
-    "ourPastor": "our pastor",
-    "leadership": "leadership",
+    "ourPastor": "Our pastor",
+    "leadership": "Leadership",
     "keyMissionComponentsTitle": "Key Mission Components",
     "keyMissionComponents": [
         {

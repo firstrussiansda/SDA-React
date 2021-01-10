@@ -1,12 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import { NextPageContext } from 'next';
+import Head from 'next/head';
 import React from 'react';
 
 import { Attachments } from '../../components/shared/Attachments.component';
 import Error from '../_error';
 
+import { fetchData, formatDate, unescapeHtml } from '../../lib/helpers';
 import { GetUpdateResponse, Update as IUpdate } from '../../lib/types';
-import { fetchData, formatDate } from '../../lib/helpers';
 import { I18nPage } from '../../i18n';
 
 interface UpdatesProps {
@@ -18,11 +19,21 @@ const Update: I18nPage<UpdatesProps> = ({ update }) => {
         return <Error statusCode={404} />;
     }
 
-    const { i18n } = useTranslation();
+    const { i18n, t } = useTranslation();
 
     return (
         <main className="container component-update-detail">
-            <h2 className="title capitalize text-xxxl">{update.title}</h2>
+            <Head>
+                <title>
+                    {update.title} - {t('siteTitle')}
+                </title>
+                <meta
+                    name="description"
+                    content={unescapeHtml(update.description)}
+                />
+            </Head>
+
+            <h1 className="title capitalize text-xxxl">{update.title}</h1>
             <p>
                 {formatDate(
                     update.start_date,

@@ -1,5 +1,9 @@
 import { BaseApiResponse, ReqParams } from './types';
-import { DEFAULT_PAGE_SIZE } from './config';
+import {
+    DEFAULT_PAGE_SIZE,
+    META_IMAGE_HEIGHT,
+    META_IMAGE_WIDTH,
+} from './config';
 import { i18n } from '../i18n';
 
 export const isDevelopment = process.env.NODE_ENV !== 'production';
@@ -147,3 +151,24 @@ export const getImgUrl = (
     `${url}?auto=format&fit=${fit}&q=80&w=${width}${
         height ? `&h=${height}` : ''
     }`;
+
+export const getMetaImage = (
+    url: string,
+    width = META_IMAGE_WIDTH,
+    height = META_IMAGE_HEIGHT,
+) => getImgUrl(url, width, height);
+
+export function unescapeHtml(text: string) {
+    const map: Record<string, string> = {
+        '&amp;': '&',
+        '&lt;': '<',
+        '&gt;': '>',
+        '&quot;': '"',
+        '&#039;': "'",
+    };
+
+    return text.replace(
+        /(&amp;)|(&lt;)|(&gt;)|(&quot;)|(&#039;)/g,
+        m => map[m],
+    );
+}

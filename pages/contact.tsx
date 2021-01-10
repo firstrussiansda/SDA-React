@@ -1,4 +1,5 @@
 import { WithTranslation } from 'react-i18next';
+import Head from 'next/head';
 import React from 'react';
 
 import {
@@ -13,13 +14,24 @@ import { event } from '../lib/gtag';
 
 class Contact extends React.Component<WithTranslation> {
     static async getInitialProps() {
-        return { namespacesRequired: ['contact'] };
+        return { namespacesRequired: ['contact', 'common'] };
     }
 
     render() {
         return (
             <div id="contactUs">
-                <h1 className="text-center my-3">{this.props.t('title')}</h1>
+                <Head>
+                    <title>
+                        {this.props.t('pageTitle')}
+                        &nbsp;-&nbsp;
+                        {this.props.t('common:siteTitle')}
+                    </title>
+                </Head>
+
+                <h1 className="text-center my-3">
+                    {this.props.t('pageTitle')}
+                </h1>
+
                 <h2 className="text-center">{this.props.t('header')}</h2>
                 <div className="row justify-content-md-center top-space">
                     <form

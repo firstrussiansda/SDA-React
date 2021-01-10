@@ -1,10 +1,16 @@
 import { NextPageContext } from 'next';
+import Head from 'next/head';
 import React from 'react';
 
 import { GetThoughtResponse, Thought as IThought } from '../../lib/types';
-import { fetchData, getImgUrl, formatDate } from '../../lib/helpers';
 import { useTranslation } from '../../i18n';
 import { I18nPage } from '../../i18n';
+import {
+    getMetaImage,
+    formatDate,
+    fetchData,
+    getImgUrl,
+} from '../../lib/helpers';
 
 import { Authors } from '../../components/thoughts/authors';
 import Error from '../_error';
@@ -18,10 +24,20 @@ const Thought: I18nPage<ThoughtsProps> = ({ thought }) => {
         return <Error statusCode={404} />;
     }
 
-    const { i18n } = useTranslation();
+    const { i18n, t } = useTranslation();
 
     return (
         <div className="container thought-detail">
+            <Head>
+                <title key="title">
+                    {thought.title} - {t('siteTitle')}
+                </title>
+                <meta name="description" content={thought.description} />
+                <meta
+                    name="thumbnail"
+                    content={getMetaImage(thought.image_url)}
+                />
+            </Head>
             <picture>
                 <source
                     srcSet={getImgUrl(thought.image_url, 400, 200)}
@@ -50,7 +66,7 @@ const Thought: I18nPage<ThoughtsProps> = ({ thought }) => {
                 />
             </picture>
 
-            <h2 className="title capitalize text-xxxl">{thought.title}</h2>
+            <h1 className="title capitalize text-xxxl">{thought.title}</h1>
 
             <Authors
                 authors={thought.authors}
