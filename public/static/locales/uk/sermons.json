@@ -1,7 +1,7 @@
 {
     "listen": "слухати",
     "watch": "дивитися",
-    "title": "Проповіді",
+    "pageTitle": "Проповіді",
     "selectYear": "Рік",
     "selectMonth": "Місяць",
     "selectSeries": "Серія",

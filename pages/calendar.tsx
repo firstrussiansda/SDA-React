@@ -1,5 +1,6 @@
 import { WithTranslation } from 'react-i18next';
 import { NextPageContext } from 'next';
+import Head from 'next/head';
 import React from 'react';
 
 import { LoadMoreButton } from '../components/shared/LoadMoreButton.component';
@@ -54,14 +55,14 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
                 events: data?.results || [],
                 count: data?.count || 0,
                 next: data?.next || null,
-                namespacesRequired: ['common'],
+                namespacesRequired: ['calendar', 'common'],
             };
         }
 
         return {
             events: [],
             count: 0,
-            namespacesRequired: ['common'],
+            namespacesRequired: ['calendar', 'common'],
             next: null,
         };
     }
@@ -138,9 +139,17 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
     render() {
         return (
             <div className="row justify-content-center">
+                <Head>
+                    <title>
+                        {this.props.t('pageTitle')}
+                        &nbsp;-&nbsp;
+                        {this.props.t('common:siteTitle')}
+                    </title>
+                </Head>
+
                 <main className="container">
                     <h1 className="text-center capitalize my-3">
-                        {this.props.t('title')}
+                        {this.props.t('pageTitle')}
                     </h1>
                     <ArchiveToggle
                         isArchive={this.state.isArchive}
@@ -191,4 +200,4 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
     }
 }
 
-export default withTranslation('calendar')(Calendar);
+export default withTranslation(['calendar', 'common'])(Calendar);

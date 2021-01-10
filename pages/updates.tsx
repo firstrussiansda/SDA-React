@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { NextPageContext } from 'next';
+import Head from 'next/head';
 
 import { LoadMoreButton } from '../components/shared/LoadMoreButton.component';
 import { UpdateCard } from '../components/updates/UpdateCard.component';
@@ -63,9 +64,16 @@ const Updates: I18nPage<UpdatesProps> = props => {
 
     return (
         <div className="container component-updates-page">
+            <Head>
+                <title>
+                    {t('header.updates')} - {t('siteTitle')}
+                </title>
+            </Head>
+
             <h1 className="text-center capitalize my-3">
                 {t('header.updates')}
             </h1>
+
             {isLoading ? (
                 <FlexCenter>
                     <Spinner />

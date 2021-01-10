@@ -1,7 +1,7 @@
 {
     "listen": "слушать",
     "watch": "смотреть",
-    "title": "Проповеди",
+    "pageTitle": "Проповеди",
     "selectYear": "Год",
     "selectMonth": "Месяц",
     "selectSeries": "Серия",

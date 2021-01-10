@@ -4,6 +4,7 @@ import { WithTranslation } from 'react-i18next';
 import { ParsedUrlQuery } from 'querystring';
 import { NextPageContext } from 'next';
 import { IncomingMessage } from 'http';
+import Head from 'next/head';
 
 import {
     Filters,
@@ -216,7 +217,17 @@ const Sermons: I18nPage<SermonsProps> = props => {
 
     return (
         <div className="container sermons-page">
-            <h1 className="text-center capitalize my-3">{props.t('title')}</h1>
+            <Head>
+                <title>
+                    {props.t('pageTitle')}
+                    &nbsp;-&nbsp;
+                    {props.t('common:siteTitle')}
+                </title>
+            </Head>
+
+            <h1 className="text-center capitalize my-3">
+                {props.t('pageTitle')}
+            </h1>
 
             <Filters
                 yearMonths={props.yearMonths}
@@ -280,9 +291,9 @@ Sermons.getInitialProps = async ({ req, query }: NextPageContext) => {
         yearMonths: yearMonths || [],
         series: series?.results || [],
         speakers: speakers?.results || [],
-        namespacesRequired: ['sermons'],
+        namespacesRequired: ['sermons', 'common'],
         filterParams,
     };
 };
 
-export default withTranslation('sermons')(Sermons);
+export default withTranslation(['sermons', 'common'])(Sermons);
