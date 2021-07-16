@@ -2,7 +2,12 @@ import { WithTranslation } from 'react-i18next';
 import dynamic from 'next/dynamic';
 import React from 'react';
 
-import { EnvelopeFillIcon, InstagramIcon, FacebookIcon } from '../icons';
+import {
+    EnvelopeFillIcon,
+    InstagramIcon,
+    FacebookIcon,
+    YoutubeIcon,
+} from '../icons';
 import { withTranslation } from '../../i18n';
 
 import './Footer.style.scss';
@@ -24,6 +29,12 @@ class Footer extends React.Component<WithTranslation> {
                 <AlertLoader />
                 <footer className="component-page-footer">
                     <p className="media-icons">
+                        <a
+                            href="https://www.youtube.com/channel/UCJ9VubjCSezPbUHAOZjg8YA"
+                            aria-label="youtube"
+                        >
+                            <YoutubeIcon />
+                        </a>
                         <a
                             href="https://www.facebook.com/firstrussianny/"
                             aria-label="facebook"
