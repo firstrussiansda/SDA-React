@@ -1,8 +1,8 @@
 {
-    "siteTitle": "NY First Russian SDA",
+    "siteTitle": "SDA Church of New York",
     "siteDescription": "We are the Russian speaking Seventh-day Adventist church serving the New York metropolitan area for more than 20 years. We are a diverse community of people with a passion to be the light and the salt of the earth.",
     "footer": {
-        "main": "First Russian SDA Church of New York City | 1913 W 7th St, Brooklyn, New York 11223",
+        "main": "SDA Church of New York City | 1913 W 7th St, Brooklyn, New York 11223",
         "copyright": "All Rights Reserved"
     },
     "header": {
@@ -20,8 +20,8 @@
         "updates": "Updates",
         "giving": "Giving"
     },
-    "errorMessage": "Ooops... Something went wrong. We did not anticipate this happening 😔",
-    "error404Message": "Ooops... We couldn't find the page you were looking for 😔",
+    "errorMessage": "Ooops… Something went wrong. We did not anticipate this happening 😔",
+    "error404Message": "Ooops… We couldn't find the page you were looking for 😔",
     "returnToHome": "Return to home",
     "errorCode": "Error code"
 }
