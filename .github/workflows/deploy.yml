@@ -27,6 +27,7 @@ jobs:
         run: |
           docker-compose build --pull app
           docker image ls
+          docker sda-react_app > /tmp/image.tar
           # docker-machine env vars must be defined in the script
           # otherwise github fails to execute this script in the container
           # since it applies global env vars to the host machine running docker
@@ -39,6 +40,6 @@ jobs:
           printenv DOCKER_CLIENT_CERT > $DOCKER_CERT_PATH/cert.pem
           printenv DOCKER_CLIENT_KEY > $DOCKER_CERT_PATH/key.pem
           docker-compose ps
-          docker-compose build --pull
+          docker load < /tmp/image.tar
           docker-compose up -d
           timeout -t 60 docker-compose logs -f app || true
