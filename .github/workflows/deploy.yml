@@ -27,7 +27,7 @@ jobs:
         run: |
           docker-compose build --pull app
           docker image ls
-          docker sda-react_app > /tmp/image.tar
+          docker save sda-react_app > /tmp/image.tar
           # docker-machine env vars must be defined in the script
           # otherwise github fails to execute this script in the container
           # since it applies global env vars to the host machine running docker
