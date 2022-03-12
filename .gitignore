@@ -4,6 +4,7 @@ node_modules
 dist
 .vscode
 yarn-error.log
+tsconfig.tsbuildinfo
 
 .DS_Store
 *.sw[po]

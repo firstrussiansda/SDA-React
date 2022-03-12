@@ -13,7 +13,8 @@
         "isolatedModules": true,
         "jsx": "preserve",
         "forceConsistentCasingInFileNames": false,
-        "noUnusedLocals": true
+        "noUnusedLocals": true,
+        "incremental": true
     },
     "exclude": ["node_modules", "server", "dist"],
     "include": [
