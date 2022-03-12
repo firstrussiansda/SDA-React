@@ -8,7 +8,7 @@
         "predev": "yarn cs",
         "dev": "nodemon",
         "prebuild": "yarn cs",
-        "build": "next build",
+        "build": "next build --no-lint",
         "start": "NODE_ENV=production node index.js",
         "cs": "tsc -p server/tsconfig.json",
         "cs:watch": "tsc -p server/tsconfig.json -w",
