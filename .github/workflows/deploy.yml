@@ -25,6 +25,8 @@ jobs:
           DOCKER_CLIENT_CERT: ${{ secrets.DOCKER_CLIENT_CERT }}
           DOCKER_CLIENT_KEY: ${{ secrets.DOCKER_CLIENT_KEY }}
         run: |
+          docker-compose build --pull app
+          docker image ls
           # docker-machine env vars must be defined in the script
           # otherwise github fails to execute this script in the container
           # since it applies global env vars to the host machine running docker
