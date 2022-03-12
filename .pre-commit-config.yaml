@@ -15,14 +15,14 @@ repos:
       - id: eslint
         args: ['--ext=.js,.ts,.tsx', .]
         additional_dependencies:
-          - eslint@^7.17.0
-          - eslint-config-prettier@^7.1.0
-          - eslint-plugin-import@^2.22.1
-          - eslint-plugin-jsdoc@^30.7.13
-          - eslint-plugin-react@^7.22.0
-          - '@typescript-eslint/eslint-plugin@^4.12.0'
-          - '@typescript-eslint/eslint-plugin-tslint@^4.12.0'
-          - '@typescript-eslint/parser@^4.12.0'
+          - eslint@^8.10.0 # sync:package.json
+          - eslint-config-prettier@^8.5.0 # sync:package.json
+          - eslint-plugin-import@^2.25.4 # sync:package.json
+          - eslint-plugin-jsdoc@^37.9.7 # sync:package.json
+          - eslint-plugin-react@^7.29.3 # sync:package.json
+          - '@typescript-eslint/eslint-plugin@^5.13.0' # sync:package.json
+          - '@typescript-eslint/eslint-plugin-tslint@^5.13.0' # sync:package.json
+          - '@typescript-eslint/parser@^5.13.0' # sync:package.json
 
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v2.2.1
